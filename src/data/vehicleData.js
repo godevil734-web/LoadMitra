@@ -1,5 +1,5 @@
 /**
- * RouteWise Visual Vehicle Categories Dataset
+ * LoadMitra Visual Vehicle Categories Dataset
  * Defines 12 commercial logistics vehicle types with capacities, common cargos, and fallback vector graphics.
  */
 

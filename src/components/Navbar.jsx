@@ -16,13 +16,13 @@ export default function Navbar({ onOpenSignIn, onNavigateToSection }) {
   }, []);
 
   const navLinks = [
-    { label: 'Freight Marketplace', href: '/listings', isLiveBadge: true },
-    { label: 'Transporter Hub', href: '/transporter' },
-    { label: 'Find Transport', targetId: 'search-section' },
-    { label: 'Share a Shipment', targetId: 'pilot-section', role: 'shipper' },
+    { label: 'Available Loads', href: '/listings', isLiveBadge: true },
+    { label: 'Transport Partners', href: '/transporter' },
+    { label: 'Find Vehicles', targetId: 'search-section' },
+    { label: 'Post a Load', targetId: 'pilot-section', role: 'shipper' },
     { label: 'How It Works', targetId: 'product-story' },
-    { label: 'For Businesses', targetId: 'for-businesses' },
-    { label: 'For Transporters', targetId: 'for-transporters' },
+    { label: 'For Goods Owners', targetId: 'for-businesses' },
+    { label: 'For Transport Partners', targetId: 'for-transporters' },
   ];
 
   const handleLinkClick = (e, targetId, role) => {
@@ -56,7 +56,7 @@ export default function Navbar({ onOpenSignIn, onNavigateToSection }) {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded-lg p-1"
-            aria-label="RouteWise Home"
+            aria-label="LoadMitra Home"
           >
             <Logo />
           </a>

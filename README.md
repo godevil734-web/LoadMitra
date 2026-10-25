@@ -1,8 +1,8 @@
-# RouteWise — Phase 1.1
+# LoadMitra — Smart Logistics Marketplace
 
-**Smart Logistics. Better Journeys.**
+**Har Load Ka Sahi Saathi.**
 
-RouteWise is a logistics marketplace connecting businesses that need to ship goods with transporters who have available vehicle capacity. This repository contains the Phase 1.1 landing page — the first customer-facing build.
+LoadMitra is a logistics marketplace connecting businesses that need to ship goods with transporters who have available vehicle capacity. This repository contains the Phase 1.1 landing page — the first customer-facing build.
 
 ---
 

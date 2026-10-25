@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Dedicated vector truck silhouettes for each of the 12 vehicle types
- * Provides zero-latency, 100% reliable local rendering matching RouteWise palette.
+ * Provides zero-latency, 100% reliable local rendering matching LoadMitra palette.
  */
 export default function VehicleSvgIcon({ type, className = 'w-14 h-14' }) {
   switch (type) {

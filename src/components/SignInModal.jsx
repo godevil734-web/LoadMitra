@@ -34,10 +34,10 @@ export default function SignInModal({ isOpen, onClose }) {
 
           <div>
             <h2 className="text-xl font-extrabold text-white tracking-tight">
-              RouteWise Portal Sign In
+              LoadMitra Sign In
             </h2>
             <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-              Choose your role to access RouteWise freight operations, post loads, or manage platform registrations.
+              Choose how you want to sign in:
             </p>
           </div>
 
@@ -49,10 +49,10 @@ export default function SignInModal({ isOpen, onClose }) {
             >
               <div className="text-left">
                 <span className="font-bold text-white text-sm block group-hover:text-[#F59E0B]">
-                  Shipper & Freight Marketplace Portal
+                  Goods Owner Portal
                 </span>
                 <span className="text-xs text-slate-400">
-                  Post freight demands, manage shipments & review incoming bids
+                  Post loads, manage shipments, and review price offers
                 </span>
               </div>
               <ArrowRight className="w-5 h-5 text-[#F59E0B] transition-transform group-hover:translate-x-1" />
@@ -64,10 +64,10 @@ export default function SignInModal({ isOpen, onClose }) {
             >
               <div className="text-left">
                 <span className="font-bold text-white text-sm block group-hover:text-emerald-300">
-                  Transporter Control Center & Fleet Portal
+                  Transport Partner Portal
                 </span>
                 <span className="text-xs text-slate-400">
-                  Browse loads, quote rates & post return vehicle availability
+                  Find available loads, offer your price, and list available vehicles
                 </span>
               </div>
               <ArrowRight className="w-5 h-5 text-emerald-400 transition-transform group-hover:translate-x-1" />
@@ -79,10 +79,10 @@ export default function SignInModal({ isOpen, onClose }) {
             >
               <div className="text-left">
                 <span className="font-bold text-white text-sm block group-hover:text-amber-300">
-                  RouteWise Operations & Admin Portal
+                  Admin & Operations Portal
                 </span>
                 <span className="text-xs text-slate-400">
-                  Manage pilot registrations, metrics & administrator team
+                  Review registrations, track activity, and manage the team
                 </span>
               </div>
               <ArrowRight className="w-5 h-5 text-amber-400 transition-transform group-hover:translate-x-1" />

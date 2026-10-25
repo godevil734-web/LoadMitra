@@ -34,7 +34,7 @@ export default function HeroSection({ onFindTransport, onShareShipment }) {
 
             {/* Supporting Copy */}
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl xl:max-w-2xl 2xl:max-w-3xl">
-              Connect regional shipments with available truck capacity. Discover compatible shared loads and return-load opportunities across key commercial corridors without paying for empty space.
+              Connect your goods with available transport vehicles. Find shared loads and return trips easily without paying for empty space.
             </p>
 
             {/* Prominent Action Buttons */}
@@ -45,7 +45,7 @@ export default function HeroSection({ onFindTransport, onShareShipment }) {
                 className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl shadow-lg shadow-amber-500/10 hover:shadow-xl transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-white"
               >
                 <Search className="w-5 h-5 mr-2 text-[#091827]" />
-                <span>Find Transport</span>
+                <span>Find Loads</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
 
@@ -55,7 +55,7 @@ export default function HeroSection({ onFindTransport, onShareShipment }) {
                 className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-white bg-[#0F2A44] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-[#2A4F78] rounded-xl shadow-sm transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-[#F59E0B]"
               >
                 <Share2 className="w-4 h-4 mr-2 text-[#38BDF8]" />
-                <span>Share a Shipment</span>
+                <span>Post a Load</span>
               </button>
             </div>
 

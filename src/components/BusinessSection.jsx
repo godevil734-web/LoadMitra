@@ -8,23 +8,23 @@ export default function BusinessSection({ onFindTransport }) {
 
   const businessPoints = [
     {
-      title: 'Find Suitable Transport Options',
-      description: 'Access commercial vehicle categories suited for FTL (Full Truckload) and PTL (Part Truckload) needs across major industrial corridors.',
+      title: 'Find Suitable Vehicles',
+      description: 'Access commercial vehicles of all sizes for both full loads and partial loads along key routes.',
       icon: Layers
     },
     {
-      title: 'Explore Compatible Shared Loads',
-      description: 'Consolidate shipments with non-competing, compatible goods traveling the same highway route to optimize trip expenses.',
+      title: 'Share Vehicle Space',
+      description: 'Share space with compatible goods along the same route to lower your transport costs.',
       icon: TrendingDown
     },
     {
-      title: 'Compare Estimated Costs',
-      description: 'Gain transparency into prevailing corridor freight costs without opaque intermediary commissions or unexpected surcharges.',
+      title: 'Direct Price Offers',
+      description: 'Receive direct price offers from transport partners without hidden broker charges or surprise fees.',
       icon: Calculator
     },
     {
-      title: 'Manage Shipment Requests',
-      description: 'Keep documentation, loading appointments, and dispatch communications organized in one centralized workflow.',
+      title: 'Track Your Booking',
+      description: 'Keep track of your loads, driver contacts, and delivery receipts in one simple place.',
       icon: FileCheck2
     }
   ];
@@ -52,17 +52,17 @@ export default function BusinessSection({ onFindTransport }) {
                 {/* Floating pill badge */}
                 <div className="absolute top-4 left-4 bg-[#091827]/90 backdrop-blur-md border border-[#1E3D60] px-3 py-1.5 rounded-lg flex items-center space-x-2">
                   <Warehouse className="w-4 h-4 text-[#F59E0B]" />
-                  <span className="text-xs font-semibold text-white">Shippers &amp; Manufacturers</span>
+                  <span className="text-xs font-semibold text-white">Goods Owners &amp; Businesses</span>
                 </div>
 
                 {/* Bottom stats pill */}
                 <div className="absolute bottom-4 left-4 right-4 bg-[#0F2A44]/95 backdrop-blur-md border border-[#1E3D60] p-3 rounded-xl flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-bold text-white">Small &amp; Medium Enterprises</p>
-                    <p className="text-[11px] text-slate-400">Agricultural Traders, Wholesalers, OEMs</p>
+                    <p className="text-xs font-bold text-white">Businesses &amp; Traders</p>
+                    <p className="text-[11px] text-slate-400">Farmers, Wholesalers, Manufacturers</p>
                   </div>
                   <span className="text-xs font-bold text-[#F59E0B] bg-[#F59E0B]/10 px-2.5 py-1 rounded border border-[#F59E0B]/30">
-                    B2B Ready
+                    Ready to Ship
                   </span>
                 </div>
               </div>
@@ -72,15 +72,15 @@ export default function BusinessSection({ onFindTransport }) {
           {/* Right Column: Copy & Value Proposition */}
           <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
             <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-[#1E3D60] px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#F59E0B]">
-              <span>For Shippers &amp; Businesses</span>
+              <span>For Goods Owners</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Ship Smarter. Spend Less.
+              Need to Send Goods?
             </h2>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-              Whether you are shipping full truckloads or periodic partial consignments, RouteWise helps you tap into available vehicle space on active commercial corridors.
+              Post your load and receive price offers from transport partners.
             </p>
 
             {/* Feature List */}
@@ -113,7 +113,7 @@ export default function BusinessSection({ onFindTransport }) {
                 onClick={onFindTransport}
                 className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white group"
               >
-                <span>Find Transport</span>
+                <span>Post a Load</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
             </div>

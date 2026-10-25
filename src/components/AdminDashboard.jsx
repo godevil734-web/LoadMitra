@@ -628,7 +628,7 @@ export default function AdminDashboard() {
       <div className="min-h-screen bg-[#091827] flex items-center justify-center p-4">
         <div className="text-center space-y-4">
           <div className="w-12 h-12 border-3 border-[#F59E0B] border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-sm font-semibold text-slate-300">Verifying RouteWise Operations Session...</p>
+          <p className="text-sm font-semibold text-slate-300">Verifying LoadMitra Operations Session...</p>
         </div>
       </div>
     );
@@ -738,7 +738,7 @@ export default function AdminDashboard() {
                 className="hover:text-white transition-colors flex items-center group"
               >
                 <ChevronLeft className="w-3.5 h-3.5 mr-1 group-hover:-translate-x-0.5 transition-transform" />
-                <span>Back to RouteWise Landing</span>
+                <span>Back to LoadMitra Landing</span>
               </a>
               <span className="text-[11px] text-slate-500 font-mono">Phase 2.0 Admin</span>
             </div>
@@ -779,7 +779,7 @@ export default function AdminDashboard() {
           <div className="flex items-center justify-between h-16">
             {/* Logo & Platform Tag */}
             <div className="flex items-center space-x-3">
-              <a href="/" className="flex items-center" aria-label="RouteWise Home">
+              <a href="/" className="flex items-center" aria-label="LoadMitra Home">
                 <Logo showTagline={false} />
               </a>
               <span className="hidden sm:inline-block text-slate-600">|</span>
@@ -987,7 +987,7 @@ export default function AdminDashboard() {
                   Pilot Registrations Overview
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Live intake from freight shippers and commercial transporters on early access corridors.
+                  Registrations from goods owners and transport partners on early routes.
                 </p>
               </div>
               <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-emerald-500/40 px-3 py-1.5 rounded-xl text-xs text-emerald-400">
@@ -1036,7 +1036,7 @@ export default function AdminDashboard() {
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                      Shippers
+                      Goods Owners
                     </span>
                     <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#F59E0B]">
                       <UserCheck className="w-4 h-4" />
@@ -1053,7 +1053,7 @@ export default function AdminDashboard() {
                     </span>
                   </div>
                   <div className="mt-2 text-xs text-slate-400 flex items-center justify-between">
-                    <span>Freight cargo owners</span>
+                    <span>Goods &amp; cargo owners</span>
                     <span className="text-[11px] text-[#F59E0B] font-semibold underline">
                       {roleFilter === 'SHIPPER' ? 'Filtered' : 'Filter'}
                     </span>
@@ -1075,7 +1075,7 @@ export default function AdminDashboard() {
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                      Transporters
+                      Transport Partners
                     </span>
                     <div className="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
                       <Truck className="w-4 h-4" />
@@ -1092,7 +1092,7 @@ export default function AdminDashboard() {
                     </span>
                   </div>
                   <div className="mt-2 text-xs text-slate-400 flex items-center justify-between">
-                    <span>Vehicle &amp; fleet owners</span>
+                    <span>Vehicle &amp; transport partners</span>
                     <span className="text-[11px] text-sky-400 font-semibold underline">
                       {roleFilter === 'TRANSPORTER' ? 'Filtered' : 'Filter'}
                     </span>
@@ -1226,9 +1226,9 @@ export default function AdminDashboard() {
                     }}
                     className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-xs sm:text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]"
                   >
-                    <option value="ALL">All Roles (Shippers &amp; Transporters)</option>
-                    <option value="SHIPPER">Shippers Only</option>
-                    <option value="TRANSPORTER">Transporters Only</option>
+                    <option value="ALL">All Roles (Goods Owners &amp; Transport Partners)</option>
+                    <option value="SHIPPER">Goods Owners Only</option>
+                    <option value="TRANSPORTER">Transport Partners Only</option>
                   </select>
                 </div>
 
@@ -1466,7 +1466,7 @@ export default function AdminDashboard() {
                                   ) : (
                                     <Truck className="w-3 h-3 mr-1" />
                                   )}
-                                  {record.role}
+                                  {isShipper ? 'Goods Owner' : 'Transport Partner'}
                                 </span>
                                 <div className="text-xs text-slate-300 font-medium truncate max-w-[160px] xl:max-w-none">
                                   {record.businessName || record.fleetName || 'Private Operator'}
@@ -1800,10 +1800,10 @@ export default function AdminDashboard() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  Transporter Compliance &amp; Verification
+                  Transport Partner Verification &amp; Review
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Review submitted business documents, GSTIN/PAN records, and commercial vehicle papers for marketplace trust.
+                  Review submitted business documents, registration numbers, and vehicle papers.
                 </p>
               </div>
 
@@ -1848,8 +1848,8 @@ export default function AdminDashboard() {
                 <table className="w-full text-left text-xs">
                   <thead className="bg-[#091827]/70 text-slate-400 uppercase text-[10px] tracking-wider border-b border-[#1E3D60]">
                     <tr>
-                      <th className="py-3 px-4 font-bold">Transporter / Business</th>
-                      <th className="py-3 px-4 font-bold">Fleet Scope</th>
+                      <th className="py-3 px-4 font-bold">Transport Partner / Business</th>
+                      <th className="py-3 px-4 font-bold">Vehicle Scope</th>
                       <th className="py-3 px-4 font-bold">Documents</th>
                       <th className="py-3 px-4 font-bold">Status</th>
                       <th className="py-3 px-4 font-bold">Submitted Date</th>
@@ -1869,7 +1869,7 @@ export default function AdminDashboard() {
                     ) : verificationsList.length === 0 ? (
                       <tr>
                         <td colSpan="6" className="py-12 text-center text-slate-400">
-                          No transporter verification submissions found for the selected filter.
+                          No transport partner verification submissions found for the selected filter.
                         </td>
                       </tr>
                     ) : (
@@ -1893,11 +1893,11 @@ export default function AdminDashboard() {
                               {v.vehicleId ? (
                                 <span className="inline-flex items-center text-[11px] text-indigo-300 font-medium">
                                   <Truck className="w-3.5 h-3.5 mr-1" />
-                                  Single Fleet Vehicle
+                                  Single Vehicle
                                 </span>
                               ) : (
                                 <span className="text-[11px] text-slate-300">
-                                  General Transporter Profile
+                                  Transport Partner Profile
                                 </span>
                               )}
                             </td>
@@ -2134,7 +2134,7 @@ export default function AdminDashboard() {
                         : 'bg-sky-500/20 text-sky-400 border border-sky-500/30'
                     }`}
                   >
-                    {selectedRecord.role}
+                    {selectedRecord.role === 'SHIPPER' ? 'Goods Owner' : 'Transport Partner'}
                   </span>
                   <span className="text-xs font-mono text-slate-400">ID: {selectedRecord.id}</span>
                 </div>
@@ -2184,7 +2184,7 @@ export default function AdminDashboard() {
               {/* Entity Information */}
               <div className="p-4 bg-[#091827] rounded-xl border border-[#1E3D60] space-y-2">
                 <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#1E3D60]/60 pb-1">
-                  {selectedRecord.role === 'SHIPPER' ? 'Trading Entity' : 'Fleet Information'}
+                  {selectedRecord.role === 'SHIPPER' ? 'Business Details' : 'Vehicle & Fleet Details'}
                 </span>
                 <div className="space-y-1.5 pt-1 text-slate-300">
                   <p className="font-semibold text-white">
@@ -2221,19 +2221,19 @@ export default function AdminDashboard() {
               {/* Specifications: Shipper vs Transporter */}
               <div className="sm:col-span-2 p-4 bg-[#091827] rounded-xl border border-[#1E3D60] space-y-3">
                 <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#1E3D60]/60 pb-1">
-                  {selectedRecord.role === 'SHIPPER' ? 'Shipment Parameters' : 'Fleet Vehicle Parameters'}
+                  {selectedRecord.role === 'SHIPPER' ? 'Goods Details' : 'Vehicle Details'}
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {selectedRecord.role === 'SHIPPER' ? (
                     <>
                       <div>
-                        <span className="text-slate-400 block mb-0.5">Cargo Category:</span>
+                        <span className="text-slate-400 block mb-0.5">Type of Goods:</span>
                         <span className="text-white font-medium">
                           {selectedRecord.cargoCategory || 'General Goods'}
                         </span>
                       </div>
                       <div>
-                        <span className="text-slate-400 block mb-0.5">Shipment Frequency:</span>
+                        <span className="text-slate-400 block mb-0.5">How Often Goods Are Sent:</span>
                         <span className="text-white font-medium">
                           {selectedRecord.shipmentFrequency || 'Periodic'}
                         </span>
@@ -2307,7 +2307,7 @@ export default function AdminDashboard() {
                     className="w-full px-3.5 py-2 bg-[#091827] text-white text-xs sm:text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B]"
                   />
                   <div className="flex justify-between text-[11px] text-slate-500 mt-1">
-                    <span>Visible only to authorized RouteWise administrators.</span>
+                    <span>Visible only to authorized LoadMitra administrators.</span>
                     <span>{updateNote.length}/1000</span>
                   </div>
                 </div>
@@ -2359,7 +2359,7 @@ export default function AdminDashboard() {
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
                   <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/30">
-                    Transporter Compliance
+                    Transport Partner Review
                   </span>
                   <span
                     className={`inline-flex items-center space-x-1 px-2 py-0.5 rounded-full text-[11px] font-semibold border ${

@@ -64,17 +64,17 @@ const VEHICLE_STATUS_CONFIG = {
     dot: 'bg-emerald-400',
   },
   MATCHED: {
-    label: 'Matched / Booked',
+    label: 'Booked',
     badge: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
     dot: 'bg-sky-400',
   },
   IN_TRANSIT: {
-    label: 'In Transit',
+    label: 'On the Way',
     badge: 'bg-indigo-500/15 text-indigo-400 border-indigo-500/30',
     dot: 'bg-indigo-400',
   },
   COMPLETED: {
-    label: 'Trip Completed',
+    label: 'Trip Finished',
     badge: 'bg-slate-500/15 text-slate-300 border-slate-500/30',
     dot: 'bg-slate-400',
   },
@@ -87,22 +87,22 @@ const VEHICLE_STATUS_CONFIG = {
 
 const INTEREST_STATUS_CONFIG = {
   PENDING: {
-    label: 'Pending Shipper Review',
+    label: 'Waiting for Goods Owner Review',
     badge: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
     dot: 'bg-amber-400',
   },
   ACCEPTED: {
-    label: 'Proposal Accepted',
+    label: 'Price Offer Accepted',
     badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
     dot: 'bg-emerald-400',
   },
   REJECTED: {
-    label: 'Declined by Shipper',
+    label: 'Offer Declined',
     badge: 'bg-rose-500/15 text-rose-400 border-rose-500/30',
     dot: 'bg-rose-400',
   },
   WITHDRAWN: {
-    label: 'Withdrawn by You',
+    label: 'Withdrawn',
     badge: 'bg-slate-500/15 text-slate-400 border-slate-500/30',
     dot: 'bg-slate-400',
   },
@@ -110,27 +110,27 @@ const INTEREST_STATUS_CONFIG = {
 
 const BOOKING_STATUS_CONFIG = {
   CONFIRMED: {
-    label: 'Assigned & Confirmed',
+    label: 'Booking Confirmed',
     badge: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
     dot: 'bg-sky-400',
   },
   PICKED_UP: {
-    label: 'Cargo Picked Up',
+    label: 'Goods Picked Up',
     badge: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
     dot: 'bg-amber-400',
   },
   IN_TRANSIT: {
-    label: 'In Transit',
+    label: 'On the Way',
     badge: 'bg-indigo-500/15 text-indigo-400 border-indigo-500/30',
     dot: 'bg-indigo-400',
   },
   DELIVERED: {
-    label: 'Delivered (Awaiting Confirmation)',
+    label: 'Delivered (Waiting for Confirmation)',
     badge: 'bg-teal-500/15 text-teal-300 border-teal-500/30',
     dot: 'bg-teal-400',
   },
   COMPLETED: {
-    label: 'Delivered & Closed',
+    label: 'Delivery Completed',
     badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
     dot: 'bg-emerald-400',
   },
@@ -526,7 +526,7 @@ export default function TransporterDashboard() {
       }
       const data = await res.json();
       if (res.ok) {
-        showToast('success', file ? 'Proof of delivery submitted successfully!' : 'Delivery reported! Awaiting shipper confirmation.');
+        showToast('success', file ? 'Delivery receipt submitted successfully!' : 'Delivery reported! Waiting for goods owner confirmation.');
         setActiveBookingModal(null);
         setModalDeliveryFile(null);
         fetchBookings();
@@ -582,7 +582,7 @@ export default function TransporterDashboard() {
   const openExpressInterest = (listing) => {
     if (!authToken) {
       setIsAuthModalOpen(true);
-      showToast('info', 'Please sign in as a transporter to submit quotes.');
+      showToast('info', 'Please sign in to send price offers.');
       return;
     }
     setSelectedListing(listing);
@@ -590,7 +590,7 @@ export default function TransporterDashboard() {
     setProposalVehicle(listing.vehicleRequirements?.[0] || '10-Ton Medium Commercial Truck');
     setProposalVehicleId('');
     setProposalAvailableDate(new Date().toISOString().split('T')[0]);
-    setProposalMessage(`Experienced driver available with sanitized vehicle. Ready to haul ${listing.origin} to ${listing.destination}.`);
+    setProposalMessage(`Experienced driver available with clean vehicle. Ready to transport goods from ${listing.origin} to ${listing.destination}.`);
     setIsInterestModalOpen(true);
   };
 
@@ -601,7 +601,7 @@ export default function TransporterDashboard() {
 
     const numRate = Number(proposalRate);
     if (isNaN(numRate) || numRate < 100) {
-      showToast('error', 'Please enter a valid rate quote (minimum ₹100).');
+      showToast('error', 'Please enter a valid price offer (minimum ₹100).');
       return;
     }
 
@@ -625,17 +625,17 @@ export default function TransporterDashboard() {
 
       const data = await res.json();
       if (res.status === 201) {
-        showToast('success', `Interest submitted! Quoted ₹${numRate.toLocaleString('en-IN')}`);
+        showToast('success', `Price offer sent! Offered ₹${numRate.toLocaleString('en-IN')}`);
         setIsInterestModalOpen(false);
         // Switch to requests tab to see it
         setActiveTab('my-requests');
       } else if (res.status === 409) {
-        showToast('error', 'You have already submitted an active quote for this listing.');
+        showToast('error', 'You have already sent an active price offer for this load.');
       } else {
-        showToast('error', data.message || 'Failed to submit quote.');
+        showToast('error', data.message || 'Failed to submit price offer.');
       }
     } catch {
-      showToast('error', 'Network error while submitting proposal.');
+      showToast('error', 'Network error while submitting price offer.');
     } finally {
       setIsSubmittingProposal(false);
     }
@@ -643,7 +643,7 @@ export default function TransporterDashboard() {
 
   // Withdraw Request
   const handleWithdrawRequest = async (requestId) => {
-    if (!confirm('Are you sure you want to withdraw this quote? This action cannot be undone.')) {
+    if (!confirm('Are you sure you want to withdraw this price offer?')) {
       return;
     }
 
@@ -655,10 +655,10 @@ export default function TransporterDashboard() {
       });
       const data = await res.json();
       if (res.ok) {
-        showToast('success', 'Quote successfully withdrawn.');
+        showToast('success', 'Price offer withdrawn successfully.');
         fetchMyRequests();
       } else {
-        showToast('error', data.message || 'Failed to withdraw quote.');
+        showToast('error', data.message || 'Failed to withdraw price offer.');
       }
     } catch {
       showToast('error', 'Network error during withdrawal.');
@@ -851,10 +851,10 @@ export default function TransporterDashboard() {
             </Link>
             <div className="hidden md:flex items-center space-x-2 pl-4 border-l border-[#1E3D60]">
               <span className="text-xs font-bold tracking-wider uppercase bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30 px-2.5 py-0.5 rounded-full">
-                Phase 4
+                Live
               </span>
               <span className="text-sm font-semibold text-slate-300">
-                Transporter Marketplace Console
+                Transport Partner Portal
               </span>
             </div>
           </div>
@@ -865,7 +865,7 @@ export default function TransporterDashboard() {
               className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg transition-colors"
             >
               <Package className="w-3.5 h-3.5 text-amber-400" />
-              <span>Shipper Marketplace</span>
+              <span>Goods Owner Portal</span>
             </Link>
 
             {authToken && (
@@ -892,7 +892,7 @@ export default function TransporterDashboard() {
                     {currentTransporter.businessName}
                   </span>
                   <span className="text-[11px] text-[#F59E0B]">
-                    {currentTransporter.name} (Transporter)
+                    {currentTransporter.name} (Transport Partner)
                   </span>
                 </div>
                 <button
@@ -911,7 +911,7 @@ export default function TransporterDashboard() {
                   onClick={() => loginDemoTransporter(1)}
                   className="px-3 py-1.5 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-lg shadow-sm transition-all"
                 >
-                  Demo Transporter 1
+                  Demo Transport Partner 1
                 </button>
                 <button
                   type="button"
@@ -933,13 +933,13 @@ export default function TransporterDashboard() {
             <div>
               <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#11253B] border border-[#1E3D60] text-amber-400 text-xs font-semibold mb-2">
                 <Truck className="w-3.5 h-3.5" />
-                <span>Return-Haul Freight & Vehicle Monetization</span>
+                <span>Find Return Loads & Fill Vehicles</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Transporter Control Center
+                Transport Partner Home
               </h1>
               <p className="text-sm text-slate-300 mt-1 max-w-2xl">
-                Browse open shipper demands, express interest on high-value loads, eliminate empty return runs, and register vehicle availability along North Indian freight corridors.
+                Browse available loads from goods owners, send your price offers, avoid empty return trips, and list your available vehicles.
               </p>
             </div>
 
@@ -950,7 +950,7 @@ export default function TransporterDashboard() {
                 className="inline-flex items-center space-x-2 px-4 py-2.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold text-sm rounded-xl shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 transition-all"
               >
                 <Plus className="w-4 h-4 stroke-[2.5]" />
-                <span>Post Vehicle Availability</span>
+                <span>List Available Vehicle</span>
               </button>
             </div>
           </div>
@@ -967,7 +967,7 @@ export default function TransporterDashboard() {
               }`}
             >
               <Package className="w-4 h-4" />
-              <span>Available Freight Demands</span>
+              <span>Available Loads</span>
               <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#11253B] text-slate-300 border border-[#1E3D60]">
                 {listingsPagination.totalCount}
               </span>
@@ -978,7 +978,7 @@ export default function TransporterDashboard() {
               onClick={() => {
                 if (!authToken) {
                   setIsAuthModalOpen(true);
-                  showToast('info', 'Please sign in to view your vehicle fleet.');
+                  showToast('info', 'Please sign in to view your vehicles.');
                   return;
                 }
                 setActiveTab('my-vehicles');
@@ -990,7 +990,7 @@ export default function TransporterDashboard() {
               }`}
             >
               <Truck className="w-4 h-4" />
-              <span>My Vehicle Availability</span>
+              <span>My Available Vehicles</span>
               {authToken && (
                 <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#11253B] text-slate-300 border border-[#1E3D60]">
                   {vehicles.length}
@@ -1003,7 +1003,7 @@ export default function TransporterDashboard() {
               onClick={() => {
                 if (!authToken) {
                   setIsAuthModalOpen(true);
-                  showToast('info', 'Please sign in to track your load requests.');
+                  showToast('info', 'Please sign in to view your price offers.');
                   return;
                 }
                 setActiveTab('my-requests');
@@ -1015,7 +1015,7 @@ export default function TransporterDashboard() {
               }`}
             >
               <Send className="w-4 h-4" />
-              <span>My Load Requests</span>
+              <span>My Price Offers</span>
               {authToken && (
                 <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#11253B] text-slate-300 border border-[#1E3D60]">
                   {requests.length}
@@ -1028,7 +1028,7 @@ export default function TransporterDashboard() {
               onClick={() => {
                 if (!authToken) {
                   setIsAuthModalOpen(true);
-                  showToast('info', 'Please sign in to view your confirmed bookings.');
+                  showToast('info', 'Please sign in to view your bookings.');
                   return;
                 }
                 setActiveTab('my-bookings');
@@ -1041,7 +1041,7 @@ export default function TransporterDashboard() {
               }`}
             >
               <CheckCircle2 className="w-4 h-4" />
-              <span>Confirmed Bookings</span>
+              <span>My Bookings</span>
               {authToken && bookings.length > 0 && (
                 <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-amber-500/20 text-[#F59E0B] border border-amber-500/30">
                   {bookings.length}
@@ -1054,7 +1054,7 @@ export default function TransporterDashboard() {
               onClick={() => {
                 if (!authToken) {
                   setIsAuthModalOpen(true);
-                  showToast('info', 'Please sign in to view your business verification.');
+                  showToast('info', 'Please sign in to view partner verification.');
                   return;
                 }
                 setActiveTab('verification');
@@ -1066,14 +1066,14 @@ export default function TransporterDashboard() {
               }`}
             >
               <ShieldCheck className="w-4 h-4" />
-              <span>Compliance & Verification</span>
+              <span>Partner Verification</span>
               {currentTransporter?.verificationStatus === 'APPROVED' ? (
                 <span className="ml-1.5 px-2 py-0.5 text-[10px] font-extrabold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                   Verified ✓
                 </span>
               ) : currentTransporter?.verificationStatus === 'PENDING' ? (
                 <span className="ml-1.5 px-2 py-0.5 text-[10px] font-bold rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                  Under Review
+                  Waiting for Review
                 </span>
               ) : null}
             </button>
@@ -1359,7 +1359,7 @@ export default function TransporterDashboard() {
                         className="flex-1 py-2 px-3 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl text-xs font-bold flex items-center justify-center space-x-1.5 shadow-sm transition-all"
                       >
                         <Send className="w-3.5 h-3.5" />
-                        <span>Submit Quote</span>
+                        <span>Offer Price</span>
                       </button>
                     </div>
                   </div>
@@ -1371,7 +1371,7 @@ export default function TransporterDashboard() {
             {listingsPagination.totalPages > 1 && (
               <div className="flex items-center justify-between pt-6 border-t border-[#1E3D60]">
                 <span className="text-xs text-slate-400">
-                  Showing page {listingsPagination.page} of {listingsPagination.totalPages} ({listingsPagination.totalCount} open demands)
+                  Showing page {listingsPagination.page} of {listingsPagination.totalPages} ({listingsPagination.totalCount} available loads)
                 </span>
                 <div className="flex items-center space-x-2">
                   <button
@@ -1404,9 +1404,9 @@ export default function TransporterDashboard() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-5">
               <div>
-                <h2 className="text-lg font-bold text-white">My Vehicle Availability Postings</h2>
+                <h2 className="text-lg font-bold text-white">My Available Vehicles</h2>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  Publish empty trucks and return-haul availability so shippers can dispatch shipments along your routes.
+                  List your available vehicles and return trips so goods owners can reach out to you.
                 </p>
               </div>
               <div className="flex items-center space-x-3">
@@ -1417,9 +1417,9 @@ export default function TransporterDashboard() {
                 >
                   <option value="ALL">All Statuses</option>
                   <option value="AVAILABLE">Available</option>
-                  <option value="MATCHED">Matched</option>
-                  <option value="IN_TRANSIT">In Transit</option>
-                  <option value="COMPLETED">Completed</option>
+                  <option value="MATCHED">Booked</option>
+                  <option value="IN_TRANSIT">On the Way</option>
+                  <option value="COMPLETED">Trip Finished</option>
                   <option value="CANCELLED">Cancelled</option>
                 </select>
                 <button
@@ -1428,7 +1428,7 @@ export default function TransporterDashboard() {
                   className="inline-flex items-center space-x-1.5 px-4 py-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold text-xs rounded-xl shadow transition-colors"
                 >
                   <Plus className="w-4 h-4" />
-                  <span>Register Vehicle</span>
+                  <span>List Vehicle</span>
                 </button>
               </div>
             </div>
@@ -1440,16 +1440,16 @@ export default function TransporterDashboard() {
                 <div className="w-16 h-16 rounded-2xl bg-[#11253B] border border-[#1E3D60] flex items-center justify-center mx-auto text-amber-400">
                   <Truck className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-white">No Vehicle Availability Records</h3>
+                <h3 className="text-lg font-bold text-white">No Available Vehicles Listed</h3>
                 <p className="text-sm text-slate-400 max-w-md mx-auto">
-                  You haven&apos;t registered any vehicle slots yet. Publish your available fleet or return corridors to receive freight matches.
+                  You haven&apos;t listed any available vehicles yet. Add your vehicle or return trip to start receiving load requests.
                 </p>
                 <button
                   type="button"
                   onClick={() => openVehicleModal()}
                   className="px-4 py-2.5 bg-[#F59E0B] text-[#091827] font-bold text-xs rounded-xl"
                 >
-                  Register First Vehicle
+                  List Your First Vehicle
                 </button>
               </div>
             ) : (
@@ -1496,7 +1496,7 @@ export default function TransporterDashboard() {
 
                         {/* Route Corridor */}
                         <div className="bg-[#091827] rounded-xl p-3 border border-[#1E3D60] space-y-1.5">
-                          <div className="text-xs text-slate-400">Operating Route:</div>
+                          <div className="text-xs text-slate-400">Route:</div>
                           <div className="text-sm font-bold text-white flex items-center space-x-1.5">
                             <span>{veh.currentLocation}</span>
                             <ArrowRight className="w-3.5 h-3.5 text-[#F59E0B] shrink-0" />
@@ -1504,7 +1504,7 @@ export default function TransporterDashboard() {
                           </div>
                           {veh.operatingCorridor && (
                             <div className="text-[11px] text-slate-400 mt-1">
-                              Corridor: {veh.operatingCorridor}
+                              Route Details: {veh.operatingCorridor}
                             </div>
                           )}
                         </div>
@@ -1518,7 +1518,7 @@ export default function TransporterDashboard() {
                             </span>
                           </div>
                           <div className="bg-[#11253B] p-2.5 rounded-lg border border-[#1E3D60]">
-                            <span className="text-slate-400 block text-[10px] uppercase">Rate Expectation</span>
+                            <span className="text-slate-400 block text-[10px] uppercase">Expected Price</span>
                             <span className="font-semibold text-amber-300">
                               {veh.rateExpectationFormatted || 'Negotiable'}
                             </span>
@@ -1560,9 +1560,9 @@ export default function TransporterDashboard() {
                           className="px-2 py-1 bg-[#091827] border border-[#1E3D60] text-xs font-semibold text-slate-200 rounded-lg focus:outline-none focus:border-[#F59E0B]"
                         >
                           <option value="AVAILABLE">Available</option>
-                          <option value="MATCHED">Matched</option>
-                          <option value="IN_TRANSIT">In Transit</option>
-                          <option value="COMPLETED">Completed</option>
+                          <option value="MATCHED">Booked</option>
+                          <option value="IN_TRANSIT">On the Way</option>
+                          <option value="COMPLETED">Trip Finished</option>
                           <option value="CANCELLED">Cancelled</option>
                         </select>
                       </div>
@@ -1579,9 +1579,9 @@ export default function TransporterDashboard() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-5">
               <div>
-                <h2 className="text-lg font-bold text-white">Track Submitted Load Quotes</h2>
+                <h2 className="text-lg font-bold text-white">My Price Offers</h2>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  Monitor bids you submitted to shippers. Once a shipper accepts your quote, direct dispatch details are unlocked.
+                  Track price offers you sent to goods owners. Once an offer is accepted, contact details are unlocked.
                 </p>
               </div>
               <div>
@@ -1590,9 +1590,9 @@ export default function TransporterDashboard() {
                   onChange={(e) => setRequestStatusFilter(e.target.value)}
                   className="px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
                 >
-                  <option value="ALL">All Request Statuses</option>
-                  <option value="PENDING">Pending Review</option>
-                  <option value="ACCEPTED">Accepted by Shipper</option>
+                  <option value="ALL">All Offer Statuses</option>
+                  <option value="PENDING">Waiting for Review</option>
+                  <option value="ACCEPTED">Accepted by Goods Owner</option>
                   <option value="REJECTED">Declined</option>
                   <option value="WITHDRAWN">Withdrawn</option>
                 </select>
@@ -1600,22 +1600,22 @@ export default function TransporterDashboard() {
             </div>
 
             {requestsLoading ? (
-              <div className="text-center py-12 text-slate-400">Loading your load requests...</div>
+              <div className="text-center py-12 text-slate-400">Loading your price offers...</div>
             ) : requests.length === 0 ? (
               <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-12 text-center space-y-4">
                 <div className="w-16 h-16 rounded-2xl bg-[#11253B] border border-[#1E3D60] flex items-center justify-center mx-auto text-amber-400">
                   <Send className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-white">No Load Requests Submitted</h3>
+                <h3 className="text-lg font-bold text-white">No Price Offers Sent</h3>
                 <p className="text-sm text-slate-400 max-w-md mx-auto">
-                  Browse open freight listings on the marketplace tab and submit quotes to start winning shipments.
+                  Browse available loads and send your price offers to book shipments.
                 </p>
                 <button
                   type="button"
                   onClick={() => setActiveTab('marketplace')}
                   className="px-4 py-2.5 bg-[#F59E0B] text-[#091827] font-bold text-xs rounded-xl"
                 >
-                  Explore Freight Demands
+                  Find Available Loads
                 </button>
               </div>
             ) : (
@@ -1653,7 +1653,7 @@ export default function TransporterDashboard() {
                                 {listing.cargoCategory} ({listing.weightDisplay})
                               </span>
                               <span>•</span>
-                              <span>Shipper: {listing.shipperBusinessName}</span>
+                              <span>Goods Owner: {listing.shipperBusinessName}</span>
                               {req.status === 'ACCEPTED' && (
                                 <>
                                   <span>•</span>
@@ -1667,25 +1667,25 @@ export default function TransporterDashboard() {
                           </div>
                         ) : (
                           <div className="text-sm font-semibold text-slate-300">
-                            Freight listing reference (ID: {req.listingId})
+                            Load reference (ID: {req.listingId})
                           </div>
                         )}
 
                         {/* Proposal Details Box */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-[#091827] rounded-xl p-3 border border-[#1E3D60] text-xs">
                           <div>
-                            <span className="text-slate-400 block text-[10px] uppercase">My Offered Quote</span>
+                            <span className="text-slate-400 block text-[10px] uppercase">My Price Offer</span>
                             <span className="text-base font-extrabold text-[#F59E0B]">
                               {req.proposedRateFormatted}
                             </span>
                             {listing && (
                               <span className="text-[10px] text-slate-400 block">
-                                (Shipper listed: ₹{listing.offeredPrice?.toLocaleString('en-IN')})
+                                (Goods owner target: ₹{listing.offeredPrice?.toLocaleString('en-IN')})
                               </span>
                             )}
                           </div>
                           <div>
-                            <span className="text-slate-400 block text-[10px] uppercase">Vehicle Quoted</span>
+                            <span className="text-slate-400 block text-[10px] uppercase">Offered Vehicle</span>
                             <span className="font-semibold text-slate-200">
                               {req.proposedVehicle || 'Standard Fleet'}
                             </span>
@@ -1706,10 +1706,10 @@ export default function TransporterDashboard() {
                           </p>
                         )}
 
-                        {/* Shipper Review Notes if reviewed */}
+                        {/* Goods Owner Review Notes if reviewed */}
                         {req.reviewNotes && (
                           <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3 text-xs text-emerald-200">
-                            <span className="font-bold block text-emerald-400 mb-0.5">Shipper Message:</span>
+                            <span className="font-bold block text-emerald-400 mb-0.5">Goods Owner Message:</span>
                             {req.reviewNotes}
                           </div>
                         )}
@@ -1725,13 +1725,13 @@ export default function TransporterDashboard() {
                             className="px-4 py-2 bg-[#11253B] hover:bg-rose-950/60 border border-[#1E3D60] hover:border-rose-500/50 text-slate-300 hover:text-rose-200 rounded-xl text-xs font-bold transition-all disabled:opacity-50 flex items-center justify-center space-x-1.5"
                           >
                             <Ban className="w-3.5 h-3.5" />
-                            <span>{withdrawingRequestId === req.id ? 'Withdrawing...' : 'Withdraw Quote'}</span>
+                            <span>{withdrawingRequestId === req.id ? 'Withdrawing...' : 'Withdraw Offer'}</span>
                           </button>
                         )}
 
                         {req.status === 'ACCEPTED' && (
                           <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs text-center font-bold">
-                            ✓ Direct Loading Contact Unlocked
+                            ✓ Offer Accepted • Booking Confirmed
                           </div>
                         )}
                       </div>
@@ -1791,7 +1791,7 @@ export default function TransporterDashboard() {
 
             <div>
               <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                Open Freight Demand
+                Available Load
               </span>
               <h2 className="text-xl font-extrabold text-white mt-2">
                 {selectedListing.route}
@@ -1803,7 +1803,7 @@ export default function TransporterDashboard() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 bg-[#091827] p-4 rounded-xl border border-[#1E3D60] text-xs">
               <div>
-                <span className="text-slate-400 block">Cargo Category</span>
+                <span className="text-slate-400 block">Type of Goods</span>
                 <span className="font-bold text-white text-sm">{selectedListing.cargoCategory}</span>
               </div>
               <div>
@@ -1811,7 +1811,7 @@ export default function TransporterDashboard() {
                 <span className="font-bold text-amber-300 text-sm">{selectedListing.weightDisplay}</span>
               </div>
               <div>
-                <span className="text-slate-400 block">Offered Rate</span>
+                <span className="text-slate-400 block">Target Price</span>
                 <span className="font-bold text-[#F59E0B] text-base">{selectedListing.offeredPriceFormatted}</span>
               </div>
               <div>
@@ -1821,13 +1821,13 @@ export default function TransporterDashboard() {
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block">Delivery Window</span>
+                <span className="text-slate-400 block">Delivery Date</span>
                 <span className="font-semibold text-slate-200">
                   {selectedListing.deliveryDate ? new Date(selectedListing.deliveryDate).toLocaleDateString('en-IN') : 'Standard'}
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block">Price Mode</span>
+                <span className="text-slate-400 block">Price Type</span>
                 <span className="font-semibold text-slate-200">{selectedListing.priceType}</span>
               </div>
             </div>
@@ -1835,7 +1835,7 @@ export default function TransporterDashboard() {
             {selectedListing.cargoDescription && (
               <div>
                 <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
-                  Cargo Description & Packaging
+                  Description of Goods
                 </h4>
                 <p className="text-xs text-slate-300 bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
                   {selectedListing.cargoDescription}
@@ -1846,7 +1846,7 @@ export default function TransporterDashboard() {
             {selectedListing.vehicleRequirements && selectedListing.vehicleRequirements.length > 0 && (
               <div>
                 <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
-                  Vehicle Specifications Required
+                  Preferred Vehicle
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedListing.vehicleRequirements.map((v) => (
@@ -1864,7 +1864,7 @@ export default function TransporterDashboard() {
             {selectedListing.notes && (
               <div>
                 <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
-                  Shipper Handling Instructions
+                  Notes from Goods Owner
                 </h4>
                 <p className="text-xs text-slate-300 bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
                   {selectedListing.notes}
@@ -1889,7 +1889,7 @@ export default function TransporterDashboard() {
                 className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow flex items-center space-x-1.5"
               >
                 <Send className="w-3.5 h-3.5" />
-                <span>Submit Quote Now</span>
+                <span>Send Price Offer</span>
               </button>
             </div>
           </div>
@@ -1914,10 +1914,10 @@ export default function TransporterDashboard() {
 
             <div>
               <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30">
-                Transporter Load Interest
+                Offer Your Price
               </span>
               <h2 className="text-xl font-extrabold text-white mt-1.5">
-                Submit Quote for Load
+                Send Price Offer for This Load
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
                 {selectedListing.route} • {selectedListing.cargoCategory} ({selectedListing.weightDisplay})
@@ -1928,7 +1928,7 @@ export default function TransporterDashboard() {
               {/* Proposed Rate */}
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1">
-                  Proposed Quote / Freight Rate (₹) *
+                  Your Price Offer (₹) *
                 </label>
                 <div className="relative">
                   <span className="absolute left-3.5 top-2.5 text-slate-400 font-bold text-sm">₹</span>
@@ -1944,15 +1944,15 @@ export default function TransporterDashboard() {
                   />
                 </div>
                 <span className="text-[11px] text-slate-400 mt-1 block">
-                  Shipper listed offer: {selectedListing.offeredPriceFormatted}
+                  Goods owner target: {selectedListing.offeredPriceFormatted}
                 </span>
               </div>
 
-              {/* Attach Registered Fleet Availability (Phase 5) */}
+              {/* Attach Registered Fleet Availability */}
               {vehicles.filter((v) => v.status === 'AVAILABLE').length > 0 && (
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Attach Registered Fleet Availability (Optional)
+                    Select Available Vehicle (Optional)
                   </label>
                   <select
                     value={proposalVehicleId}
@@ -1969,7 +1969,7 @@ export default function TransporterDashboard() {
                     }}
                     className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
                   >
-                    <option value="">Custom fleet specification</option>
+                    <option value="">Custom vehicle details</option>
                     {vehicles
                       .filter((v) => v.status === 'AVAILABLE')
                       .map((v) => (
@@ -1984,7 +1984,7 @@ export default function TransporterDashboard() {
               {/* Proposed Vehicle */}
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1">
-                  Proposed Vehicle / Fleet Details *
+                  Vehicle Details *
                 </label>
                 <input
                   type="text"
@@ -1999,7 +1999,7 @@ export default function TransporterDashboard() {
               {/* Available From Date */}
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1">
-                  Ready to Pick Up From Date
+                  Pickup Date
                 </label>
                 <input
                   type="date"
@@ -2012,13 +2012,13 @@ export default function TransporterDashboard() {
               {/* Transporter Notes / Pitch */}
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1">
-                  Proposal Notes / Message to Shipper
+                  Message to Goods Owner
                 </label>
                 <textarea
                   rows="3"
                   value={proposalMessage}
                   onChange={(e) => setProposalMessage(e.target.value)}
-                  placeholder="Driver contact, verified GPS tracking, waterproof tarp guarantee..."
+                  placeholder="Driver contact, vehicle details, waterproof cover, etc."
                   className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
                 />
               </div>
@@ -2037,7 +2037,7 @@ export default function TransporterDashboard() {
                   className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50 flex items-center space-x-1.5"
                 >
                   <Send className="w-3.5 h-3.5" />
-                  <span>{isSubmittingProposal ? 'Submitting...' : 'Send Quote to Shipper'}</span>
+                  <span>{isSubmittingProposal ? 'Sending...' : 'Send Price Offer'}</span>
                 </button>
               </div>
             </form>
@@ -2063,13 +2063,13 @@ export default function TransporterDashboard() {
 
             <div>
               <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                Fleet Availability
+                Available Vehicle
               </span>
               <h2 className="text-xl font-extrabold text-white mt-1.5">
-                {isEditingVehicle ? 'Update Vehicle Availability' : 'Post Vehicle Availability'}
+                {isEditingVehicle ? 'Update Available Vehicle' : 'List Available Vehicle'}
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                List empty return trucks or available fleets along major North Indian corridors.
+                List empty return vehicles or available transport along major routes.
               </p>
             </div>
 
@@ -2078,7 +2078,7 @@ export default function TransporterDashboard() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <label className="block text-xs font-semibold text-slate-200">
-                    Select Commercial Vehicle Type *
+                    Select Vehicle Type *
                   </label>
                   <span className="text-xs text-[#F59E0B] font-bold">
                     Selected: {vehType}
@@ -2130,7 +2130,7 @@ export default function TransporterDashboard() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Available Capacity *
+                    Available Load Capacity *
                   </label>
                   <input
                     type="number"
@@ -2177,7 +2177,7 @@ export default function TransporterDashboard() {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Destination / Corridor *
+                    Destination Route *
                   </label>
                   <input
                     type="text"
@@ -2193,13 +2193,13 @@ export default function TransporterDashboard() {
               {/* Operating Corridor Description */}
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1">
-                  Operating Corridor (Optional)
+                  Main Route (Optional)
                 </label>
                 <input
                   type="text"
                   value={vehCorridor}
                   onChange={(e) => setVehCorridor(e.target.value)}
-                  placeholder="e.g. Gorakhpur to Lucknow (NH27 Corridor)"
+                  placeholder="e.g. Gorakhpur to Lucknow (NH27 Route)"
                   className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
                 />
               </div>
@@ -2227,7 +2227,7 @@ export default function TransporterDashboard() {
                       className="w-4 h-4 text-[#F59E0B] rounded bg-[#11253B] border-[#1E3D60] focus:ring-[#F59E0B]"
                     />
                     <span className="text-xs font-semibold text-slate-200">
-                      Empty Return Trip (Backhaul slot)
+                      Empty Return Trip (Looking for a return load)
                     </span>
                   </label>
                 </div>
@@ -2236,7 +2236,7 @@ export default function TransporterDashboard() {
               {/* Rate Expectation */}
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1">
-                  Rate Expectation in ₹ (Optional)
+                  Expected Price in ₹ (Optional)
                 </label>
                 <input
                   type="number"
@@ -2251,7 +2251,7 @@ export default function TransporterDashboard() {
               {/* Notes */}
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1">
-                  Fleet Notes / Special Equipment
+                  Vehicle Notes
                 </label>
                 <textarea
                   rows="2"
@@ -2275,7 +2275,7 @@ export default function TransporterDashboard() {
                   disabled={isSavingVehicle}
                   className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50"
                 >
-                  {isSavingVehicle ? 'Saving...' : isEditingVehicle ? 'Update Vehicle' : 'Publish Availability'}
+                  {isSavingVehicle ? 'Saving...' : isEditingVehicle ? 'Update Vehicle' : 'List Vehicle'}
                 </button>
               </div>
             </form>
@@ -2301,20 +2301,20 @@ export default function TransporterDashboard() {
 
             <div>
               <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30">
-                Transporter Portal Access
+                Transport Partner Sign In
               </span>
               <h2 className="text-xl font-extrabold text-white mt-1.5">
-                {authMode === 'login' ? 'Transporter Sign In' : 'Create Transporter Account'}
+                {authMode === 'login' ? 'Transport Partner Sign In' : 'Create Transport Partner Account'}
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                Access available freight listings, post vehicles, and quote on loads.
+                Find available loads, list vehicles, and offer your price.
               </p>
             </div>
 
             {/* Quick Demo Sign In Box */}
             <div className="bg-[#091827] p-3.5 rounded-xl border border-[#1E3D60] space-y-2.5">
               <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400 block">
-                ⚡ Rapid Demo Access (Pre-configured Fleets)
+                ⚡ Quick Demo Sign In
               </span>
               <div className="grid grid-cols-2 gap-2">
                 <button
@@ -2322,7 +2322,7 @@ export default function TransporterDashboard() {
                   onClick={() => loginDemoTransporter(1)}
                   className="p-2.5 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-[#F59E0B] rounded-lg text-left transition-colors"
                 >
-                  <span className="text-xs font-bold text-white block">Transporter 1</span>
+                  <span className="text-xs font-bold text-white block">Transport Partner 1</span>
                   <span className="text-[10px] text-slate-400 block truncate">Awadh Express Fleet</span>
                 </button>
                 <button
@@ -2330,7 +2330,7 @@ export default function TransporterDashboard() {
                   onClick={() => loginDemoTransporter(2)}
                   className="p-2.5 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-[#F59E0B] rounded-lg text-left transition-colors"
                 >
-                  <span className="text-xs font-bold text-white block">Transporter 2</span>
+                  <span className="text-xs font-bold text-white block">Transport Partner 2</span>
                   <span className="text-[10px] text-slate-400 block truncate">Northern Return Haul</span>
                 </button>
               </div>
@@ -2339,7 +2339,7 @@ export default function TransporterDashboard() {
             <div className="relative flex py-1 items-center">
               <div className="flex-grow border-t border-[#1E3D60]"></div>
               <span className="flex-shrink mx-3 text-slate-500 text-xs uppercase tracking-wider">
-                Or With Credentials
+                Or With Email & Password
               </span>
               <div className="flex-grow border-t border-[#1E3D60]"></div>
             </div>
@@ -2362,7 +2362,7 @@ export default function TransporterDashboard() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1">
-                      Fleet / Transport Company Name *
+                      Business / Transport Company Name *
                     </label>
                     <input
                       type="text"
@@ -2388,13 +2388,13 @@ export default function TransporterDashboard() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1">
-                      Primary Operating Corridor
+                      Main Route
                     </label>
                     <input
                       type="text"
                       value={registerCorridor}
                       onChange={(e) => setRegisterCorridor(e.target.value)}
-                      placeholder="Gorakhpur to Lucknow (NH27 Corridor)"
+                      placeholder="Gorakhpur to Lucknow (NH27 Route)"
                       className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
                     />
                   </div>
@@ -2410,7 +2410,7 @@ export default function TransporterDashboard() {
                   required
                   value={authEmail}
                   onChange={(e) => setAuthEmail(e.target.value)}
-                  placeholder="transporter@example.com"
+                  placeholder="partner@example.com"
                   className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
                 />
               </div>
@@ -2433,7 +2433,7 @@ export default function TransporterDashboard() {
                 type="submit"
                 className="w-full py-2.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold text-xs rounded-xl shadow transition-colors mt-2"
               >
-                {authMode === 'login' ? 'Sign In as Transporter' : 'Register Transporter Account'}
+                {authMode === 'login' ? 'Sign In as Transport Partner' : 'Create Transport Partner Account'}
               </button>
             </form>
 
@@ -2444,7 +2444,7 @@ export default function TransporterDashboard() {
                 className="text-xs text-amber-400 hover:underline"
               >
                 {authMode === 'login'
-                  ? "Don't have an account? Register new fleet"
+                  ? "Don't have an account? Register as Transport Partner"
                   : 'Already registered? Sign in'}
               </button>
             </div>
@@ -2473,9 +2473,9 @@ export default function TransporterDashboard() {
                 Booking #{activeBookingModal.booking.bookingNumber}
               </span>
               <h2 className="text-lg font-extrabold text-white mt-1.5">
-                {activeBookingModal.type === 'pickup' && 'Record Cargo Pickup'}
-                {activeBookingModal.type === 'transit' && 'Update Live Transit Progress'}
-                {activeBookingModal.type === 'delivery' && 'Report Delivery to Destination'}
+                {activeBookingModal.type === 'pickup' && 'Confirm Goods Pickup'}
+                {activeBookingModal.type === 'transit' && 'Update Trip Progress'}
+                {activeBookingModal.type === 'delivery' && 'Confirm Delivery'}
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
                 {activeBookingModal.booking.origin} → {activeBookingModal.booking.destination}
@@ -2492,7 +2492,7 @@ export default function TransporterDashboard() {
               >
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Pickup Notes (Loading gate, bag count, driver confirmation)
+                    Pickup Notes (Optional)
                   </label>
                   <textarea
                     rows="3"
@@ -2531,7 +2531,7 @@ export default function TransporterDashboard() {
               >
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Current Location / Checkpoint *
+                    Current Location *
                   </label>
                   <input
                     type="text"
@@ -2544,13 +2544,13 @@ export default function TransporterDashboard() {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Transit Checkpoint Notes
+                    Trip Notes (Optional)
                   </label>
                   <textarea
                     rows="2"
                     value={modalInputNotes}
                     onChange={(e) => setModalInputNotes(e.target.value)}
-                    placeholder="e.g. Traffic clear, vehicle speed 55 km/h, estimated arrival 4 PM."
+                    placeholder="e.g. Traffic clear, estimated arrival 4 PM."
                     className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
                   />
                 </div>
@@ -2567,7 +2567,7 @@ export default function TransporterDashboard() {
                     disabled={isUpdatingBooking}
                     className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50"
                   >
-                    {isUpdatingBooking ? 'Updating...' : 'Update Transit'}
+                    {isUpdatingBooking ? 'Updating...' : 'Update Location'}
                   </button>
                 </div>
               </form>
@@ -2589,32 +2589,32 @@ export default function TransporterDashboard() {
               >
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Recipient Name / Warehouse In-charge *
+                    Person Receiving the Goods *
                   </label>
                   <input
                     type="text"
                     required
                     value={modalInputRecipient}
                     onChange={(e) => setModalInputRecipient(e.target.value)}
-                    placeholder="e.g. Rameshwar Lal Warehouse Manager"
+                    placeholder="e.g. Rameshwar Lal (Warehouse Manager)"
                     className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Unloading & Delivery Notes
+                    Delivery Notes (Optional)
                   </label>
                   <textarea
                     rows="2"
                     value={modalInputNotes}
                     onChange={(e) => setModalInputNotes(e.target.value)}
-                    placeholder="e.g. Unloaded at Platform 3. All pallets intact."
+                    placeholder="e.g. Unloaded at Platform 3. All items intact."
                     className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Proof of Delivery (POD Reference / Bilty stamped copy)
+                    Delivery Receipt or Bilty Number (Optional)
                   </label>
                   <input
                     type="text"
@@ -2626,7 +2626,7 @@ export default function TransporterDashboard() {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-200 mb-1">
-                    Upload Signed LR / Challan / Delivery Photograph (Optional)
+                    Upload Delivery Photo or Signed Receipt (Optional)
                   </label>
                   <input
                     type="file"
@@ -2656,7 +2656,7 @@ export default function TransporterDashboard() {
                     disabled={isUpdatingBooking}
                     className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50"
                   >
-                    {isUpdatingBooking ? 'Reporting...' : modalDeliveryFile ? 'Submit Proof & Report' : 'Report Delivery'}
+                    {isUpdatingBooking ? 'Reporting...' : modalDeliveryFile ? 'Submit Receipt & Confirm' : 'Confirm Delivery'}
                   </button>
                 </div>
               </form>
@@ -2665,7 +2665,7 @@ export default function TransporterDashboard() {
         </div>
       )}
 
-      {/* Notifications Drawer (Phase 6) */}
+      {/* Notifications Drawer */}
       <NotificationDrawer
         isOpen={isNotificationDrawerOpen}
         onClose={() => {
@@ -2679,7 +2679,7 @@ export default function TransporterDashboard() {
 }
 
 // -------------------------------------------------------------
-// SUB-COMPONENT: Transporter Confirmed Bookings Section (Phase 5)
+// SUB-COMPONENT: Transporter Confirmed Bookings Section
 // -------------------------------------------------------------
 function TransporterBookingsSection({
   bookings,
@@ -2694,11 +2694,11 @@ function TransporterBookingsSection({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6">
         <div>
           <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-            Phase 5 Confirmed Loads
+            Current Bookings
           </span>
-          <h2 className="text-xl font-extrabold text-white mt-1">Confirmed Transporter Bookings</h2>
+          <h2 className="text-xl font-extrabold text-white mt-1">Current & Past Bookings</h2>
           <p className="text-xs text-slate-400 mt-0.5">
-            View assigned freight, direct shipper contact details, update pickup & transit progress, and submit delivery confirmation.
+            View assigned loads, contact the goods owner, update trip progress, and submit delivery receipt.
           </p>
         </div>
         <button
@@ -2714,7 +2714,7 @@ function TransporterBookingsSection({
       {isLoading ? (
         <div className="py-16 text-center text-slate-400 text-sm">
           <Truck className="w-8 h-8 animate-pulse text-[#F59E0B] mx-auto mb-3" />
-          Loading confirmed booking records...
+          Loading bookings...
         </div>
       ) : bookings.length === 0 ? (
         <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-12 text-center space-y-4">
@@ -2723,7 +2723,7 @@ function TransporterBookingsSection({
           </div>
           <h3 className="text-lg font-bold text-white">No Confirmed Bookings Yet</h3>
           <p className="text-sm text-slate-400 max-w-md mx-auto">
-            When a shipper reviews and accepts your load quote, your assigned freight booking will appear here with authorized shipper contact details.
+            When a goods owner accepts your price offer, your booking will appear here with their contact details.
           </p>
         </div>
       ) : (
@@ -2763,17 +2763,17 @@ function TransporterBookingsSection({
                     <div className="flex items-start space-x-2">
                       <div className="w-2.5 h-2.5 rounded-full bg-[#38BDF8] mt-1 shrink-0" />
                       <div>
-                        <p className="text-[10px] uppercase font-bold text-slate-400">Origin</p>
+                        <p className="text-[10px] uppercase font-bold text-slate-400">Pickup Location</p>
                         <p className="text-sm font-bold text-white">{b.origin}</p>
                       </div>
                     </div>
                     <div className="ml-1 pl-3 border-l-2 border-dashed border-[#1E3D60] py-0.5 text-[11px] text-slate-400">
-                      Corridor Transit
+                      On the Way
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] mt-1 shrink-0" />
                       <div>
-                        <p className="text-[10px] uppercase font-bold text-slate-400">Destination</p>
+                        <p className="text-[10px] uppercase font-bold text-slate-400">Delivery Location</p>
                         <p className="text-sm font-bold text-white">{b.destination}</p>
                       </div>
                     </div>
@@ -2782,17 +2782,17 @@ function TransporterBookingsSection({
                   {/* Commercials and Shipper Snapshot */}
                   <div className="grid grid-cols-2 gap-3 mt-4 p-3 bg-[#091827] rounded-xl border border-[#1E3D60] text-xs">
                     <div>
-                      <p className="text-[10px] text-slate-400 uppercase font-bold">Agreed Freight</p>
+                      <p className="text-[10px] text-slate-400 uppercase font-bold">Agreed Price</p>
                       <p className="text-sm font-extrabold text-[#F59E0B]">{b.agreedPriceFormatted}</p>
                     </div>
                     <div>
-                      <p className="text-[10px] text-slate-400 uppercase font-bold">Cargo & Vehicle</p>
+                      <p className="text-[10px] text-slate-400 uppercase font-bold">Goods & Vehicle</p>
                       <p className="text-xs font-semibold text-white truncate">
                         {b.weight} {b.weightUnit} • {b.vehicleType}
                       </p>
                     </div>
                     <div className="col-span-2 pt-2 border-t border-[#1E3D60]">
-                      <p className="text-[10px] text-slate-400 uppercase font-bold">Direct Shipper Contact</p>
+                      <p className="text-[10px] text-slate-400 uppercase font-bold">Goods Owner Contact</p>
                       <div className="flex items-center justify-between mt-0.5">
                         <div>
                           <span className="text-xs font-bold text-white block">{b.shipper?.businessName}</span>
@@ -2809,7 +2809,7 @@ function TransporterBookingsSection({
 
                   {/* Live Tracking Progress */}
                   <div className="mt-3 p-3 bg-[#11253B] rounded-xl border border-[#1E3D60] text-xs space-y-1.5 text-slate-300">
-                    <p className="text-[10px] uppercase font-bold text-[#38BDF8]">Transit Tracking</p>
+                    <p className="text-[10px] uppercase font-bold text-[#38BDF8]">Trip Progress</p>
                     {b.actualPickupAt && (
                       <p className="text-[11px]">
                         ✓ Picked up: {new Date(b.actualPickupAt).toLocaleString('en-IN')}
@@ -2817,7 +2817,7 @@ function TransporterBookingsSection({
                     )}
                     {b.transitLocation && (
                       <p className="text-[11px] text-amber-300">
-                        📍 Live Checkpoint: {b.transitLocation} {b.transitNotes ? `— "${b.transitNotes}"` : ''}
+                        📍 Current Location: {b.transitLocation} {b.transitNotes ? `— "${b.transitNotes}"` : ''}
                       </p>
                     )}
                     {b.deliveredAt && (
@@ -2828,7 +2828,7 @@ function TransporterBookingsSection({
                     )}
                     {isCompleted && (
                       <p className="text-[11px] text-emerald-400 font-semibold">
-                        ✓ Trip Completed & Verified by Shipper
+                        ✓ Delivery Confirmed by Goods Owner
                       </p>
                     )}
                   </div>
@@ -2842,7 +2842,7 @@ function TransporterBookingsSection({
                       onClick={() => onOpenPickup(b)}
                       className="w-full py-2 text-xs font-extrabold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl shadow-lg transition-all"
                     >
-                      Record Cargo Pickup →
+                      Confirm Goods Pickup →
                     </button>
                   )}
 
@@ -2853,28 +2853,28 @@ function TransporterBookingsSection({
                         onClick={() => onOpenTransit(b)}
                         className="py-2 px-3 text-xs font-bold text-slate-200 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] rounded-xl transition-all"
                       >
-                        📍 Update Transit
+                        📍 Update Location
                       </button>
                       <button
                         type="button"
                         onClick={() => onOpenDelivery(b)}
                         className="py-2 px-3 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all"
                       >
-                        ✓ Report Delivery
+                        ✓ Confirm Delivery
                       </button>
                     </div>
                   )}
 
                   {isDelivered && (
                     <span className="text-xs text-teal-300 font-semibold">
-                      Delivery reported. Awaiting shipper confirmation receipt.
+                      Delivery reported. Waiting for goods owner to confirm receipt.
                     </span>
                   )}
 
                   {isCompleted && (
                     <span className="text-xs text-emerald-400 font-bold flex items-center">
                       <CheckCircle2 className="w-4 h-4 mr-1" />
-                      Trip Completed & Closed
+                      Delivery Completed
                     </span>
                   )}
                 </div>

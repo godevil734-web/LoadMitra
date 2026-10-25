@@ -60,27 +60,27 @@ const VEHICLE_OPTIONS = [
 
 const STATUS_CONFIG = {
   OPEN: {
-    label: 'Open for Booking',
+    label: 'Waiting for Price Offers',
     badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
     dot: 'bg-emerald-400',
   },
   IN_NEGOTIATION: {
-    label: 'In Negotiation',
+    label: 'Reviewing Offers',
     badge: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
     dot: 'bg-amber-400',
   },
   ASSIGNED: {
-    label: 'Truck Assigned',
+    label: 'Vehicle Assigned',
     badge: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
     dot: 'bg-sky-400',
   },
   IN_TRANSIT: {
-    label: 'In Transit',
+    label: 'On the Way',
     badge: 'bg-indigo-500/15 text-indigo-400 border-indigo-500/30',
     dot: 'bg-indigo-400',
   },
   COMPLETED: {
-    label: 'Delivered',
+    label: 'Delivery Completed',
     badge: 'bg-slate-500/15 text-slate-300 border-slate-500/30',
     dot: 'bg-slate-400',
   },
@@ -93,27 +93,27 @@ const STATUS_CONFIG = {
 
 const BOOKING_STATUS_CONFIG = {
   CONFIRMED: {
-    label: 'Assigned & Confirmed',
+    label: 'Booking Confirmed',
     badge: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
     dot: 'bg-sky-400',
   },
   PICKED_UP: {
-    label: 'Cargo Picked Up',
+    label: 'Goods Picked Up',
     badge: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
     dot: 'bg-amber-400',
   },
   IN_TRANSIT: {
-    label: 'In Transit',
+    label: 'On the Way',
     badge: 'bg-indigo-500/15 text-indigo-400 border-indigo-500/30',
     dot: 'bg-indigo-400',
   },
   DELIVERED: {
-    label: 'Delivered (Awaiting Confirmation)',
+    label: 'Delivered (Waiting for Confirmation)',
     badge: 'bg-teal-500/15 text-teal-300 border-teal-500/30',
     dot: 'bg-teal-400',
   },
   COMPLETED: {
-    label: 'Delivered & Closed',
+    label: 'Delivery Completed',
     badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
     dot: 'bg-emerald-400',
   },
@@ -392,7 +392,7 @@ export default function FreightMarketplace() {
       });
       const data = await res.json();
       if (res.ok) {
-        showToast('success', 'Delivery dispute recorded. RouteWise operations team will mediate.');
+        showToast('success', 'Delivery dispute recorded. LoadMitra operations team will mediate.');
         setDisputeBookingModal(null);
         fetchBookings();
         fetchUnreadCount();
@@ -543,15 +543,15 @@ export default function FreightMarketplace() {
               <div className="hidden sm:flex items-center space-x-2 pl-4 border-l border-[#1E3D60]">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
-                  Live Freight Marketplace
+                  Available Loads
                 </span>
                 <span className="text-[10px] text-slate-400 bg-[#0F2A44] px-2 py-0.5 rounded border border-[#1E3D60]">
-                  Phase 3
+                  Live
                 </span>
               </div>
             </div>
 
-            {/* Shipper Session & Action Center */}
+            {/* Goods Owner Session & Action Center */}
             <div className="flex items-center space-x-3">
               {authToken && (
                 <button
@@ -577,23 +577,23 @@ export default function FreightMarketplace() {
                       {currentShipper.businessName}
                     </span>
                     <span className="text-[11px] text-[#F59E0B]">
-                      {currentShipper.name} (Shipper)
+                      {currentShipper.name} (Goods Owner)
                     </span>
                   </div>
 
-                  {/* Switch Demo Shipper Dropdown */}
+                  {/* Switch Demo Account Dropdown */}
                   <div className="relative group">
                     <button
                       type="button"
                       className="px-2.5 py-1.5 text-xs bg-[#0F2A44] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg text-slate-300 flex items-center space-x-1.5 transition-colors"
-                      title="Switch demo shipper account"
+                      title="Switch demo account"
                     >
                       <User className="w-3.5 h-3.5 text-[#F59E0B]" />
                       <span className="hidden sm:inline">Switch Account</span>
                     </button>
                     <div className="absolute right-0 mt-1 w-56 bg-[#0F2A44] border border-[#1E3D60] rounded-xl shadow-2xl p-1.5 hidden group-hover:block z-50">
                       <p className="text-[10px] uppercase font-bold text-slate-400 px-2 py-1">
-                        Test Role Authorization:
+                        Select Demo Profile:
                       </p>
                       <button
                         type="button"
@@ -604,7 +604,7 @@ export default function FreightMarketplace() {
                             : 'text-slate-300 hover:bg-[#152E4A] hover:text-white'
                         }`}
                       >
-                        <span>Purvanchal Agro (Shipper A)</span>
+                        <span>Purvanchal Agro (Goods Owner A)</span>
                         <span className="text-[10px] text-slate-400">shipper@routewise.in</span>
                       </button>
                       <button
@@ -616,7 +616,7 @@ export default function FreightMarketplace() {
                             : 'text-slate-300 hover:bg-[#152E4A] hover:text-white'
                         }`}
                       >
-                        <span>Avadh Steel (Shipper B)</span>
+                        <span>Avadh Steel (Goods Owner B)</span>
                         <span className="text-[10px] text-slate-400">shipper2@routewise.in</span>
                       </button>
                     </div>
@@ -637,7 +637,7 @@ export default function FreightMarketplace() {
                   onClick={() => setIsAuthModalOpen(true)}
                   className="px-3.5 py-1.5 text-xs font-semibold text-slate-200 hover:text-white bg-[#0F2A44] border border-[#1E3D60] rounded-lg transition-colors"
                 >
-                  Shipper Sign In
+                  Goods Owner Sign In
                 </button>
               )}
 
@@ -646,7 +646,7 @@ export default function FreightMarketplace() {
                 className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#0F2A44] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg transition-colors"
               >
                 <Truck className="w-3.5 h-3.5 text-[#F59E0B]" />
-                <span>Transporter Hub</span>
+                <span>Transport Partners</span>
               </Link>
 
               <button
@@ -661,7 +661,7 @@ export default function FreightMarketplace() {
                 className="inline-flex items-center space-x-1.5 px-4 py-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] text-xs sm:text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
               >
                 <Plus className="w-4 h-4 stroke-[3]" />
-                <span>Post Freight</span>
+                <span>Post a Load</span>
               </button>
             </div>
           </div>
@@ -675,13 +675,13 @@ export default function FreightMarketplace() {
             <div>
               <div className="inline-flex items-center space-x-2 bg-[#11253B] border border-amber-500/30 px-3 py-1 rounded-full text-xs font-semibold text-[#F59E0B] mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Verified Direct Freight Demand</span>
+                <span>Verified Load Requests</span>
               </div>
               <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Live Regional Freight Marketplace
+                Available Loads & Requests
               </h1>
               <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-2xl">
-                Direct freight loads posted by verified businesses across Eastern UP and connected return corridors. Real-time capacity matching without intermediary markups.
+                Direct loads posted by businesses across Eastern UP and connected return routes. Connect directly with transport partners without middlemen.
               </p>
             </div>
 
@@ -692,14 +692,14 @@ export default function FreightMarketplace() {
                 <p className="text-xl font-extrabold text-white">{pagination.totalCount}</p>
               </div>
               <div className="px-3 border-r border-[#1E3D60]">
-                <p className="text-[10px] uppercase font-bold text-slate-400">Primary Corridor</p>
-                <p className="text-xs font-bold text-[#F59E0B]">NH27 (Gorakhpur - LKO)</p>
+                <p className="text-[10px] uppercase font-bold text-slate-400">Main Route</p>
+                <p className="text-xs font-bold text-[#F59E0B]">NH27 (Gorakhpur - Lucknow)</p>
               </div>
               <div className="px-3">
-                <p className="text-[10px] uppercase font-bold text-slate-400">Storage Backing</p>
+                <p className="text-[10px] uppercase font-bold text-slate-400">System Status</p>
                 <p className="text-xs font-bold text-emerald-400 flex items-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5" />
-                  MongoDB Atlas
+                  Active & Online
                 </p>
               </div>
             </div>
@@ -720,7 +720,7 @@ export default function FreightMarketplace() {
               }`}
             >
               <Truck className="w-4 h-4" />
-              <span>Explore Marketplace</span>
+              <span>All Available Loads</span>
             </button>
             <button
               type="button"
@@ -740,10 +740,10 @@ export default function FreightMarketplace() {
               }`}
             >
               <Building2 className="w-4 h-4" />
-              <span>My Freight Postings</span>
+              <span>My Posted Loads</span>
               {currentShipper && (
                 <span className="text-[10px] bg-[#152E4A] px-2 py-0.5 rounded-full text-amber-300 border border-[#1E3D60]">
-                  Shipper Dashboard
+                  My Account
                 </span>
               )}
             </button>
@@ -764,7 +764,7 @@ export default function FreightMarketplace() {
               }`}
             >
               <CheckCircle2 className="w-4 h-4" />
-              <span>Confirmed Bookings</span>
+              <span>My Bookings</span>
               {currentShipper && bookings.length > 0 && (
                 <span className="text-[10px] bg-amber-500/20 px-2 py-0.5 rounded-full text-[#F59E0B] border border-amber-500/30">
                   {bookings.length}
@@ -826,31 +826,31 @@ export default function FreightMarketplace() {
               <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search commodity, business..."
+                placeholder="Search goods, business..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full pl-9 pr-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F59E0B]"
               />
             </div>
 
-            {/* Origin Corridor */}
+            {/* Origin */}
             <div className="relative">
               <MapPin className="w-4 h-4 absolute left-3 top-3 text-[#38BDF8]" />
               <input
                 type="text"
-                placeholder="Origin (e.g. Gorakhpur)"
+                placeholder="Pickup city (e.g. Gorakhpur)"
                 value={originFilter}
                 onChange={(e) => setOriginFilter(e.target.value)}
                 className="w-full pl-9 pr-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F59E0B]"
               />
             </div>
 
-            {/* Destination Corridor */}
+            {/* Destination */}
             <div className="relative">
               <MapPin className="w-4 h-4 absolute left-3 top-3 text-[#F59E0B]" />
               <input
                 type="text"
-                placeholder="Destination (e.g. Lucknow)"
+                placeholder="Delivery city (e.g. Lucknow)"
                 value={destFilter}
                 onChange={(e) => setDestFilter(e.target.value)}
                 className="w-full pl-9 pr-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F59E0B]"
@@ -864,7 +864,7 @@ export default function FreightMarketplace() {
                 onChange={(e) => setCargoFilter(e.target.value)}
                 className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
               >
-                <option value="ALL">All Cargo Categories</option>
+                <option value="ALL">All Types of Goods</option>
                 {CARGO_OPTIONS.map((c) => (
                   <option key={c} value={c}>
                     {c}
@@ -881,10 +881,10 @@ export default function FreightMarketplace() {
                 className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
               >
                 {activeTab === 'my-listings' && <option value="ALL">All Statuses</option>}
-                <option value="OPEN">Open Loads</option>
-                <option value="IN_NEGOTIATION">In Negotiation</option>
-                <option value="ASSIGNED">Truck Assigned</option>
-                <option value="COMPLETED">Delivered</option>
+                <option value="OPEN">Waiting for Price Offers</option>
+                <option value="IN_NEGOTIATION">Reviewing Offers</option>
+                <option value="ASSIGNED">Vehicle Assigned</option>
+                <option value="COMPLETED">Delivery Completed</option>
                 <option value="CANCELLED">Cancelled</option>
               </select>
               <button
@@ -903,9 +903,9 @@ export default function FreightMarketplace() {
         {activeTab === 'my-listings' && !currentShipper && (
           <div className="bg-[#11253B] border border-amber-500/40 rounded-2xl p-8 text-center max-w-xl mx-auto my-12">
             <Building2 className="w-12 h-12 text-[#F59E0B] mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white">Shipper Authentication Required</h3>
+            <h3 className="text-xl font-bold text-white">Goods Owner Sign In Required</h3>
             <p className="mt-2 text-sm text-slate-300">
-              Sign in with your verified shipper account to create, manage, and modify your private freight postings.
+              Sign in with your goods owner account to post, manage, and track your loads.
             </p>
             <div className="mt-6 flex justify-center space-x-3">
               <button
@@ -913,14 +913,14 @@ export default function FreightMarketplace() {
                 onClick={() => loginDemoShipper(1)}
                 className="px-4 py-2 bg-[#F59E0B] text-[#091827] font-bold text-xs rounded-xl shadow"
               >
-                Sign In as Demo Shipper A
+                Sign In as Demo Goods Owner A
               </button>
               <button
                 type="button"
                 onClick={() => loginDemoShipper(2)}
                 className="px-4 py-2 bg-[#152E4A] border border-[#1E3D60] text-slate-200 font-bold text-xs rounded-xl"
               >
-                Sign In as Demo Shipper B
+                Sign In as Demo Goods Owner B
               </button>
             </div>
           </div>
@@ -1092,7 +1092,7 @@ export default function FreightMarketplace() {
                   <div className="pt-3 border-t border-[#1E3D60]/60">
                     <div className="flex items-center justify-between mb-3">
                       <div>
-                        <p className="text-[10px] uppercase font-bold text-slate-400">Offered Rate</p>
+                        <p className="text-[10px] uppercase font-bold text-slate-400">Target Price</p>
                         <p className="text-lg font-extrabold text-white">{item.offeredPriceFormatted}</p>
                       </div>
                       <span className="text-[11px] font-semibold text-slate-400 bg-[#091827] px-2 py-0.5 rounded border border-[#1E3D60]">
@@ -1119,9 +1119,9 @@ export default function FreightMarketplace() {
                             type="button"
                             onClick={() => openBidsModal(item)}
                             className="px-2.5 py-1.5 text-xs font-bold text-amber-300 hover:text-white bg-[#152E4A] hover:bg-amber-950/40 border border-amber-500/30 rounded-xl transition-colors"
-                            title="Review Transporter Quotes & Bids"
+                            title="Review Price Offers"
                           >
-                            Bids
+                            Offers
                           </button>
                           <button
                             type="button"
@@ -1130,14 +1130,14 @@ export default function FreightMarketplace() {
                               setIsEditModalOpen(true);
                             }}
                             className="p-2 text-slate-300 hover:text-[#F59E0B] bg-[#152E4A] hover:bg-[#1E3D60] border border-[#1E3D60] rounded-xl transition-colors"
-                            title="Edit Freight Listing"
+                            title="Edit Load"
                           >
                             <Edit3 className="w-3.5 h-3.5" />
                           </button>
                           <button
                             type="button"
                             onClick={async () => {
-                              if (confirm('Are you sure you want to delete this freight listing?')) {
+                              if (confirm('Are you sure you want to delete this load?')) {
                                 try {
                                   const res = await fetch(`/api/listings/${item.id}`, {
                                     method: 'DELETE',
@@ -1145,7 +1145,7 @@ export default function FreightMarketplace() {
                                   });
                                   const d = await res.json();
                                   if (res.ok) {
-                                    showToast('success', 'Listing deleted');
+                                    showToast('success', 'Load removed successfully');
                                     fetchListings();
                                   } else {
                                     showToast('error', d.message || 'Delete failed');
@@ -1156,7 +1156,7 @@ export default function FreightMarketplace() {
                               }
                             }}
                             className="p-2 text-slate-300 hover:text-rose-400 bg-[#152E4A] hover:bg-[#1E3D60] border border-[#1E3D60] rounded-xl transition-colors"
-                            title="Delete Freight Listing"
+                            title="Delete Load"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -1172,7 +1172,7 @@ export default function FreightMarketplace() {
                           }}
                           className="px-3 py-2 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all"
                         >
-                          Book Load
+                          Send Price Offer
                         </button>
                       )}
                     </div>
@@ -1336,23 +1336,23 @@ export default function FreightMarketplace() {
                 Booking #{disputeBookingModal.bookingNumber}
               </span>
               <h2 className="text-lg font-extrabold text-white mt-1.5">
-                Report Delivery Issue / Open Dispute
+                Report a Problem with Delivery
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                If the cargo was damaged, short-delivered, or proof is invalid, state the specific reason. RouteWise operations will mediate.
+                If goods were damaged, items were missing, or the delivery receipt is incorrect, please describe what happened. Our team will review and help.
               </p>
             </div>
             <form onSubmit={handleSubmitDispute} className="space-y-3">
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1">
-                  Dispute Reason / Issue Description *
+                  What went wrong? *
                 </label>
                 <textarea
                   rows="3"
                   required
                   value={disputeReasonInput}
                   onChange={(e) => setDisputeReasonInput(e.target.value)}
-                  placeholder="e.g. 5 bags damaged due to water ingress; signed receiver name does not match warehouse gate staff."
+                  placeholder="e.g. 5 bags were damaged or delivery receipt does not match"
                   className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-rose-400"
                 />
               </div>
@@ -1369,7 +1369,7 @@ export default function FreightMarketplace() {
                   disabled={isSubmittingDispute}
                   className="px-5 py-2 text-xs font-bold bg-rose-600 hover:bg-rose-500 text-white rounded-xl shadow disabled:opacity-50"
                 >
-                  {isSubmittingDispute ? 'Submitting...' : 'Submit Dispute'}
+                  {isSubmittingDispute ? 'Submitting...' : 'Send Problem Report'}
                 </button>
               </div>
             </form>
@@ -1451,9 +1451,9 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
             <Plus className="w-6 h-6" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">Post New Freight Demand</h2>
+            <h2 className="text-xl font-bold text-white">Post a Load</h2>
             <p className="text-xs text-slate-400">
-              Publish directly to verified transporters as{' '}
+              Make your load visible to transport partners as{' '}
               <strong className="text-white">{currentShipper?.businessName}</strong>
             </p>
           </div>
@@ -1464,12 +1464,12 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-slate-300 font-semibold mb-1">
-                Origin City / Logistics Hub *
+                Pickup Location *
               </label>
               <input
                 type="text"
                 required
-                placeholder="e.g. Gorakhpur Wholesale Grain Mandi, UP"
+                placeholder="e.g. Gorakhpur Mandi, UP"
                 value={formData.origin}
                 onChange={(e) => setFormData({ ...formData, origin: e.target.value })}
                 className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
@@ -1479,7 +1479,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
 
             <div>
               <label className="block text-slate-300 font-semibold mb-1">
-                Destination City / Hub *
+                Delivery Location *
               </label>
               <input
                 type="text"
@@ -1498,7 +1498,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
           {/* Cargo Category & Description */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Cargo Category *</label>
+              <label className="block text-slate-300 font-semibold mb-1">Type of Goods *</label>
               <select
                 value={formData.cargoCategory}
                 onChange={(e) => setFormData({ ...formData, cargoCategory: e.target.value })}
@@ -1514,7 +1514,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
 
             <div>
               <label className="block text-slate-300 font-semibold mb-1">
-                Weight / Capacity *
+                Total Weight *
               </label>
               <div className="flex space-x-2">
                 <input
@@ -1541,7 +1541,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
           </div>
 
           <div>
-            <label className="block text-slate-300 font-semibold mb-1">Cargo Details / Commodity</label>
+            <label className="block text-slate-300 font-semibold mb-1">Goods Description</label>
             <input
               type="text"
               placeholder="e.g. 200 bags of processed grain, palletized"
@@ -1554,7 +1554,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
           {/* Pricing & Pickup Date */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Offered Price (INR) *</label>
+              <label className="block text-slate-300 font-semibold mb-1">Your Target Price (₹) *</label>
               <div className="flex space-x-2">
                 <input
                   type="number"
@@ -1597,7 +1597,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
           {/* Vehicle Requirements */}
           <div>
             <label className="block text-slate-300 font-semibold mb-1">
-              Vehicle Body Requirement
+              Preferred Vehicle Type
             </label>
             <select
               value={formData.vehicleRequirements[0] || VEHICLE_OPTIONS[0]}
@@ -1612,14 +1612,14 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
             </select>
           </div>
 
-          {/* Dock Notes */}
+          {/* Notes */}
           <div>
             <label className="block text-slate-300 font-semibold mb-1">
-              Loading Dock / Dispatch Notes
+              Pickup or Delivery Notes
             </label>
             <textarea
               rows={2}
-              placeholder="Forklift loading available, dock operating hours 8 AM - 6 PM..."
+              placeholder="e.g. Loading help available, pickup between 9 AM and 6 PM..."
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
               className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
@@ -1639,7 +1639,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
               disabled={isSubmitting}
               className="px-6 py-2.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold rounded-xl shadow-lg transition-all disabled:opacity-50"
             >
-              {isSubmitting ? 'Publishing...' : 'Publish to Marketplace'}
+              {isSubmitting ? 'Posting...' : 'Post Load'}
             </button>
           </div>
         </form>
@@ -1688,12 +1688,12 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
 
       const data = await res.json();
       if (res.ok) {
-        onSuccess('Freight listing updated successfully');
+        onSuccess('Load updated successfully');
       } else {
         setErrorMsg(data.message || 'Update failed');
       }
     } catch {
-      setErrorMsg('Network error while updating listing');
+      setErrorMsg('Network error while updating load');
     } finally {
       setIsSubmitting(false);
     }
@@ -1710,9 +1710,9 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-xl font-bold text-white mb-2">Edit Freight Listing</h2>
+        <h2 className="text-xl font-bold text-white mb-2">Edit Load</h2>
         <p className="text-xs text-slate-400 mb-6">
-          Modify route, offered price, and commodity specifications.
+          Update route, target price, and goods details.
         </p>
 
         {errorMsg && (
@@ -1724,7 +1724,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
         <form onSubmit={handleUpdate} className="space-y-4 text-xs">
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Origin</label>
+              <label className="block text-slate-300 font-semibold mb-1">Pickup Location</label>
               <input
                 type="text"
                 required
@@ -1734,7 +1734,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
               />
             </div>
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Destination</label>
+              <label className="block text-slate-300 font-semibold mb-1">Delivery Location</label>
               <input
                 type="text"
                 required
@@ -1747,7 +1747,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Offered Price (INR)</label>
+              <label className="block text-slate-300 font-semibold mb-1">Your Target Price (₹)</label>
               <input
                 type="number"
                 required
@@ -1757,7 +1757,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
               />
             </div>
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Price Structure</label>
+              <label className="block text-slate-300 font-semibold mb-1">Price Type</label>
               <select
                 value={formData.priceType}
                 onChange={(e) => setFormData({ ...formData, priceType: e.target.value })}
@@ -1771,7 +1771,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
           </div>
 
           <div>
-            <label className="block text-slate-300 font-semibold mb-1">Cargo Description</label>
+            <label className="block text-slate-300 font-semibold mb-1">Goods Description</label>
             <input
               type="text"
               value={formData.cargoDescription}
@@ -1781,7 +1781,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
           </div>
 
           <div>
-            <label className="block text-slate-300 font-semibold mb-1">Special Notes</label>
+            <label className="block text-slate-300 font-semibold mb-1">Pickup or Delivery Notes</label>
             <textarea
               rows={2}
               value={formData.notes}
@@ -1846,17 +1846,17 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
           <div className="flex items-start space-x-3">
             <div className="w-3 h-3 rounded-full bg-[#38BDF8] mt-1 shrink-0" />
             <div>
-              <p className="text-[10px] uppercase font-bold text-slate-400">Dispatch Location</p>
+              <p className="text-[10px] uppercase font-bold text-slate-400">Pickup Location</p>
               <p className="text-sm font-bold text-white">{listing.origin}</p>
             </div>
           </div>
           <div className="ml-1 pl-4 border-l-2 border-dashed border-[#1E3D60] py-1 text-xs text-slate-400">
-            Regional Freight Corridor
+            Direct Route
           </div>
           <div className="flex items-start space-x-3">
             <div className="w-3 h-3 rounded-full bg-[#F59E0B] mt-1 shrink-0" />
             <div>
-              <p className="text-[10px] uppercase font-bold text-slate-400">Delivery Destination</p>
+              <p className="text-[10px] uppercase font-bold text-slate-400">Delivery Location</p>
               <p className="text-sm font-bold text-white">{listing.destination}</p>
             </div>
           </div>
@@ -1865,22 +1865,22 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
         {/* Specs Table */}
         <div className="grid grid-cols-2 gap-3 mb-6 text-xs">
           <div className="bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
-            <p className="text-slate-400 text-[11px]">Commodity</p>
+            <p className="text-slate-400 text-[11px]">Type of Goods</p>
             <p className="font-bold text-white mt-0.5">{listing.cargoCategory}</p>
           </div>
           <div className="bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
-            <p className="text-slate-400 text-[11px]">Weight / Load</p>
+            <p className="text-slate-400 text-[11px]">Total Weight</p>
             <p className="font-bold text-[#F59E0B] mt-0.5">{listing.weightDisplay}</p>
           </div>
           <div className="bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
-            <p className="text-slate-400 text-[11px]">Offered Price</p>
+            <p className="text-slate-400 text-[11px]">Target Price</p>
             <p className="font-bold text-white mt-0.5">
               {listing.offeredPriceFormatted}{' '}
               <span className="text-[10px] text-slate-400">({listing.priceType})</span>
             </p>
           </div>
           <div className="bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
-            <p className="text-slate-400 text-[11px]">Pickup Window</p>
+            <p className="text-slate-400 text-[11px]">Pickup Date</p>
             <p className="font-bold text-white mt-0.5">
               {new Date(listing.pickupDate).toLocaleDateString('en-IN', {
                 dateStyle: 'medium',
@@ -1892,7 +1892,7 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
         {/* Vehicle Requirements */}
         {listing.vehicleRequirements && listing.vehicleRequirements.length > 0 && (
           <div className="mb-6">
-            <p className="text-xs font-semibold text-slate-400 mb-2">Vehicle Specifications</p>
+            <p className="text-xs font-semibold text-slate-400 mb-2">Preferred Vehicle</p>
             <div className="flex flex-wrap gap-2">
               {listing.vehicleRequirements.map((v) => (
                 <span
@@ -1906,15 +1906,15 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
           </div>
         )}
 
-        {/* Loading Dock Notes */}
+        {/* Notes */}
         {listing.notes && (
           <div className="bg-[#11253B] border border-[#1E3D60] rounded-xl p-3 mb-6 text-xs text-slate-300">
-            <span className="font-bold text-amber-300 mr-1">Instructions:</span>
+            <span className="font-bold text-amber-300 mr-1">Notes:</span>
             {listing.notes}
           </div>
         )}
 
-        {/* Shipper Contact Card */}
+        {/* Goods Owner Contact Card */}
         <div className="bg-[#091827] rounded-xl p-4 border border-[#1E3D60] mb-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-xl bg-[#152E4A] flex items-center justify-center text-[#F59E0B] font-bold">
@@ -1929,7 +1929,7 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
             <a
               href={`tel:${listing.contactPhone}`}
               className="p-2.5 bg-[#152E4A] hover:bg-[#1E3D60] text-emerald-400 rounded-xl border border-[#1E3D60]"
-              title="Call Shipper"
+              title="Call Goods Owner"
             >
               <Phone className="w-4 h-4" />
             </a>
@@ -1937,7 +1937,7 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
               <a
                 href={`mailto:${listing.contactEmail}`}
                 className="p-2.5 bg-[#152E4A] hover:bg-[#1E3D60] text-[#38BDF8] rounded-xl border border-[#1E3D60]"
-                title="Email Shipper"
+                title="Email Goods Owner"
               >
                 <Mail className="w-4 h-4" />
               </a>
@@ -2004,15 +2004,15 @@ function ShipperAuthModal({ onClose, onDemoSelect }) {
           <div className="w-12 h-12 rounded-2xl bg-[#152E4A] border border-[#1E3D60] flex items-center justify-center text-[#F59E0B] mx-auto mb-3">
             <Building2 className="w-6 h-6" />
           </div>
-          <h2 className="text-xl font-bold text-white">Shipper Portal Access</h2>
+          <h2 className="text-xl font-bold text-white">Goods Owner Sign In</h2>
           <p className="mt-1 text-xs text-slate-300">
-            Sign in with a verified business profile to create freight demands and manage shipments.
+            Sign in to post loads, manage shipments, and review price offers.
           </p>
         </div>
 
         <div className="space-y-3">
           <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 text-center">
-            Instant Test Sessions:
+            Quick Sign In Options:
           </p>
 
           <button
@@ -2025,7 +2025,7 @@ function ShipperAuthModal({ onClose, onDemoSelect }) {
                 Purvanchal Agro Commodities Ltd.
               </span>
               <span className="text-[10px] bg-amber-500/20 text-[#F59E0B] px-2 py-0.5 rounded font-mono">
-                Shipper A
+                Goods Owner A
               </span>
             </div>
             <p className="text-[11px] text-slate-400 mt-1">
@@ -2043,7 +2043,7 @@ function ShipperAuthModal({ onClose, onDemoSelect }) {
                 Avadh Steel & Hardware Trading
               </span>
               <span className="text-[10px] bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded font-mono">
-                Shipper B
+                Goods Owner B
               </span>
             </div>
             <p className="text-[11px] text-slate-400 mt-1">
@@ -2057,7 +2057,7 @@ function ShipperAuthModal({ onClose, onDemoSelect }) {
             to="/admin"
             className="text-xs font-semibold text-[#F59E0B] hover:text-amber-300 transition-colors"
           >
-            RouteWise Admin Operations Portal &rarr;
+            LoadMitra Admin Operations Portal &rarr;
           </Link>
         </div>
       </div>
@@ -2086,24 +2086,24 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
 
         <div>
           <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30">
-            Shipper Load Management
+            Manage Your Load
           </span>
           <h2 className="text-xl font-extrabold text-white mt-1.5">
-            Review Transporter Quotes & Bids
+            Review Price Offers
           </h2>
           <p className="text-xs text-slate-400 mt-0.5">
-            {listing.route} • {listing.cargoCategory} ({listing.weightDisplay}) • Listed Rate: {listing.offeredPriceFormatted}
+            {listing.route} • {listing.cargoCategory} ({listing.weightDisplay}) • Target Price: {listing.offeredPriceFormatted}
           </p>
         </div>
 
         {isLoading ? (
-          <div className="py-12 text-center text-slate-400 text-sm">Loading quotes from verified transporters...</div>
+          <div className="py-12 text-center text-slate-400 text-sm">Loading price offers from transport partners...</div>
         ) : bids.length === 0 ? (
           <div className="bg-[#091827] border border-[#1E3D60] rounded-2xl p-8 text-center space-y-3">
             <Truck className="w-10 h-10 text-slate-500 mx-auto" />
-            <h4 className="text-sm font-bold text-white">No Quotes Submitted Yet</h4>
+            <h4 className="text-sm font-bold text-white">No Price Offers Yet</h4>
             <p className="text-xs text-slate-400 max-w-sm mx-auto">
-              Transporters browsing the regional corridor will submit bids directly. You will be able to review their quotes and accept bids here.
+              Transport partners browsing this route will send their price offers. You will be able to review them and confirm a booking here.
             </p>
           </div>
         ) : (
@@ -2135,11 +2135,11 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
                         {bid.transporterVerificationStatus === 'APPROVED' ? (
                           <span className="inline-flex items-center text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                             <CheckCircle2 className="w-3 h-3 mr-1" />
-                            Verified Transporter
+                            Verified Transport Partner
                           </span>
                         ) : (
                           <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">
-                            Unverified Transporter
+                            Unverified Transport Partner
                           </span>
                         )}
                         <span className="text-[11px] text-slate-400">
@@ -2163,14 +2163,14 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
                             : 'bg-amber-500/15 text-amber-400 border-amber-500/30'
                         }`}
                       >
-                        {bid.status}
+                        {isPending ? 'Waiting for Review' : isAccepted ? 'Offer Accepted' : isRejected ? 'Offer Declined' : bid.status}
                       </span>
                     </div>
                   </div>
 
                   <div className="bg-[#11253B] rounded-xl p-3 text-xs space-y-1 text-slate-300 border border-[#1E3D60]">
                     <div>
-                      <span className="text-slate-400 font-semibold">Vehicle Quoted: </span>
+                      <span className="text-slate-400 font-semibold">Offered Vehicle: </span>
                       <span>{bid.proposedVehicle || 'Standard Fleet'}</span>
                     </div>
                     {bid.availableFromDate && (
@@ -2194,7 +2194,7 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
                         onClick={() => onReview(bid.id, 'REJECTED')}
                         className="px-3.5 py-1.5 text-xs font-semibold text-rose-300 hover:text-white bg-[#152E4A] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all disabled:opacity-50"
                       >
-                        Decline Quote
+                        Decline Offer
                       </button>
                       <button
                         type="button"
@@ -2202,7 +2202,7 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
                         onClick={() => onReview(bid.id, 'ACCEPTED')}
                         className="px-4 py-1.5 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl shadow transition-all disabled:opacity-50"
                       >
-                        {reviewingBidId === bid.id ? 'Processing...' : 'Accept Bid'}
+                        {reviewingBidId === bid.id ? 'Processing...' : 'Accept & Confirm Booking'}
                       </button>
                     </div>
                   )}
@@ -2245,11 +2245,11 @@ function ShipperBookingsSection({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6">
         <div>
           <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-            Phase 6 Verified Delivery & Trust
+            Verified Delivery & Trust
           </span>
-          <h2 className="text-xl font-extrabold text-white mt-1">Confirmed Shipper Bookings</h2>
+          <h2 className="text-xl font-extrabold text-white mt-1">Current & Past Bookings</h2>
           <p className="text-xs text-slate-400 mt-0.5">
-            Track confirmed loads, inspect uploaded proof-of-delivery documents, confirm receipt, or file mediation disputes.
+            Track your loads, view delivery receipts, confirm deliveries, or report any problems.
           </p>
         </div>
         <button
@@ -2265,14 +2265,14 @@ function ShipperBookingsSection({
       {isLoading ? (
         <div className="py-16 text-center text-slate-400 text-sm">
           <Truck className="w-8 h-8 animate-pulse text-[#F59E0B] mx-auto mb-3" />
-          Loading confirmed booking records from MongoDB Atlas...
+          Loading your booking records...
         </div>
       ) : bookings.length === 0 ? (
         <div className="bg-[#0F2A44]/50 border border-dashed border-[#1E3D60] rounded-3xl p-12 text-center max-w-lg mx-auto my-8">
           <Truck className="w-12 h-12 text-slate-500 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-white">No Active Bookings Yet</h3>
+          <h3 className="text-xl font-bold text-white">No Bookings Yet</h3>
           <p className="mt-2 text-sm text-slate-300">
-            When you accept a transporter quote from your listings, the load is atomically assigned and confirmed here with live lifecycle tracking.
+            When you accept a price offer for your load, your booking will appear here so you can track its progress.
           </p>
         </div>
       ) : (
@@ -2343,7 +2343,7 @@ function ShipperBookingsSection({
                       </p>
                     </div>
                     <div className="col-span-2 pt-2 border-t border-[#1E3D60]">
-                      <p className="text-[10px] text-slate-400 uppercase font-bold">Assigned Transporter</p>
+                      <p className="text-[10px] text-slate-400 uppercase font-bold">Transport Partner</p>
                       <div className="flex items-center justify-between mt-0.5">
                         <span className="text-xs font-bold text-white">{b.transporter?.fleetName}</span>
                         {b.transporter?.phone && (
@@ -2357,7 +2357,7 @@ function ShipperBookingsSection({
 
                   {/* Live Tracking Progress */}
                   <div className="mt-3 p-3 bg-[#11253B] rounded-xl border border-[#1E3D60] text-xs space-y-1.5 text-slate-300">
-                    <p className="text-[10px] uppercase font-bold text-[#38BDF8]">Live Transit Status</p>
+                    <p className="text-[10px] uppercase font-bold text-[#38BDF8]">Transit Status</p>
                     {b.actualPickupAt && (
                       <p className="text-[11px]">
                         ✓ Picked up: {new Date(b.actualPickupAt).toLocaleString('en-IN')}
@@ -2376,7 +2376,7 @@ function ShipperBookingsSection({
                     )}
                     {isCompleted && b.completedAt && (
                       <p className="text-[11px] text-emerald-400 font-semibold">
-                        ✓ Receipt Verified & Closed: {new Date(b.completedAt).toLocaleString('en-IN')}
+                        ✓ Delivery Confirmed: {new Date(b.completedAt).toLocaleString('en-IN')}
                       </p>
                     )}
                     {isCancelled && (
@@ -2392,7 +2392,7 @@ function ShipperBookingsSection({
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] uppercase font-bold text-amber-400 flex items-center">
                           <FileCheck className="w-3.5 h-3.5 mr-1" />
-                          Proof of Delivery (POD)
+                          Delivery Receipt
                         </span>
                         <span
                           className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
@@ -2403,13 +2403,13 @@ function ShipperBookingsSection({
                               : 'bg-teal-500/15 text-teal-300 border-teal-500/30'
                           }`}
                         >
-                          {isDisputed ? 'DISPUTED' : isCompleted ? 'VERIFIED' : evidenceStatus}
+                          {isDisputed ? 'Problem Reported' : isCompleted ? 'Confirmed' : evidenceStatus === 'SUBMITTED' ? 'Receipt Uploaded' : evidenceStatus}
                         </span>
                       </div>
 
                       {b.proofNotes && (
                         <p className="text-[11px] text-slate-300">
-                          <span className="text-slate-400 font-semibold">POD Ref: </span>
+                          <span className="text-slate-400 font-semibold">Receipt Ref: </span>
                           {b.proofNotes}
                         </p>
                       )}
@@ -2422,14 +2422,14 @@ function ShipperBookingsSection({
 
                       {b.deliveryProof?.disputeReason && (
                         <div className="p-2 bg-rose-950/40 border border-rose-500/30 rounded-lg text-rose-300 text-[11px]">
-                          <strong className="block font-bold">Dispute Note:</strong>
+                          <strong className="block font-bold">Reported Problem:</strong>
                           {b.deliveryProof.disputeReason}
                         </div>
                       )}
 
                       {b.deliveryProof?.documents && b.deliveryProof.documents.length > 0 && (
                         <div className="space-y-1.5 pt-1">
-                          <p className="text-[10px] text-slate-400 font-semibold">Attached Evidence Files:</p>
+                          <p className="text-[10px] text-slate-400 font-semibold">Receipt Photos & Documents:</p>
                           {b.deliveryProof.documents.map((doc) => (
                             <button
                               key={doc.id}
@@ -2452,7 +2452,7 @@ function ShipperBookingsSection({
                   )}
                 </div>
 
-                {/* Shipper Actions */}
+                {/* Goods Owner Actions */}
                 <div className="pt-2 border-t border-[#1E3D60] flex items-center justify-between">
                   {isConfirmed && (
                     <button
@@ -2461,7 +2461,7 @@ function ShipperBookingsSection({
                       onClick={() => onCancel(b.id)}
                       className="px-3 py-1.5 text-xs font-semibold text-rose-300 hover:text-white bg-[#152E4A] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all disabled:opacity-50"
                     >
-                      {cancellingBookingId === b.id ? 'Releasing...' : 'Cancel Booking'}
+                      {cancellingBookingId === b.id ? 'Cancelling...' : 'Cancel Booking'}
                     </button>
                   )}
 
@@ -2472,7 +2472,7 @@ function ShipperBookingsSection({
                         onClick={() => onDispute(b)}
                         className="py-2 px-3 text-xs font-semibold text-rose-300 hover:text-white bg-[#152E4A] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all"
                       >
-                        ⚠️ Report Delivery Issue
+                        ⚠️ Report a Problem
                       </button>
                       <button
                         type="button"
@@ -2480,7 +2480,7 @@ function ShipperBookingsSection({
                         onClick={() => onComplete(b.id)}
                         className="py-2 px-3 text-xs font-extrabold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl shadow-lg transition-all disabled:opacity-50"
                       >
-                        {completingBookingId === b.id ? 'Confirming...' : '✓ Confirm Receipt & Close'}
+                        {completingBookingId === b.id ? 'Confirming...' : '✓ Confirm Delivery'}
                       </button>
                     </div>
                   )}
@@ -2488,19 +2488,19 @@ function ShipperBookingsSection({
                   {isCompleted && (
                     <span className="text-xs text-emerald-400 font-bold flex items-center">
                       <CheckCircle2 className="w-4 h-4 mr-1" />
-                      Booking Completed & Verified
+                      Delivery Completed & Confirmed
                     </span>
                   )}
 
                   {isCancelled && (
                     <span className="text-xs text-rose-400 font-semibold">
-                      Booking Cancelled & Vehicle Released
+                      Booking Cancelled
                     </span>
                   )}
 
                   {!isConfirmed && !isDelivered && !isCompleted && !isCancelled && (
                     <span className="text-xs text-indigo-300 font-medium">
-                      Truck in transit • Live tracking active
+                      Vehicle on the way
                     </span>
                   )}
                 </div>

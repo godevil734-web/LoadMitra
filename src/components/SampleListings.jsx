@@ -17,13 +17,13 @@ export default function SampleListings({ onExpressInterest }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-[#1E3D60] px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#F59E0B] mb-3">
-            <span>Marketplace Preview</span>
+            <span>Available Loads Preview</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Illustrative Corridor Opportunities
+            Sample Route Loads &amp; Vehicles
           </h2>
           <p className="mt-3 text-base sm:text-lg text-slate-300">
-            A preview of how compatible shared loads and return trips will be presented on the platform.
+            See how shared loads and return trips appear on LoadMitra.
           </p>
         </div>
 
@@ -33,9 +33,9 @@ export default function SampleListings({ onExpressInterest }) {
             <AlertTriangle className="w-5 h-5 text-[#F59E0B] shrink-0" />
             <p className="text-xs sm:text-sm text-amber-200/90 leading-relaxed font-medium">
               <strong className="font-bold text-white uppercase tracking-wider mr-1">
-                SAMPLE DATA PREVIEW:
+                SAMPLE PREVIEW:
               </strong>
-              These illustrate trip models for interface demo. Looking for real, verified loads in MongoDB?
+              These are example loads to show how the system works. Looking for active, verified loads?
             </p>
           </div>
           <a
@@ -43,7 +43,7 @@ export default function SampleListings({ onExpressInterest }) {
             className="px-4 py-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] text-xs font-bold rounded-xl shrink-0 inline-flex items-center space-x-1.5 transition-all shadow"
           >
             <Truck className="w-4 h-4" />
-            <span>Open Live Marketplace &rarr;</span>
+            <span>View All Available Loads &rarr;</span>
           </a>
         </div>
 
@@ -61,7 +61,7 @@ export default function SampleListings({ onExpressInterest }) {
                   <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#1E3D60]/60 text-xs">
                     <span className="font-mono text-slate-400 font-semibold">{listing.id}</span>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded">
-                      SAMPLE DATA — NOT LIVE
+                      SAMPLE LOAD
                     </span>
                   </div>
 
@@ -70,7 +70,7 @@ export default function SampleListings({ onExpressInterest }) {
                     <div className="flex items-start space-x-2.5">
                       <div className="w-2.5 h-2.5 rounded-full bg-[#38BDF8] mt-1.5 shrink-0" />
                       <div>
-                        <p className="text-xs text-slate-400 font-medium">Origin</p>
+                        <p className="text-xs text-slate-400 font-medium">Pickup Location</p>
                         <p className="text-sm sm:text-base font-bold text-white">{listing.origin}</p>
                       </div>
                     </div>
@@ -83,7 +83,7 @@ export default function SampleListings({ onExpressInterest }) {
                     <div className="flex items-start space-x-2.5">
                       <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] mt-1.5 shrink-0" />
                       <div>
-                        <p className="text-xs text-slate-400 font-medium">Destination</p>
+                        <p className="text-xs text-slate-400 font-medium">Delivery Location</p>
                         <p className="text-sm sm:text-base font-bold text-white">{listing.destination}</p>
                       </div>
                     </div>
@@ -102,7 +102,7 @@ export default function SampleListings({ onExpressInterest }) {
                     <div className="flex items-center justify-between">
                       <span className="text-slate-400 flex items-center">
                         <Package className="w-3.5 h-3.5 mr-1.5 text-slate-400" />
-                        Cargo Category
+                        Type of Goods
                       </span>
                       <span className="font-semibold text-white text-right">{listing.cargoCategory}</span>
                     </div>
@@ -110,7 +110,7 @@ export default function SampleListings({ onExpressInterest }) {
                     <div className="flex items-center justify-between">
                       <span className="text-slate-400 flex items-center">
                         <Calendar className="w-3.5 h-3.5 mr-1.5 text-slate-400" />
-                        Dispatch Window
+                        Pickup Date
                       </span>
                       <span className="font-semibold text-slate-200 text-right">{listing.departureWindow}</span>
                     </div>
@@ -118,7 +118,7 @@ export default function SampleListings({ onExpressInterest }) {
                     <div className="pt-2 border-t border-[#1E3D60]/70 flex items-center justify-between">
                       <span className="text-slate-400 flex items-center">
                         <Gauge className="w-3.5 h-3.5 mr-1.5 text-[#F59E0B]" />
-                        Capacity Slot
+                        Available Space
                       </span>
                       <span className="font-bold text-[#F59E0B] text-right">{listing.availableCapacity}</span>
                     </div>
@@ -126,7 +126,7 @@ export default function SampleListings({ onExpressInterest }) {
 
                   {/* Indicative Rate Note */}
                   <div className="mb-4 px-3 py-2 bg-[#11253B] rounded-lg border border-[#1E3D60] text-center">
-                    <p className="text-[11px] text-slate-400">Illustrative Estimate</p>
+                    <p className="text-[11px] text-slate-400">Estimated Price</p>
                     <p className="text-xs font-semibold text-white">{listing.indicativeRange}</p>
                   </div>
 
@@ -145,11 +145,11 @@ export default function SampleListings({ onExpressInterest }) {
                     }}
                     className="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white group"
                   >
-                    <span>Express Pilot Interest</span>
+                    <span>Ask About This Load</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
                   </button>
                   <p className="text-[10px] text-center text-slate-500 mt-2">
-                    Connects to Early Pilot corridor coordination
+                    Connects with our transport team
                   </p>
                 </div>
               </div>

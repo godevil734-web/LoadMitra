@@ -105,7 +105,7 @@ export default function LandingPage() {
         {/* E. Core Benefits */}
         <BenefitsSection />
 
-        {/* E. How RouteWise Works */}
+        {/* E. How LoadMitra Works */}
         <HowItWorks />
 
         {/* F. Business-focused Section */}

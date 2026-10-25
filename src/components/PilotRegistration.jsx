@@ -71,17 +71,17 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
     if (!shipperForm.name.trim()) errors.name = 'Contact name is required';
     if (!shipperForm.businessName.trim()) errors.businessName = 'Business or trading name is required';
     if (!shipperForm.phone.trim()) {
-      errors.phone = 'Phone number is required for pilot coordination';
+      errors.phone = 'Phone number is required to contact you';
     } else if (!validatePhone(shipperForm.phone)) {
       errors.phone = 'Please enter a valid 10-digit mobile number';
     }
     if (shipperForm.email.trim() && !validateEmail(shipperForm.email)) {
       errors.email = 'Please provide a valid email address';
     }
-    if (!shipperForm.primaryRoute.trim()) errors.primaryRoute = 'Primary shipping corridor is required';
-    if (!shipperForm.cargoCategory) errors.cargoCategory = 'Please select a cargo category';
-    if (!shipperForm.shipmentFrequency) errors.shipmentFrequency = 'Please select your shipment frequency';
-    if (!shipperForm.consent) errors.consent = 'Consent is required to participate in the pilot';
+    if (!shipperForm.primaryRoute.trim()) errors.primaryRoute = 'Primary route is required';
+    if (!shipperForm.cargoCategory) errors.cargoCategory = 'Please select the type of goods';
+    if (!shipperForm.shipmentFrequency) errors.shipmentFrequency = 'Please select how often you send goods';
+    if (!shipperForm.consent) errors.consent = 'Please agree to let us contact you';
 
     if (Object.keys(errors).length > 0) {
       setShipperErrors(errors);
@@ -142,7 +142,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
 
     if (!transporterForm.name.trim()) errors.name = 'Contact name is required';
     if (!transporterForm.phone.trim()) {
-      errors.phone = 'Phone number is required for trip coordination';
+      errors.phone = 'Phone number is required to contact you';
     } else if (!validatePhone(transporterForm.phone)) {
       errors.phone = 'Please enter a valid 10-digit mobile number';
     }
@@ -150,8 +150,8 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
       errors.email = 'Please provide a valid email address';
     }
     if (!transporterForm.vehicleType) errors.vehicleType = 'Please select primary vehicle type';
-    if (!transporterForm.operatingRoutes.trim()) errors.operatingRoutes = 'Operating routes or regular corridors are required';
-    if (!transporterForm.consent) errors.consent = 'Consent is required to participate in the pilot';
+    if (!transporterForm.operatingRoutes.trim()) errors.operatingRoutes = 'Operating routes are required';
+    if (!transporterForm.consent) errors.consent = 'Please agree to let us contact you';
 
     if (Object.keys(errors).length > 0) {
       setTransporterErrors(errors);
@@ -226,13 +226,13 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
           <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-[#1E3D60] px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#F59E0B] mb-3">
-            <span>Incubation Pilot Access</span>
+            <span>Early Access</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Join the RouteWise Early Access Pilot
+            Join the LoadMitra Early Access Program
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-300">
-            Be part of our initial trial corridors between major commercial hubs. Share your freight parameters or vehicle availability.
+            Be part of our early routes between major cities. Tell us what goods you need to send or what vehicles you have.
           </p>
         </div>
 
@@ -243,18 +243,18 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
             <div className="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
               <p>
                 <strong className="text-amber-300 uppercase tracking-wide font-bold mr-1">
-                  Active Pilot Intake:
+                  Early Access Sign Up:
                 </strong>
-                Submit your freight parameters or vehicle capacity below. Your registration will be recorded securely in our pilot database and reviewed by our logistics dispatch coordinators.
+                Submit your goods details or vehicle capacity below. We will review your details and connect you with matching loads or vehicles.
               </p>
               <div className="pt-2 border-t border-[#1E3D60] grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
                 <div className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
-                  <span><strong>What we request:</strong> Name, contact phone, corridor &amp; cargo/vehicle type.</span>
+                  <span><strong>What we request:</strong> Name, phone, route, and goods or vehicle type.</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span><strong>How it is used:</strong> Exclusively for pilot scheduling and capacity matching.</span>
+                  <span><strong>How it is used:</strong> Only to match you with suitable loads and transport partners.</span>
                 </div>
               </div>
             </div>
@@ -279,7 +279,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
               }`}
             >
               <UserCheck className="w-4 h-4" />
-              <span>I am a Shipper</span>
+              <span>I Need to Send Goods</span>
             </button>
 
             <button
@@ -296,7 +296,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
               }`}
             >
               <Truck className="w-4 h-4" />
-              <span>I am a Transporter</span>
+              <span>I Have Vehicles / Arrange Transport</span>
             </button>
           </div>
 
@@ -416,7 +416,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   {/* Cargo Category */}
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Cargo Category <span className="text-[#F59E0B]">*</span>
+                      Type of Goods <span className="text-[#F59E0B]">*</span>
                     </label>
                     <select
                       value={shipperForm.cargoCategory}
@@ -425,7 +425,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                         shipperErrors.cargoCategory ? 'border-rose-500' : 'border-[#1E3D60]'
                       } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
                     >
-                      <option value="">Select Cargo Category...</option>
+                      <option value="">Select Type of Goods...</option>
                       {CARGO_TYPES.map((type) => (
                         <option key={type} value={type}>
                           {type}
@@ -440,7 +440,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   {/* Shipment Frequency */}
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Shipment Frequency <span className="text-[#F59E0B]">*</span>
+                      How Often Do You Send Goods? <span className="text-[#F59E0B]">*</span>
                     </label>
                     <select
                       value={shipperForm.shipmentFrequency}
@@ -449,7 +449,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                         shipperErrors.shipmentFrequency ? 'border-rose-500' : 'border-[#1E3D60]'
                       } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
                     >
-                      <option value="">Select Frequency...</option>
+                      <option value="">Select How Often...</option>
                       {SHIPMENT_FREQUENCIES.map((freq) => (
                         <option key={freq} value={freq}>
                           {freq}
@@ -472,7 +472,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                       className="mt-1 h-4 w-4 rounded border-slate-700 bg-[#091827] text-[#F59E0B] focus:ring-[#F59E0B]"
                     />
                     <span className="text-xs text-slate-300 leading-normal">
-                      I agree to let RouteWise contact me regarding the pilot program, compatible freight matches, and pilot route scheduling.
+                      I agree to let LoadMitra contact me about load matches and transport updates.
                     </span>
                   </label>
                   {shipperErrors.consent && (
@@ -497,7 +497,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                     ) : (
                       <>
                         <Send className="w-4 h-4 mr-2 transition-transform group-hover:translate-x-0.5" />
-                        <span>Request Early Access</span>
+                        <span>Submit Details</span>
                       </>
                     )}
                   </button>
@@ -531,7 +531,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   {/* Business or Fleet Name (Optional) */}
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Fleet / Transport Name <span className="text-slate-500 text-[11px]">(Optional)</span>
+                      Business / Fleet Name <span className="text-slate-500 text-[11px]">(Optional)</span>
                     </label>
                     <input
                       type="text"
@@ -604,7 +604,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                 {/* Operating Routes */}
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Operating Corridors / Highway Routes <span className="text-[#F59E0B]">*</span>
+                    Operating Routes / Highways <span className="text-[#F59E0B]">*</span>
                   </label>
                   <input
                     type="text"
@@ -630,7 +630,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                       className="mt-1 h-4 w-4 rounded border-slate-700 bg-[#091827] text-[#F59E0B] focus:ring-[#F59E0B]"
                     />
                     <span className="text-xs text-slate-300 leading-normal">
-                      I agree to let RouteWise contact me about available return loads and pilot load-matching opportunities.
+                      I agree to let LoadMitra contact me about available loads and transport matches.
                     </span>
                   </label>
                   {transporterErrors.consent && (
@@ -655,7 +655,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                     ) : (
                       <>
                         <Send className="w-4 h-4 mr-2 transition-transform group-hover:translate-x-0.5" />
-                        <span>Request Early Access</span>
+                        <span>Submit Details</span>
                       </>
                     )}
                   </button>
@@ -676,11 +676,11 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white">
-                      Pilot Registration Confirmed
+                      Details Submitted Successfully
                     </h3>
                     <p className="text-xs text-emerald-400 font-medium flex items-center mt-0.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block mr-1.5 animate-pulse" />
-                      Saved to RouteWise Pilot Database
+                      Saved to LoadMitra
                     </p>
                   </div>
                 </div>
@@ -699,7 +699,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   Thank you, {submittedRegistration.contactName}!
                 </p>
                 <p className="leading-relaxed">
-                  Your early access registration has been officially recorded. Our logistics team will review your corridor specifications and get in touch with you shortly.
+                  Your registration has been saved. Our team will review your route and contact you shortly.
                 </p>
 
                 <div className="p-3.5 bg-[#091827] rounded-xl border border-[#1E3D60] space-y-2 text-xs">
@@ -716,7 +716,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   <div className="flex items-center justify-between">
                     <span className="text-slate-400">Account Type:</span>
                     <span className="font-semibold text-white uppercase tracking-wider text-[11px]">
-                      {submittedRegistration.role}
+                      {submittedRegistration.role === 'SHIPPER' ? 'Goods Owner' : 'Transport Partner'}
                     </span>
                   </div>
 
@@ -741,7 +741,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   <div className="flex items-start justify-between">
                     <span className="text-slate-400 flex items-center shrink-0">
                       <MapPin className="w-3.5 h-3.5 mr-1 text-emerald-400" />
-                      Corridor:
+                      Route:
                     </span>
                     <span className="text-white font-medium text-right max-w-[240px]">
                       {submittedRegistration.route}
@@ -750,7 +750,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
 
                   {submittedRegistration.cargoCategory && (
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Cargo Type:</span>
+                      <span className="text-slate-400">Type of Goods:</span>
                       <span className="text-slate-200">
                         {submittedRegistration.cargoCategory}
                       </span>
@@ -786,7 +786,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-colors shadow-sm"
                 >
                   <RotateCcw className="w-3.5 h-3.5 mr-1.5" />
-                  <span>Register Another Shipment / Fleet</span>
+                  <span>Register Another Load or Vehicle</span>
                 </button>
               </div>
             </div>

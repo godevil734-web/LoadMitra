@@ -7,14 +7,14 @@ export default function Footer() {
 
   const productLinks = [
     { label: 'Find Transport', href: '#search-section' },
-    { label: 'Share a Shipment', href: '#pilot-section' },
+    { label: 'Post a Load', href: '#pilot-section' },
     { label: 'How It Works', href: '#product-story' },
-    { label: 'Sample Listings', href: '#listings-section' },
+    { label: 'Available Loads', href: '#listings-section' },
   ];
 
   const audienceLinks = [
-    { label: 'For Businesses', href: '#for-businesses' },
-    { label: 'For Transporters', href: '#for-transporters' },
+    { label: 'For Goods Owners', href: '#for-businesses' },
+    { label: 'For Transport Partners', href: '#for-transporters' },
     { label: 'Early Access Pilot', href: '#pilot-section' },
     { label: 'Admin Operations', href: '/admin' },
   ];
@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-4">
             <Logo showTagline={true} />
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              RouteWise is a logistics marketplace connecting businesses that need to ship goods with transporters who have available vehicle capacity. We aim to reduce freight costs through shared loads and help eliminate empty return trips.
+              LoadMitra connects goods owners with transport partners who have available vehicle space. We help lower transport costs and avoid empty return trips.
             </p>
             <div className="flex items-center space-x-2 pt-1">
               <span className="inline-flex items-center text-xs font-bold text-[#F59E0B] bg-[#F59E0B]/10 border border-[#F59E0B]/30 px-2.5 py-1 rounded-md">
@@ -115,11 +115,11 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            &copy; {currentYear} RouteWise. All rights reserved. Regional Freight Optimization Platform.
+            &copy; {currentYear} LoadMitra. All rights reserved. Regional Freight Optimization Platform.
           </p>
           <p className="flex items-center space-x-1.5">
             <Truck className="w-3.5 h-3.5 text-slate-600" />
-            <span>Smart Logistics. Better Journeys.</span>
+            <span>Har Load Ka Sahi Saathi.</span>
           </p>
         </div>
       </div>

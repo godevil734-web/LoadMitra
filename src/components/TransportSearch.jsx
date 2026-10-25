@@ -26,7 +26,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
     if (pickup.trim() && destination.trim() && pickup.trim().toLowerCase() === destination.trim().toLowerCase()) {
       newErrors.destination = 'Destination cannot be identical to pickup';
     }
-    if (!cargoType) newErrors.cargoType = 'Please select a cargo category';
+    if (!cargoType) newErrors.cargoType = 'Please select the type of goods';
     return newErrors;
   };
 
@@ -61,12 +61,12 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
           <div className="flex items-center space-x-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
             <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
-              Transport Capacity Finder
+              Find Transport & Vehicles
             </h2>
           </div>
           <div className="inline-flex items-center text-xs text-amber-200/90 bg-[#F59E0B]/10 px-2.5 py-1 rounded-md border border-[#F59E0B]/30">
             <Info className="w-3.5 h-3.5 mr-1.5 shrink-0 text-[#F59E0B]" />
-            <span>Interactive Demo Mode • Simulated Routing</span>
+            <span>Interactive Demo • Search Available Routes</span>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
             {/* Pickup Location */}
             <div className="lg:col-span-3">
               <label htmlFor="search-pickup" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                Pickup City / Hub <span className="text-[#F59E0B]">*</span>
+                Pickup City <span className="text-[#F59E0B]">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -119,7 +119,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
             {/* Destination */}
             <div className="lg:col-span-3">
               <label htmlFor="search-destination" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                Destination Hub <span className="text-[#F59E0B]">*</span>
+                Delivery City <span className="text-[#F59E0B]">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -150,7 +150,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
             {/* Departure Date */}
             <div className="lg:col-span-2">
               <label htmlFor="search-date" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                Preferred Date Window
+                Pickup Date
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
@@ -169,7 +169,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
             {/* Cargo Type */}
             <div className="lg:col-span-3">
               <label htmlFor="search-cargo" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                Cargo Category <span className="text-[#F59E0B]">*</span>
+                Type of Goods <span className="text-[#F59E0B]">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -186,7 +186,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
                     errors.cargoType ? 'border-rose-500 focus:ring-rose-500' : 'border-[#1E3D60] focus:border-[#F59E0B]'
                   } focus:outline-none focus:ring-1 focus:ring-[#F59E0B] transition-colors appearance-none`}
                 >
-                  <option value="">Select Category...</option>
+                  <option value="">Select Type of Goods...</option>
                   {CARGO_TYPES.map((type) => (
                     <option key={type} value={type}>
                       {type}
@@ -212,7 +212,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
           <div className="mt-5 pt-4 border-t border-[#1E3D60]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-slate-400 flex items-center">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-2"></span>
-              <span>Illustrative Corridors: Gorakhpur–Lucknow (NH27) • Lucknow–Kanpur • Varanasi–Gorakhpur</span>
+              <span>Popular Routes: Gorakhpur–Lucknow • Lucknow–Kanpur • Varanasi–Gorakhpur</span>
             </div>
 
             <button
@@ -220,7 +220,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
               className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
             >
               <Search className="w-4 h-4 mr-2" />
-              <span>Search Transport</span>
+              <span>Find Available Transport</span>
             </button>
           </div>
         </form>
@@ -233,17 +233,17 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
                 <CheckCircle className="w-5 h-5 text-[#F59E0B] shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-sm font-bold text-white">
-                    Simulated Route Query Generated: {pickup} → {destination}
+                    Showing Available Routes: {pickup} → {destination}
                   </h3>
                   <p className="text-xs text-slate-300 mt-1">
-                    RouteWise is currently in pilot phase. Below are illustrative listings for compatible corridors. To book priority vehicle slots or register dedicated freight routes, submit an enquiry in our Pilot Registration.
+                    Below are available transport listings along this route. To book a vehicle or register your goods, you can also use our quick sign-up form.
                   </p>
                   <div className="mt-2.5 flex flex-wrap items-center gap-2">
                     <a
                       href="#listings-section"
                       className="inline-flex items-center text-xs font-semibold text-[#F59E0B] hover:underline"
                     >
-                      View Illustrative Listings Below ↓
+                      View Available Loads &amp; Vehicles Below ↓
                     </a>
                     <span className="text-slate-600">•</span>
                     <a
@@ -254,7 +254,7 @@ export default function TransportSearch({ onSearchResults, onNavigateToPilot }) 
                       }}
                       className="inline-flex items-center text-xs font-semibold text-sky-400 hover:underline"
                     >
-                      Register Route in Early Access Pilot →
+                      Register Your Route →
                     </a>
                   </div>
                 </div>

@@ -38,7 +38,7 @@ export default function BenefitsSection() {
             Designed for Modern Freight Efficiency
           </h2>
           <p className="mt-3 text-base sm:text-lg text-slate-300">
-            RouteWise connects fragmented cargo demand with spare vehicle capacity to address the twin challenges of high shipping expenses and empty return hauls.
+            LoadMitra connects fragmented cargo demand with spare vehicle capacity to address the twin challenges of high shipping expenses and empty return hauls.
           </p>
         </div>
 

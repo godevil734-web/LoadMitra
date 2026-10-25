@@ -53,15 +53,15 @@ export default function Logo({ size = 'default', showTagline = true, className =
       <div className="flex flex-col leading-tight">
         <div className="flex items-center font-extrabold tracking-tight text-white">
           <span className={`${isSmall ? 'text-lg' : 'text-xl'} font-bold text-white tracking-tight`}>
-            Route
+            Load
           </span>
           <span className={`${isSmall ? 'text-lg' : 'text-xl'} font-extrabold text-[#F59E0B] tracking-tight`}>
-            Wise
+            Mitra
           </span>
         </div>
         {showTagline && (
           <span className="text-[11px] font-medium text-slate-400 tracking-wide hidden sm:inline-block">
-            Smart Logistics. Better Journeys.
+            Har Load Ka Sahi Saathi.
           </span>
         )}
       </div>

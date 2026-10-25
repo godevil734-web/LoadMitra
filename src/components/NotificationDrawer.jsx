@@ -275,7 +275,7 @@ export default function NotificationDrawer({
               <p className="text-xs text-slate-400 max-w-xs mx-auto">
                 {filterUnreadOnly
                   ? 'You have read all your notifications.'
-                  : 'New booking milestones, quotes, and verification updates will appear here in real time.'}
+                  : 'Booking updates, price offers, and review notices will appear here.'}
               </p>
             </div>
           ) : (
@@ -335,7 +335,7 @@ export default function NotificationDrawer({
 
         {/* Footer */}
         <div className="p-3 border-t border-[#1E3D60] bg-[#091827] text-center text-slate-400 text-[11px]">
-          RouteWise Live Notification Hub
+          LoadMitra Notifications
         </div>
       </div>
     </div>

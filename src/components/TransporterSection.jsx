@@ -8,23 +8,23 @@ export default function TransporterSection({ onJoinTransporter }) {
 
   const transporterPoints = [
     {
-      title: 'Publish Available Trips & Capacity',
-      description: 'List planned truck runs and uncommitted payload volume with departure times and corridor routes.',
+      title: 'List Available Vehicles',
+      description: 'List your vehicles and extra space with your routes and departure dates.',
       icon: Truck
     },
     {
-      title: 'Receive Relevant Shipment Requests',
-      description: 'Get matched with compatible cargo categories and designated commercial pickup points along your existing route.',
+      title: 'Find Available Loads',
+      description: 'Get matched with goods owners who need transport along your travel route.',
       icon: CalendarCheck
     },
     {
-      title: 'Discover Return-Load Opportunities',
-      description: 'Find freight for your return journey back to base, eliminating costly zero-cargo deadhead kilometers.',
+      title: 'Avoid Empty Return Trips',
+      description: 'Find loads for your return journey so your vehicle never travels back empty.',
       icon: RotateCcw
     },
     {
-      title: 'Manage Bookings & Updates',
-      description: 'Coordinate dispatch, share milestone confirmations, and build trusted relationships with repeat shippers.',
+      title: 'Track Bookings & Receipts',
+      description: 'Manage your bookings, update trip progress, and share delivery receipts easily.',
       icon: ShieldCheck
     }
   ];
@@ -41,15 +41,15 @@ export default function TransporterSection({ onJoinTransporter }) {
           {/* Left Column: Copy & Value Proposition */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-[#1E3D60] px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#F59E0B]">
-              <span>For Fleet Owners &amp; Transporters</span>
+              <span>For Transport Partners &amp; Fleet Operators</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              More Loads. Better Utilisation.
+              Have a Vehicle or Arrange Transport?
             </h2>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-              Every empty return trip costs fuel, driver hours, and vehicle depreciation. RouteWise helps truck owners and fleet operators maximize every kilometer traveled.
+              Find available loads and offer your price.
             </p>
 
             {/* Feature List */}
@@ -82,7 +82,7 @@ export default function TransporterSection({ onJoinTransporter }) {
                 onClick={onJoinTransporter}
                 className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white group"
               >
-                <span>Join as a Transporter</span>
+                <span>Find Loads</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
             </div>

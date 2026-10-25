@@ -32,13 +32,13 @@ export default function HowItWorks() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-[#1E3D60] px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#F59E0B] mb-3">
-            <span>Operational Workflow</span>
+            <span>Simple Process</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            How RouteWise Works
+            How LoadMitra Works
           </h2>
           <p className="mt-3 text-base sm:text-lg text-slate-300">
-            A structured four-step coordination flow connecting freight demand with compatible truck capacity.
+            Four simple steps to send goods or book transport.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function HowItWorks() {
 
                 {/* Footer hint */}
                 <div className="mt-6 pt-3 border-t border-[#1E3D60]/50 text-xs text-slate-400 flex items-center justify-between">
-                  <span>Structured Workflow</span>
+                  <span>Clear &amp; Direct</span>
                   {idx < WORKFLOW_STEPS.length - 1 && (
                     <ArrowRight className="w-3.5 h-3.5 text-slate-500 lg:hidden" />
                   )}

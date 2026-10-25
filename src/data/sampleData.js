@@ -44,32 +44,32 @@ export const CORE_BENEFITS = [
   {
     id: 'shared-loads',
     title: 'Shared Loads',
-    tagline: 'Cost Optimization',
-    description: 'Match compatible shipments along high-density freight corridors, helping businesses pay only for the vehicle volume they use.',
+    tagline: 'Save Shipping Costs',
+    description: 'Share vehicle space with compatible goods along the same route and pay only for the space you need.',
     icon: 'Boxes',
     accentColor: 'amber'
   },
   {
     id: 'return-loads',
     title: 'Return Loads',
-    tagline: 'Fewer Empty Runs',
-    description: 'Help commercial transporters identify compatible cargo on return routes, turning empty deadhead kilometers into productive revenue trips.',
+    tagline: 'No Empty Trips',
+    description: 'Transport partners find loads for return journeys so vehicles never travel empty.',
     icon: 'ArrowLeftRight',
     accentColor: 'navy'
   },
   {
     id: 'reliable-coordination',
-    title: 'Structured Coordination',
-    tagline: 'Transparent Workflow',
-    description: 'Centralise shipment specifications, loading windows, and communication in an organized, straightforward coordination framework.',
+    title: 'Direct Price Offers',
+    tagline: 'No Middlemen',
+    description: 'Deal directly with verified transport partners without hidden broker commissions.',
     icon: 'ShieldCheck',
     accentColor: 'navy'
   },
   {
     id: 'better-utilisation',
-    title: 'Better Fleet Utilisation',
-    tagline: 'Asset Efficiency',
-    description: 'Improve payload efficiency across regional highways, reducing wasted vehicle trips and lowering logistics friction.',
+    title: 'Simple Booking Progress',
+    tagline: 'Track Every Step',
+    description: 'Follow your booking from pickup to delivery receipt with clear, real-time updates.',
     icon: 'Gauge',
     accentColor: 'navy'
   }
@@ -78,26 +78,26 @@ export const CORE_BENEFITS = [
 export const WORKFLOW_STEPS = [
   {
     step: '01',
-    title: 'Post a Shipment',
-    description: 'Specify pickup hub, destination, estimated cargo weight, and preferred dispatch window.',
+    title: 'Post Your Load',
+    description: 'Enter your pickup location, drop city, cargo weight, and preferred loading date.',
     icon: 'FileText'
   },
   {
     step: '02',
-    title: 'Identify Compatible Trip',
-    description: 'Discover scheduled transport with spare payload space or suitable return-route capacity.',
+    title: 'Receive Price Offers',
+    description: 'Transport partners with available vehicles send direct price offers for your load.',
     icon: 'Search'
   },
   {
     step: '03',
-    title: 'Capacity & Timing Checked',
-    description: 'Confirm physical dimensions, weight allowance, and alignment between pickup and transit schedules.',
+    title: 'Confirm Booking',
+    description: 'Review price offers, choose the best partner, and confirm your booking with one click.',
     icon: 'CheckCircle2'
   },
   {
     step: '04',
-    title: 'Review Shared Cost & Request',
-    description: 'Evaluate transparent illustrative cost estimates based on shared volume before requesting a direct booking.',
+    title: 'Track & Finish Delivery',
+    description: 'Stay updated while your goods are on the way, and get a digital delivery receipt upon arrival.',
     icon: 'Truck'
   }
 ];
