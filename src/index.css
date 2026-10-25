@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-deep: #091827;
+  --color-navy-primary: #0F2A44;
+  --color-navy-surface: #11253B;
+  --color-navy-card: #152E4A;
+  --color-navy-border: #1E3D60;
+  --color-navy-border-light: #2A4F78;
+  --color-amber-brand: #F59E0B;
+  --color-amber-hover: #D97706;
+  --color-amber-light: #FEF3C7;
+  --color-warm-white: #FAFAF7;
+  --color-slate-custom: #475569;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  background-color: #091827;
+  color: #FAFAF7;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #091827;
+  color: #FAFAF7;
+}
+
+/* Custom sleek scrollbar for tables, sidebars and drawers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #091827;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E3D60;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2A4F78;
+}
+
+/* Animations */
+@keyframes truckDrive {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+
+/* Scroll reveal helper */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
