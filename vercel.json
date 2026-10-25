@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/*",
-      "destination": "https://loadmitra-api.onrender.com/api/*"
+      "source": "/api/:path*",
+      "destination": "https://loadmitra-api.onrender.com/api/:path*"
     },
     {
       "source": "/((?!api/).*)",
