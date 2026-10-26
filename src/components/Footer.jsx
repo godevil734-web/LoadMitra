@@ -30,35 +30,35 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#060F1A] border-t border-[#1E3D60]/60 pt-16 pb-8">
+    <footer className="bg-[#171717] border-t border-[#2D2D2D] pt-14 pb-8 text-[#F5F0E6]">
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#1E3D60]/40">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-10 border-b border-[#2D2D2D]">
           {/* Brand Column */}
-          <div className="lg:col-span-4 space-y-4">
-            <Logo showTagline={true} />
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              LoadMitra connects goods owners with transport partners who have available vehicle space. We help lower transport costs and avoid empty return trips.
+          <div className="lg:col-span-4 space-y-3.5">
+            <Logo theme="dark" showTagline={true} />
+            <p className="text-xs text-[#A3A3A3] leading-relaxed max-w-sm">
+              LoadMitra matches cargo consignments with verified transport carriers who have available deck capacity. Reducing empty return miles and lowering freight expenses across national transit corridors.
             </p>
             <div className="flex items-center space-x-2 pt-1">
-              <span className="inline-flex items-center text-xs font-bold text-[#F59E0B] bg-[#F59E0B]/10 border border-[#F59E0B]/30 px-2.5 py-1 rounded-md">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mr-1.5 animate-pulse"></span>
-                Early Pilot Phase
+              <span className="inline-flex items-center text-[10px] font-mono font-bold uppercase tracking-wider text-[#F28C28] bg-[#F28C28]/10 border border-[#F28C28]/30 px-2.5 py-0.5 rounded">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28] mr-1.5 animate-pulse"></span>
+                ACTIVE CORRIDORS • UP &amp; INTERCITY
               </span>
             </div>
           </div>
 
           {/* Product Links */}
           <div className="lg:col-span-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Product
+            <h4 className="text-[11px] font-mono font-bold text-white uppercase tracking-wider mb-3">
+              NETWORK PRODUCT
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               {productLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => handleSmoothScroll(e, link.href)}
-                    className="text-sm text-slate-400 hover:text-white transition-colors duration-200 flex items-center group"
+                    className="text-xs text-[#A3A3A3] hover:text-[#F28C28] transition-colors flex items-center group"
                   >
                     <span>{link.label}</span>
                     <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -70,16 +70,16 @@ export default function Footer() {
 
           {/* Audience Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Audience
+            <h4 className="text-[11px] font-mono font-bold text-white uppercase tracking-wider mb-3">
+              OPERATIONAL ROLES
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               {audienceLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => handleSmoothScroll(e, link.href)}
-                    className="text-sm text-slate-400 hover:text-white transition-colors duration-200 flex items-center group"
+                    className="text-xs text-[#A3A3A3] hover:text-[#F28C28] transition-colors flex items-center group"
                   >
                     <span>{link.label}</span>
                     <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -91,21 +91,17 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div className="lg:col-span-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Contact
+            <h4 className="text-[11px] font-mono font-bold text-white uppercase tracking-wider mb-3">
+              COORDINATION
             </h4>
-            <div className="space-y-3 text-sm text-slate-400">
+            <div className="space-y-2.5 text-xs text-[#A3A3A3]">
               <p className="leading-relaxed">
-                For pilot programme queries, partnership opportunities, or investor conversations, please use the early access form above.
+                For corridor routing inquiries, enterprise fleet integration, or operational partnerships, submit an inquiry above.
               </p>
-              <div className="pt-2 text-xs text-slate-500 space-y-1.5">
+              <div className="pt-2 text-[10px] font-mono text-[#737373] space-y-1">
                 <p className="flex items-center space-x-1.5">
-                  <span className="font-semibold text-slate-400">Privacy Policy</span>
-                  <span className="text-[10px] bg-[#152E4A] px-1.5 py-0.5 rounded border border-[#1E3D60]">Forthcoming</span>
-                </p>
-                <p className="flex items-center space-x-1.5">
-                  <span className="font-semibold text-slate-400">Terms of Service</span>
-                  <span className="text-[10px] bg-[#152E4A] px-1.5 py-0.5 rounded border border-[#1E3D60]">Forthcoming</span>
+                  <span className="font-semibold text-[#A3A3A3]">SECURITY ARCHITECTURE</span>
+                  <span className="bg-[#262626] px-1.5 py-0.2 rounded border border-[#3D3D3D]">VERIFIED</span>
                 </p>
               </div>
             </div>
@@ -113,12 +109,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#737373] font-mono">
           <p>
-            &copy; {currentYear} LoadMitra. All rights reserved. Regional Freight Optimization Platform.
+            &copy; {currentYear} LoadMitra. Intercity Freight &amp; Corridor Coordination Platform.
           </p>
-          <p className="flex items-center space-x-1.5">
-            <Truck className="w-3.5 h-3.5 text-slate-600" />
+          <p className="flex items-center space-x-1.5 text-[#A3A3A3]">
+            <Truck className="w-3.5 h-3.5 text-[#F28C28]" />
             <span>Har Load Ka Sahi Saathi.</span>
           </p>
         </div>

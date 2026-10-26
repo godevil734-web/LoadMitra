@@ -174,27 +174,27 @@ export default function NotificationDrawer({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-xs transition-opacity animate-fadeIn"
+      className="fixed inset-0 z-50 flex justify-end bg-black/70 backdrop-blur-xs transition-opacity animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md bg-[#0F2A44] border-l border-[#1E3D60] h-full shadow-2xl flex flex-col text-slate-100 z-50 animate-slideLeft"
+        className="w-full max-w-md bg-[#171717] border-l border-[#2D2D2D] h-full shadow-2xl flex flex-col text-stone-100 z-50 animate-slideLeft"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-4 sm:p-5 border-b border-[#1E3D60] bg-[#091827]/90 flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-[#2D2D2D] bg-[#1F1F1F] flex items-center justify-between">
           <div className="flex items-center space-x-2.5">
-            <div className="relative p-2 bg-[#11253B] rounded-lg border border-[#1E3D60]">
-              <Bell className="w-5 h-5 text-amber-400" />
+            <div className="relative p-2 bg-[#262626] rounded-lg border border-[#333333]">
+              <Bell className="w-5 h-5 text-[#F28C28]" />
               {unreadCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-amber-500 text-[10px] font-bold text-slate-950">
+                <span className="absolute -top-1 -right-1 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-[#F28C28] text-[10px] font-bold text-black font-tabular">
                   {unreadCount > 99 ? '99+' : unreadCount}
                 </span>
               )}
             </div>
             <div>
-              <h3 className="font-bold text-base text-white">Notifications</h3>
-              <p className="text-xs text-slate-400">
+              <h3 className="font-bold text-base text-white tracking-tight">Notifications</h3>
+              <p className="text-xs text-stone-400">
                 {unreadCount > 0 ? `${unreadCount} unread alert${unreadCount === 1 ? '' : 's'}` : 'All caught up'}
               </p>
             </div>
@@ -205,14 +205,14 @@ export default function NotificationDrawer({
               onClick={fetchNotifications}
               disabled={loading}
               title="Refresh notifications"
-              className="p-1.5 text-slate-400 hover:text-white hover:bg-[#152E4A] rounded-lg transition-colors"
+              className="p-1.5 text-stone-400 hover:text-white hover:bg-[#262626] rounded-lg transition-colors"
             >
               <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
             </button>
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-white hover:bg-[#152E4A] rounded-lg transition-colors"
+              className="p-1.5 text-stone-400 hover:text-white hover:bg-[#262626] rounded-lg transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -220,15 +220,15 @@ export default function NotificationDrawer({
         </div>
 
         {/* Filter & Action Toolbar */}
-        <div className="px-4 py-2.5 bg-[#0D2237] border-b border-[#1E3D60] flex items-center justify-between text-xs">
+        <div className="px-4 py-2.5 bg-[#1A1A1A] border-b border-[#2D2D2D] flex items-center justify-between text-xs">
           <div className="flex items-center space-x-2">
             <button
               type="button"
               onClick={() => setFilterUnreadOnly(false)}
               className={`px-2.5 py-1 rounded-md font-medium transition-colors ${
                 !filterUnreadOnly
-                  ? 'bg-amber-500 text-slate-950 font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-[#152E4A]'
+                  ? 'bg-[#F28C28] text-black font-bold'
+                  : 'text-stone-400 hover:text-white hover:bg-[#262626]'
               }`}
             >
               All
@@ -238,8 +238,8 @@ export default function NotificationDrawer({
               onClick={() => setFilterUnreadOnly(true)}
               className={`px-2.5 py-1 rounded-md font-medium transition-colors ${
                 filterUnreadOnly
-                  ? 'bg-amber-500 text-slate-950 font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-[#152E4A]'
+                  ? 'bg-[#F28C28] text-black font-bold'
+                  : 'text-stone-400 hover:text-white hover:bg-[#262626]'
               }`}
             >
               Unread only ({unreadCount})
@@ -251,7 +251,7 @@ export default function NotificationDrawer({
               type="button"
               onClick={handleMarkAllRead}
               disabled={markingAll}
-              className="inline-flex items-center text-amber-400 hover:text-amber-300 font-semibold transition-colors disabled:opacity-50"
+              className="inline-flex items-center text-[#F28C28] hover:text-[#FFA959] font-semibold transition-colors disabled:opacity-50"
             >
               <CheckCheck className="w-3.5 h-3.5 mr-1" />
               <span>Mark all read</span>
@@ -260,19 +260,19 @@ export default function NotificationDrawer({
         </div>
 
         {/* Notification List */}
-        <div className="flex-1 overflow-y-auto divide-y divide-[#1E3D60]/50 p-2 space-y-1">
+        <div className="flex-1 overflow-y-auto divide-y divide-[#2D2D2D]/60 p-2 space-y-1">
           {loading && notifications.length === 0 ? (
-            <div className="p-8 text-center text-slate-400 space-y-3">
-              <RefreshCw className="w-6 h-6 mx-auto animate-spin text-amber-400" />
+            <div className="p-8 text-center text-stone-400 space-y-3">
+              <RefreshCw className="w-6 h-6 mx-auto animate-spin text-[#F28C28]" />
               <p className="text-xs">Loading notifications...</p>
             </div>
           ) : notifications.length === 0 ? (
-            <div className="p-12 text-center text-slate-400 space-y-3">
-              <div className="w-12 h-12 mx-auto rounded-full bg-[#11253B] flex items-center justify-center border border-[#1E3D60]">
+            <div className="p-12 text-center text-stone-400 space-y-3">
+              <div className="w-12 h-12 mx-auto rounded-full bg-[#1F1F1F] flex items-center justify-center border border-[#2D2D2D]">
                 <Check className="w-6 h-6 text-emerald-400" />
               </div>
-              <h4 className="font-semibold text-slate-200 text-sm">No notifications</h4>
-              <p className="text-xs text-slate-400 max-w-xs mx-auto">
+              <h4 className="font-semibold text-stone-200 text-sm">No notifications</h4>
+              <p className="text-xs text-stone-400 max-w-xs mx-auto">
                 {filterUnreadOnly
                   ? 'You have read all your notifications.'
                   : 'Booking updates, price offers, and review notices will appear here.'}
@@ -287,31 +287,31 @@ export default function NotificationDrawer({
                   onClick={() => handleClickItem(n)}
                   className={`p-3 rounded-lg transition-all duration-150 cursor-pointer flex items-start space-x-3 group ${
                     n.isRead
-                      ? 'bg-transparent hover:bg-[#11253B]/60 text-slate-300'
-                      : 'bg-[#122A44] hover:bg-[#173557] border border-amber-500/20 text-white shadow-xs'
+                      ? 'bg-transparent hover:bg-[#202020] text-stone-300'
+                      : 'bg-[#222222] hover:bg-[#292929] border border-[#F28C28]/30 text-white shadow-xs'
                   }`}
                 >
-                  <div className="mt-0.5 p-2 rounded-lg bg-[#091827] border border-[#1E3D60] shrink-0">
+                  <div className="mt-0.5 p-2 rounded-lg bg-[#171717] border border-[#2D2D2D] shrink-0">
                     {icon}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
                       <h4
                         className={`text-xs font-semibold truncate ${
-                          n.isRead ? 'text-slate-200' : 'text-amber-300 font-bold'
+                          n.isRead ? 'text-stone-200' : 'text-[#F28C28] font-bold'
                         }`}
                       >
                         {n.title}
                       </h4>
-                      <span className="text-[10px] text-slate-400 shrink-0">
+                      <span className="text-[10px] text-stone-400 font-tabular shrink-0">
                         {formatRelativeTime(n.createdAt)}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-stone-300 mt-1 line-clamp-2 leading-relaxed">
                       {n.message}
                     </p>
                     <div className="mt-2 flex items-center justify-between text-[11px]">
-                      <span className="text-slate-400 group-hover:text-amber-400 flex items-center font-medium transition-colors">
+                      <span className="text-stone-400 group-hover:text-[#F28C28] flex items-center font-medium transition-colors">
                         <span>View details</span>
                         <ExternalLink className="w-3 h-3 ml-1" />
                       </span>
@@ -320,7 +320,7 @@ export default function NotificationDrawer({
                           type="button"
                           onClick={(e) => handleMarkAsRead(n.id, e)}
                           title="Mark as read"
-                          className="text-slate-400 hover:text-emerald-400 p-1"
+                          className="text-stone-400 hover:text-emerald-400 p-1"
                         >
                           <Check className="w-3.5 h-3.5" />
                         </button>
@@ -334,8 +334,8 @@ export default function NotificationDrawer({
         </div>
 
         {/* Footer */}
-        <div className="p-3 border-t border-[#1E3D60] bg-[#091827] text-center text-slate-400 text-[11px]">
-          LoadMitra Notifications
+        <div className="p-3 border-t border-[#2D2D2D] bg-[#1F1F1F] text-center text-stone-400 text-[11px] font-mono">
+          LoadMitra Network Dispatch v2.0
         </div>
       </div>
     </div>

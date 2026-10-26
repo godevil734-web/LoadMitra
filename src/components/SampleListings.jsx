@@ -7,7 +7,7 @@ export default function SampleListings({ onExpressInterest }) {
   const [sectionRef, isRevealed] = useScrollReveal();
 
   return (
-    <section id="listings-section" className="py-16 sm:py-24 bg-[#091827] relative border-t border-[#1E3D60]/50 scroll-mt-16">
+    <section id="listings-section" className="py-16 sm:py-24 bg-[#F5F0E6] relative border-b border-[#E2DBD0] scroll-mt-16">
       <div
         ref={sectionRef}
         className={`max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 w-full reveal-on-scroll ${
@@ -16,145 +16,120 @@ export default function SampleListings({ onExpressInterest }) {
       >
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-[#1E3D60] px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#F59E0B] mb-3">
-            <span>Available Loads Preview</span>
+          <div className="inline-flex items-center space-x-2 bg-[#171717] border border-[#2D2D2D] px-3 py-1 rounded text-white mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28]" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.14em] text-[#F5F0E6]">
+              CORRIDOR MANIFEST PREVIEW
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 
+            className="text-3xl sm:text-4xl font-black text-[#171717] tracking-tight"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
             Sample Route Loads &amp; Vehicles
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-slate-300">
-            See how shared loads and return trips appear on LoadMitra.
+          <p className="mt-3 text-base text-[#525252]">
+            Representative freight manifests across active intercity corridors illustrating shared space and backhaul coordination.
           </p>
         </div>
 
-        {/* Prominent Mandatory Compliance Disclaimer */}
-        <div className="mb-6 p-4 bg-[#11253B] border border-amber-500/40 rounded-xl max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Operational Compliance Disclaimer Banner */}
+        <div className="mb-6 p-4 bg-[#FAF7F0] border border-[#D4CBBC] rounded max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center space-x-3">
-            <AlertTriangle className="w-5 h-5 text-[#F59E0B] shrink-0" />
-            <p className="text-xs sm:text-sm text-amber-200/90 leading-relaxed font-medium">
-              <strong className="font-bold text-white uppercase tracking-wider mr-1">
+            <AlertTriangle className="w-5 h-5 text-[#F28C28] shrink-0" />
+            <p className="text-xs text-[#525252] leading-relaxed">
+              <strong className="font-mono font-bold text-[#171717] uppercase tracking-wider mr-1">
                 SAMPLE PREVIEW:
               </strong>
-              These are example loads to show how the system works. Looking for active, verified loads?
+              These are illustrative consignments to demonstrate network matching. Looking for active live loads?
             </p>
           </div>
           <a
             href="/listings"
-            className="px-4 py-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] text-xs font-bold rounded-xl shrink-0 inline-flex items-center space-x-1.5 transition-all shadow"
+            className="px-4 py-2 bg-[#F28C28] hover:bg-[#DE7919] text-[#171717] text-xs font-mono font-bold uppercase tracking-wider rounded shrink-0 inline-flex items-center space-x-1.5 transition-all shadow-xs"
           >
-            <Truck className="w-4 h-4" />
-            <span>View All Available Loads &rarr;</span>
+            <Truck className="w-3.5 h-3.5" />
+            <span>Open Live Marketplace &rarr;</span>
           </a>
         </div>
 
-        {/* 3 Sample Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SAMPLE_LISTINGS.map((listing) => {
-            const isShared = listing.badgeVariant === 'amber';
-            return (
-              <div
-                key={listing.id}
-                className="bg-[#0F2A44]/70 border border-[#1E3D60] hover:border-[#2A4F78] rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-xl relative group hover:-translate-y-1"
-              >
-                {/* Top Strip with Disclaimer Tag & Badge */}
-                <div>
-                  <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#1E3D60]/60 text-xs">
-                    <span className="font-mono text-slate-400 font-semibold">{listing.id}</span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded">
-                      SAMPLE LOAD
-                    </span>
-                  </div>
-
-                  {/* Route: Origin & Destination */}
-                  <div className="space-y-3 mb-5">
-                    <div className="flex items-start space-x-2.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#38BDF8] mt-1.5 shrink-0" />
-                      <div>
-                        <p className="text-xs text-slate-400 font-medium">Pickup Location</p>
-                        <p className="text-sm sm:text-base font-bold text-white">{listing.origin}</p>
-                      </div>
-                    </div>
-
-                    {/* Connecting line */}
-                    <div className="ml-1 pl-3 border-l-2 border-dashed border-[#1E3D60] py-1 text-[11px] text-slate-400">
-                      {listing.routeDistance}
-                    </div>
-
-                    <div className="flex items-start space-x-2.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] mt-1.5 shrink-0" />
-                      <div>
-                        <p className="text-xs text-slate-400 font-medium">Delivery Location</p>
-                        <p className="text-sm sm:text-base font-bold text-white">{listing.destination}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Trip Details Grid */}
-                  <div className="bg-[#091827]/80 rounded-xl p-3.5 border border-[#1E3D60] space-y-2.5 text-xs text-slate-300 mb-5">
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-400 flex items-center">
-                        <Truck className="w-3.5 h-3.5 mr-1.5 text-slate-400" />
-                        Vehicle Type
-                      </span>
-                      <span className="font-semibold text-white text-right">{listing.vehicleType}</span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-400 flex items-center">
-                        <Package className="w-3.5 h-3.5 mr-1.5 text-slate-400" />
-                        Type of Goods
-                      </span>
-                      <span className="font-semibold text-white text-right">{listing.cargoCategory}</span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-400 flex items-center">
-                        <Calendar className="w-3.5 h-3.5 mr-1.5 text-slate-400" />
-                        Pickup Date
-                      </span>
-                      <span className="font-semibold text-slate-200 text-right">{listing.departureWindow}</span>
-                    </div>
-
-                    <div className="pt-2 border-t border-[#1E3D60]/70 flex items-center justify-between">
-                      <span className="text-slate-400 flex items-center">
-                        <Gauge className="w-3.5 h-3.5 mr-1.5 text-[#F59E0B]" />
-                        Available Space
-                      </span>
-                      <span className="font-bold text-[#F59E0B] text-right">{listing.availableCapacity}</span>
-                    </div>
-                  </div>
-
-                  {/* Indicative Rate Note */}
-                  <div className="mb-4 px-3 py-2 bg-[#11253B] rounded-lg border border-[#1E3D60] text-center">
-                    <p className="text-[11px] text-slate-400">Estimated Price</p>
-                    <p className="text-xs font-semibold text-white">{listing.indicativeRange}</p>
-                  </div>
-
-                  {/* Per-card disclaimer note */}
-                  <div className="mb-4 text-[10px] text-amber-200/80 bg-amber-500/5 border border-amber-500/20 p-2 rounded text-center leading-tight">
-                    {listing.disclaimer}
-                  </div>
+        {/* Structured Horizontal Freight Rows */}
+        <div className="space-y-3">
+          {SAMPLE_LISTINGS.map((listing) => (
+            <div
+              key={listing.id}
+              className="bg-[#FAF7F0] border border-[#D4CBBC] hover:border-[#F28C28] rounded p-4 sm:p-5 transition-all duration-150 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 group"
+            >
+              {/* Left Segment: ID + Route Connector */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 lg:gap-6 min-w-0 lg:w-[42%]">
+                <div className="shrink-0">
+                  <span className="font-mono text-xs font-bold text-[#171717] bg-[#E8E1D5] px-2.5 py-1 rounded border border-[#D4CBBC]">
+                    {listing.id}
+                  </span>
+                  <span className="ml-2 text-[9px] font-mono font-bold uppercase tracking-wider text-[#737373]">
+                    SAMPLE
+                  </span>
                 </div>
 
-                {/* Bottom Action */}
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (onExpressInterest) onExpressInterest(listing);
-                    }}
-                    className="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white group"
-                  >
-                    <span>Ask About This Load</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
-                  </button>
-                  <p className="text-[10px] text-center text-slate-500 mt-2">
-                    Connects with our transport team
-                  </p>
+                {/* Route Visualizer */}
+                <div className="flex items-center space-x-3">
+                  <div className="text-left">
+                    <p className="text-[10px] font-mono uppercase text-[#737373]">ORIGIN</p>
+                    <p className="text-sm font-bold text-[#171717]">{listing.origin}</p>
+                  </div>
+
+                  <div className="flex flex-col items-center px-2">
+                    <span className="text-[10px] font-mono text-[#F28C28] font-semibold">{listing.routeDistance}</span>
+                    <div className="flex items-center space-x-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#171717]" />
+                      <div className="w-10 sm:w-16 h-0.5 border-t border-dashed border-[#171717]" />
+                      <ArrowRight className="w-3 h-3 text-[#F28C28]" />
+                    </div>
+                  </div>
+
+                  <div className="text-left">
+                    <p className="text-[10px] font-mono uppercase text-[#737373]">DESTINATION</p>
+                    <p className="text-sm font-bold text-[#171717]">{listing.destination}</p>
+                  </div>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Middle Segment: Vehicle, Cargo & Capacity in Tabular Numerals */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs lg:w-[38%] border-t lg:border-t-0 border-[#E2DBD0] pt-3 lg:pt-0">
+                <div>
+                  <span className="text-[10px] font-mono uppercase text-[#737373] block">VEHICLE CLASS</span>
+                  <span className="font-semibold text-[#171717] block truncate">{listing.vehicleType}</span>
+                  <span className="text-[11px] text-[#737373]">{listing.cargoCategory}</span>
+                </div>
+
+                <div>
+                  <span className="text-[10px] font-mono uppercase text-[#737373] block">AVAILABLE DECK</span>
+                  <span className="font-mono font-bold text-[#F28C28] block">{listing.availableCapacity}</span>
+                  <span className="text-[10px] text-[#737373]">{listing.departureWindow}</span>
+                </div>
+
+                <div className="col-span-2 sm:col-span-1">
+                  <span className="text-[10px] font-mono uppercase text-[#737373] block">EST. RATE</span>
+                  <span className="font-mono font-bold text-[#171717] block">{listing.indicativeRange}</span>
+                  <span className="text-[9px] font-mono text-emerald-600 font-semibold">SHARED PRICING</span>
+                </div>
+              </div>
+
+              {/* Right Segment: Action */}
+              <div className="shrink-0 w-full lg:w-auto pt-2 lg:pt-0 border-t lg:border-t-0 border-[#E2DBD0]">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onExpressInterest) onExpressInterest(listing);
+                  }}
+                  className="w-full lg:w-auto inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider text-[#171717] bg-[#E8E1D5] hover:bg-[#F28C28] hover:text-[#171717] border border-[#D4CBBC] hover:border-[#F28C28] rounded transition-all shadow-xs"
+                >
+                  <span>Inquire Corridor</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

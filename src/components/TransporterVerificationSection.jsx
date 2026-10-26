@@ -157,22 +157,20 @@ export default function TransporterVerificationSection({
   const status = verification?.status || 'NOT_SUBMITTED';
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 font-sans">
       {/* Header & Status Card */}
-      <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-
+      <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#11253B] border border-[#1E3D60] text-xs font-semibold text-amber-400">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#262626] border border-[#333333] text-xs font-semibold text-[#F28C28]">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Transport Partner Verification</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Business & Vehicle Verification
+              Carrier &amp; Fleet Verification
             </h2>
-            <p className="text-sm text-slate-300 max-w-2xl">
-              Verified partners receive a <span className="text-emerald-400 font-semibold">✓ Verified Transport Partner</span> badge on price offers, direct trust from goods owners, and faster bookings.
+            <p className="text-sm text-stone-300 max-w-2xl">
+              Verified carriers receive a <span className="text-emerald-400 font-semibold font-mono">✓ Verified Transport Partner</span> badge on freight proposals, establishing direct trust with enterprise shippers.
             </p>
           </div>
 
@@ -182,17 +180,17 @@ export default function TransporterVerificationSection({
               <div className="px-5 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center space-x-3">
                 <ShieldCheck className="w-6 h-6 text-emerald-400" />
                 <div>
-                  <div className="text-xs uppercase font-extrabold tracking-wider">Status</div>
+                  <div className="text-xs uppercase font-extrabold tracking-wider font-mono">Status</div>
                   <div className="text-sm font-bold text-white">Verified Transport Partner ✓</div>
                 </div>
               </div>
             )}
             {status === 'PENDING' && (
-              <div className="px-5 py-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center space-x-3">
-                <Clock className="w-6 h-6 text-amber-400 animate-pulse" />
+              <div className="px-5 py-3 rounded-xl bg-[#F28C28]/10 border border-[#F28C28]/30 text-[#F28C28] flex items-center space-x-3">
+                <Clock className="w-6 h-6 text-[#F28C28] animate-pulse" />
                 <div>
-                  <div className="text-xs uppercase font-extrabold tracking-wider">Status</div>
-                  <div className="text-sm font-bold text-white">Waiting for Review</div>
+                  <div className="text-xs uppercase font-extrabold tracking-wider font-mono">Status</div>
+                  <div className="text-sm font-bold text-white">Under Dispatch Review</div>
                 </div>
               </div>
             )}
@@ -200,7 +198,7 @@ export default function TransporterVerificationSection({
               <div className="px-5 py-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 flex items-center space-x-3">
                 <AlertTriangle className="w-6 h-6 text-rose-400" />
                 <div>
-                  <div className="text-xs uppercase font-extrabold tracking-wider">Action Needed</div>
+                  <div className="text-xs uppercase font-extrabold tracking-wider font-mono">Action Needed</div>
                   <div className="text-sm font-bold text-white">Please Update Documents</div>
                 </div>
               </div>
@@ -209,16 +207,16 @@ export default function TransporterVerificationSection({
               <div className="px-5 py-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 flex items-center space-x-3">
                 <XCircle className="w-6 h-6 text-rose-400" />
                 <div>
-                  <div className="text-xs uppercase font-extrabold tracking-wider">Status</div>
+                  <div className="text-xs uppercase font-extrabold tracking-wider font-mono">Status</div>
                   <div className="text-sm font-bold text-white">Review Not Approved</div>
                 </div>
               </div>
             )}
             {status === 'NOT_SUBMITTED' && (
-              <div className="px-5 py-3 rounded-xl bg-[#11253B] border border-[#1E3D60] text-slate-300 flex items-center space-x-3">
-                <ShieldCheck className="w-6 h-6 text-slate-400" />
+              <div className="px-5 py-3 rounded-xl bg-[#262626] border border-[#2D2D2D] text-stone-300 flex items-center space-x-3">
+                <ShieldCheck className="w-6 h-6 text-stone-400" />
                 <div>
-                  <div className="text-xs uppercase font-extrabold tracking-wider text-slate-400">Status</div>
+                  <div className="text-xs uppercase font-extrabold tracking-wider text-stone-400 font-mono">Status</div>
                   <div className="text-sm font-bold text-white">Not Submitted Yet</div>
                 </div>
               </div>
@@ -277,26 +275,26 @@ export default function TransporterVerificationSection({
           return (
             <div
               key={idx}
-              className="p-4 rounded-xl bg-[#0F2A44] border border-[#1E3D60] flex flex-col justify-between"
+              className="p-4 rounded-xl bg-[#1F1F1F] border border-[#2D2D2D] flex flex-col justify-between"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <div className="p-2 rounded-lg bg-[#11253B] border border-[#1E3D60]">
-                    <Icon className="w-4 h-4 text-amber-400" />
+                  <div className="p-2 rounded-lg bg-[#262626] border border-[#333333]">
+                    <Icon className="w-4 h-4 text-[#F28C28]" />
                   </div>
                   {item.submitted ? (
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1 font-mono">
                       <Check className="w-3 h-3" />
                       <span>Uploaded</span>
                     </span>
                   ) : (
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#171717] text-stone-400 border border-[#2D2D2D] font-mono">
                       Required
                     </span>
                   )}
                 </div>
                 <h4 className="text-sm font-bold text-white">{item.title}</h4>
-                <p className="text-xs text-slate-400">{item.desc}</p>
+                <p className="text-xs text-stone-400">{item.desc}</p>
               </div>
             </div>
           );
@@ -306,25 +304,25 @@ export default function TransporterVerificationSection({
       {/* Document Upload Form & Uploaded Documents Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Upload Form (5 cols) */}
-        <div className="lg:col-span-5 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6 shadow-xl flex flex-col justify-between">
           <div className="space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#1E3D60]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#2D2D2D]">
               <h3 className="text-base font-bold text-white flex items-center space-x-2">
-                <Upload className="w-4 h-4 text-amber-400" />
+                <Upload className="w-4 h-4 text-[#F28C28]" />
                 <span>Upload Document</span>
               </h3>
-              <span className="text-xs text-slate-400">Max 5 MB (PDF/JPG/PNG)</span>
+              <span className="text-xs text-stone-400 font-mono">Max 5 MB (PDF/JPG/PNG)</span>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-stone-300 mb-1.5">
                   Type of Document *
                 </label>
                 <select
                   value={selectedDocType}
                   onChange={(e) => setSelectedDocType(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-amber-500"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 >
                   {DOCUMENT_TYPES.map((dt) => (
                     <option key={dt.value} value={dt.value}>
@@ -335,7 +333,7 @@ export default function TransporterVerificationSection({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-stone-300 mb-1.5">
                   Document or Registration Number (Optional)
                 </label>
                 <input
@@ -343,15 +341,15 @@ export default function TransporterVerificationSection({
                   value={docNumber}
                   onChange={(e) => setDocNumber(e.target.value)}
                   placeholder="e.g. GSTIN / RC Number / Permit #"
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-amber-500"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-stone-300 mb-1.5">
                   Choose Document File *
                 </label>
-                <div className="border-2 border-dashed border-[#1E3D60] hover:border-amber-500/50 rounded-xl p-4 text-center cursor-pointer bg-[#091827]/60 transition-colors">
+                <div className="border-2 border-dashed border-[#2D2D2D] hover:border-[#F28C28]/50 rounded-xl p-4 text-center cursor-pointer bg-[#171717] transition-colors">
                   <input
                     id="verification-file-input"
                     type="file"
@@ -360,25 +358,25 @@ export default function TransporterVerificationSection({
                     className="hidden"
                   />
                   <label htmlFor="verification-file-input" className="cursor-pointer block space-y-2">
-                    <FileText className="w-8 h-8 text-amber-400 mx-auto" />
-                    <div className="text-xs text-slate-300">
+                    <FileText className="w-8 h-8 text-[#F28C28] mx-auto" />
+                    <div className="text-xs text-stone-300">
                       {selectedFile ? (
-                        <span className="font-bold text-amber-400 truncate block max-w-xs mx-auto">
+                        <span className="font-bold text-[#F28C28] truncate block max-w-xs mx-auto font-mono">
                           {selectedFile.name} ({(selectedFile.size / 1024).toFixed(1)} KB)
                         </span>
                       ) : (
                         <>
-                          <span className="font-bold text-amber-400 hover:underline">Click to browse</span> or drag and drop file here
+                          <span className="font-bold text-[#F28C28] hover:underline">Click to browse</span> or drag and drop file here
                         </>
                       )}
                     </div>
-                    <p className="text-[10px] text-slate-500">Supports PDF, JPEG, PNG up to 5 MB</p>
+                    <p className="text-[10px] text-stone-500">Supports PDF, JPEG, PNG up to 5 MB</p>
                   </label>
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-stone-300 mb-1.5">
                   Additional Notes (Optional)
                 </label>
                 <textarea
@@ -386,14 +384,14 @@ export default function TransporterVerificationSection({
                   value={submissionNotes}
                   onChange={(e) => setSubmissionNotes(e.target.value)}
                   placeholder="e.g. Valid until Dec 2026."
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-amber-500"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={submitting || !selectedFile}
-                className="w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md transition-all flex items-center justify-center space-x-2 disabled:opacity-50"
+                className="w-full py-2.5 px-4 rounded-xl bg-[#F28C28] hover:bg-[#E07A1E] text-black font-bold text-xs shadow-md transition-all flex items-center justify-center space-x-2 disabled:opacity-50"
               >
                 {submitting ? (
                   <>
@@ -403,7 +401,7 @@ export default function TransporterVerificationSection({
                 ) : (
                   <>
                     <Upload className="w-4 h-4" />
-                    <span>Upload & Submit for Review</span>
+                    <span>Upload &amp; Submit for Review</span>
                   </>
                 )}
               </button>
@@ -414,16 +412,16 @@ export default function TransporterVerificationSection({
         {/* Uploaded Documents List & Timeline (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           {/* Documents Table */}
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6 shadow-xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#1E3D60]">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6 shadow-xl space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[#2D2D2D]">
               <h3 className="text-base font-bold text-white flex items-center space-x-2">
-                <File className="w-4 h-4 text-amber-400" />
+                <File className="w-4 h-4 text-[#F28C28]" />
                 <span>Uploaded Documents ({verification?.documents?.length || 0})</span>
               </h3>
               <button
                 type="button"
                 onClick={fetchVerificationStatus}
-                className="text-xs text-slate-400 hover:text-white flex items-center space-x-1"
+                className="text-xs text-stone-400 hover:text-white flex items-center space-x-1"
               >
                 <RefreshCw className={`w-3 h-3 ${loading ? 'animate-spin' : ''}`} />
                 <span>Refresh</span>
@@ -431,30 +429,30 @@ export default function TransporterVerificationSection({
             </div>
 
             {loading ? (
-              <div className="p-8 text-center text-slate-400 text-xs">Loading documents...</div>
+              <div className="p-8 text-center text-stone-400 text-xs">Loading documents...</div>
             ) : !verification?.documents || verification.documents.length === 0 ? (
-              <div className="p-8 text-center text-slate-400 space-y-2">
-                <FileText className="w-8 h-8 text-slate-600 mx-auto" />
+              <div className="p-8 text-center text-stone-400 space-y-2">
+                <FileText className="w-8 h-8 text-stone-600 mx-auto" />
                 <p className="text-xs">No documents uploaded yet. Add your business or vehicle documents using the form on the left.</p>
               </div>
             ) : (
-              <div className="divide-y divide-[#1E3D60]/60 space-y-2">
+              <div className="divide-y divide-[#2D2D2D] space-y-2">
                 {verification.documents.map((doc) => (
                   <div key={doc.id} className="pt-2 pb-1 flex items-center justify-between gap-3 text-xs">
                     <div className="flex items-center space-x-3 min-w-0">
-                      <div className="p-2 rounded-lg bg-[#091827] border border-[#1E3D60] shrink-0">
-                        <FileText className="w-4 h-4 text-amber-400" />
+                      <div className="p-2 rounded-lg bg-[#171717] border border-[#2D2D2D] shrink-0">
+                        <FileText className="w-4 h-4 text-[#F28C28]" />
                       </div>
                       <div className="min-w-0">
                         <div className="font-bold text-white truncate">{doc.originalName}</div>
-                        <div className="text-[11px] text-slate-400 flex items-center space-x-2 mt-0.5">
-                          <span className="text-amber-400">{doc.documentType}</span>
+                        <div className="text-[11px] text-stone-400 flex items-center space-x-2 mt-0.5">
+                          <span className="text-[#F28C28] font-mono">{doc.documentType}</span>
                           <span>•</span>
-                          <span>{doc.fileSizeFormatted}</span>
+                          <span className="font-tabular">{doc.fileSizeFormatted}</span>
                           {doc.documentNumberMasked && (
                             <>
                               <span>•</span>
-                              <span>{doc.documentNumberMasked}</span>
+                              <span className="font-mono">{doc.documentNumberMasked}</span>
                             </>
                           )}
                         </div>
@@ -463,10 +461,10 @@ export default function TransporterVerificationSection({
 
                     <div className="flex items-center space-x-2 shrink-0">
                       <span
-                        className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                        className={`px-2 py-0.5 rounded-full text-[10px] font-bold font-mono ${
                           doc.status === 'VERIFIED'
                             ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                            : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+                            : 'bg-[#F28C28]/20 text-[#F28C28] border border-[#F28C28]/30'
                         }`}
                       >
                         {doc.status}
@@ -475,7 +473,7 @@ export default function TransporterVerificationSection({
                         type="button"
                         onClick={() => handleViewDocument(doc.id, doc.originalName)}
                         title="Download / Inspect Document"
-                        className="p-1.5 text-slate-300 hover:text-amber-400 hover:bg-[#152E4A] rounded-lg transition-colors"
+                        className="p-1.5 text-stone-300 hover:text-[#F28C28] hover:bg-[#262626] rounded-lg transition-colors"
                       >
                         <Eye className="w-4 h-4" />
                       </button>
@@ -488,22 +486,22 @@ export default function TransporterVerificationSection({
 
           {/* Review History */}
           {verification?.auditLog && verification.auditLog.length > 0 && (
-            <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6 shadow-xl space-y-3">
+            <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6 shadow-xl space-y-3">
               <h4 className="text-sm font-bold text-white flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-amber-400" />
+                <Clock className="w-4 h-4 text-[#F28C28]" />
                 <span>Review History</span>
               </h4>
-              <div className="space-y-2 border-l-2 border-[#1E3D60] pl-4 ml-1">
+              <div className="space-y-2 border-l-2 border-[#2D2D2D] pl-4 ml-1">
                 {verification.auditLog.map((entry, i) => (
                   <div key={i} className="text-xs space-y-0.5 relative">
-                    <div className="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-amber-400" />
+                    <div className="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-[#F28C28]" />
                     <div className="flex items-center space-x-2">
-                      <span className="font-bold text-slate-200">{entry.action}</span>
-                      <span className="text-[10px] text-slate-400">
+                      <span className="font-bold text-stone-200">{entry.action}</span>
+                      <span className="text-[10px] text-stone-400 font-tabular">
                         {entry.timestamp ? new Date(entry.timestamp).toLocaleString('en-IN') : ''}
                       </span>
                     </div>
-                    {entry.notes && <p className="text-slate-400 text-[11px]">{entry.notes}</p>}
+                    {entry.notes && <p className="text-stone-400 text-[11px]">{entry.notes}</p>}
                   </div>
                 ))}
               </div>

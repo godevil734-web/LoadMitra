@@ -821,7 +821,7 @@ export default function TransporterDashboard() {
   };
 
   return (
-    <div className="min-h-[100dvh] w-full overflow-x-hidden bg-[#091827] text-slate-100 flex flex-col font-sans">
+    <div className="min-h-[100dvh] w-full overflow-x-hidden bg-[#171717] text-slate-100 flex flex-col font-sans">
       {/* Toast Notification */}
       {toast && (
         <div
@@ -832,7 +832,7 @@ export default function TransporterDashboard() {
               ? 'bg-emerald-950/90 text-emerald-200 border-emerald-500/40'
               : toast.type === 'error'
               ? 'bg-rose-950/90 text-rose-200 border-rose-500/40'
-              : 'bg-[#0F2A44]/90 text-slate-200 border-[#1E3D60]'
+              : 'bg-[#1F1F1F]/90 text-slate-200 border-[#2D2D2D]'
           }`}
         >
           {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />}
@@ -843,14 +843,14 @@ export default function TransporterDashboard() {
       )}
 
       {/* Top Header */}
-      <header className="sticky top-0 z-40 bg-[#091827]/95 backdrop-blur-md border-b border-[#1E3D60]/70 shadow-lg shadow-black/30">
+      <header className="sticky top-0 z-40 bg-[#171717]/95 backdrop-blur-md border-b border-[#2D2D2D]/70 shadow-lg shadow-black/30">
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 w-full h-18 flex items-center justify-between">
           <div className="flex items-center space-x-6">
             <Link to="/" className="flex items-center group focus:outline-none">
               <Logo />
             </Link>
-            <div className="hidden md:flex items-center space-x-2 pl-4 border-l border-[#1E3D60]">
-              <span className="text-xs font-bold tracking-wider uppercase bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30 px-2.5 py-0.5 rounded-full">
+            <div className="hidden md:flex items-center space-x-2 pl-4 border-l border-[#2D2D2D]">
+              <span className="text-xs font-bold tracking-wider uppercase bg-[#F28C28]/15 text-[#F28C28] border border-[#F28C28]/30 px-2.5 py-0.5 rounded-full">
                 Live
               </span>
               <span className="text-sm font-semibold text-slate-300">
@@ -862,7 +862,7 @@ export default function TransporterDashboard() {
           <div className="flex items-center space-x-3">
             <Link
               to="/listings"
-              className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg transition-colors"
+              className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] rounded-lg transition-colors"
             >
               <Package className="w-3.5 h-3.5 text-amber-400" />
               <span>Goods Owner Portal</span>
@@ -872,7 +872,7 @@ export default function TransporterDashboard() {
               <button
                 type="button"
                 onClick={() => setIsNotificationDrawerOpen(true)}
-                className="relative p-2 text-slate-300 hover:text-white hover:bg-[#152E4A] border border-[#1E3D60] rounded-xl transition-colors"
+                className="relative p-2 text-slate-300 hover:text-white hover:bg-[#262626] border border-[#2D2D2D] rounded-xl transition-colors"
                 title="Notifications"
                 aria-label="View notifications"
               >
@@ -891,14 +891,14 @@ export default function TransporterDashboard() {
                   <span className="text-xs font-bold text-white leading-tight">
                     {currentTransporter.businessName}
                   </span>
-                  <span className="text-[11px] text-[#F59E0B]">
+                  <span className="text-[11px] text-[#F28C28]">
                     {currentTransporter.name} (Transport Partner)
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="p-2 text-slate-400 hover:text-rose-400 hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg transition-colors"
+                  className="p-2 text-slate-400 hover:text-rose-400 hover:bg-[#262626] border border-[#2D2D2D] rounded-lg transition-colors"
                   title="Sign Out"
                 >
                   <LogOut className="w-4 h-4" />
@@ -909,14 +909,14 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={() => loginDemoTransporter(1)}
-                  className="px-3 py-1.5 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-lg shadow-sm transition-all"
+                  className="px-3 py-1.5 text-xs font-bold bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-lg shadow-sm transition-all"
                 >
                   Demo Transport Partner 1
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsAuthModalOpen(true)}
-                  className="px-3 py-1.5 text-xs font-semibold text-slate-200 hover:text-white bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg transition-all"
+                  className="px-3 py-1.5 text-xs font-semibold text-slate-200 hover:text-white bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] rounded-lg transition-all"
                 >
                   Sign In
                 </button>
@@ -927,11 +927,11 @@ export default function TransporterDashboard() {
       </header>
 
       {/* Hero Banner with Quick Stats & Tabs */}
-      <section className="bg-gradient-to-b from-[#0F2A44] to-[#091827] border-b border-[#1E3D60] py-8 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-[#1F1F1F] to-[#171717] border-b border-[#2D2D2D] py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1920px] mx-auto w-full">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#11253B] border border-[#1E3D60] text-amber-400 text-xs font-semibold mb-2">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#222222] border border-[#2D2D2D] text-amber-400 text-xs font-semibold mb-2">
                 <Truck className="w-3.5 h-3.5" />
                 <span>Find Return Loads & Fill Vehicles</span>
               </div>
@@ -947,7 +947,7 @@ export default function TransporterDashboard() {
               <button
                 type="button"
                 onClick={() => openVehicleModal()}
-                className="inline-flex items-center space-x-2 px-4 py-2.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold text-sm rounded-xl shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 transition-all"
+                className="inline-flex items-center space-x-2 px-4 py-2.5 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] font-bold text-sm rounded-xl shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 transition-all"
               >
                 <Plus className="w-4 h-4 stroke-[2.5]" />
                 <span>List Available Vehicle</span>
@@ -956,19 +956,19 @@ export default function TransporterDashboard() {
           </div>
 
           {/* Tab Navigation */}
-          <div className="mt-8 flex items-center border-b border-[#1E3D60] space-x-2 overflow-x-auto">
+          <div className="mt-8 flex items-center border-b border-[#2D2D2D] space-x-2 overflow-x-auto">
             <button
               type="button"
               onClick={() => setActiveTab('marketplace')}
               className={`pb-3 px-4 text-sm font-bold flex items-center space-x-2 border-b-2 transition-all whitespace-nowrap ${
                 activeTab === 'marketplace'
-                  ? 'border-[#F59E0B] text-[#F59E0B]'
+                  ? 'border-[#F28C28] text-[#F28C28]'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
               <Package className="w-4 h-4" />
               <span>Available Loads</span>
-              <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#11253B] text-slate-300 border border-[#1E3D60]">
+              <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#222222] text-slate-300 border border-[#2D2D2D]">
                 {listingsPagination.totalCount}
               </span>
             </button>
@@ -985,14 +985,14 @@ export default function TransporterDashboard() {
               }}
               className={`pb-3 px-4 text-sm font-bold flex items-center space-x-2 border-b-2 transition-all whitespace-nowrap ${
                 activeTab === 'my-vehicles'
-                  ? 'border-[#F59E0B] text-[#F59E0B]'
+                  ? 'border-[#F28C28] text-[#F28C28]'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
               <Truck className="w-4 h-4" />
               <span>My Available Vehicles</span>
               {authToken && (
-                <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#11253B] text-slate-300 border border-[#1E3D60]">
+                <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#222222] text-slate-300 border border-[#2D2D2D]">
                   {vehicles.length}
                 </span>
               )}
@@ -1010,14 +1010,14 @@ export default function TransporterDashboard() {
               }}
               className={`pb-3 px-4 text-sm font-bold flex items-center space-x-2 border-b-2 transition-all whitespace-nowrap ${
                 activeTab === 'my-requests'
-                  ? 'border-[#F59E0B] text-[#F59E0B]'
+                  ? 'border-[#F28C28] text-[#F28C28]'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
               <Send className="w-4 h-4" />
               <span>My Price Offers</span>
               {authToken && (
-                <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#11253B] text-slate-300 border border-[#1E3D60]">
+                <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-[#222222] text-slate-300 border border-[#2D2D2D]">
                   {requests.length}
                 </span>
               )}
@@ -1036,14 +1036,14 @@ export default function TransporterDashboard() {
               }}
               className={`pb-3 px-4 text-sm font-bold flex items-center space-x-2 border-b-2 transition-all whitespace-nowrap ${
                 activeTab === 'my-bookings'
-                  ? 'border-[#F59E0B] text-[#F59E0B]'
+                  ? 'border-[#F28C28] text-[#F28C28]'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>My Bookings</span>
               {authToken && bookings.length > 0 && (
-                <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-amber-500/20 text-[#F59E0B] border border-amber-500/30">
+                <span className="ml-1.5 px-2 py-0.5 text-[11px] font-bold rounded-full bg-amber-500/20 text-[#F28C28] border border-amber-500/30">
                   {bookings.length}
                 </span>
               )}
@@ -1061,7 +1061,7 @@ export default function TransporterDashboard() {
               }}
               className={`pb-3 px-4 text-sm font-bold flex items-center space-x-2 border-b-2 transition-all whitespace-nowrap ${
                 activeTab === 'verification'
-                  ? 'border-[#F59E0B] text-[#F59E0B]'
+                  ? 'border-[#F28C28] text-[#F28C28]'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -1087,7 +1087,7 @@ export default function TransporterDashboard() {
         {activeTab === 'marketplace' && (
           <div className="space-y-6">
             {/* Search & Multi-Filters Panel */}
-            <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-5 shadow-xl">
+            <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-5 shadow-xl">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {/* Text Search */}
                 <div>
@@ -1101,7 +1101,7 @@ export default function TransporterDashboard() {
                       placeholder="Origin, goods, company..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
-                      className="w-full pl-9 pr-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
+                      className="w-full pl-9 pr-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F28C28]"
                     />
                   </div>
                 </div>
@@ -1116,7 +1116,7 @@ export default function TransporterDashboard() {
                     placeholder="e.g. Gorakhpur"
                     value={originFilter}
                     onChange={(e) => setOriginFilter(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
 
@@ -1130,7 +1130,7 @@ export default function TransporterDashboard() {
                     placeholder="e.g. Lucknow"
                     value={destFilter}
                     onChange={(e) => setDestFilter(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
 
@@ -1142,7 +1142,7 @@ export default function TransporterDashboard() {
                   <select
                     value={cargoFilter}
                     onChange={(e) => setCargoFilter(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                   >
                     <option value="ALL">All Cargo Types</option>
                     {CARGO_OPTIONS.map((c) => (
@@ -1161,7 +1161,7 @@ export default function TransporterDashboard() {
                   <select
                     value={vehicleFilter}
                     onChange={(e) => setVehicleFilter(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                   >
                     <option value="ALL">All Vehicle Requirements</option>
                     {VEHICLE_OPTIONS.map((v) => (
@@ -1183,7 +1183,7 @@ export default function TransporterDashboard() {
                       placeholder="0"
                       value={minWeight}
                       onChange={(e) => setMinWeight(e.target.value)}
-                      className="w-full px-2.5 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
+                      className="w-full px-2.5 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F28C28]"
                     />
                   </div>
                   <div>
@@ -1195,7 +1195,7 @@ export default function TransporterDashboard() {
                       placeholder="50"
                       value={maxWeight}
                       onChange={(e) => setMaxWeight(e.target.value)}
-                      className="w-full px-2.5 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
+                      className="w-full px-2.5 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#F28C28]"
                     />
                   </div>
                 </div>
@@ -1209,7 +1209,7 @@ export default function TransporterDashboard() {
                     type="date"
                     value={pickupDateFilter}
                     onChange={(e) => setPickupDateFilter(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
 
@@ -1218,7 +1218,7 @@ export default function TransporterDashboard() {
                   <button
                     type="button"
                     onClick={clearMarketplaceFilters}
-                    className="w-full py-2 px-3 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] text-slate-300 hover:text-white rounded-xl text-sm font-semibold flex items-center justify-center space-x-1.5 transition-colors"
+                    className="w-full py-2 px-3 bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] text-slate-300 hover:text-white rounded-xl text-sm font-semibold flex items-center justify-center space-x-1.5 transition-colors"
                   >
                     <RotateCcw className="w-4 h-4" />
                     <span>Reset Filters</span>
@@ -1233,17 +1233,17 @@ export default function TransporterDashboard() {
                 {[1, 2, 3, 4, 5, 6].map((n) => (
                   <div
                     key={n}
-                    className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6 animate-pulse space-y-4"
+                    className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6 animate-pulse space-y-4"
                   >
-                    <div className="h-5 bg-[#152E4A] rounded-md w-3/4"></div>
-                    <div className="h-4 bg-[#152E4A] rounded-md w-1/2"></div>
-                    <div className="h-10 bg-[#152E4A] rounded-xl w-full"></div>
+                    <div className="h-5 bg-[#262626] rounded-md w-3/4"></div>
+                    <div className="h-4 bg-[#262626] rounded-md w-1/2"></div>
+                    <div className="h-10 bg-[#262626] rounded-xl w-full"></div>
                   </div>
                 ))}
               </div>
             ) : listings.length === 0 ? (
-              <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#11253B] border border-[#1E3D60] flex items-center justify-center mx-auto text-amber-400">
+              <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-12 text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#222222] border border-[#2D2D2D] flex items-center justify-center mx-auto text-amber-400">
                   <Package className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-bold text-white">No Matching Freight Loads Found</h3>
@@ -1253,114 +1253,104 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={clearMarketplaceFilters}
-                  className="px-4 py-2 bg-[#F59E0B] text-[#091827] font-bold text-xs rounded-xl"
+                  className="px-4 py-2 bg-[#F28C28] text-[#171717] font-bold text-xs rounded-xl"
                 >
                   Clear All Filters
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+              <div className="space-y-3">
                 {listings.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-[#0F2A44] border border-[#1E3D60] hover:border-[#F59E0B]/50 rounded-2xl p-6 shadow-xl flex flex-col justify-between transition-all duration-200 group"
+                    className="bg-[#1F1F1F] border border-[#2D2D2D] hover:border-[#F28C28]/40 rounded-xl p-4 sm:p-5 shadow-md flex flex-col lg:flex-row lg:items-center justify-between gap-4 transition-all duration-200 group"
                   >
-                    <div className="space-y-4">
-                      {/* Header Badge */}
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1.5">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    {/* Left: Route Corridor & Status */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1.5 font-mono">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                           <span>Open Demand</span>
                         </span>
-                        <span className="text-xs text-slate-400">
+                        <span className="text-xs text-stone-400 font-mono">
                           {item.createdAt ? new Date(item.createdAt).toLocaleDateString('en-IN') : ''}
                         </span>
-                      </div>
-
-                      {/* Route */}
-                      <div>
-                        <div className="flex items-start space-x-2">
-                          <MapPin className="w-4 h-4 text-[#F59E0B] shrink-0 mt-1" />
-                          <div>
-                            <div className="font-bold text-white text-base leading-snug">
-                              {item.origin}
-                            </div>
-                            <div className="text-slate-400 text-xs my-0.5">to</div>
-                            <div className="font-bold text-white text-base leading-snug">
-                              {item.destination}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Cargo & Weight */}
-                      <div className="bg-[#091827] rounded-xl p-3 border border-[#1E3D60] space-y-2">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-slate-400">Cargo Category:</span>
-                          <span className="font-semibold text-slate-200">{item.cargoCategory}</span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-slate-400">Load Weight:</span>
-                          <span className="font-bold text-amber-300">{item.weightDisplay}</span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-slate-400">Pickup Date:</span>
-                          <span className="font-medium text-slate-200">
-                            {item.pickupDate ? new Date(item.pickupDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Flexible'}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Offered Rate */}
-                      <div className="flex items-center justify-between pt-1 border-t border-[#1E3D60]">
-                        <div>
-                          <span className="text-[11px] text-slate-400 uppercase tracking-wider block">
-                            Offered Rate
-                          </span>
-                          <span className="text-xl font-extrabold text-[#F59E0B]">
-                            {item.offeredPriceFormatted}
-                          </span>
-                        </div>
-                        <span className="text-[11px] px-2 py-0.5 rounded bg-[#11253B] text-slate-300 border border-[#1E3D60]">
-                          {item.priceType}
+                        <span className="text-xs text-stone-400 bg-[#171717] px-2 py-0.5 rounded border border-[#2D2D2D] font-mono">
+                          Pickup: {item.pickupDate ? new Date(item.pickupDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) : 'Flexible'}
                         </span>
                       </div>
 
-                      {/* Vehicle Requirements */}
-                      {item.vehicleRequirements && item.vehicleRequirements.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5 pt-1">
-                          {item.vehicleRequirements.map((v) => (
-                            <span
-                              key={v}
-                              className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-[#11253B] text-slate-300 border border-[#1E3D60]"
-                            >
-                              {v}
+                      {/* Route Header */}
+                      <div className="flex items-center space-x-3 text-base sm:text-lg font-bold text-white tracking-tight">
+                        <span className="text-[#F28C28] flex items-center">
+                          <MapPin className="w-4 h-4 mr-1 text-[#F28C28] shrink-0" />
+                          {item.origin}
+                        </span>
+                        <span className="text-stone-500 font-mono text-sm">──►</span>
+                        <span className="text-[#F5F0E6] flex items-center">
+                          <MapPin className="w-4 h-4 mr-1 text-[#F5F0E6] shrink-0" />
+                          {item.destination}
+                        </span>
+                      </div>
+
+                      {/* Cargo, Weight, and Vehicle tags */}
+                      <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-stone-300">
+                        <span className="inline-flex items-center text-stone-400">
+                          <Package className="w-3.5 h-3.5 mr-1 text-[#F28C28]" />
+                          <strong className="text-white ml-1">{item.cargoCategory}</strong>
+                        </span>
+                        <span className="text-stone-600">•</span>
+                        <span className="inline-flex items-center text-stone-400">
+                          <Truck className="w-3.5 h-3.5 mr-1 text-[#F28C28]" />
+                          Weight: <strong className="text-[#F28C28] ml-1 font-tabular">{item.weightDisplay}</strong>
+                        </span>
+                        {item.vehicleRequirements && item.vehicleRequirements.length > 0 && (
+                          <>
+                            <span className="text-stone-600">•</span>
+                            <span className="text-stone-300 bg-[#171717] px-2 py-0.5 rounded border border-[#2D2D2D] font-mono text-[11px]">
+                              {item.vehicleRequirements.join(', ')}
                             </span>
-                          ))}
-                        </div>
-                      )}
+                          </>
+                        )}
+                      </div>
                     </div>
 
-                    {/* Action Buttons */}
-                    <div className="pt-5 mt-4 border-t border-[#1E3D60] flex items-center space-x-2">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setSelectedListing(item);
-                          setIsDetailModalOpen(true);
-                        }}
-                        className="flex-1 py-2 px-3 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] text-slate-200 hover:text-white rounded-xl text-xs font-bold transition-colors"
-                      >
-                        Load Details
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => openExpressInterest(item)}
-                        className="flex-1 py-2 px-3 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl text-xs font-bold flex items-center justify-center space-x-1.5 shadow-sm transition-all"
-                      >
-                        <Send className="w-3.5 h-3.5" />
-                        <span>Offer Price</span>
-                      </button>
+                    {/* Right: Rate and Action Buttons */}
+                    <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between lg:justify-center gap-3 shrink-0 pt-3 lg:pt-0 border-t lg:border-t-0 border-[#2D2D2D]">
+                      <div className="text-left lg:text-right">
+                        <span className="text-[10px] text-stone-400 uppercase tracking-wider block font-mono">
+                          Shipper Offered Rate
+                        </span>
+                        <div className="flex items-baseline space-x-1.5">
+                          <span className="text-xl font-extrabold text-[#F28C28] font-tabular">
+                            {item.offeredPriceFormatted}
+                          </span>
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#171717] text-stone-400 border border-[#2D2D2D] font-mono uppercase">
+                            {item.priceType}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center space-x-2 w-full sm:w-auto">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSelectedListing(item);
+                            setIsDetailModalOpen(true);
+                          }}
+                          className="px-3.5 py-2 bg-[#262626] hover:bg-[#333333] border border-[#2D2D2D] text-stone-200 hover:text-white rounded-lg text-xs font-bold transition-colors"
+                        >
+                          Details
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => openExpressInterest(item)}
+                          className="px-4 py-2 bg-[#F28C28] hover:bg-[#E07A1E] text-black rounded-lg text-xs font-bold flex items-center justify-center space-x-1.5 shadow-sm transition-all whitespace-nowrap"
+                        >
+                          <Send className="w-3.5 h-3.5" />
+                          <span>Offer Rate</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -1369,7 +1359,7 @@ export default function TransporterDashboard() {
 
             {/* Pagination Controls */}
             {listingsPagination.totalPages > 1 && (
-              <div className="flex items-center justify-between pt-6 border-t border-[#1E3D60]">
+              <div className="flex items-center justify-between pt-6 border-t border-[#2D2D2D]">
                 <span className="text-xs text-slate-400">
                   Showing page {listingsPagination.page} of {listingsPagination.totalPages} ({listingsPagination.totalCount} available loads)
                 </span>
@@ -1378,18 +1368,18 @@ export default function TransporterDashboard() {
                     type="button"
                     disabled={!listingsPagination.hasPrevPage}
                     onClick={() => setListingsPage((p) => Math.max(1, p - 1))}
-                    className="p-2 rounded-lg bg-[#11253B] border border-[#1E3D60] text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#152E4A]"
+                    className="p-2 rounded-lg bg-[#222222] border border-[#2D2D2D] text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#262626]"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
-                  <span className="text-xs font-semibold px-3 py-1 bg-[#091827] border border-[#1E3D60] rounded-lg">
+                  <span className="text-xs font-semibold px-3 py-1 bg-[#171717] border border-[#2D2D2D] rounded-lg">
                     {listingsPagination.page}
                   </span>
                   <button
                     type="button"
                     disabled={!listingsPagination.hasNextPage}
                     onClick={() => setListingsPage((p) => p + 1)}
-                    className="p-2 rounded-lg bg-[#11253B] border border-[#1E3D60] text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#152E4A]"
+                    className="p-2 rounded-lg bg-[#222222] border border-[#2D2D2D] text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#262626]"
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
@@ -1402,7 +1392,7 @@ export default function TransporterDashboard() {
         {/* TAB 2: My Vehicle Availability */}
         {activeTab === 'my-vehicles' && (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-5">
               <div>
                 <h2 className="text-lg font-bold text-white">My Available Vehicles</h2>
                 <p className="text-xs text-slate-400 mt-0.5">
@@ -1413,7 +1403,7 @@ export default function TransporterDashboard() {
                 <select
                   value={vehicleStatusFilter}
                   onChange={(e) => setVehicleStatusFilter(e.target.value)}
-                  className="px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 >
                   <option value="ALL">All Statuses</option>
                   <option value="AVAILABLE">Available</option>
@@ -1425,7 +1415,7 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={() => openVehicleModal()}
-                  className="inline-flex items-center space-x-1.5 px-4 py-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold text-xs rounded-xl shadow transition-colors"
+                  className="inline-flex items-center space-x-1.5 px-4 py-2 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] font-bold text-xs rounded-xl shadow transition-colors"
                 >
                   <Plus className="w-4 h-4" />
                   <span>List Vehicle</span>
@@ -1436,8 +1426,8 @@ export default function TransporterDashboard() {
             {vehiclesLoading ? (
               <div className="text-center py-12 text-slate-400">Loading your vehicle records...</div>
             ) : vehicles.length === 0 ? (
-              <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#11253B] border border-[#1E3D60] flex items-center justify-center mx-auto text-amber-400">
+              <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-12 text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#222222] border border-[#2D2D2D] flex items-center justify-center mx-auto text-amber-400">
                   <Truck className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-bold text-white">No Available Vehicles Listed</h3>
@@ -1447,7 +1437,7 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={() => openVehicleModal()}
-                  className="px-4 py-2.5 bg-[#F59E0B] text-[#091827] font-bold text-xs rounded-xl"
+                  className="px-4 py-2.5 bg-[#F28C28] text-[#171717] font-bold text-xs rounded-xl"
                 >
                   List Your First Vehicle
                 </button>
@@ -1460,7 +1450,7 @@ export default function TransporterDashboard() {
                   return (
                     <div
                       key={veh.id}
-                      className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4"
+                      className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4"
                     >
                       <div className="space-y-3">
                         {/* Status & Return Trip Badge */}
@@ -1481,7 +1471,7 @@ export default function TransporterDashboard() {
 
                         {/* Vehicle Title & Silhouette */}
                         <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12 rounded-xl bg-[#091827] border border-[#1E3D60] p-1.5 flex items-center justify-center text-amber-400 shrink-0">
+                          <div className="w-12 h-12 rounded-xl bg-[#171717] border border-[#2D2D2D] p-1.5 flex items-center justify-center text-amber-400 shrink-0">
                             <VehicleSvgIcon type={vehCat.id} className="w-9 h-7 text-amber-400" />
                           </div>
                           <div>
@@ -1495,11 +1485,11 @@ export default function TransporterDashboard() {
                         </div>
 
                         {/* Route Corridor */}
-                        <div className="bg-[#091827] rounded-xl p-3 border border-[#1E3D60] space-y-1.5">
+                        <div className="bg-[#171717] rounded-xl p-3 border border-[#2D2D2D] space-y-1.5">
                           <div className="text-xs text-slate-400">Route:</div>
                           <div className="text-sm font-bold text-white flex items-center space-x-1.5">
                             <span>{veh.currentLocation}</span>
-                            <ArrowRight className="w-3.5 h-3.5 text-[#F59E0B] shrink-0" />
+                            <ArrowRight className="w-3.5 h-3.5 text-[#F28C28] shrink-0" />
                             <span>{veh.destination}</span>
                           </div>
                           {veh.operatingCorridor && (
@@ -1511,13 +1501,13 @@ export default function TransporterDashboard() {
 
                         {/* Dates & Rate */}
                         <div className="grid grid-cols-2 gap-2 text-xs">
-                          <div className="bg-[#11253B] p-2.5 rounded-lg border border-[#1E3D60]">
+                          <div className="bg-[#222222] p-2.5 rounded-lg border border-[#2D2D2D]">
                             <span className="text-slate-400 block text-[10px] uppercase">Available Date</span>
                             <span className="font-semibold text-slate-200">
                               {veh.availabilityDate ? new Date(veh.availabilityDate).toLocaleDateString('en-IN') : 'Immediate'}
                             </span>
                           </div>
-                          <div className="bg-[#11253B] p-2.5 rounded-lg border border-[#1E3D60]">
+                          <div className="bg-[#222222] p-2.5 rounded-lg border border-[#2D2D2D]">
                             <span className="text-slate-400 block text-[10px] uppercase">Expected Price</span>
                             <span className="font-semibold text-amber-300">
                               {veh.rateExpectationFormatted || 'Negotiable'}
@@ -1526,19 +1516,19 @@ export default function TransporterDashboard() {
                         </div>
 
                         {veh.notes && (
-                          <p className="text-xs text-slate-400 italic bg-[#091827]/60 p-2 rounded-lg border border-[#1E3D60]/50">
+                          <p className="text-xs text-slate-400 italic bg-[#171717]/60 p-2 rounded-lg border border-[#2D2D2D]/50">
                             &ldquo;{veh.notes}&rdquo;
                           </p>
                         )}
                       </div>
 
                       {/* Footer Actions */}
-                      <div className="pt-4 border-t border-[#1E3D60] flex items-center justify-between">
+                      <div className="pt-4 border-t border-[#2D2D2D] flex items-center justify-between">
                         <div className="flex items-center space-x-2">
                           <button
                             type="button"
                             onClick={() => openVehicleModal(veh)}
-                            className="p-2 text-slate-300 hover:text-white bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg transition-colors"
+                            className="p-2 text-slate-300 hover:text-white bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] rounded-lg transition-colors"
                             title="Edit Vehicle"
                           >
                             <Edit3 className="w-4 h-4" />
@@ -1546,7 +1536,7 @@ export default function TransporterDashboard() {
                           <button
                             type="button"
                             onClick={() => handleDeleteVehicle(veh.id)}
-                            className="p-2 text-rose-400 hover:text-rose-300 bg-[#11253B] hover:bg-rose-950/40 border border-[#1E3D60] rounded-lg transition-colors"
+                            className="p-2 text-rose-400 hover:text-rose-300 bg-[#222222] hover:bg-rose-950/40 border border-[#2D2D2D] rounded-lg transition-colors"
                             title="Delete Vehicle"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -1557,7 +1547,7 @@ export default function TransporterDashboard() {
                         <select
                           value={veh.status}
                           onChange={(e) => handleUpdateVehicleStatus(veh.id, e.target.value)}
-                          className="px-2 py-1 bg-[#091827] border border-[#1E3D60] text-xs font-semibold text-slate-200 rounded-lg focus:outline-none focus:border-[#F59E0B]"
+                          className="px-2 py-1 bg-[#171717] border border-[#2D2D2D] text-xs font-semibold text-slate-200 rounded-lg focus:outline-none focus:border-[#F28C28]"
                         >
                           <option value="AVAILABLE">Available</option>
                           <option value="MATCHED">Booked</option>
@@ -1577,7 +1567,7 @@ export default function TransporterDashboard() {
         {/* TAB 3: My Load Requests */}
         {activeTab === 'my-requests' && (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-5">
               <div>
                 <h2 className="text-lg font-bold text-white">My Price Offers</h2>
                 <p className="text-xs text-slate-400 mt-0.5">
@@ -1588,7 +1578,7 @@ export default function TransporterDashboard() {
                 <select
                   value={requestStatusFilter}
                   onChange={(e) => setRequestStatusFilter(e.target.value)}
-                  className="px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 >
                   <option value="ALL">All Offer Statuses</option>
                   <option value="PENDING">Waiting for Review</option>
@@ -1602,8 +1592,8 @@ export default function TransporterDashboard() {
             {requestsLoading ? (
               <div className="text-center py-12 text-slate-400">Loading your price offers...</div>
             ) : requests.length === 0 ? (
-              <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#11253B] border border-[#1E3D60] flex items-center justify-center mx-auto text-amber-400">
+              <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-12 text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#222222] border border-[#2D2D2D] flex items-center justify-center mx-auto text-amber-400">
                   <Send className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-bold text-white">No Price Offers Sent</h3>
@@ -1613,7 +1603,7 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={() => setActiveTab('marketplace')}
-                  className="px-4 py-2.5 bg-[#F59E0B] text-[#091827] font-bold text-xs rounded-xl"
+                  className="px-4 py-2.5 bg-[#F28C28] text-[#171717] font-bold text-xs rounded-xl"
                 >
                   Find Available Loads
                 </button>
@@ -1626,7 +1616,7 @@ export default function TransporterDashboard() {
                   return (
                     <div
                       key={req.id}
-                      className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6 shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+                      className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6 shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6"
                     >
                       <div className="space-y-3 flex-1">
                         {/* Status Badge & Timestamp */}
@@ -1672,10 +1662,10 @@ export default function TransporterDashboard() {
                         )}
 
                         {/* Proposal Details Box */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-[#091827] rounded-xl p-3 border border-[#1E3D60] text-xs">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-[#171717] rounded-xl p-3 border border-[#2D2D2D] text-xs">
                           <div>
                             <span className="text-slate-400 block text-[10px] uppercase">My Price Offer</span>
-                            <span className="text-base font-extrabold text-[#F59E0B]">
+                            <span className="text-base font-extrabold text-[#F28C28]">
                               {req.proposedRateFormatted}
                             </span>
                             {listing && (
@@ -1700,7 +1690,7 @@ export default function TransporterDashboard() {
 
                         {/* Proposal Message */}
                         {req.message && (
-                          <p className="text-xs text-slate-300 bg-[#11253B]/50 p-2.5 rounded-lg border border-[#1E3D60]/50">
+                          <p className="text-xs text-slate-300 bg-[#222222]/50 p-2.5 rounded-lg border border-[#2D2D2D]/50">
                             <span className="font-semibold text-slate-400">Note: </span>
                             &ldquo;{req.message}&rdquo;
                           </p>
@@ -1722,7 +1712,7 @@ export default function TransporterDashboard() {
                             type="button"
                             disabled={withdrawingRequestId === req.id}
                             onClick={() => handleWithdrawRequest(req.id)}
-                            className="px-4 py-2 bg-[#11253B] hover:bg-rose-950/60 border border-[#1E3D60] hover:border-rose-500/50 text-slate-300 hover:text-rose-200 rounded-xl text-xs font-bold transition-all disabled:opacity-50 flex items-center justify-center space-x-1.5"
+                            className="px-4 py-2 bg-[#222222] hover:bg-rose-950/60 border border-[#2D2D2D] hover:border-rose-500/50 text-slate-300 hover:text-rose-200 rounded-xl text-xs font-bold transition-all disabled:opacity-50 flex items-center justify-center space-x-1.5"
                           >
                             <Ban className="w-3.5 h-3.5" />
                             <span>{withdrawingRequestId === req.id ? 'Withdrawing...' : 'Withdraw Offer'}</span>
@@ -1780,11 +1770,11 @@ export default function TransporterDashboard() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto">
             <button
               type="button"
               onClick={() => setIsDetailModalOpen(false)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1801,7 +1791,7 @@ export default function TransporterDashboard() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 bg-[#091827] p-4 rounded-xl border border-[#1E3D60] text-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 bg-[#171717] p-4 rounded-xl border border-[#2D2D2D] text-xs">
               <div>
                 <span className="text-slate-400 block">Type of Goods</span>
                 <span className="font-bold text-white text-sm">{selectedListing.cargoCategory}</span>
@@ -1812,7 +1802,7 @@ export default function TransporterDashboard() {
               </div>
               <div>
                 <span className="text-slate-400 block">Target Price</span>
-                <span className="font-bold text-[#F59E0B] text-base">{selectedListing.offeredPriceFormatted}</span>
+                <span className="font-bold text-[#F28C28] text-base">{selectedListing.offeredPriceFormatted}</span>
               </div>
               <div>
                 <span className="text-slate-400 block">Pickup Date</span>
@@ -1837,7 +1827,7 @@ export default function TransporterDashboard() {
                 <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                   Description of Goods
                 </h4>
-                <p className="text-xs text-slate-300 bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
+                <p className="text-xs text-slate-300 bg-[#171717] p-3 rounded-xl border border-[#2D2D2D]">
                   {selectedListing.cargoDescription}
                 </p>
               </div>
@@ -1852,7 +1842,7 @@ export default function TransporterDashboard() {
                   {selectedListing.vehicleRequirements.map((v) => (
                     <span
                       key={v}
-                      className="px-2.5 py-1 rounded-lg bg-[#11253B] text-slate-200 border border-[#1E3D60] text-xs font-medium"
+                      className="px-2.5 py-1 rounded-lg bg-[#222222] text-slate-200 border border-[#2D2D2D] text-xs font-medium"
                     >
                       {v}
                     </span>
@@ -1866,17 +1856,17 @@ export default function TransporterDashboard() {
                 <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                   Notes from Goods Owner
                 </h4>
-                <p className="text-xs text-slate-300 bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
+                <p className="text-xs text-slate-300 bg-[#171717] p-3 rounded-xl border border-[#2D2D2D]">
                   {selectedListing.notes}
                 </p>
               </div>
             )}
 
-            <div className="pt-4 border-t border-[#1E3D60] flex items-center justify-end space-x-3">
+            <div className="pt-4 border-t border-[#2D2D2D] flex items-center justify-end space-x-3">
               <button
                 type="button"
                 onClick={() => setIsDetailModalOpen(false)}
-                className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+                className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
               >
                 Close
               </button>
@@ -1886,7 +1876,7 @@ export default function TransporterDashboard() {
                   setIsDetailModalOpen(false);
                   openExpressInterest(selectedListing);
                 }}
-                className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow flex items-center space-x-1.5"
+                className="px-5 py-2 text-xs font-bold bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-xl shadow flex items-center space-x-1.5"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>Send Price Offer</span>
@@ -1903,11 +1893,11 @@ export default function TransporterDashboard() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative space-y-5">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative space-y-5">
             <button
               type="button"
               onClick={() => setIsInterestModalOpen(false)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1940,7 +1930,7 @@ export default function TransporterDashboard() {
                     value={proposalRate}
                     onChange={(e) => setProposalRate(e.target.value)}
                     placeholder="e.g. 24000"
-                    className="w-full pl-8 pr-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm font-bold text-[#F59E0B] focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full pl-8 pr-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm font-bold text-[#F28C28] focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <span className="text-[11px] text-slate-400 mt-1 block">
@@ -1967,7 +1957,7 @@ export default function TransporterDashboard() {
                         }
                       }
                     }}
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                   >
                     <option value="">Custom vehicle details</option>
                     {vehicles
@@ -1992,7 +1982,7 @@ export default function TransporterDashboard() {
                   value={proposalVehicle}
                   onChange={(e) => setProposalVehicle(e.target.value)}
                   placeholder="e.g. 10-Ton Medium Commercial Truck (UP53-AB-1234)"
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
@@ -2005,7 +1995,7 @@ export default function TransporterDashboard() {
                   type="date"
                   value={proposalAvailableDate}
                   onChange={(e) => setProposalAvailableDate(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
@@ -2019,7 +2009,7 @@ export default function TransporterDashboard() {
                   value={proposalMessage}
                   onChange={(e) => setProposalMessage(e.target.value)}
                   placeholder="Driver contact, vehicle details, waterproof cover, etc."
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
@@ -2027,14 +2017,14 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={() => setIsInterestModalOpen(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmittingProposal}
-                  className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50 flex items-center space-x-1.5"
+                  className="px-5 py-2 text-xs font-bold bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-xl shadow disabled:opacity-50 flex items-center space-x-1.5"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>{isSubmittingProposal ? 'Sending...' : 'Send Price Offer'}</span>
@@ -2052,11 +2042,11 @@ export default function TransporterDashboard() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative space-y-5 max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative space-y-5 max-h-[90vh] overflow-y-auto">
             <button
               type="button"
               onClick={() => setIsVehicleModalOpen(false)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
             >
               <X className="w-5 h-5" />
             </button>
@@ -2080,12 +2070,12 @@ export default function TransporterDashboard() {
                   <label className="block text-xs font-semibold text-slate-200">
                     Select Vehicle Type *
                   </label>
-                  <span className="text-xs text-[#F59E0B] font-bold">
+                  <span className="text-xs text-[#F28C28] font-bold">
                     Selected: {vehType}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-h-56 overflow-y-auto p-1.5 bg-[#091827] rounded-xl border border-[#1E3D60]">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-h-56 overflow-y-auto p-1.5 bg-[#171717] rounded-xl border border-[#2D2D2D]">
                   {VEHICLE_CATEGORIES.map((cat) => {
                     const isSelected = vehType === cat.name;
                     return (
@@ -2100,16 +2090,16 @@ export default function TransporterDashboard() {
                         }}
                         className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition-all group relative cursor-pointer ${
                           isSelected
-                            ? 'bg-[#152E4A] border-[#F59E0B] shadow-md shadow-amber-500/10 ring-1 ring-[#F59E0B]'
-                            : 'bg-[#0F2A44] border-[#1E3D60] hover:border-slate-500'
+                            ? 'bg-[#262626] border-[#F28C28] shadow-md shadow-amber-500/10 ring-1 ring-[#F28C28]'
+                            : 'bg-[#1F1F1F] border-[#2D2D2D] hover:border-slate-500'
                         }`}
                       >
                         {isSelected && (
-                          <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#F59E0B] flex items-center justify-center text-[#091827]">
+                          <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#F28C28] flex items-center justify-center text-[#171717]">
                             <Check className="w-2.5 h-2.5 stroke-[3]" />
                           </div>
                         )}
-                        <div className="w-10 h-8 rounded-lg bg-[#091827] flex items-center justify-center text-amber-400 mb-1.5 p-1 shrink-0">
+                        <div className="w-10 h-8 rounded-lg bg-[#171717] flex items-center justify-center text-amber-400 mb-1.5 p-1 shrink-0">
                           <VehicleSvgIcon type={cat.id} className="w-8 h-6 text-amber-400" />
                         </div>
                         <div>
@@ -2141,7 +2131,7 @@ export default function TransporterDashboard() {
                     value={vehCapacity}
                     onChange={(e) => setVehCapacity(e.target.value)}
                     placeholder="e.g. 3.5"
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div>
@@ -2151,7 +2141,7 @@ export default function TransporterDashboard() {
                   <select
                     value={vehCapacityUnit}
                     onChange={(e) => setVehCapacityUnit(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                   >
                     <option value="Tons">Tons</option>
                     <option value="Quintals">Quintals</option>
@@ -2172,7 +2162,7 @@ export default function TransporterDashboard() {
                     value={vehCurrentLoc}
                     onChange={(e) => setVehCurrentLoc(e.target.value)}
                     placeholder="e.g. Gorakhpur Mandi, UP"
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div>
@@ -2185,7 +2175,7 @@ export default function TransporterDashboard() {
                     value={vehDestination}
                     onChange={(e) => setVehDestination(e.target.value)}
                     placeholder="e.g. Lucknow Dubagga, UP"
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
               </div>
@@ -2200,7 +2190,7 @@ export default function TransporterDashboard() {
                   value={vehCorridor}
                   onChange={(e) => setVehCorridor(e.target.value)}
                   placeholder="e.g. Gorakhpur to Lucknow (NH27 Route)"
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
@@ -2215,16 +2205,16 @@ export default function TransporterDashboard() {
                     required
                     value={vehAvailDate}
                     onChange={(e) => setVehAvailDate(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div className="pt-4">
-                  <label className="flex items-center space-x-2.5 cursor-pointer bg-[#091827] p-2.5 rounded-xl border border-[#1E3D60]">
+                  <label className="flex items-center space-x-2.5 cursor-pointer bg-[#171717] p-2.5 rounded-xl border border-[#2D2D2D]">
                     <input
                       type="checkbox"
                       checked={vehIsReturnTrip}
                       onChange={(e) => setVehIsReturnTrip(e.target.checked)}
-                      className="w-4 h-4 text-[#F59E0B] rounded bg-[#11253B] border-[#1E3D60] focus:ring-[#F59E0B]"
+                      className="w-4 h-4 text-[#F28C28] rounded bg-[#222222] border-[#2D2D2D] focus:ring-[#F28C28]"
                     />
                     <span className="text-xs font-semibold text-slate-200">
                       Empty Return Trip (Looking for a return load)
@@ -2244,7 +2234,7 @@ export default function TransporterDashboard() {
                   value={vehRateExpectation}
                   onChange={(e) => setVehRateExpectation(e.target.value)}
                   placeholder="e.g. 8500"
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-sm text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-sm text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
@@ -2258,7 +2248,7 @@ export default function TransporterDashboard() {
                   value={vehNotes}
                   onChange={(e) => setVehNotes(e.target.value)}
                   placeholder="Hydraulic lift, tarpaulin cover, verified driver..."
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
@@ -2266,14 +2256,14 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={() => setIsVehicleModalOpen(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSavingVehicle}
-                  className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50"
+                  className="px-5 py-2 text-xs font-bold bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-xl shadow disabled:opacity-50"
                 >
                   {isSavingVehicle ? 'Saving...' : isEditingVehicle ? 'Update Vehicle' : 'List Vehicle'}
                 </button>
@@ -2290,11 +2280,11 @@ export default function TransporterDashboard() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative space-y-5">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative space-y-5">
             <button
               type="button"
               onClick={() => setIsAuthModalOpen(false)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
             >
               <X className="w-5 h-5" />
             </button>
@@ -2312,7 +2302,7 @@ export default function TransporterDashboard() {
             </div>
 
             {/* Quick Demo Sign In Box */}
-            <div className="bg-[#091827] p-3.5 rounded-xl border border-[#1E3D60] space-y-2.5">
+            <div className="bg-[#171717] p-3.5 rounded-xl border border-[#2D2D2D] space-y-2.5">
               <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400 block">
                 ⚡ Quick Demo Sign In
               </span>
@@ -2320,7 +2310,7 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={() => loginDemoTransporter(1)}
-                  className="p-2.5 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-[#F59E0B] rounded-lg text-left transition-colors"
+                  className="p-2.5 bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] hover:border-[#F28C28] rounded-lg text-left transition-colors"
                 >
                   <span className="text-xs font-bold text-white block">Transport Partner 1</span>
                   <span className="text-[10px] text-slate-400 block truncate">Awadh Express Fleet</span>
@@ -2328,7 +2318,7 @@ export default function TransporterDashboard() {
                 <button
                   type="button"
                   onClick={() => loginDemoTransporter(2)}
-                  className="p-2.5 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-[#F59E0B] rounded-lg text-left transition-colors"
+                  className="p-2.5 bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] hover:border-[#F28C28] rounded-lg text-left transition-colors"
                 >
                   <span className="text-xs font-bold text-white block">Transport Partner 2</span>
                   <span className="text-[10px] text-slate-400 block truncate">Northern Return Haul</span>
@@ -2337,11 +2327,11 @@ export default function TransporterDashboard() {
             </div>
 
             <div className="relative flex py-1 items-center">
-              <div className="flex-grow border-t border-[#1E3D60]"></div>
+              <div className="flex-grow border-t border-[#2D2D2D]"></div>
               <span className="flex-shrink mx-3 text-slate-500 text-xs uppercase tracking-wider">
                 Or With Email & Password
               </span>
-              <div className="flex-grow border-t border-[#1E3D60]"></div>
+              <div className="flex-grow border-t border-[#2D2D2D]"></div>
             </div>
 
             <form onSubmit={handleCustomAuth} className="space-y-3">
@@ -2357,7 +2347,7 @@ export default function TransporterDashboard() {
                       value={registerName}
                       onChange={(e) => setRegisterName(e.target.value)}
                       placeholder="e.g. Jaswinder Singh"
-                      className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                      className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                     />
                   </div>
                   <div>
@@ -2370,7 +2360,7 @@ export default function TransporterDashboard() {
                       value={registerBusiness}
                       onChange={(e) => setRegisterBusiness(e.target.value)}
                       placeholder="e.g. Purvanchal Carrier Services"
-                      className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                      className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                     />
                   </div>
                   <div>
@@ -2383,7 +2373,7 @@ export default function TransporterDashboard() {
                       value={registerPhone}
                       onChange={(e) => setRegisterPhone(e.target.value)}
                       placeholder="9811223344"
-                      className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                      className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                     />
                   </div>
                   <div>
@@ -2395,7 +2385,7 @@ export default function TransporterDashboard() {
                       value={registerCorridor}
                       onChange={(e) => setRegisterCorridor(e.target.value)}
                       placeholder="Gorakhpur to Lucknow (NH27 Route)"
-                      className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                      className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                     />
                   </div>
                 </>
@@ -2411,7 +2401,7 @@ export default function TransporterDashboard() {
                   value={authEmail}
                   onChange={(e) => setAuthEmail(e.target.value)}
                   placeholder="partner@example.com"
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
@@ -2425,13 +2415,13 @@ export default function TransporterDashboard() {
                   value={authPassword}
                   onChange={(e) => setAuthPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-2.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold text-xs rounded-xl shadow transition-colors mt-2"
+                className="w-full py-2.5 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] font-bold text-xs rounded-xl shadow transition-colors mt-2"
               >
                 {authMode === 'login' ? 'Sign In as Transport Partner' : 'Create Transport Partner Account'}
               </button>
@@ -2459,11 +2449,11 @@ export default function TransporterDashboard() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-4">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-4">
             <button
               type="button"
               onClick={() => setActiveBookingModal(null)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
             >
               <X className="w-5 h-5" />
             </button>
@@ -2499,21 +2489,21 @@ export default function TransporterDashboard() {
                     value={modalInputNotes}
                     onChange={(e) => setModalInputNotes(e.target.value)}
                     placeholder="e.g. Loaded 15T agricultural bags at Gate 2. Driver underway."
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div className="pt-2 flex items-center justify-end space-x-2">
                   <button
                     type="button"
                     onClick={() => setActiveBookingModal(null)}
-                    className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+                    className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isUpdatingBooking}
-                    className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50"
+                    className="px-5 py-2 text-xs font-bold bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-xl shadow disabled:opacity-50"
                   >
                     {isUpdatingBooking ? 'Updating...' : 'Confirm Pickup'}
                   </button>
@@ -2539,7 +2529,7 @@ export default function TransporterDashboard() {
                     value={modalInputLocation}
                     onChange={(e) => setModalInputLocation(e.target.value)}
                     placeholder="e.g. Aligarh Bypass NH-91 Toll Plaza"
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div>
@@ -2551,21 +2541,21 @@ export default function TransporterDashboard() {
                     value={modalInputNotes}
                     onChange={(e) => setModalInputNotes(e.target.value)}
                     placeholder="e.g. Traffic clear, estimated arrival 4 PM."
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div className="pt-2 flex items-center justify-end space-x-2">
                   <button
                     type="button"
                     onClick={() => setActiveBookingModal(null)}
-                    className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+                    className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isUpdatingBooking}
-                    className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50"
+                    className="px-5 py-2 text-xs font-bold bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-xl shadow disabled:opacity-50"
                   >
                     {isUpdatingBooking ? 'Updating...' : 'Update Location'}
                   </button>
@@ -2597,7 +2587,7 @@ export default function TransporterDashboard() {
                     value={modalInputRecipient}
                     onChange={(e) => setModalInputRecipient(e.target.value)}
                     placeholder="e.g. Rameshwar Lal (Warehouse Manager)"
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div>
@@ -2609,7 +2599,7 @@ export default function TransporterDashboard() {
                     value={modalInputNotes}
                     onChange={(e) => setModalInputNotes(e.target.value)}
                     placeholder="e.g. Unloaded at Platform 3. All items intact."
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div>
@@ -2621,7 +2611,7 @@ export default function TransporterDashboard() {
                     value={modalInputProof}
                     onChange={(e) => setModalInputProof(e.target.value)}
                     placeholder="e.g. Signed bilty stamp serial #POD-88321"
-                    className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
                 <div>
@@ -2632,7 +2622,7 @@ export default function TransporterDashboard() {
                     type="file"
                     accept=".jpg,.jpeg,.png,.webp,.pdf"
                     onChange={(e) => setModalDeliveryFile(e.target.files?.[0] || null)}
-                    className="w-full text-xs text-slate-300 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-[#1E3D60] file:text-amber-400 hover:file:bg-[#254B75] cursor-pointer"
+                    className="w-full text-xs text-slate-300 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-[#2D2D2D] file:text-amber-400 hover:file:bg-[#383838] cursor-pointer"
                   />
                   {modalDeliveryFile && (
                     <p className="text-[11px] text-amber-400 mt-1 font-semibold truncate">
@@ -2647,14 +2637,14 @@ export default function TransporterDashboard() {
                       setActiveBookingModal(null);
                       setModalDeliveryFile(null);
                     }}
-                    className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+                    className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isUpdatingBooking}
-                    className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow disabled:opacity-50"
+                    className="px-5 py-2 text-xs font-bold bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-xl shadow disabled:opacity-50"
                   >
                     {isUpdatingBooking ? 'Reporting...' : modalDeliveryFile ? 'Submit Receipt & Confirm' : 'Confirm Delivery'}
                   </button>
@@ -2691,7 +2681,7 @@ function TransporterBookingsSection({
 }) {
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6">
         <div>
           <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
             Current Bookings
@@ -2704,7 +2694,7 @@ function TransporterBookingsSection({
         <button
           type="button"
           onClick={onRefresh}
-          className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl transition-all self-start sm:self-auto"
+          className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl transition-all self-start sm:self-auto"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>Refresh Bookings</span>
@@ -2713,12 +2703,12 @@ function TransporterBookingsSection({
 
       {isLoading ? (
         <div className="py-16 text-center text-slate-400 text-sm">
-          <Truck className="w-8 h-8 animate-pulse text-[#F59E0B] mx-auto mb-3" />
+          <Truck className="w-8 h-8 animate-pulse text-[#F28C28] mx-auto mb-3" />
           Loading bookings...
         </div>
       ) : bookings.length === 0 ? (
-        <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-12 text-center space-y-4">
-          <div className="w-16 h-16 rounded-2xl bg-[#11253B] border border-[#1E3D60] flex items-center justify-center mx-auto text-amber-400">
+        <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-12 text-center space-y-4">
+          <div className="w-16 h-16 rounded-2xl bg-[#222222] border border-[#2D2D2D] flex items-center justify-center mx-auto text-amber-400">
             <CheckCircle2 className="w-8 h-8" />
           </div>
           <h3 className="text-lg font-bold text-white">No Confirmed Bookings Yet</h3>
@@ -2738,13 +2728,13 @@ function TransporterBookingsSection({
             return (
               <div
                 key={b.id}
-                className="bg-[#0F2A44] border border-[#1E3D60] hover:border-[#2A4F78] rounded-2xl p-6 flex flex-col justify-between shadow-xl transition-all relative space-y-4"
+                className="bg-[#1F1F1F] border border-[#2D2D2D] hover:border-[#383838] rounded-2xl p-6 flex flex-col justify-between shadow-xl transition-all relative space-y-4"
               >
                 <div>
                   {/* Top Bar */}
-                  <div className="flex items-center justify-between pb-3 border-b border-[#1E3D60] text-xs">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#2D2D2D] text-xs">
                     <div className="flex items-center space-x-2">
-                      <span className="font-bold text-[#F59E0B]">{b.bookingNumber}</span>
+                      <span className="font-bold text-[#F28C28]">{b.bookingNumber}</span>
                       <span className={`inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold border ${statusCfg.badge}`}>
                         <span className={`w-1.5 h-1.5 rounded-full ${statusCfg.dot}`} />
                         <span>{statusCfg.label}</span>
@@ -2767,11 +2757,11 @@ function TransporterBookingsSection({
                         <p className="text-sm font-bold text-white">{b.origin}</p>
                       </div>
                     </div>
-                    <div className="ml-1 pl-3 border-l-2 border-dashed border-[#1E3D60] py-0.5 text-[11px] text-slate-400">
+                    <div className="ml-1 pl-3 border-l-2 border-dashed border-[#2D2D2D] py-0.5 text-[11px] text-slate-400">
                       On the Way
                     </div>
                     <div className="flex items-start space-x-2">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] mt-1 shrink-0" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#F28C28] mt-1 shrink-0" />
                       <div>
                         <p className="text-[10px] uppercase font-bold text-slate-400">Delivery Location</p>
                         <p className="text-sm font-bold text-white">{b.destination}</p>
@@ -2780,10 +2770,10 @@ function TransporterBookingsSection({
                   </div>
 
                   {/* Commercials and Shipper Snapshot */}
-                  <div className="grid grid-cols-2 gap-3 mt-4 p-3 bg-[#091827] rounded-xl border border-[#1E3D60] text-xs">
+                  <div className="grid grid-cols-2 gap-3 mt-4 p-3 bg-[#171717] rounded-xl border border-[#2D2D2D] text-xs">
                     <div>
                       <p className="text-[10px] text-slate-400 uppercase font-bold">Agreed Price</p>
-                      <p className="text-sm font-extrabold text-[#F59E0B]">{b.agreedPriceFormatted}</p>
+                      <p className="text-sm font-extrabold text-[#F28C28]">{b.agreedPriceFormatted}</p>
                     </div>
                     <div>
                       <p className="text-[10px] text-slate-400 uppercase font-bold">Goods & Vehicle</p>
@@ -2791,7 +2781,7 @@ function TransporterBookingsSection({
                         {b.weight} {b.weightUnit} • {b.vehicleType}
                       </p>
                     </div>
-                    <div className="col-span-2 pt-2 border-t border-[#1E3D60]">
+                    <div className="col-span-2 pt-2 border-t border-[#2D2D2D]">
                       <p className="text-[10px] text-slate-400 uppercase font-bold">Goods Owner Contact</p>
                       <div className="flex items-center justify-between mt-0.5">
                         <div>
@@ -2808,7 +2798,7 @@ function TransporterBookingsSection({
                   </div>
 
                   {/* Live Tracking Progress */}
-                  <div className="mt-3 p-3 bg-[#11253B] rounded-xl border border-[#1E3D60] text-xs space-y-1.5 text-slate-300">
+                  <div className="mt-3 p-3 bg-[#222222] rounded-xl border border-[#2D2D2D] text-xs space-y-1.5 text-slate-300">
                     <p className="text-[10px] uppercase font-bold text-[#38BDF8]">Trip Progress</p>
                     {b.actualPickupAt && (
                       <p className="text-[11px]">
@@ -2835,12 +2825,12 @@ function TransporterBookingsSection({
                 </div>
 
                 {/* Transporter Lifecycle Actions */}
-                <div className="pt-2 border-t border-[#1E3D60] flex items-center justify-between gap-2">
+                <div className="pt-2 border-t border-[#2D2D2D] flex items-center justify-between gap-2">
                   {isConfirmed && (
                     <button
                       type="button"
                       onClick={() => onOpenPickup(b)}
-                      className="w-full py-2 text-xs font-extrabold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl shadow-lg transition-all"
+                      className="w-full py-2 text-xs font-extrabold text-[#171717] bg-[#F28C28] hover:bg-[#E07A1E] rounded-xl shadow-lg transition-all"
                     >
                       Confirm Goods Pickup →
                     </button>
@@ -2851,14 +2841,14 @@ function TransporterBookingsSection({
                       <button
                         type="button"
                         onClick={() => onOpenTransit(b)}
-                        className="py-2 px-3 text-xs font-bold text-slate-200 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] rounded-xl transition-all"
+                        className="py-2 px-3 text-xs font-bold text-slate-200 bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] rounded-xl transition-all"
                       >
                         📍 Update Location
                       </button>
                       <button
                         type="button"
                         onClick={() => onOpenDelivery(b)}
-                        className="py-2 px-3 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all"
+                        className="py-2 px-3 text-xs font-bold text-[#171717] bg-[#F28C28] hover:bg-[#E07A1E] rounded-xl transition-all"
                       >
                         ✓ Confirm Delivery
                       </button>

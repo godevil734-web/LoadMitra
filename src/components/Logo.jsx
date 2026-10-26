@@ -1,67 +1,85 @@
 import React from 'react';
 
-export default function Logo({ size = 'default', showTagline = true, className = '' }) {
+export default function Logo({ size = 'default', showTagline = true, theme = 'dark', className = '' }) {
   const isSmall = size === 'small';
+  const isLightMode = theme === 'light';
 
   return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Brand Icon Mark */}
-      <div className="relative flex items-center justify-center">
+    <div className={`flex items-center gap-2.5 select-none ${className}`}>
+      {/* Live Freight Network Brand Mark */}
+      <div className="relative flex items-center justify-center shrink-0">
         <svg
-          className={`${isSmall ? 'w-8 h-8' : 'w-10 h-10'} shrink-0`}
-          viewBox="0 0 44 44"
+          className={`${isSmall ? 'w-8 h-8' : 'w-9 h-9'} shrink-0`}
+          viewBox="0 0 40 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
-          {/* Rounded Hexagonal / Shield Base */}
+          {/* Carbon Black structural frame */}
           <rect
-            x="2"
-            y="2"
-            width="40"
-            height="40"
-            rx="10"
-            fill="#0F2A44"
-            stroke="#1E3D60"
+            x="1.5"
+            y="1.5"
+            width="37"
+            height="37"
+            rx="6"
+            fill={isLightMode ? '#171717' : '#1F1F1F'}
+            stroke={isLightMode ? '#2E2E2E' : '#333333'}
             strokeWidth="1.5"
           />
-          {/* Converging Highway Logistics Lines */}
+          {/* Route Grid lines */}
+          <line x1="8" y1="20" x2="32" y2="20" stroke="#333333" strokeWidth="1" strokeDasharray="2 2" />
+          <line x1="20" y1="8" x2="20" y2="32" stroke="#333333" strokeWidth="1" strokeDasharray="2 2" />
+          {/* Highway Logistics Corridor Path */}
           <path
-            d="M10 32 L20 14 L28 24 L34 12"
-            stroke="#F59E0B"
-            strokeWidth="3.2"
+            d="M9 29 L18 13 L26 23 L32 11"
+            stroke="#F28C28"
+            strokeWidth="2.75"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           {/* Waypoint Nodes */}
-          <circle cx="10" cy="32" r="2.8" fill="#FAFAF7" />
-          <circle cx="20" cy="14" r="2.2" fill="#38BDF8" />
-          <circle cx="28" cy="24" r="2.2" fill="#38BDF8" />
-          <circle cx="34" cy="12" r="3" fill="#F59E0B" />
-          {/* Small directional arrowhead */}
+          <circle cx="9" cy="29" r="2.5" fill="#F5F0E6" stroke="#171717" strokeWidth="1" />
+          <circle cx="18" cy="13" r="2" fill="#F28C28" />
+          <circle cx="26" cy="23" r="2" fill="#F5F0E6" />
+          <circle cx="32" cy="11" r="2.75" fill="#F28C28" stroke="#171717" strokeWidth="1" />
+          {/* Directional Terminal Indicator */}
           <path
-            d="M31 11.5 L34.5 11.5 L34.5 15"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
+            d="M29 11 H32.5 V14.5"
+            stroke="#F28C28"
+            strokeWidth="1.75"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
         </svg>
       </div>
 
-      {/* Wordmark & Optional Tagline */}
-      <div className="flex flex-col leading-tight">
-        <div className="flex items-center font-extrabold tracking-tight text-white">
-          <span className={`${isSmall ? 'text-lg' : 'text-xl'} font-bold text-white tracking-tight`}>
-            Load
+      {/* Wordmark & Uppercase Operational Tagline */}
+      <div className="flex flex-col leading-none">
+        <div className="flex items-center tracking-tight">
+          <span
+            className={`${
+              isSmall ? 'text-base' : 'text-lg'
+            } font-extrabold tracking-tight ${isLightMode ? 'text-[#171717]' : 'text-[#F5F0E6]'}`}
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            LOAD
           </span>
-          <span className={`${isSmall ? 'text-lg' : 'text-xl'} font-extrabold text-[#F59E0B] tracking-tight`}>
-            Mitra
+          <span
+            className={`${
+              isSmall ? 'text-base' : 'text-lg'
+            } font-black text-[#F28C28] tracking-tight ml-0.5`}
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            MITRA
           </span>
         </div>
         {showTagline && (
-          <span className="text-[11px] font-medium text-slate-400 tracking-wide hidden sm:inline-block">
-            Har Load Ka Sahi Saathi.
+          <span
+            className={`text-[9px] font-mono uppercase tracking-[0.15em] font-semibold mt-0.5 hidden sm:inline-block ${
+              isLightMode ? 'text-[#737373]' : 'text-[#A3A3A3]'
+            }`}
+          >
+            LIVE FREIGHT NETWORK
           </span>
         )}
       </div>

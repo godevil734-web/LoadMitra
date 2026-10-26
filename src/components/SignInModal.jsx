@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Lock, Info, ArrowRight } from 'lucide-react';
+import { X, Lock, ArrowRight, ShieldCheck, Truck, Package } from 'lucide-react';
 
 export default function SignInModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -10,92 +10,112 @@ export default function SignInModal({ isOpen, onClose }) {
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label="Sign In — Coming Soon"
+      aria-label="Sign In to LoadMitra Portals"
     >
       <div
-        className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl max-w-md w-full p-8 shadow-2xl relative"
+        className="bg-[#171717] border border-[#2D2D2D] rounded-lg max-w-md w-full p-6 sm:p-8 shadow-2xl relative text-[#F5F0E6]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-white hover:bg-[#152E4A] rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#F59E0B]"
+          className="absolute top-4 right-4 p-1.5 text-[#A3A3A3] hover:text-white hover:bg-[#262626] rounded transition-colors focus:outline-none focus:ring-2 focus:ring-[#F28C28]"
           aria-label="Close dialog"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Content */}
-        <div className="text-center space-y-5">
-          <div className="mx-auto w-14 h-14 rounded-2xl bg-[#152E4A] border border-[#1E3D60] flex items-center justify-center text-[#F59E0B]">
-            <Lock className="w-7 h-7" />
+        <div className="space-y-6">
+          <div className="flex items-center space-x-3 pb-4 border-b border-[#2D2D2D]">
+            <div className="w-10 h-10 rounded bg-[#262626] border border-[#3D3D3D] flex items-center justify-center text-[#F28C28]">
+              <Lock className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-[#F28C28] font-bold block">
+                OPERATIONAL ACCESS
+              </span>
+              <h2 className="text-lg font-extrabold text-white tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                Select Network Portal
+              </h2>
+            </div>
           </div>
 
-          <div>
-            <h2 className="text-xl font-extrabold text-white tracking-tight">
-              LoadMitra Sign In
-            </h2>
-            <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-              Choose how you want to sign in:
-            </p>
-          </div>
+          <p className="text-xs text-[#A3A3A3] leading-relaxed">
+            Choose your designated role to enter the LoadMitra operational freight network:
+          </p>
 
           {/* Portal Choices */}
-          <div className="pt-2 space-y-3">
+          <div className="space-y-2.5">
             <a
               href="/listings"
-              className="w-full inline-flex items-center justify-between p-3.5 bg-[#091827] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-[#F59E0B] rounded-xl transition-all group"
+              className="w-full flex items-center justify-between p-3.5 bg-[#1F1F1F] hover:bg-[#262626] border border-[#2D2D2D] hover:border-[#F28C28] rounded transition-all group"
             >
-              <div className="text-left">
-                <span className="font-bold text-white text-sm block group-hover:text-[#F59E0B]">
-                  Goods Owner Portal
-                </span>
-                <span className="text-xs text-slate-400">
-                  Post loads, manage shipments, and review price offers
-                </span>
+              <div className="flex items-start space-x-3 text-left">
+                <div className="p-2 rounded bg-[#171717] text-[#F28C28] border border-[#333333] shrink-0 mt-0.5">
+                  <Package className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="font-bold text-white text-xs uppercase tracking-wider block group-hover:text-[#F28C28]">
+                    Goods Owner Portal
+                  </span>
+                  <span className="text-[11px] text-[#A3A3A3] block mt-0.5">
+                    Post loads, manage shipments, review transporter bids
+                  </span>
+                </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-[#F59E0B] transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-[#F28C28] shrink-0 transition-transform group-hover:translate-x-1 ml-2" />
             </a>
 
             <a
               href="/transporter"
-              className="w-full inline-flex items-center justify-between p-3.5 bg-[#091827] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-emerald-400 rounded-xl transition-all group"
+              className="w-full flex items-center justify-between p-3.5 bg-[#1F1F1F] hover:bg-[#262626] border border-[#2D2D2D] hover:border-emerald-500 rounded transition-all group"
             >
-              <div className="text-left">
-                <span className="font-bold text-white text-sm block group-hover:text-emerald-300">
-                  Transport Partner Portal
-                </span>
-                <span className="text-xs text-slate-400">
-                  Find available loads, offer your price, and list available vehicles
-                </span>
+              <div className="flex items-start space-x-3 text-left">
+                <div className="p-2 rounded bg-[#171717] text-emerald-400 border border-[#333333] shrink-0 mt-0.5">
+                  <Truck className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="font-bold text-white text-xs uppercase tracking-wider block group-hover:text-emerald-400">
+                    Transporter Workspace
+                  </span>
+                  <span className="text-[11px] text-[#A3A3A3] block mt-0.5">
+                    Find corridor loads, offer pricing, manage fleet
+                  </span>
+                </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-emerald-400 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-emerald-400 shrink-0 transition-transform group-hover:translate-x-1 ml-2" />
             </a>
 
             <a
               href="/admin"
-              className="w-full inline-flex items-center justify-between p-3.5 bg-[#091827] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-amber-400 rounded-xl transition-all group"
+              className="w-full flex items-center justify-between p-3.5 bg-[#1F1F1F] hover:bg-[#262626] border border-[#2D2D2D] hover:border-amber-400 rounded transition-all group"
             >
-              <div className="text-left">
-                <span className="font-bold text-white text-sm block group-hover:text-amber-300">
-                  Admin & Operations Portal
-                </span>
-                <span className="text-xs text-slate-400">
-                  Review registrations, track activity, and manage the team
-                </span>
+              <div className="flex items-start space-x-3 text-left">
+                <div className="p-2 rounded bg-[#171717] text-amber-400 border border-[#333333] shrink-0 mt-0.5">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="font-bold text-white text-xs uppercase tracking-wider block group-hover:text-amber-400">
+                    Admin & Operations Console
+                  </span>
+                  <span className="text-[11px] text-[#A3A3A3] block mt-0.5">
+                    Review registrations, approve verifications, monitor network
+                  </span>
+                </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-amber-400 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-amber-400 shrink-0 transition-transform group-hover:translate-x-1 ml-2" />
             </a>
-
-            <button
-              type="button"
-              onClick={onClose}
-              className="w-full px-5 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-[#152E4A] border border-[#1E3D60] rounded-xl transition-colors"
-            >
-              Close
-            </button>
           </div>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="w-full py-2 text-xs font-semibold uppercase tracking-wider text-[#A3A3A3] hover:text-white hover:bg-[#262626] border border-[#2D2D2D] rounded transition-colors"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

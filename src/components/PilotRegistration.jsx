@@ -216,7 +216,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
   };
 
   return (
-    <section id="pilot-section" className="py-16 sm:py-24 bg-[#0F2A44]/30 relative border-t border-[#1E3D60]/50 scroll-mt-16">
+    <section id="pilot-section" className="py-16 sm:py-24 bg-[#F5F0E6] relative border-b border-[#E2DBD0] scroll-mt-16">
       <div
         ref={sectionRef}
         className={`max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full reveal-on-scroll ${
@@ -225,46 +225,42 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
       >
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
-          <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-[#1E3D60] px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#F59E0B] mb-3">
-            <span>Early Access</span>
+          <div className="inline-flex items-center space-x-2 bg-[#171717] border border-[#2D2D2D] px-3 py-1 rounded text-white mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28]" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.14em] text-[#F5F0E6]">
+              CORRIDOR REGISTRATION
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Join the LoadMitra Early Access Program
+          <h2 
+            className="text-3xl sm:text-4xl font-black text-[#171717] tracking-tight"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            Register for Network Access
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-300">
-            Be part of our early routes between major cities. Tell us what goods you need to send or what vehicles you have.
+          <p className="mt-3 text-sm sm:text-base text-[#525252]">
+            Connect your regular freight consignments or available truck capacity directly into our national corridor schedule.
           </p>
         </div>
 
-        {/* Transparency & Data Usage Explanation Box */}
-        <div className="mb-8 bg-[#11253B] border border-amber-500/40 rounded-xl p-5 space-y-3">
+        {/* Transparency & Operational Explanation Box */}
+        <div className="mb-6 bg-[#FAF7F0] border border-[#D4CBBC] rounded p-4 space-y-2 shadow-xs">
           <div className="flex items-start space-x-3">
-            <Info className="w-5 h-5 text-[#F59E0B] shrink-0 mt-0.5" />
-            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+            <Info className="w-4 h-4 text-[#F28C28] shrink-0 mt-0.5" />
+            <div className="text-xs text-[#525252] leading-relaxed space-y-1">
               <p>
-                <strong className="text-amber-300 uppercase tracking-wide font-bold mr-1">
-                  Early Access Sign Up:
+                <strong className="text-[#171717] font-mono font-bold uppercase tracking-wider mr-1">
+                  CORRIDOR COORDINATION:
                 </strong>
-                Submit your goods details or vehicle capacity below. We will review your details and connect you with matching loads or vehicles.
+                Submit your cargo requirements or transport fleet capacity below. Our operational team verifies corridor alignment and matches you with verified partners.
               </p>
-              <div className="pt-2 border-t border-[#1E3D60] grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
-                <div className="flex items-center space-x-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
-                  <span><strong>What we request:</strong> Name, phone, route, and goods or vehicle type.</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span><strong>How it is used:</strong> Only to match you with suitable loads and transport partners.</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
         {/* Form Container */}
-        <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-[#FAF7F0] border border-[#D4CBBC] rounded shadow-sm overflow-hidden">
           {/* Tab Selection */}
-          <div className="grid grid-cols-2 border-b border-[#1E3D60]">
+          <div className="grid grid-cols-2 border-b border-[#D4CBBC] bg-[#E8E1D5]">
             <button
               type="button"
               onClick={() => {
@@ -272,14 +268,14 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                 setSubmissionError(null);
                 if (onTabChange) onTabChange('shipper');
               }}
-              className={`py-4 px-4 text-center font-bold text-sm sm:text-base flex items-center justify-center space-x-2 transition-colors ${
+              className={`py-3.5 px-4 text-center font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition-colors ${
                 currentTab === 'shipper'
-                  ? 'bg-[#152E4A] text-[#F59E0B] border-b-2 border-[#F59E0B]'
-                  : 'text-slate-400 hover:text-white hover:bg-[#11253B]'
+                  ? 'bg-[#FAF7F0] text-[#171717] border-b-2 border-[#F28C28]'
+                  : 'text-[#737373] hover:text-[#171717] hover:bg-[#E2DBD0]'
               }`}
             >
-              <UserCheck className="w-4 h-4" />
-              <span>I Need to Send Goods</span>
+              <UserCheck className="w-4 h-4 text-[#F28C28]" />
+              <span>I Need to Dispatch Goods</span>
             </button>
 
             <button
@@ -289,143 +285,143 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                 setSubmissionError(null);
                 if (onTabChange) onTabChange('transporter');
               }}
-              className={`py-4 px-4 text-center font-bold text-sm sm:text-base flex items-center justify-center space-x-2 transition-colors ${
+              className={`py-3.5 px-4 text-center font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition-colors ${
                 currentTab === 'transporter'
-                  ? 'bg-[#152E4A] text-[#F59E0B] border-b-2 border-[#F59E0B]'
-                  : 'text-slate-400 hover:text-white hover:bg-[#11253B]'
+                  ? 'bg-[#FAF7F0] text-[#171717] border-b-2 border-[#F28C28]'
+                  : 'text-[#737373] hover:text-[#171717] hover:bg-[#E2DBD0]'
               }`}
             >
-              <Truck className="w-4 h-4" />
-              <span>I Have Vehicles / Arrange Transport</span>
+              <Truck className="w-4 h-4 text-[#F28C28]" />
+              <span>I Operate Commercial Fleet</span>
             </button>
           </div>
 
           <div className="p-6 sm:p-8">
             {/* Global submission error banner */}
             {submissionError && (
-              <div className="mb-6 p-4 bg-rose-950/60 border border-rose-500/50 rounded-xl text-xs sm:text-sm text-rose-200 flex items-start space-x-3">
-                <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="font-bold text-rose-100">Unable to submit registration</p>
-                  <p className="text-rose-200 leading-relaxed">{submissionError}</p>
+              <div className="mb-6 p-3.5 bg-red-50 border border-red-300 rounded text-xs text-red-700 flex items-start space-x-3">
+                <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <p className="font-bold text-red-900 uppercase tracking-wider text-[11px]">Submission Error</p>
+                  <p className="text-red-700">{submissionError}</p>
                 </div>
               </div>
             )}
 
             {/* SHIPPER FORM */}
             {currentTab === 'shipper' && (
-              <form onSubmit={handleShipperSubmit} noValidate className="space-y-5">
+              <form onSubmit={handleShipperSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Your Full Name <span className="text-[#F59E0B]">*</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Full Name <span className="text-[#F28C28]">*</span>
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Rajesh Sharma"
                       value={shipperForm.name}
                       onChange={(e) => setShipperForm({ ...shipperForm, name: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        shipperErrors.name ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        shipperErrors.name ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     />
                     {shipperErrors.name && (
-                      <p className="mt-1 text-xs text-rose-400">{shipperErrors.name}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{shipperErrors.name}</p>
                     )}
                   </div>
 
                   {/* Business Name */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Business / Trading Name <span className="text-[#F59E0B]">*</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Business / Trading Entity <span className="text-[#F28C28]">*</span>
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Sharma Agro Traders Ltd"
                       value={shipperForm.businessName}
                       onChange={(e) => setShipperForm({ ...shipperForm, businessName: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        shipperErrors.businessName ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        shipperErrors.businessName ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     />
                     {shipperErrors.businessName && (
-                      <p className="mt-1 text-xs text-rose-400">{shipperErrors.businessName}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{shipperErrors.businessName}</p>
                     )}
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Phone Number <span className="text-[#F59E0B]">*</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Mobile Number <span className="text-[#F28C28]">*</span>
                     </label>
                     <input
                       type="tel"
                       placeholder="e.g. 9876543210"
                       value={shipperForm.phone}
                       onChange={(e) => setShipperForm({ ...shipperForm, phone: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        shipperErrors.phone ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        shipperErrors.phone ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     />
                     {shipperErrors.phone && (
-                      <p className="mt-1 text-xs text-rose-400">{shipperErrors.phone}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{shipperErrors.phone}</p>
                     )}
                   </div>
 
                   {/* Email (Optional) */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Email Address <span className="text-slate-500 text-[11px]">(Optional)</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Email Address <span className="text-[#A3A3A3] text-[10px] font-normal">(Optional)</span>
                     </label>
                     <input
                       type="email"
                       placeholder="e.g. rajesh@sharma-agro.com"
                       value={shipperForm.email}
                       onChange={(e) => setShipperForm({ ...shipperForm, email: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        shipperErrors.email ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        shipperErrors.email ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     />
                     {shipperErrors.email && (
-                      <p className="mt-1 text-xs text-rose-400">{shipperErrors.email}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{shipperErrors.email}</p>
                     )}
                   </div>
                 </div>
 
                 {/* Primary Shipping Route */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Primary Shipping Route <span className="text-[#F59E0B]">*</span>
+                  <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                    Primary Corridor / Highway Route <span className="text-[#F28C28]">*</span>
                   </label>
                   <input
                     type="text"
                     placeholder="e.g. Gorakhpur to Lucknow, or Lucknow to Kanpur"
                     value={shipperForm.primaryRoute}
                     onChange={(e) => setShipperForm({ ...shipperForm, primaryRoute: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                      shipperErrors.primaryRoute ? 'border-rose-500' : 'border-[#1E3D60]'
-                    } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                    className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                      shipperErrors.primaryRoute ? 'border-red-500' : 'border-[#D4CBBC]'
+                    } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                   />
                   {shipperErrors.primaryRoute && (
-                    <p className="mt-1 text-xs text-rose-400">{shipperErrors.primaryRoute}</p>
+                    <p className="mt-1 text-[11px] text-red-600">{shipperErrors.primaryRoute}</p>
                   )}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Cargo Category */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Type of Goods <span className="text-[#F59E0B]">*</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Freight Classification <span className="text-[#F28C28]">*</span>
                     </label>
                     <select
                       value={shipperForm.cargoCategory}
                       onChange={(e) => setShipperForm({ ...shipperForm, cargoCategory: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        shipperErrors.cargoCategory ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        shipperErrors.cargoCategory ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     >
-                      <option value="">Select Type of Goods...</option>
+                      <option value="">Select Freight Classification...</option>
                       {CARGO_TYPES.map((type) => (
                         <option key={type} value={type}>
                           {type}
@@ -433,23 +429,23 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                       ))}
                     </select>
                     {shipperErrors.cargoCategory && (
-                      <p className="mt-1 text-xs text-rose-400">{shipperErrors.cargoCategory}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{shipperErrors.cargoCategory}</p>
                     )}
                   </div>
 
                   {/* Shipment Frequency */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      How Often Do You Send Goods? <span className="text-[#F59E0B]">*</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Dispatch Frequency <span className="text-[#F28C28]">*</span>
                     </label>
                     <select
                       value={shipperForm.shipmentFrequency}
                       onChange={(e) => setShipperForm({ ...shipperForm, shipmentFrequency: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        shipperErrors.shipmentFrequency ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        shipperErrors.shipmentFrequency ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     >
-                      <option value="">Select How Often...</option>
+                      <option value="">Select Frequency...</option>
                       {SHIPMENT_FREQUENCIES.map((freq) => (
                         <option key={freq} value={freq}>
                           {freq}
@@ -457,47 +453,47 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                       ))}
                     </select>
                     {shipperErrors.shipmentFrequency && (
-                      <p className="mt-1 text-xs text-rose-400">{shipperErrors.shipmentFrequency}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{shipperErrors.shipmentFrequency}</p>
                     )}
                   </div>
                 </div>
 
                 {/* Consent Checkbox */}
-                <div className="pt-2">
-                  <label className="flex items-start space-x-3 cursor-pointer">
+                <div className="pt-1">
+                  <label className="flex items-start space-x-2.5 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={shipperForm.consent}
                       onChange={(e) => setShipperForm({ ...shipperForm, consent: e.target.checked })}
-                      className="mt-1 h-4 w-4 rounded border-slate-700 bg-[#091827] text-[#F59E0B] focus:ring-[#F59E0B]"
+                      className="mt-0.5 h-4 w-4 rounded border-[#D4CBBC] text-[#F28C28] focus:ring-[#F28C28]"
                     />
-                    <span className="text-xs text-slate-300 leading-normal">
-                      I agree to let LoadMitra contact me about load matches and transport updates.
+                    <span className="text-xs text-[#525252] leading-normal">
+                      I authorize LoadMitra to coordinate transport matching and corridor updates for my freight.
                     </span>
                   </label>
                   {shipperErrors.consent && (
-                    <p className="mt-1 text-xs text-rose-400">{shipperErrors.consent}</p>
+                    <p className="mt-1 text-[11px] text-red-600">{shipperErrors.consent}</p>
                   )}
                 </div>
 
                 {/* Submit button */}
-                <div className="pt-4">
+                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-sm font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white group ${
+                    className={`w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-[#171717] bg-[#F28C28] hover:bg-[#DE7919] rounded transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#171717] group ${
                       isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                     }`}
                   >
                     {isSubmitting ? (
                       <>
-                        <span className="w-4 h-4 mr-2 border-2 border-[#091827] border-t-transparent rounded-full animate-spin" />
+                        <span className="w-3.5 h-3.5 mr-2 border-2 border-[#171717] border-t-transparent rounded-full animate-spin" />
                         <span>Saving Registration...</span>
                       </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4 mr-2 transition-transform group-hover:translate-x-0.5" />
-                        <span>Submit Details</span>
+                        <Send className="w-3.5 h-3.5 mr-2 transition-transform group-hover:translate-x-0.5" />
+                        <span>Submit Registration</span>
                       </>
                     )}
                   </button>
@@ -507,76 +503,76 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
 
             {/* TRANSPORTER FORM */}
             {currentTab === 'transporter' && (
-              <form onSubmit={handleTransporterSubmit} noValidate className="space-y-5">
+              <form onSubmit={handleTransporterSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Your Full Name <span className="text-[#F59E0B]">*</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Full Name <span className="text-[#F28C28]">*</span>
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Jaswinder Singh"
                       value={transporterForm.name}
                       onChange={(e) => setTransporterForm({ ...transporterForm, name: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        transporterErrors.name ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        transporterErrors.name ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     />
                     {transporterErrors.name && (
-                      <p className="mt-1 text-xs text-rose-400">{transporterErrors.name}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{transporterErrors.name}</p>
                     )}
                   </div>
 
                   {/* Business or Fleet Name (Optional) */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Business / Fleet Name <span className="text-slate-500 text-[11px]">(Optional)</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Fleet / Transport Enterprise <span className="text-[#A3A3A3] text-[10px] font-normal">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Northern Freight Carriers"
                       value={transporterForm.fleetName}
                       onChange={(e) => setTransporterForm({ ...transporterForm, fleetName: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]"
+                      className="w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border border-[#D4CBBC] focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]"
                     />
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Phone Number <span className="text-[#F59E0B]">*</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Mobile Number <span className="text-[#F28C28]">*</span>
                     </label>
                     <input
                       type="tel"
                       placeholder="e.g. 9811223344"
                       value={transporterForm.phone}
                       onChange={(e) => setTransporterForm({ ...transporterForm, phone: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        transporterErrors.phone ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        transporterErrors.phone ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     />
                     {transporterErrors.phone && (
-                      <p className="mt-1 text-xs text-rose-400">{transporterErrors.phone}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{transporterErrors.phone}</p>
                     )}
                   </div>
 
                   {/* Email (Optional) */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Email Address <span className="text-slate-500 text-[11px]">(Optional)</span>
+                    <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                      Email Address <span className="text-[#A3A3A3] text-[10px] font-normal">(Optional)</span>
                     </label>
                     <input
                       type="email"
                       placeholder="e.g. dispatch@northernfreight.in"
                       value={transporterForm.email}
                       onChange={(e) => setTransporterForm({ ...transporterForm, email: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                        transporterErrors.email ? 'border-rose-500' : 'border-[#1E3D60]'
-                      } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                      className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                        transporterErrors.email ? 'border-red-500' : 'border-[#D4CBBC]'
+                      } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                     />
                     {transporterErrors.email && (
-                      <p className="mt-1 text-xs text-rose-400">{transporterErrors.email}</p>
+                      <p className="mt-1 text-[11px] text-red-600">{transporterErrors.email}</p>
                     )}
                   </div>
                 </div>
@@ -603,59 +599,59 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
 
                 {/* Operating Routes */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Operating Routes / Highways <span className="text-[#F59E0B]">*</span>
+                  <label className="block text-[10px] font-mono font-bold text-[#737373] uppercase tracking-wider mb-1.5">
+                    Operating Corridor / Primary Highway Routes <span className="text-[#F28C28]">*</span>
                   </label>
                   <input
                     type="text"
                     placeholder="e.g. NH27 Gorakhpur–Ayodhya–Lucknow, or Lucknow–Kanpur"
                     value={transporterForm.operatingRoutes}
                     onChange={(e) => setTransporterForm({ ...transporterForm, operatingRoutes: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border ${
-                      transporterErrors.operatingRoutes ? 'border-rose-500' : 'border-[#1E3D60]'
-                    } focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]`}
+                    className={`w-full px-3 py-2 bg-white text-[#171717] text-xs rounded border ${
+                      transporterErrors.operatingRoutes ? 'border-red-500' : 'border-[#D4CBBC]'
+                    } focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]`}
                   />
                   {transporterErrors.operatingRoutes && (
-                    <p className="mt-1 text-xs text-rose-400">{transporterErrors.operatingRoutes}</p>
+                    <p className="mt-1 text-[11px] text-red-600">{transporterErrors.operatingRoutes}</p>
                   )}
                 </div>
 
                 {/* Consent Checkbox */}
-                <div className="pt-2">
-                  <label className="flex items-start space-x-3 cursor-pointer">
+                <div className="pt-1">
+                  <label className="flex items-start space-x-2.5 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={transporterForm.consent}
                       onChange={(e) => setTransporterForm({ ...transporterForm, consent: e.target.checked })}
-                      className="mt-1 h-4 w-4 rounded border-slate-700 bg-[#091827] text-[#F59E0B] focus:ring-[#F59E0B]"
+                      className="mt-0.5 h-4 w-4 rounded border-[#D4CBBC] text-[#F28C28] focus:ring-[#F28C28]"
                     />
-                    <span className="text-xs text-slate-300 leading-normal">
-                      I agree to let LoadMitra contact me about available loads and transport matches.
+                    <span className="text-xs text-[#525252] leading-normal">
+                      I agree to let LoadMitra contact me about available loads and backhaul opportunities.
                     </span>
                   </label>
                   {transporterErrors.consent && (
-                    <p className="mt-1 text-xs text-rose-400">{transporterErrors.consent}</p>
+                    <p className="mt-1 text-[11px] text-red-600">{transporterErrors.consent}</p>
                   )}
                 </div>
 
                 {/* Submit button */}
-                <div className="pt-4">
+                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-sm font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white group ${
+                    className={`w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-[#171717] bg-[#F28C28] hover:bg-[#DE7919] rounded transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#171717] group ${
                       isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                     }`}
                   >
                     {isSubmitting ? (
                       <>
-                        <span className="w-4 h-4 mr-2 border-2 border-[#091827] border-t-transparent rounded-full animate-spin" />
+                        <span className="w-3.5 h-3.5 mr-2 border-2 border-[#171717] border-t-transparent rounded-full animate-spin" />
                         <span>Saving Registration...</span>
                       </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4 mr-2 transition-transform group-hover:translate-x-0.5" />
-                        <span>Submit Details</span>
+                        <Send className="w-3.5 h-3.5 mr-2 transition-transform group-hover:translate-x-0.5" />
+                        <span>Submit Registration</span>
                       </>
                     )}
                   </button>
@@ -668,25 +664,25 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
         {/* VERIFIED SUCCESS CONFIRMATION MODAL */}
         {submittedRegistration && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-            <div className="bg-[#0F2A44] border-2 border-[#F59E0B] rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-              <div className="flex items-start justify-between pb-4 border-b border-[#1E3D60]">
+            <div className="bg-[#171717] border border-[#2D2D2D] rounded-lg max-w-xl w-full p-6 sm:p-7 shadow-2xl relative max-h-[90vh] overflow-y-auto text-[#F5F0E6]">
+              <div className="flex items-start justify-between pb-4 border-b border-[#2D2D2D]">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
-                    <CheckCircle2 className="w-6 h-6" />
+                  <div className="w-9 h-9 rounded bg-[#262626] border border-[#3D3D3D] flex items-center justify-center text-emerald-400 shrink-0">
+                    <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">
-                      Details Submitted Successfully
+                    <h3 className="text-base font-bold text-white uppercase tracking-wider">
+                      Registration Recorded
                     </h3>
-                    <p className="text-xs text-emerald-400 font-medium flex items-center mt-0.5">
+                    <p className="text-xs text-emerald-400 font-mono flex items-center mt-0.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block mr-1.5 animate-pulse" />
-                      Saved to LoadMitra
+                      LIVE NETWORK ENTRY ACTIVE
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={resetAll}
-                  className="text-slate-400 hover:text-white p-1 rounded-lg"
+                  className="text-[#A3A3A3] hover:text-white p-1 rounded"
                   aria-label="Close"
                 >
                   ✕
@@ -694,35 +690,35 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
               </div>
 
               {/* Verified Details Card */}
-              <div className="my-5 p-4 bg-[#11253B] rounded-xl border border-amber-500/40 text-xs text-slate-300 space-y-3">
+              <div className="my-5 p-4 bg-[#1F1F1F] rounded border border-[#2D2D2D] text-xs text-[#A3A3A3] space-y-3">
                 <p className="font-bold text-white text-sm">
-                  Thank you, {submittedRegistration.contactName}!
+                  Welcome to LoadMitra, {submittedRegistration.contactName}.
                 </p>
                 <p className="leading-relaxed">
-                  Your registration has been saved. Our team will review your route and contact you shortly.
+                  Your details have been registered into the operational database. Corridor matching is active.
                 </p>
 
-                <div className="p-3.5 bg-[#091827] rounded-xl border border-[#1E3D60] space-y-2 text-xs">
-                  <div className="flex items-center justify-between pb-2 border-b border-[#1E3D60]/60">
-                    <span className="text-slate-400 flex items-center">
-                      <Hash className="w-3.5 h-3.5 mr-1 text-[#F59E0B]" />
-                      Reference ID:
+                <div className="p-3 bg-[#171717] rounded border border-[#2D2D2D] space-y-2 text-xs font-tabular">
+                  <div className="flex items-center justify-between pb-2 border-b border-[#2D2D2D]">
+                    <span className="text-[#737373] font-mono uppercase text-[10px] flex items-center">
+                      <Hash className="w-3.5 h-3.5 mr-1 text-[#F28C28]" />
+                      REFERENCE ID
                     </span>
-                    <span className="font-mono text-[#F59E0B] font-semibold text-[11px]">
+                    <span className="font-mono text-[#F28C28] font-bold text-xs">
                       {submittedRegistration.id}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-400">Account Type:</span>
+                    <span className="text-[#737373] font-mono uppercase text-[10px]">ACCOUNT CLASSIFICATION</span>
                     <span className="font-semibold text-white uppercase tracking-wider text-[11px]">
-                      {submittedRegistration.role === 'SHIPPER' ? 'Goods Owner' : 'Transport Partner'}
+                      {submittedRegistration.role === 'SHIPPER' ? 'Goods Owner' : 'Carrier Partner'}
                     </span>
                   </div>
 
                   {submittedRegistration.businessName && (
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Business / Entity:</span>
+                      <span className="text-[#737373] font-mono uppercase text-[10px]">BUSINESS ENTITY</span>
                       <span className="text-white font-medium">
                         {submittedRegistration.businessName}
                       </span>
@@ -731,7 +727,7 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
 
                   {submittedRegistration.fleetName && (
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Fleet Name:</span>
+                      <span className="text-[#737373] font-mono uppercase text-[10px]">FLEET NAME</span>
                       <span className="text-white font-medium">
                         {submittedRegistration.fleetName}
                       </span>
@@ -739,9 +735,9 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                   )}
 
                   <div className="flex items-start justify-between">
-                    <span className="text-slate-400 flex items-center shrink-0">
+                    <span className="text-[#737373] font-mono uppercase text-[10px] flex items-center shrink-0">
                       <MapPin className="w-3.5 h-3.5 mr-1 text-emerald-400" />
-                      Route:
+                      CORRIDOR
                     </span>
                     <span className="text-white font-medium text-right max-w-[240px]">
                       {submittedRegistration.route}
@@ -750,8 +746,8 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
 
                   {submittedRegistration.cargoCategory && (
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Type of Goods:</span>
-                      <span className="text-slate-200">
+                      <span className="text-[#737373] font-mono uppercase text-[10px]">FREIGHT TYPE</span>
+                      <span className="text-[#D4CBBC]">
                         {submittedRegistration.cargoCategory}
                       </span>
                     </div>
@@ -759,19 +755,19 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
 
                   {submittedRegistration.vehicleType && (
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Vehicle Type:</span>
-                      <span className="text-slate-200">
+                      <span className="text-[#737373] font-mono uppercase text-[10px]">VEHICLE CLASS</span>
+                      <span className="text-[#D4CBBC]">
                         {submittedRegistration.vehicleType}
                       </span>
                     </div>
                   )}
 
-                  <div className="flex items-center justify-between pt-1 border-t border-[#1E3D60]/60 text-[11px]">
-                    <span className="text-slate-400 flex items-center">
-                      <Clock className="w-3 h-3 mr-1 text-slate-500" />
-                      Recorded:
+                  <div className="flex items-center justify-between pt-1 border-t border-[#2D2D2D] text-[10px] text-[#737373]">
+                    <span className="flex items-center">
+                      <Clock className="w-3 h-3 mr-1 text-[#737373]" />
+                      TIMESTAMP
                     </span>
-                    <span className="text-slate-400 font-mono">
+                    <span className="font-mono">
                       {new Date(submittedRegistration.createdAt).toLocaleString()}
                     </span>
                   </div>
@@ -783,10 +779,10 @@ export default function PilotRegistration({ activeTab = 'shipper', onTabChange, 
                 <button
                   type="button"
                   onClick={resetAll}
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-colors shadow-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2 text-xs font-mono font-bold uppercase tracking-wider text-[#171717] bg-[#F28C28] hover:bg-[#DE7919] rounded transition-colors shadow-xs"
                 >
                   <RotateCcw className="w-3.5 h-3.5 mr-1.5" />
-                  <span>Register Another Load or Vehicle</span>
+                  <span>Register Another Corridor</span>
                 </button>
               </div>
             </div>

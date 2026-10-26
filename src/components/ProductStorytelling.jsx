@@ -22,7 +22,7 @@ export default function ProductStorytelling() {
   return (
     <section 
       id="product-story" 
-      className="py-20 sm:py-28 bg-[#FAFAF7] text-[#091827] border-y border-stone-200/80 scroll-mt-16 transition-colors"
+      className="py-16 sm:py-24 bg-[#F5F0E6] text-[#171717] border-b border-[#E2DBD0] scroll-mt-16 transition-colors"
     >
       <div
         ref={sectionRef}
@@ -31,42 +31,48 @@ export default function ProductStorytelling() {
         }`}
       >
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center space-x-2 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-amber-800 mb-3">
-            <span>How It Works</span>
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center space-x-2 bg-[#171717] border border-[#2D2D2D] px-3 py-1 rounded text-white mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28]" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.14em] text-[#F5F0E6]">
+              OPERATIONAL MATCHING ARCHITECTURE
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#091827] tracking-tight">
-            How LoadMitra Connects Goods &amp; Vehicles
+          <h2 
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#171717] tracking-tight"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            How LoadMitra Coordinates Freight
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            See how goods owners share vehicle space, cut shipping costs, and help transport partners avoid empty return trips.
+          <p className="mt-3.5 text-base sm:text-lg text-[#525252] leading-relaxed">
+            Eliminate deadhead miles: goods owners share vehicle capacity to cut costs, and transport partners monetize empty return hauls.
           </p>
 
           {/* Interactive Switcher */}
-          <div className="mt-8 inline-flex p-1.5 bg-stone-200/70 rounded-xl border border-stone-300 shadow-inner">
+          <div className="mt-6 inline-flex p-1 bg-[#E8E1D5] rounded border border-[#D4CBBC]">
             <button
               type="button"
               onClick={() => setActiveWorkflow('shipper')}
-              className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${
+              className={`px-4 py-2 rounded text-xs font-mono font-bold uppercase tracking-wider transition-all flex items-center space-x-2 ${
                 activeWorkflow === 'shipper'
-                  ? 'bg-[#091827] text-white shadow-md'
-                  : 'text-slate-600 hover:text-[#091827]'
+                  ? 'bg-[#171717] text-white shadow-xs'
+                  : 'text-[#737373] hover:text-[#171717]'
               }`}
             >
-              <Package className="w-4 h-4 text-[#F59E0B]" />
-              <span>For Goods Owners: Shared Load Matching</span>
+              <Package className="w-3.5 h-3.5 text-[#F28C28]" />
+              <span>For Goods Owners: Shared Load</span>
             </button>
             <button
               type="button"
               onClick={() => setActiveWorkflow('transporter')}
-              className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${
+              className={`px-4 py-2 rounded text-xs font-mono font-bold uppercase tracking-wider transition-all flex items-center space-x-2 ${
                 activeWorkflow === 'transporter'
-                  ? 'bg-[#091827] text-white shadow-md'
-                  : 'text-slate-600 hover:text-[#091827]'
+                  ? 'bg-[#171717] text-white shadow-xs'
+                  : 'text-[#737373] hover:text-[#171717]'
               }`}
             >
-              <RotateCcw className="w-4 h-4 text-[#38BDF8]" />
-              <span>For Transport Partners: Finding Return Loads</span>
+              <RotateCcw className="w-3.5 h-3.5 text-[#F28C28]" />
+              <span>For Transporters: Return Haul</span>
             </button>
           </div>
         </div>
@@ -77,46 +83,46 @@ export default function ProductStorytelling() {
             {/* 5-Step Process Track Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
               {[
-                { step: '01', title: 'Post Goods', desc: 'Enter weight & route' },
-                { step: '02', title: 'Find Vehicle', desc: 'Check available transport' },
-                { step: '03', title: 'Space Check', desc: 'Confirm vehicle space' },
-                { step: '04', title: 'Price Estimate', desc: 'Review shared rates' },
-                { step: '05', title: 'Confirm Booking', desc: 'Connect directly' },
+                { step: '01', title: 'Post Consignment', desc: 'Specify weight & corridor' },
+                { step: '02', title: 'Discover Capacity', desc: 'Scan active vehicles' },
+                { step: '03', title: 'Verify Space', desc: 'Confirm deck dimensions' },
+                { step: '04', title: 'Direct Pricing', desc: 'Review shared freight rate' },
+                { step: '05', title: 'Dispatch', desc: 'Coordinate direct pickup' },
               ].map((item) => (
                 <div 
                   key={item.step} 
-                  className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center space-x-3"
+                  className="bg-[#FAF7F0] p-3.5 rounded border border-[#E2DBD0] shadow-xs flex items-center space-x-3"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-[#0F2A44] text-[#F59E0B] font-bold text-xs flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded bg-[#171717] text-[#F28C28] font-mono font-bold text-xs flex items-center justify-center shrink-0">
                     {item.step}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#091827]">{item.title}</h4>
-                    <p className="text-[11px] text-slate-500 leading-tight">{item.desc}</p>
+                    <h4 className="text-xs font-bold text-[#171717]">{item.title}</h4>
+                    <p className="text-[11px] text-[#737373] leading-tight">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Main Interactive Matching Dashboard Preview Card */}
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div className="bg-[#FAF7F0] border border-[#D4CBBC] rounded-lg p-5 sm:p-7 shadow-md">
               {/* Header inside card */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-stone-100 gap-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-5 border-b border-[#E2DBD0] gap-3">
                 <div className="flex items-center space-x-3">
-                  <div className="w-11 h-11 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 shrink-0">
-                    <Truck className="w-6 h-6" />
+                  <div className="w-10 h-10 rounded bg-[#171717] border border-[#2D2D2D] flex items-center justify-center text-[#F28C28] shrink-0">
+                    <Truck className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#091827]">
-                      Example Route Match: Gorakhpur ➔ Lucknow (NH27 Highway)
+                    <h3 className="text-sm sm:text-base font-bold text-[#171717]">
+                      Corridor Match Specification: Gorakhpur ➔ Lucknow (NH27 Corridor)
                     </h3>
-                    <p className="text-xs text-slate-500">
-                      Shows how goods weight, vehicle space, direct routes, and shared rates fit together
+                    <p className="text-xs text-[#737373]">
+                      Direct route alignment without detour, maximizing vehicle utilization
                     </p>
                   </div>
                 </div>
-                <span className="text-[11px] font-semibold text-amber-800 bg-amber-100/80 px-3 py-1 rounded-full border border-amber-300 shrink-0">
-                  Example demonstration data
+                <span className="text-[10px] font-mono uppercase font-bold text-[#171717] bg-[#E8E1D5] px-2.5 py-1 rounded border border-[#D4CBBC] shrink-0">
+                  SAMPLE SPECIFICATION
                 </span>
               </div>
 

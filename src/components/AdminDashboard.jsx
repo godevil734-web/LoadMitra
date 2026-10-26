@@ -42,8 +42,8 @@ const STATUS_CONFIG = {
   },
   UNDER_REVIEW: {
     label: 'Under Review',
-    color: 'bg-amber-500/15 text-[#F59E0B] border-amber-500/30',
-    dot: 'bg-[#F59E0B]',
+    color: 'bg-amber-500/15 text-[#F28C28] border-amber-500/30',
+    dot: 'bg-[#F28C28]',
   },
   CONTACTED: {
     label: 'Contacted',
@@ -70,8 +70,8 @@ const VERIFICATION_STATUS_CONFIG = {
   },
   PENDING: {
     label: 'Pending Review',
-    color: 'bg-amber-500/15 text-[#F59E0B] border-amber-500/30',
-    dot: 'bg-[#F59E0B]',
+    color: 'bg-amber-500/15 text-[#F28C28] border-amber-500/30',
+    dot: 'bg-[#F28C28]',
   },
   UNDER_REVIEW: {
     label: 'Under Review',
@@ -625,9 +625,9 @@ export default function AdminDashboard() {
   // Loading Screen while verifying auth token
   if (authLoading) {
     return (
-      <div className="min-h-screen bg-[#091827] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-[#171717] flex items-center justify-center p-4">
         <div className="text-center space-y-4">
-          <div className="w-12 h-12 border-3 border-[#F59E0B] border-t-transparent rounded-full animate-spin mx-auto" />
+          <div className="w-12 h-12 border-3 border-[#F28C28] border-t-transparent rounded-full animate-spin mx-auto" />
           <p className="text-sm font-semibold text-slate-300">Verifying LoadMitra Operations Session...</p>
         </div>
       </div>
@@ -639,7 +639,7 @@ export default function AdminDashboard() {
   // -------------------------------------------------------------
   if (!token || !adminUser) {
     return (
-      <div className="min-h-screen bg-[#091827] text-[#FAFAF7] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="min-h-screen bg-[#171717] text-[#F5F0E6] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Background glow accents */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[350px] bg-amber-500/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute -bottom-10 right-10 w-72 h-72 bg-sky-500/10 blur-[100px] rounded-full pointer-events-none" />
@@ -649,7 +649,7 @@ export default function AdminDashboard() {
             <div className="flex justify-center">
               <Logo />
             </div>
-            <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-[#1E3D60] px-3.5 py-1 rounded-full text-xs font-semibold text-[#F59E0B] mt-2">
+            <div className="inline-flex items-center space-x-2 bg-[#1F1F1F] border border-[#2D2D2D] px-3.5 py-1 rounded-full text-xs font-semibold text-[#F28C28] mt-2">
               <Shield className="w-3.5 h-3.5" />
               <span>Pilot Operations Console</span>
             </div>
@@ -661,7 +661,7 @@ export default function AdminDashboard() {
             </p>
           </div>
 
-          <div className="mt-8 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6 sm:p-8 shadow-2xl relative">
+          <div className="mt-8 bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6 sm:p-8 shadow-2xl relative">
             {loginError && (
               <div className="mb-5 p-3.5 bg-rose-950/70 border border-rose-500/50 rounded-xl text-xs text-rose-200 flex items-start space-x-2.5">
                 <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
@@ -681,7 +681,7 @@ export default function AdminDashboard() {
                   placeholder="e.g. admin or ops_manager"
                   value={loginForm.username}
                   onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]"
+                  className="w-full px-3.5 py-2.5 bg-[#171717] text-white text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]"
                 />
               </div>
 
@@ -696,7 +696,7 @@ export default function AdminDashboard() {
                     placeholder="••••••••••••"
                     value={loginForm.password}
                     onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
-                    className="w-full px-3.5 py-2.5 pr-10 bg-[#091827] text-white text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]"
+                    className="w-full px-3.5 py-2.5 pr-10 bg-[#171717] text-white text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]"
                   />
                   <button
                     type="button"
@@ -713,13 +713,13 @@ export default function AdminDashboard() {
                 <button
                   type="submit"
                   disabled={isLoggingIn}
-                  className={`w-full inline-flex items-center justify-center px-5 py-3 text-sm font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all shadow-md ${
+                  className={`w-full inline-flex items-center justify-center px-5 py-3 text-sm font-bold text-[#171717] bg-[#F28C28] hover:bg-[#E07A1E] rounded-xl transition-all shadow-md ${
                     isLoggingIn ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
                   {isLoggingIn ? (
                     <>
-                      <span className="w-4 h-4 mr-2 border-2 border-[#091827] border-t-transparent rounded-full animate-spin" />
+                      <span className="w-4 h-4 mr-2 border-2 border-[#171717] border-t-transparent rounded-full animate-spin" />
                       <span>Authenticating...</span>
                     </>
                   ) : (
@@ -732,7 +732,7 @@ export default function AdminDashboard() {
               </div>
             </form>
 
-            <div className="mt-6 pt-5 border-t border-[#1E3D60]/60 flex items-center justify-between text-xs text-slate-400">
+            <div className="mt-6 pt-5 border-t border-[#2D2D2D]/60 flex items-center justify-between text-xs text-slate-400">
               <a
                 href="/"
                 className="hover:text-white transition-colors flex items-center group"
@@ -752,7 +752,7 @@ export default function AdminDashboard() {
   // AUTHENTICATED DASHBOARD VIEW
   // -------------------------------------------------------------
   return (
-    <div className="min-h-[100dvh] w-full overflow-x-hidden bg-[#091827] text-[#FAFAF7] flex flex-col font-sans">
+    <div className="min-h-[100dvh] w-full overflow-x-hidden bg-[#171717] text-[#F5F0E6] flex flex-col font-sans">
       {/* Toast Notification */}
       {toastMessage && (
         <div
@@ -760,7 +760,7 @@ export default function AdminDashboard() {
             toastMessage.type === 'error'
               ? 'bg-rose-950/90 border-rose-500/50 text-rose-200'
               : toastMessage.type === 'info'
-              ? 'bg-[#152E4A] border-sky-500/50 text-sky-200'
+              ? 'bg-[#262626] border-sky-500/50 text-sky-200'
               : 'bg-emerald-950/90 border-emerald-500/50 text-emerald-200'
           }`}
         >
@@ -774,7 +774,7 @@ export default function AdminDashboard() {
       )}
 
       {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-[#091827]/95 backdrop-blur-md border-b border-[#1E3D60]/80 shadow-md">
+      <header className="sticky top-0 z-40 bg-[#171717]/95 backdrop-blur-md border-b border-[#2D2D2D]/80 shadow-md">
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 w-full">
           <div className="flex items-center justify-between h-16">
             {/* Logo & Platform Tag */}
@@ -783,21 +783,21 @@ export default function AdminDashboard() {
                 <Logo showTagline={false} />
               </a>
               <span className="hidden sm:inline-block text-slate-600">|</span>
-              <span className="inline-flex items-center space-x-1.5 bg-[#0F2A44] border border-[#1E3D60] px-3 py-1 rounded-full text-xs font-semibold text-[#F59E0B]">
-                <Shield className="w-3.5 h-3.5 text-[#F59E0B]" />
+              <span className="inline-flex items-center space-x-1.5 bg-[#1F1F1F] border border-[#2D2D2D] px-3 py-1 rounded-full text-xs font-semibold text-[#F28C28]">
+                <Shield className="w-3.5 h-3.5 text-[#F28C28]" />
                 <span>Pilot Operations</span>
               </span>
             </div>
 
             {/* Navigation Tabs */}
-            <nav className="hidden md:flex items-center space-x-1 bg-[#11253B] border border-[#1E3D60] p-1 rounded-xl">
+            <nav className="hidden md:flex items-center space-x-1 bg-[#222222] border border-[#2D2D2D] p-1 rounded-xl">
               <button
                 type="button"
                 onClick={() => setActiveView('registrations')}
                 className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   activeView === 'registrations'
-                    ? 'bg-[#F59E0B] text-[#091827] shadow-sm'
-                    : 'text-slate-300 hover:text-white hover:bg-[#152E4A]'
+                    ? 'bg-[#F28C28] text-[#171717] shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-[#262626]'
                 }`}
               >
                 <FileText className="w-3.5 h-3.5" />
@@ -806,8 +806,8 @@ export default function AdminDashboard() {
                   <span
                     className={`ml-1 text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
                       activeView === 'registrations'
-                        ? 'bg-[#091827]/30 text-[#091827]'
-                        : 'bg-[#091827] text-slate-300'
+                        ? 'bg-[#171717]/30 text-[#171717]'
+                        : 'bg-[#171717] text-slate-300'
                     }`}
                   >
                     {stats.totalRegistrations}
@@ -823,8 +823,8 @@ export default function AdminDashboard() {
                 }}
                 className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   activeView === 'admins'
-                    ? 'bg-[#F59E0B] text-[#091827] shadow-sm'
-                    : 'text-slate-300 hover:text-white hover:bg-[#152E4A]'
+                    ? 'bg-[#F28C28] text-[#171717] shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-[#262626]'
                 }`}
               >
                 <Users className="w-3.5 h-3.5" />
@@ -833,8 +833,8 @@ export default function AdminDashboard() {
                   <span
                     className={`ml-1 text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
                       activeView === 'admins'
-                        ? 'bg-[#091827]/30 text-[#091827]'
-                        : 'bg-[#091827] text-slate-300'
+                        ? 'bg-[#171717]/30 text-[#171717]'
+                        : 'bg-[#171717] text-slate-300'
                     }`}
                   >
                     {adminUsers.length}
@@ -850,8 +850,8 @@ export default function AdminDashboard() {
                 }}
                 className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   activeView === 'verifications'
-                    ? 'bg-[#F59E0B] text-[#091827] shadow-sm'
-                    : 'text-slate-300 hover:text-white hover:bg-[#152E4A]'
+                    ? 'bg-[#F28C28] text-[#171717] shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-[#262626]'
                 }`}
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
@@ -873,7 +873,7 @@ export default function AdminDashboard() {
                   setAddAdminError('');
                   setShowAddAdminModal(true);
                 }}
-                className="hidden sm:inline-flex items-center text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] px-3 py-1.5 rounded-xl transition-all shadow-sm"
+                className="hidden sm:inline-flex items-center text-xs font-bold text-[#171717] bg-[#F28C28] hover:bg-[#E07A1E] px-3 py-1.5 rounded-xl transition-all shadow-sm"
               >
                 <UserPlus className="w-3.5 h-3.5 mr-1.5" />
                 <span>Add Admin</span>
@@ -889,21 +889,21 @@ export default function AdminDashboard() {
                   showToast('Dashboard data refreshed.');
                 }}
                 disabled={isLoadingData || isLoadingAdmins || verificationsLoading}
-                className="inline-flex items-center text-xs font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-lg bg-[#0F2A44] border border-[#1E3D60] hover:bg-[#152E4A] transition-colors"
+                className="inline-flex items-center text-xs font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-lg bg-[#1F1F1F] border border-[#2D2D2D] hover:bg-[#262626] transition-colors"
                 title="Refresh dashboard data"
               >
                 <RefreshCw
                   className={`w-3.5 h-3.5 sm:mr-1.5 ${
-                    isLoadingData || isLoadingAdmins || verificationsLoading ? 'animate-spin text-[#F59E0B]' : ''
+                    isLoadingData || isLoadingAdmins || verificationsLoading ? 'animate-spin text-[#F28C28]' : ''
                   }`}
                 />
                 <span className="hidden sm:inline">Refresh</span>
               </button>
 
-              <div className="h-6 w-px bg-[#1E3D60] hidden sm:block" />
+              <div className="h-6 w-px bg-[#2D2D2D] hidden sm:block" />
 
               <div className="hidden sm:flex items-center space-x-2 text-xs">
-                <div className="w-7 h-7 rounded-full bg-[#152E4A] border border-[#1E3D60] flex items-center justify-center font-bold text-[#F59E0B] uppercase">
+                <div className="w-7 h-7 rounded-full bg-[#262626] border border-[#2D2D2D] flex items-center justify-center font-bold text-[#F28C28] uppercase">
                   {(adminUser.name || adminUser.username || 'A')[0]}
                 </div>
                 <div className="text-left">
@@ -929,14 +929,14 @@ export default function AdminDashboard() {
           </div>
 
           {/* Mobile Navigation Tabs */}
-          <div className="grid grid-cols-3 gap-1 md:hidden border-t border-[#1E3D60]/60 py-2">
+          <div className="grid grid-cols-3 gap-1 md:hidden border-t border-[#2D2D2D]/60 py-2">
             <button
               type="button"
               onClick={() => setActiveView('registrations')}
               className={`py-1.5 px-2 rounded-lg text-xs font-bold text-center truncate ${
                 activeView === 'registrations'
-                  ? 'bg-[#F59E0B] text-[#091827]'
-                  : 'bg-[#0F2A44] text-slate-300'
+                  ? 'bg-[#F28C28] text-[#171717]'
+                  : 'bg-[#1F1F1F] text-slate-300'
               }`}
             >
               Leads ({stats ? stats.totalRegistrations : 0})
@@ -949,8 +949,8 @@ export default function AdminDashboard() {
               }}
               className={`py-1.5 px-2 rounded-lg text-xs font-bold text-center truncate ${
                 activeView === 'admins'
-                  ? 'bg-[#F59E0B] text-[#091827]'
-                  : 'bg-[#0F2A44] text-slate-300'
+                  ? 'bg-[#F28C28] text-[#171717]'
+                  : 'bg-[#1F1F1F] text-slate-300'
               }`}
             >
               Admins ({adminUsers.length})
@@ -963,8 +963,8 @@ export default function AdminDashboard() {
               }}
               className={`py-1.5 px-2 rounded-lg text-xs font-bold text-center truncate ${
                 activeView === 'verifications'
-                  ? 'bg-[#F59E0B] text-[#091827]'
-                  : 'bg-[#0F2A44] text-slate-300'
+                  ? 'bg-[#F28C28] text-[#171717]'
+                  : 'bg-[#1F1F1F] text-slate-300'
               }`}
             >
               Verify ({verificationsPendingCount})
@@ -990,7 +990,7 @@ export default function AdminDashboard() {
                   Registrations from goods owners and transport partners on early routes.
                 </p>
               </div>
-              <div className="inline-flex items-center space-x-2 bg-[#0F2A44] border border-emerald-500/40 px-3 py-1.5 rounded-xl text-xs text-emerald-400">
+              <div className="inline-flex items-center space-x-2 bg-[#1F1F1F] border border-emerald-500/40 px-3 py-1.5 rounded-xl text-xs text-emerald-400">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Atlas Database: Connected</span>
               </div>
@@ -1000,12 +1000,12 @@ export default function AdminDashboard() {
             <section aria-label="Key Registration Metrics">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {/* Total Registrations */}
-                <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-5 shadow-lg relative overflow-hidden group">
+                <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-5 shadow-lg relative overflow-hidden group">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                       Total Leads
                     </span>
-                    <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#F59E0B]">
+                    <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#F28C28]">
                       <FileText className="w-4 h-4" />
                     </div>
                   </div>
@@ -1028,17 +1028,17 @@ export default function AdminDashboard() {
                     setRoleFilter(roleFilter === 'SHIPPER' ? 'ALL' : 'SHIPPER');
                     setPagination((prev) => ({ ...prev, page: 1 }));
                   }}
-                  className={`text-left bg-[#0F2A44] border rounded-2xl p-5 shadow-lg transition-all ${
+                  className={`text-left bg-[#1F1F1F] border rounded-2xl p-5 shadow-lg transition-all ${
                     roleFilter === 'SHIPPER'
-                      ? 'border-[#F59E0B] ring-1 ring-[#F59E0B] bg-[#152E4A]'
-                      : 'border-[#1E3D60] hover:border-slate-500'
+                      ? 'border-[#F28C28] ring-1 ring-[#F28C28] bg-[#262626]'
+                      : 'border-[#2D2D2D] hover:border-slate-500'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                       Goods Owners
                     </span>
-                    <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#F59E0B]">
+                    <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#F28C28]">
                       <UserCheck className="w-4 h-4" />
                     </div>
                   </div>
@@ -1054,7 +1054,7 @@ export default function AdminDashboard() {
                   </div>
                   <div className="mt-2 text-xs text-slate-400 flex items-center justify-between">
                     <span>Goods &amp; cargo owners</span>
-                    <span className="text-[11px] text-[#F59E0B] font-semibold underline">
+                    <span className="text-[11px] text-[#F28C28] font-semibold underline">
                       {roleFilter === 'SHIPPER' ? 'Filtered' : 'Filter'}
                     </span>
                   </div>
@@ -1067,10 +1067,10 @@ export default function AdminDashboard() {
                     setRoleFilter(roleFilter === 'TRANSPORTER' ? 'ALL' : 'TRANSPORTER');
                     setPagination((prev) => ({ ...prev, page: 1 }));
                   }}
-                  className={`text-left bg-[#0F2A44] border rounded-2xl p-5 shadow-lg transition-all ${
+                  className={`text-left bg-[#1F1F1F] border rounded-2xl p-5 shadow-lg transition-all ${
                     roleFilter === 'TRANSPORTER'
-                      ? 'border-sky-400 ring-1 ring-sky-400 bg-[#152E4A]'
-                      : 'border-[#1E3D60] hover:border-slate-500'
+                      ? 'border-sky-400 ring-1 ring-sky-400 bg-[#262626]'
+                      : 'border-[#2D2D2D] hover:border-slate-500'
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -1106,7 +1106,7 @@ export default function AdminDashboard() {
                     setActiveView('admins');
                     fetchAdminUsers();
                   }}
-                  className="text-left bg-[#0F2A44] border border-[#1E3D60] hover:border-purple-400 rounded-2xl p-5 shadow-lg flex flex-col justify-between transition-all"
+                  className="text-left bg-[#1F1F1F] border border-[#2D2D2D] hover:border-purple-400 rounded-2xl p-5 shadow-lg flex flex-col justify-between transition-all"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -1122,7 +1122,7 @@ export default function AdminDashboard() {
                     </span>
                     <span className="text-xs text-purple-300">Active Admins</span>
                   </div>
-                  <div className="mt-2 text-xs text-[#F59E0B] font-semibold underline flex items-center">
+                  <div className="mt-2 text-xs text-[#F28C28] font-semibold underline flex items-center">
                     <span>Manage Admin Team &rarr;</span>
                   </div>
                 </button>
@@ -1130,7 +1130,7 @@ export default function AdminDashboard() {
 
               {/* Status Breakdown Interactive Filter Row */}
               {stats && (
-                <div className="mt-4 p-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl">
+                <div className="mt-4 p-4 bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                     <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
                       Workflow Status Breakdown:
@@ -1142,7 +1142,7 @@ export default function AdminDashboard() {
                           setStatusFilter('ALL');
                           setPagination((prev) => ({ ...prev, page: 1 }));
                         }}
-                        className="text-xs text-[#F59E0B] hover:underline inline-flex items-center"
+                        className="text-xs text-[#F28C28] hover:underline inline-flex items-center"
                       >
                         <RotateCcw className="w-3 h-3 mr-1" />
                         Reset status filter
@@ -1164,7 +1164,7 @@ export default function AdminDashboard() {
                           className={`px-3 py-2.5 rounded-xl border text-left transition-all ${
                             isSelected
                               ? `${cfg.color} ring-1 ring-white/20 font-bold scale-[1.02]`
-                              : 'bg-[#11253B] border-[#1E3D60] hover:border-slate-500 text-slate-300'
+                              : 'bg-[#222222] border-[#2D2D2D] hover:border-slate-500 text-slate-300'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1183,7 +1183,7 @@ export default function AdminDashboard() {
             {/* Search & Filter Toolbar */}
             <section
               aria-label="Filter registrations"
-              className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-4 sm:p-5 shadow-lg space-y-4"
+              className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-4 sm:p-5 shadow-lg space-y-4"
             >
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-3.5">
                 {/* Search Input */}
@@ -1198,7 +1198,7 @@ export default function AdminDashboard() {
                     placeholder="Search name, entity, route, phone, or email..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-10 py-2.5 bg-[#091827] text-white text-xs sm:text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]"
+                    className="w-full pl-10 pr-10 py-2.5 bg-[#171717] text-white text-xs sm:text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]"
                   />
                   {searchQuery && (
                     <button
@@ -1224,7 +1224,7 @@ export default function AdminDashboard() {
                       setRoleFilter(e.target.value);
                       setPagination((prev) => ({ ...prev, page: 1 }));
                     }}
-                    className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-xs sm:text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]"
+                    className="w-full px-3.5 py-2.5 bg-[#171717] text-white text-xs sm:text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]"
                   >
                     <option value="ALL">All Roles (Goods Owners &amp; Transport Partners)</option>
                     <option value="SHIPPER">Goods Owners Only</option>
@@ -1244,7 +1244,7 @@ export default function AdminDashboard() {
                       setStatusFilter(e.target.value);
                       setPagination((prev) => ({ ...prev, page: 1 }));
                     }}
-                    className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-xs sm:text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B] focus:ring-1 focus:ring-[#F59E0B]"
+                    className="w-full px-3.5 py-2.5 bg-[#171717] text-white text-xs sm:text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28] focus:ring-1 focus:ring-[#F28C28]"
                   >
                     <option value="ALL">All Statuses</option>
                     <option value="SUBMITTED">Submitted</option>
@@ -1260,7 +1260,7 @@ export default function AdminDashboard() {
                   <button
                     type="button"
                     onClick={resetFilters}
-                    className="w-full py-2.5 px-3 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] text-slate-300 hover:text-white rounded-xl text-xs font-semibold flex items-center justify-center transition-colors"
+                    className="w-full py-2.5 px-3 bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] text-slate-300 hover:text-white rounded-xl text-xs font-semibold flex items-center justify-center transition-colors"
                     title="Reset all filters"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
@@ -1271,10 +1271,10 @@ export default function AdminDashboard() {
 
               {/* Active Filter Indicators */}
               {(roleFilter !== 'ALL' || statusFilter !== 'ALL' || debouncedSearch) && (
-                <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#1E3D60]/60 text-xs">
+                <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#2D2D2D]/60 text-xs">
                   <span className="text-slate-400 text-[11px]">Active Filters:</span>
                   {roleFilter !== 'ALL' && (
-                    <span className="inline-flex items-center bg-[#152E4A] text-amber-300 px-2.5 py-0.5 rounded-lg border border-[#1E3D60]">
+                    <span className="inline-flex items-center bg-[#262626] text-amber-300 px-2.5 py-0.5 rounded-lg border border-[#2D2D2D]">
                       Role: {roleFilter}
                       <button
                         type="button"
@@ -1286,7 +1286,7 @@ export default function AdminDashboard() {
                     </span>
                   )}
                   {statusFilter !== 'ALL' && (
-                    <span className="inline-flex items-center bg-[#152E4A] text-sky-300 px-2.5 py-0.5 rounded-lg border border-[#1E3D60]">
+                    <span className="inline-flex items-center bg-[#262626] text-sky-300 px-2.5 py-0.5 rounded-lg border border-[#2D2D2D]">
                       Status: {STATUS_CONFIG[statusFilter]?.label || statusFilter}
                       <button
                         type="button"
@@ -1298,7 +1298,7 @@ export default function AdminDashboard() {
                     </span>
                   )}
                   {debouncedSearch && (
-                    <span className="inline-flex items-center bg-[#152E4A] text-slate-200 px-2.5 py-0.5 rounded-lg border border-[#1E3D60]">
+                    <span className="inline-flex items-center bg-[#262626] text-slate-200 px-2.5 py-0.5 rounded-lg border border-[#2D2D2D]">
                       Query: "{debouncedSearch}"
                       <button
                         type="button"
@@ -1312,7 +1312,7 @@ export default function AdminDashboard() {
                   <button
                     type="button"
                     onClick={resetFilters}
-                    className="text-xs text-[#F59E0B] hover:underline ml-2"
+                    className="text-xs text-[#F28C28] hover:underline ml-2"
                   >
                     Clear all
                   </button>
@@ -1322,14 +1322,14 @@ export default function AdminDashboard() {
 
             {/* Registrations Data Table */}
             <section aria-label="Pilot registrations table" className="space-y-4">
-              <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl shadow-xl overflow-hidden">
+              <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl shadow-xl overflow-hidden">
                 {/* Table Header Controls */}
-                <div className="p-4 sm:px-6 border-b border-[#1E3D60] flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11253B]">
+                <div className="p-4 sm:px-6 border-b border-[#2D2D2D] flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#222222]">
                   <div className="flex items-center space-x-2">
                     <span className="text-xs font-bold text-white uppercase tracking-wider">
                       Pilot Registration Records
                     </span>
-                    <span className="px-2 py-0.5 rounded-full text-[11px] font-mono bg-[#091827] text-slate-300 border border-[#1E3D60]">
+                    <span className="px-2 py-0.5 rounded-full text-[11px] font-mono bg-[#171717] text-slate-300 border border-[#2D2D2D]">
                       {pagination.totalCount} leads
                     </span>
                   </div>
@@ -1343,7 +1343,7 @@ export default function AdminDashboard() {
                         const newLimit = Number(e.target.value);
                         setPagination((prev) => ({ ...prev, limit: newLimit, page: 1 }));
                       }}
-                      className="bg-[#091827] text-white text-xs px-2.5 py-1.5 rounded-lg border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B]"
+                      className="bg-[#171717] text-white text-xs px-2.5 py-1.5 rounded-lg border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28]"
                     >
                       <option value={10}>10</option>
                       <option value={25}>25</option>
@@ -1372,7 +1372,7 @@ export default function AdminDashboard() {
                 {/* Table Content */}
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs sm:text-sm">
-                    <thead className="bg-[#091827]/70 text-slate-400 uppercase text-[11px] tracking-wider border-b border-[#1E3D60]">
+                    <thead className="bg-[#171717]/70 text-slate-400 uppercase text-[11px] tracking-wider border-b border-[#2D2D2D]">
                       <tr>
                         <th scope="col" className="py-3 px-4 sm:px-6">Contact Person</th>
                         <th scope="col" className="py-3 px-4">Role &amp; Entity</th>
@@ -1384,13 +1384,13 @@ export default function AdminDashboard() {
                       </tr>
                     </thead>
 
-                    <tbody className="divide-y divide-[#1E3D60]/60">
+                    <tbody className="divide-y divide-[#2D2D2D]/60">
                       {/* Loading Skeleton */}
                       {isLoadingData && (
                         <tr>
                           <td colSpan={7} className="py-12 text-center text-slate-400">
                             <div className="flex flex-col items-center justify-center space-y-3">
-                              <div className="w-8 h-8 border-2 border-[#F59E0B] border-t-transparent rounded-full animate-spin" />
+                              <div className="w-8 h-8 border-2 border-[#F28C28] border-t-transparent rounded-full animate-spin" />
                               <span className="text-xs">Fetching registration records from Atlas...</span>
                             </div>
                           </td>
@@ -1411,7 +1411,7 @@ export default function AdminDashboard() {
                                 <button
                                   type="button"
                                   onClick={resetFilters}
-                                  className="inline-flex items-center px-4 py-2 bg-[#152E4A] hover:bg-[#1E3D60] text-xs font-semibold text-[#F59E0B] rounded-xl border border-[#1E3D60] transition-colors"
+                                  className="inline-flex items-center px-4 py-2 bg-[#262626] hover:bg-[#2D2D2D] text-xs font-semibold text-[#F28C28] rounded-xl border border-[#2D2D2D] transition-colors"
                                 >
                                   <RotateCcw className="w-3.5 h-3.5 mr-1.5" />
                                   <span>Clear all filters</span>
@@ -1431,7 +1431,7 @@ export default function AdminDashboard() {
                           return (
                             <tr
                               key={record.id}
-                              className="hover:bg-[#11253B]/60 transition-colors group"
+                              className="hover:bg-[#222222]/60 transition-colors group"
                             >
                               {/* Contact Person */}
                               <td className="py-3.5 px-4 sm:px-6">
@@ -1440,7 +1440,7 @@ export default function AdminDashboard() {
                                 </div>
                                 <div className="flex items-center space-x-3 mt-1 text-xs text-slate-400">
                                   <span className="flex items-center text-slate-300">
-                                    <Phone className="w-3 h-3 mr-1 text-[#F59E0B]" />
+                                    <Phone className="w-3 h-3 mr-1 text-[#F28C28]" />
                                     {record.phone}
                                   </span>
                                   {record.email && (
@@ -1457,7 +1457,7 @@ export default function AdminDashboard() {
                                 <span
                                   className={`inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider mb-1 ${
                                     isShipper
-                                      ? 'bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30'
+                                      ? 'bg-[#F28C28]/15 text-[#F28C28] border border-[#F28C28]/30'
                                       : 'bg-sky-500/15 text-sky-400 border border-sky-500/30'
                                   }`}
                                 >
@@ -1530,9 +1530,9 @@ export default function AdminDashboard() {
                                 <button
                                   type="button"
                                   onClick={() => openDetails(record)}
-                                  className="inline-flex items-center px-3 py-1.5 bg-[#152E4A] hover:bg-[#1E3D60] text-slate-200 hover:text-white rounded-lg border border-[#1E3D60] transition-colors font-semibold text-xs shadow-sm"
+                                  className="inline-flex items-center px-3 py-1.5 bg-[#262626] hover:bg-[#2D2D2D] text-slate-200 hover:text-white rounded-lg border border-[#2D2D2D] transition-colors font-semibold text-xs shadow-sm"
                                 >
-                                  <Eye className="w-3.5 h-3.5 mr-1 text-[#F59E0B]" />
+                                  <Eye className="w-3.5 h-3.5 mr-1 text-[#F28C28]" />
                                   <span>Details</span>
                                 </button>
                               </td>
@@ -1544,7 +1544,7 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Pagination Footer */}
-                <div className="p-4 sm:px-6 border-t border-[#1E3D60] bg-[#11253B] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+                <div className="p-4 sm:px-6 border-t border-[#2D2D2D] bg-[#222222] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
                   <div>
                     Showing{' '}
                     <strong className="text-white">
@@ -1566,8 +1566,8 @@ export default function AdminDashboard() {
                       disabled={!pagination.hasPrevPage || isLoadingData}
                       className={`inline-flex items-center px-3 py-1.5 rounded-lg border text-xs font-semibold ${
                         pagination.hasPrevPage && !isLoadingData
-                          ? 'bg-[#152E4A] hover:bg-[#1E3D60] text-white border-[#1E3D60]'
-                          : 'bg-[#091827] text-slate-600 border-[#1E3D60]/40 cursor-not-allowed'
+                          ? 'bg-[#262626] hover:bg-[#2D2D2D] text-white border-[#2D2D2D]'
+                          : 'bg-[#171717] text-slate-600 border-[#2D2D2D]/40 cursor-not-allowed'
                       }`}
                     >
                       <ChevronLeft className="w-3.5 h-3.5 mr-1" />
@@ -1584,8 +1584,8 @@ export default function AdminDashboard() {
                       disabled={!pagination.hasNextPage || isLoadingData}
                       className={`inline-flex items-center px-3 py-1.5 rounded-lg border text-xs font-semibold ${
                         pagination.hasNextPage && !isLoadingData
-                          ? 'bg-[#152E4A] hover:bg-[#1E3D60] text-white border-[#1E3D60]'
-                          : 'bg-[#091827] text-slate-600 border-[#1E3D60]/40 cursor-not-allowed'
+                          ? 'bg-[#262626] hover:bg-[#2D2D2D] text-white border-[#2D2D2D]'
+                          : 'bg-[#171717] text-slate-600 border-[#2D2D2D]/40 cursor-not-allowed'
                       }`}
                     >
                       <span>Next</span>
@@ -1620,7 +1620,7 @@ export default function AdminDashboard() {
                   setAddAdminError('');
                   setShowAddAdminModal(true);
                 }}
-                className="inline-flex items-center justify-center px-5 py-2.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl text-xs sm:text-sm font-bold shadow-md transition-all self-start sm:self-auto"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-xl text-xs sm:text-sm font-bold shadow-md transition-all self-start sm:self-auto"
               >
                 <UserPlus className="w-4 h-4 mr-2" />
                 <span>Add Administrator</span>
@@ -1628,10 +1628,10 @@ export default function AdminDashboard() {
             </div>
 
             {/* Administrators Table */}
-            <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl shadow-xl overflow-hidden">
-              <div className="p-4 sm:px-6 border-b border-[#1E3D60] bg-[#11253B] flex items-center justify-between">
+            <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl shadow-xl overflow-hidden">
+              <div className="p-4 sm:px-6 border-b border-[#2D2D2D] bg-[#222222] flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <ShieldCheck className="w-4 h-4 text-[#F59E0B]" />
+                  <ShieldCheck className="w-4 h-4 text-[#F28C28]" />
                   <span className="text-xs font-bold text-white uppercase tracking-wider">
                     Authorized Team Accounts
                   </span>
@@ -1643,7 +1643,7 @@ export default function AdminDashboard() {
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs sm:text-sm">
-                  <thead className="bg-[#091827]/70 text-slate-400 uppercase text-[11px] tracking-wider border-b border-[#1E3D60]">
+                  <thead className="bg-[#171717]/70 text-slate-400 uppercase text-[11px] tracking-wider border-b border-[#2D2D2D]">
                     <tr>
                       <th scope="col" className="py-3 px-4 sm:px-6">Administrator</th>
                       <th scope="col" className="py-3 px-4">Role</th>
@@ -1654,12 +1654,12 @@ export default function AdminDashboard() {
                     </tr>
                   </thead>
 
-                  <tbody className="divide-y divide-[#1E3D60]/60">
+                  <tbody className="divide-y divide-[#2D2D2D]/60">
                     {isLoadingAdmins && (
                       <tr>
                         <td colSpan={6} className="py-12 text-center text-slate-400">
                           <div className="flex flex-col items-center justify-center space-y-3">
-                            <div className="w-8 h-8 border-2 border-[#F59E0B] border-t-transparent rounded-full animate-spin" />
+                            <div className="w-8 h-8 border-2 border-[#F28C28] border-t-transparent rounded-full animate-spin" />
                             <span className="text-xs">Loading administrators...</span>
                           </div>
                         </td>
@@ -1680,18 +1680,18 @@ export default function AdminDashboard() {
                       adminUsers.map((admin) => {
                         const isSelf = admin.username === adminUser.username;
                         return (
-                          <tr key={admin.id} className="hover:bg-[#11253B]/60 transition-colors">
+                          <tr key={admin.id} className="hover:bg-[#222222]/60 transition-colors">
                             {/* Administrator Name & Username */}
                             <td className="py-3.5 px-4 sm:px-6">
                               <div className="flex items-center space-x-3">
-                                <div className="w-8 h-8 rounded-full bg-[#152E4A] border border-[#1E3D60] flex items-center justify-center font-bold text-[#F59E0B] uppercase">
+                                <div className="w-8 h-8 rounded-full bg-[#262626] border border-[#2D2D2D] flex items-center justify-center font-bold text-[#F28C28] uppercase">
                                   {admin.name[0]}
                                 </div>
                                 <div>
                                   <div className="font-semibold text-white flex items-center space-x-1.5">
                                     <span>{admin.name}</span>
                                     {isSelf && (
-                                      <span className="text-[10px] bg-amber-500/20 text-[#F59E0B] px-1.5 py-0.2 rounded border border-amber-500/30">
+                                      <span className="text-[10px] bg-amber-500/20 text-[#F28C28] px-1.5 py-0.2 rounded border border-amber-500/30">
                                         You
                                       </span>
                                     )}
@@ -1709,7 +1709,7 @@ export default function AdminDashboard() {
                                 className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider ${
                                   admin.role === 'SUPER_ADMIN'
                                     ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                                    : 'bg-[#F59E0B]/20 text-[#F59E0B] border border-[#F59E0B]/30'
+                                    : 'bg-[#F28C28]/20 text-[#F28C28] border border-[#F28C28]/30'
                                 }`}
                               >
                                 {admin.role === 'SUPER_ADMIN' ? 'Super Admin' : 'Admin'}
@@ -1816,7 +1816,7 @@ export default function AdminDashboard() {
                     setVerificationsFilterStatus(next);
                     fetchVerifications(1, next);
                   }}
-                  className="px-3 py-2 bg-[#0F2A44] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="px-3 py-2 bg-[#1F1F1F] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 >
                   <option value="ALL">All Statuses</option>
                   <option value="PENDING">Pending Review</option>
@@ -1829,10 +1829,10 @@ export default function AdminDashboard() {
             </div>
 
             {/* Verifications Table */}
-            <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl shadow-xl overflow-hidden">
-              <div className="p-4 sm:px-6 border-b border-[#1E3D60] bg-[#11253B] flex items-center justify-between">
+            <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl shadow-xl overflow-hidden">
+              <div className="p-4 sm:px-6 border-b border-[#2D2D2D] bg-[#222222] flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <ShieldCheck className="w-4 h-4 text-[#F59E0B]" />
+                  <ShieldCheck className="w-4 h-4 text-[#F28C28]" />
                   <span className="text-xs font-bold text-white uppercase tracking-wider">
                     Verification Submissions ({verificationsPagination.totalCount})
                   </span>
@@ -1846,7 +1846,7 @@ export default function AdminDashboard() {
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-[#091827]/70 text-slate-400 uppercase text-[10px] tracking-wider border-b border-[#1E3D60]">
+                  <thead className="bg-[#171717]/70 text-slate-400 uppercase text-[10px] tracking-wider border-b border-[#2D2D2D]">
                     <tr>
                       <th className="py-3 px-4 font-bold">Transport Partner / Business</th>
                       <th className="py-3 px-4 font-bold">Vehicle Scope</th>
@@ -1856,12 +1856,12 @@ export default function AdminDashboard() {
                       <th className="py-3 px-4 font-bold text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E3D60]/50 text-slate-200">
+                  <tbody className="divide-y divide-[#2D2D2D]/50 text-slate-200">
                     {verificationsLoading ? (
                       <tr>
                         <td colSpan="6" className="py-12 text-center text-slate-400">
                           <div className="inline-flex items-center space-x-2">
-                            <RefreshCw className="w-4 h-4 animate-spin text-[#F59E0B]" />
+                            <RefreshCw className="w-4 h-4 animate-spin text-[#F28C28]" />
                             <span>Loading verification requests...</span>
                           </div>
                         </td>
@@ -1882,7 +1882,7 @@ export default function AdminDashboard() {
                           .join(', ');
 
                         return (
-                          <tr key={v.id} className="hover:bg-[#11253B]/50 transition-colors">
+                          <tr key={v.id} className="hover:bg-[#222222]/50 transition-colors">
                             <td className="py-3.5 px-4">
                               <p className="font-bold text-white">{v.transporter?.businessName}</p>
                               <p className="text-[11px] text-slate-400">
@@ -1930,7 +1930,7 @@ export default function AdminDashboard() {
                               <button
                                 type="button"
                                 onClick={() => handleInspectVerification(v.id)}
-                                className="inline-flex items-center space-x-1 px-3 py-1.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] text-xs font-bold rounded-lg transition-colors shadow-sm"
+                                className="inline-flex items-center space-x-1 px-3 py-1.5 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] text-xs font-bold rounded-lg transition-colors shadow-sm"
                               >
                                 <span>Inspect &amp; Review</span>
                                 <span>&rarr;</span>
@@ -1946,7 +1946,7 @@ export default function AdminDashboard() {
 
               {/* Pagination */}
               {verificationsPagination.totalPages > 1 && (
-                <div className="p-4 border-t border-[#1E3D60] bg-[#11253B] flex items-center justify-between text-xs">
+                <div className="p-4 border-t border-[#2D2D2D] bg-[#222222] flex items-center justify-between text-xs">
                   <span className="text-slate-400">
                     Page {verificationsPagination.page} of {verificationsPagination.totalPages}
                   </span>
@@ -1955,7 +1955,7 @@ export default function AdminDashboard() {
                       type="button"
                       disabled={verificationsPagination.page <= 1}
                       onClick={() => fetchVerifications(verificationsPagination.page - 1)}
-                      className="px-3 py-1 bg-[#0F2A44] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg disabled:opacity-40"
+                      className="px-3 py-1 bg-[#1F1F1F] hover:bg-[#262626] border border-[#2D2D2D] rounded-lg disabled:opacity-40"
                     >
                       Previous
                     </button>
@@ -1963,7 +1963,7 @@ export default function AdminDashboard() {
                       type="button"
                       disabled={verificationsPagination.page >= verificationsPagination.totalPages}
                       onClick={() => fetchVerifications(verificationsPagination.page + 1)}
-                      className="px-3 py-1 bg-[#0F2A44] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg disabled:opacity-40"
+                      className="px-3 py-1 bg-[#1F1F1F] hover:bg-[#262626] border border-[#2D2D2D] rounded-lg disabled:opacity-40"
                     >
                       Next
                     </button>
@@ -1980,10 +1980,10 @@ export default function AdminDashboard() {
       {/* ----------------------------------------------------------- */}
       {showAddAdminModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-[#0F2A44] border-2 border-[#F59E0B] rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
-            <div className="flex items-start justify-between pb-4 border-b border-[#1E3D60]">
+          <div className="bg-[#1F1F1F] border-2 border-[#F28C28] rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+            <div className="flex items-start justify-between pb-4 border-b border-[#2D2D2D]">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#F59E0B]">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#F28C28]">
                   <UserPlus className="w-5 h-5" />
                 </div>
                 <div>
@@ -2012,7 +2012,7 @@ export default function AdminDashboard() {
               {/* Full Name */}
               <div>
                 <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                  Full Name <span className="text-[#F59E0B]">*</span>
+                  Full Name <span className="text-[#F28C28]">*</span>
                 </label>
                 <input
                   type="text"
@@ -2020,14 +2020,14 @@ export default function AdminDashboard() {
                   placeholder="e.g. Amit Verma"
                   value={newAdminForm.name}
                   onChange={(e) => setNewAdminForm({ ...newAdminForm, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3.5 py-2.5 bg-[#171717] text-white text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
               {/* Username */}
               <div>
                 <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                  Username <span className="text-[#F59E0B]">*</span>
+                  Username <span className="text-[#F28C28]">*</span>
                 </label>
                 <input
                   type="text"
@@ -2040,7 +2040,7 @@ export default function AdminDashboard() {
                       username: e.target.value.toLowerCase().replace(/[^a-z0-9_.-]/g, ''),
                     })
                   }
-                  className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3.5 py-2.5 bg-[#171717] text-white text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28]"
                 />
                 <span className="text-[11px] text-slate-400 mt-1 block">
                   Used to sign in. Lowercase letters, numbers, hyphens, underscores only.
@@ -2050,7 +2050,7 @@ export default function AdminDashboard() {
               {/* Initial Password */}
               <div>
                 <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                  Initial Password <span className="text-[#F59E0B]">*</span>
+                  Initial Password <span className="text-[#F28C28]">*</span>
                 </label>
                 <div className="relative">
                   <input
@@ -2059,7 +2059,7 @@ export default function AdminDashboard() {
                     placeholder="At least 6 characters"
                     value={newAdminForm.password}
                     onChange={(e) => setNewAdminForm({ ...newAdminForm, password: e.target.value })}
-                    className="w-full px-3.5 py-2.5 pr-10 bg-[#091827] text-white text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3.5 py-2.5 pr-10 bg-[#171717] text-white text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28]"
                   />
                   <button
                     type="button"
@@ -2079,29 +2079,29 @@ export default function AdminDashboard() {
                 <select
                   value={newAdminForm.role}
                   onChange={(e) => setNewAdminForm({ ...newAdminForm, role: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3.5 py-2.5 bg-[#171717] text-white text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28]"
                 >
                   <option value="ADMIN">Administrator (Can review leads &amp; update statuses)</option>
                   <option value="SUPER_ADMIN">Super Admin (Full access + can manage admins)</option>
                 </select>
               </div>
 
-              <div className="pt-3 flex items-center justify-end space-x-3 border-t border-[#1E3D60]">
+              <div className="pt-3 flex items-center justify-end space-x-3 border-t border-[#2D2D2D]">
                 <button
                   type="button"
                   onClick={() => setShowAddAdminModal(false)}
-                  className="px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white rounded-xl border border-[#1E3D60]"
+                  className="px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white rounded-xl border border-[#2D2D2D]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isAddingAdmin}
-                  className="inline-flex items-center px-5 py-2.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] text-xs font-bold rounded-xl shadow-md transition-all"
+                  className="inline-flex items-center px-5 py-2.5 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] text-xs font-bold rounded-xl shadow-md transition-all"
                 >
                   {isAddingAdmin ? (
                     <>
-                      <span className="w-3.5 h-3.5 mr-1.5 border-2 border-[#091827] border-t-transparent rounded-full animate-spin" />
+                      <span className="w-3.5 h-3.5 mr-1.5 border-2 border-[#171717] border-t-transparent rounded-full animate-spin" />
                       <span>Creating Admin...</span>
                     </>
                   ) : (
@@ -2122,15 +2122,15 @@ export default function AdminDashboard() {
       {/* ----------------------------------------------------------- */}
       {selectedRecord && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-6">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-6">
             {/* Modal Header */}
-            <div className="flex items-start justify-between pb-4 border-b border-[#1E3D60]">
+            <div className="flex items-start justify-between pb-4 border-b border-[#2D2D2D]">
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
                   <span
                     className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider ${
                       selectedRecord.role === 'SHIPPER'
-                        ? 'bg-[#F59E0B]/20 text-[#F59E0B] border border-[#F59E0B]/30'
+                        ? 'bg-[#F28C28]/20 text-[#F28C28] border border-[#F28C28]/30'
                         : 'bg-sky-500/20 text-sky-400 border border-sky-500/30'
                     }`}
                   >
@@ -2153,13 +2153,13 @@ export default function AdminDashboard() {
             {/* Core Details Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               {/* Contact Information */}
-              <div className="p-4 bg-[#091827] rounded-xl border border-[#1E3D60] space-y-2">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#1E3D60]/60 pb-1">
+              <div className="p-4 bg-[#171717] rounded-xl border border-[#2D2D2D] space-y-2">
+                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#2D2D2D]/60 pb-1">
                   Contact Information
                 </span>
                 <div className="space-y-1.5 pt-1">
                   <p className="flex items-center text-slate-200">
-                    <Phone className="w-3.5 h-3.5 mr-2 text-[#F59E0B]" />
+                    <Phone className="w-3.5 h-3.5 mr-2 text-[#F28C28]" />
                     <a href={`tel:${selectedRecord.phone}`} className="hover:underline">
                       {selectedRecord.phone}
                     </a>
@@ -2182,8 +2182,8 @@ export default function AdminDashboard() {
               </div>
 
               {/* Entity Information */}
-              <div className="p-4 bg-[#091827] rounded-xl border border-[#1E3D60] space-y-2">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#1E3D60]/60 pb-1">
+              <div className="p-4 bg-[#171717] rounded-xl border border-[#2D2D2D] space-y-2">
+                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#2D2D2D]/60 pb-1">
                   {selectedRecord.role === 'SHIPPER' ? 'Business Details' : 'Vehicle & Fleet Details'}
                 </span>
                 <div className="space-y-1.5 pt-1 text-slate-300">
@@ -2206,8 +2206,8 @@ export default function AdminDashboard() {
               </div>
 
               {/* Corridor & Route */}
-              <div className="sm:col-span-2 p-4 bg-[#091827] rounded-xl border border-[#1E3D60] space-y-2">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#1E3D60]/60 pb-1">
+              <div className="sm:col-span-2 p-4 bg-[#171717] rounded-xl border border-[#2D2D2D] space-y-2">
+                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#2D2D2D]/60 pb-1">
                   Registered Corridor / Highways
                 </span>
                 <div className="flex items-start space-x-2 pt-1">
@@ -2219,8 +2219,8 @@ export default function AdminDashboard() {
               </div>
 
               {/* Specifications: Shipper vs Transporter */}
-              <div className="sm:col-span-2 p-4 bg-[#091827] rounded-xl border border-[#1E3D60] space-y-3">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#1E3D60]/60 pb-1">
+              <div className="sm:col-span-2 p-4 bg-[#171717] rounded-xl border border-[#2D2D2D] space-y-3">
+                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block border-b border-[#2D2D2D]/60 pb-1">
                   {selectedRecord.role === 'SHIPPER' ? 'Goods Details' : 'Vehicle Details'}
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2260,10 +2260,10 @@ export default function AdminDashboard() {
             </div>
 
             {/* Workflow Action: Update Status & Internal Coordinator Notes */}
-            <div className="p-5 bg-[#11253B] rounded-xl border border-amber-500/30 space-y-4">
+            <div className="p-5 bg-[#222222] rounded-xl border border-amber-500/30 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center">
-                  <Shield className="w-4 h-4 text-[#F59E0B] mr-1.5" />
+                  <Shield className="w-4 h-4 text-[#F28C28] mr-1.5" />
                   Update Pilot Workflow Status
                 </span>
                 <span className="text-xs text-slate-400">
@@ -2283,7 +2283,7 @@ export default function AdminDashboard() {
                   <select
                     value={newStatus}
                     onChange={(e) => setNewStatus(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-[#091827] text-white text-xs sm:text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3.5 py-2.5 bg-[#171717] text-white text-xs sm:text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28]"
                   >
                     <option value="SUBMITTED">Submitted (New Lead)</option>
                     <option value="UNDER_REVIEW">Under Review (Dispatcher Evaluating)</option>
@@ -2304,7 +2304,7 @@ export default function AdminDashboard() {
                     value={updateNote}
                     onChange={(e) => setUpdateNote(e.target.value)}
                     maxLength={1000}
-                    className="w-full px-3.5 py-2 bg-[#091827] text-white text-xs sm:text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3.5 py-2 bg-[#171717] text-white text-xs sm:text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28]"
                   />
                   <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                     <span>Visible only to authorized LoadMitra administrators.</span>
@@ -2317,7 +2317,7 @@ export default function AdminDashboard() {
                 <button
                   type="button"
                   onClick={() => setSelectedRecord(null)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white rounded-xl border border-[#1E3D60] hover:bg-[#152E4A] transition-colors"
+                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white rounded-xl border border-[#2D2D2D] hover:bg-[#262626] transition-colors"
                 >
                   Cancel
                 </button>
@@ -2326,13 +2326,13 @@ export default function AdminDashboard() {
                   type="button"
                   onClick={() => handleSaveStatus(selectedRecord.id)}
                   disabled={statusUpdating || (newStatus === selectedRecord.status && updateNote === (selectedRecord.adminNotes || ''))}
-                  className={`inline-flex items-center px-5 py-2 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all shadow-md ${
+                  className={`inline-flex items-center px-5 py-2 text-xs font-bold text-[#171717] bg-[#F28C28] hover:bg-[#E07A1E] rounded-xl transition-all shadow-md ${
                     statusUpdating ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
                   {statusUpdating ? (
                     <>
-                      <span className="w-3.5 h-3.5 mr-1.5 border-2 border-[#091827] border-t-transparent rounded-full animate-spin" />
+                      <span className="w-3.5 h-3.5 mr-1.5 border-2 border-[#171717] border-t-transparent rounded-full animate-spin" />
                       <span>Saving...</span>
                     </>
                   ) : (
@@ -2353,9 +2353,9 @@ export default function AdminDashboard() {
       {/* ----------------------------------------------------------- */}
       {verificationModalOpen && selectedVerification && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-[#0F2A44] border-2 border-[#F59E0B] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-6">
+          <div className="bg-[#1F1F1F] border-2 border-[#F28C28] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-6">
             {/* Modal Header */}
-            <div className="flex items-start justify-between pb-4 border-b border-[#1E3D60]">
+            <div className="flex items-start justify-between pb-4 border-b border-[#2D2D2D]">
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
                   <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/30">
@@ -2388,7 +2388,7 @@ export default function AdminDashboard() {
               <button
                 type="button"
                 onClick={() => setVerificationModalOpen(false)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#152E4A] transition-colors"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#262626] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -2396,7 +2396,7 @@ export default function AdminDashboard() {
 
             {/* Vehicle Scope Info if applicable */}
             {selectedVerification.vehicle && (
-              <div className="p-3 bg-[#091827] rounded-xl border border-[#1E3D60] text-xs">
+              <div className="p-3 bg-[#171717] rounded-xl border border-[#2D2D2D] text-xs">
                 <p className="text-[10px] uppercase font-bold text-indigo-400 mb-1 flex items-center">
                   <Truck className="w-3.5 h-3.5 mr-1" />
                   Linked Fleet Vehicle
@@ -2420,7 +2420,7 @@ export default function AdminDashboard() {
               </h4>
 
               {(!selectedVerification.documents || selectedVerification.documents.length === 0) ? (
-                <div className="p-4 rounded-xl bg-[#091827] border border-[#1E3D60] text-center text-xs text-slate-400">
+                <div className="p-4 rounded-xl bg-[#171717] border border-[#2D2D2D] text-center text-xs text-slate-400">
                   No documents attached to this submission.
                 </div>
               ) : (
@@ -2428,7 +2428,7 @@ export default function AdminDashboard() {
                   {selectedVerification.documents.map((doc) => (
                     <div
                       key={doc.id}
-                      className="p-3 rounded-xl bg-[#091827] border border-[#1E3D60] flex flex-col justify-between space-y-2"
+                      className="p-3 rounded-xl bg-[#171717] border border-[#2D2D2D] flex flex-col justify-between space-y-2"
                     >
                       <div>
                         <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
@@ -2446,7 +2446,7 @@ export default function AdminDashboard() {
                       <button
                         type="button"
                         onClick={() => handleDownloadVerificationDoc(doc.id, doc.originalName)}
-                        className="w-full py-1.5 px-2 bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] text-slate-200 text-xs font-semibold rounded-lg flex items-center justify-center space-x-1.5 transition-colors"
+                        className="w-full py-1.5 px-2 bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] text-slate-200 text-xs font-semibold rounded-lg flex items-center justify-center space-x-1.5 transition-colors"
                       >
                         <ExternalLink className="w-3.5 h-3.5 text-amber-400" />
                         <span>Inspect Document</span>
@@ -2463,11 +2463,11 @@ export default function AdminDashboard() {
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
                   Verification Review History
                 </h4>
-                <div className="max-h-36 overflow-y-auto space-y-1.5 p-2 rounded-xl bg-[#091827] border border-[#1E3D60]">
+                <div className="max-h-36 overflow-y-auto space-y-1.5 p-2 rounded-xl bg-[#171717] border border-[#2D2D2D]">
                   {selectedVerification.auditHistory.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-2 rounded-lg bg-[#11253B] text-[11px] border border-[#1E3D60]/60 space-y-0.5"
+                      className="p-2 rounded-lg bg-[#222222] text-[11px] border border-[#2D2D2D]/60 space-y-0.5"
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-white">
@@ -2493,7 +2493,7 @@ export default function AdminDashboard() {
             )}
 
             {/* Review Decision Form */}
-            <form onSubmit={handleSubmitReview} className="space-y-4 pt-3 border-t border-[#1E3D60]">
+            <form onSubmit={handleSubmitReview} className="space-y-4 pt-3 border-t border-[#2D2D2D]">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
                 Administrative Review Decision
               </h4>
@@ -2512,8 +2512,8 @@ export default function AdminDashboard() {
                     onClick={() => setReviewStatus(opt.id)}
                     className={`p-2.5 rounded-xl border text-center text-xs font-bold transition-all ${
                       reviewStatus === opt.id
-                        ? `${opt.color} bg-[#152E4A] ring-1 ring-amber-400`
-                        : 'border-[#1E3D60] text-slate-400 bg-[#091827] hover:border-slate-500'
+                        ? `${opt.color} bg-[#262626] ring-1 ring-amber-400`
+                        : 'border-[#2D2D2D] text-slate-400 bg-[#171717] hover:border-slate-500'
                     }`}
                   >
                     {opt.label}
@@ -2533,7 +2533,7 @@ export default function AdminDashboard() {
                     value={reviewReason}
                     onChange={(e) => setReviewReason(e.target.value)}
                     placeholder="e.g. RC copy is unreadable; please re-upload clear photo of commercial vehicle permit."
-                    className="w-full px-3 py-2 bg-[#091827] border border-orange-500/50 rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                    className="w-full px-3 py-2 bg-[#171717] border border-orange-500/50 rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                   />
                 </div>
               )}
@@ -2548,7 +2548,7 @@ export default function AdminDashboard() {
                   value={reviewNotes}
                   onChange={(e) => setReviewNotes(e.target.value)}
                   placeholder="e.g. Verified against UP state portal registry. Passed."
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
                 />
               </div>
 
@@ -2570,14 +2570,14 @@ export default function AdminDashboard() {
                 <button
                   type="button"
                   onClick={() => setVerificationModalOpen(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
                 >
                   Close
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmittingReview}
-                  className="px-5 py-2 text-xs font-bold bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] rounded-xl shadow-md transition-all disabled:opacity-50 flex items-center space-x-1.5"
+                  className="px-5 py-2 text-xs font-bold bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] rounded-xl shadow-md transition-all disabled:opacity-50 flex items-center space-x-1.5"
                 >
                   <Save className="w-3.5 h-3.5" />
                   <span>{isSubmittingReview ? 'Submitting Review...' : 'Commit Review Decision'}</span>

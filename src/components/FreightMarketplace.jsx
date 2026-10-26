@@ -531,21 +531,21 @@ export default function FreightMarketplace() {
   };
 
   return (
-    <div className="min-h-[100dvh] w-full overflow-x-hidden bg-[#091827] text-slate-100 flex flex-col font-sans">
+    <div className="min-h-[100dvh] w-full overflow-x-hidden bg-[#171717] text-slate-100 flex flex-col font-sans">
       {/* Top Navigation Header */}
-      <header className="sticky top-0 z-40 bg-[#091827]/95 backdrop-blur-md border-b border-[#1E3D60]/80 shadow-lg">
+      <header className="sticky top-0 z-40 bg-[#171717]/95 backdrop-blur-md border-b border-[#2D2D2D]/80 shadow-lg">
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 w-full">
           <div className="flex items-center justify-between h-18">
             <div className="flex items-center space-x-6">
               <Link to="/" className="flex items-center group">
                 <Logo />
               </Link>
-              <div className="hidden sm:flex items-center space-x-2 pl-4 border-l border-[#1E3D60]">
+              <div className="hidden sm:flex items-center space-x-2 pl-4 border-l border-[#2D2D2D]">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   Available Loads
                 </span>
-                <span className="text-[10px] text-slate-400 bg-[#0F2A44] px-2 py-0.5 rounded border border-[#1E3D60]">
+                <span className="text-[10px] text-slate-400 bg-[#1F1F1F] px-2 py-0.5 rounded border border-[#2D2D2D]">
                   Live
                 </span>
               </div>
@@ -557,7 +557,7 @@ export default function FreightMarketplace() {
                 <button
                   type="button"
                   onClick={() => setIsNotificationDrawerOpen(true)}
-                  className="relative p-2 text-slate-300 hover:text-white hover:bg-[#152E4A] border border-[#1E3D60] rounded-xl transition-colors"
+                  className="relative p-2 text-slate-300 hover:text-white hover:bg-[#262626] border border-[#2D2D2D] rounded-xl transition-colors"
                   title="Notifications"
                   aria-label="View notifications"
                 >
@@ -576,7 +576,7 @@ export default function FreightMarketplace() {
                     <span className="text-xs font-bold text-white leading-tight">
                       {currentShipper.businessName}
                     </span>
-                    <span className="text-[11px] text-[#F59E0B]">
+                    <span className="text-[11px] text-[#F28C28]">
                       {currentShipper.name} (Goods Owner)
                     </span>
                   </div>
@@ -585,13 +585,13 @@ export default function FreightMarketplace() {
                   <div className="relative group">
                     <button
                       type="button"
-                      className="px-2.5 py-1.5 text-xs bg-[#0F2A44] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg text-slate-300 flex items-center space-x-1.5 transition-colors"
+                      className="px-2.5 py-1.5 text-xs bg-[#1F1F1F] hover:bg-[#262626] border border-[#2D2D2D] rounded-lg text-slate-300 flex items-center space-x-1.5 transition-colors"
                       title="Switch demo account"
                     >
-                      <User className="w-3.5 h-3.5 text-[#F59E0B]" />
+                      <User className="w-3.5 h-3.5 text-[#F28C28]" />
                       <span className="hidden sm:inline">Switch Account</span>
                     </button>
-                    <div className="absolute right-0 mt-1 w-56 bg-[#0F2A44] border border-[#1E3D60] rounded-xl shadow-2xl p-1.5 hidden group-hover:block z-50">
+                    <div className="absolute right-0 mt-1 w-56 bg-[#1F1F1F] border border-[#2D2D2D] rounded-xl shadow-2xl p-1.5 hidden group-hover:block z-50">
                       <p className="text-[10px] uppercase font-bold text-slate-400 px-2 py-1">
                         Select Demo Profile:
                       </p>
@@ -600,8 +600,8 @@ export default function FreightMarketplace() {
                         onClick={() => loginDemoShipper(1)}
                         className={`w-full text-left px-2.5 py-2 text-xs rounded-lg flex flex-col ${
                           currentShipper.email === 'shipper@routewise.in'
-                            ? 'bg-[#152E4A] text-[#F59E0B] font-bold'
-                            : 'text-slate-300 hover:bg-[#152E4A] hover:text-white'
+                            ? 'bg-[#262626] text-[#F28C28] font-bold'
+                            : 'text-slate-300 hover:bg-[#262626] hover:text-white'
                         }`}
                       >
                         <span>Purvanchal Agro (Goods Owner A)</span>
@@ -612,8 +612,8 @@ export default function FreightMarketplace() {
                         onClick={() => loginDemoShipper(2)}
                         className={`w-full text-left px-2.5 py-2 text-xs rounded-lg flex flex-col mt-1 ${
                           currentShipper.email === 'shipper2@routewise.in'
-                            ? 'bg-[#152E4A] text-[#F59E0B] font-bold'
-                            : 'text-slate-300 hover:bg-[#152E4A] hover:text-white'
+                            ? 'bg-[#262626] text-[#F28C28] font-bold'
+                            : 'text-slate-300 hover:bg-[#262626] hover:text-white'
                         }`}
                       >
                         <span>Avadh Steel (Goods Owner B)</span>
@@ -625,7 +625,7 @@ export default function FreightMarketplace() {
                   <button
                     type="button"
                     onClick={handleLogout}
-                    className="p-2 text-slate-400 hover:text-rose-400 bg-[#0F2A44] border border-[#1E3D60] rounded-lg transition-colors"
+                    className="p-2 text-slate-400 hover:text-rose-400 bg-[#1F1F1F] border border-[#2D2D2D] rounded-lg transition-colors"
                     title="Sign Out"
                   >
                     <LogOut className="w-4 h-4" />
@@ -635,7 +635,7 @@ export default function FreightMarketplace() {
                 <button
                   type="button"
                   onClick={() => setIsAuthModalOpen(true)}
-                  className="px-3.5 py-1.5 text-xs font-semibold text-slate-200 hover:text-white bg-[#0F2A44] border border-[#1E3D60] rounded-lg transition-colors"
+                  className="px-3.5 py-1.5 text-xs font-semibold text-slate-200 hover:text-white bg-[#1F1F1F] border border-[#2D2D2D] rounded-lg transition-colors"
                 >
                   Goods Owner Sign In
                 </button>
@@ -643,9 +643,9 @@ export default function FreightMarketplace() {
 
               <Link
                 to="/transporter"
-                className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#0F2A44] hover:bg-[#152E4A] border border-[#1E3D60] rounded-lg transition-colors"
+                className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#1F1F1F] hover:bg-[#262626] border border-[#2D2D2D] rounded-lg transition-colors"
               >
-                <Truck className="w-3.5 h-3.5 text-[#F59E0B]" />
+                <Truck className="w-3.5 h-3.5 text-[#F28C28]" />
                 <span>Transport Partners</span>
               </Link>
 
@@ -658,7 +658,7 @@ export default function FreightMarketplace() {
                     setIsPostModalOpen(true);
                   }
                 }}
-                className="inline-flex items-center space-x-1.5 px-4 py-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] text-xs sm:text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
+                className="inline-flex items-center space-x-1.5 px-4 py-2 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] text-xs sm:text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
               >
                 <Plus className="w-4 h-4 stroke-[3]" />
                 <span>Post a Load</span>
@@ -669,11 +669,11 @@ export default function FreightMarketplace() {
       </header>
 
       {/* Hero Banner with Stats */}
-      <section className="bg-gradient-to-b from-[#0F2A44] to-[#091827] border-b border-[#1E3D60]/60 py-10 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-[#1F1F1F] to-[#171717] border-b border-[#2D2D2D]/60 py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1920px] mx-auto w-full">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <div className="inline-flex items-center space-x-2 bg-[#11253B] border border-amber-500/30 px-3 py-1 rounded-full text-xs font-semibold text-[#F59E0B] mb-3">
+              <div className="inline-flex items-center space-x-2 bg-[#222222] border border-amber-500/30 px-3 py-1 rounded-full text-xs font-semibold text-[#F28C28] mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Verified Load Requests</span>
               </div>
@@ -686,14 +686,14 @@ export default function FreightMarketplace() {
             </div>
 
             {/* Quick Metrics Badges */}
-            <div className="flex items-center space-x-4 bg-[#091827]/80 p-3 rounded-2xl border border-[#1E3D60]">
-              <div className="px-3 border-r border-[#1E3D60]">
+            <div className="flex items-center space-x-4 bg-[#171717]/80 p-3 rounded-2xl border border-[#2D2D2D]">
+              <div className="px-3 border-r border-[#2D2D2D]">
                 <p className="text-[10px] uppercase font-bold text-slate-400">Total Live Loads</p>
                 <p className="text-xl font-extrabold text-white">{pagination.totalCount}</p>
               </div>
-              <div className="px-3 border-r border-[#1E3D60]">
+              <div className="px-3 border-r border-[#2D2D2D]">
                 <p className="text-[10px] uppercase font-bold text-slate-400">Main Route</p>
-                <p className="text-xs font-bold text-[#F59E0B]">NH27 (Gorakhpur - Lucknow)</p>
+                <p className="text-xs font-bold text-[#F28C28]">NH27 (Gorakhpur - Lucknow)</p>
               </div>
               <div className="px-3">
                 <p className="text-[10px] uppercase font-bold text-slate-400">System Status</p>
@@ -706,7 +706,7 @@ export default function FreightMarketplace() {
           </div>
 
           {/* Tab Navigation */}
-          <div className="flex items-center space-x-2 mt-8 border-b border-[#1E3D60]">
+          <div className="flex items-center space-x-2 mt-8 border-b border-[#2D2D2D]">
             <button
               type="button"
               onClick={() => {
@@ -715,7 +715,7 @@ export default function FreightMarketplace() {
               }}
               className={`px-4 py-2.5 text-sm font-bold border-b-2 transition-all flex items-center space-x-2 ${
                 activeTab === 'marketplace'
-                  ? 'border-[#F59E0B] text-[#F59E0B]'
+                  ? 'border-[#F28C28] text-[#F28C28]'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -735,14 +735,14 @@ export default function FreightMarketplace() {
               }}
               className={`px-4 py-2.5 text-sm font-bold border-b-2 transition-all flex items-center space-x-2 ${
                 activeTab === 'my-listings'
-                  ? 'border-[#F59E0B] text-[#F59E0B]'
+                  ? 'border-[#F28C28] text-[#F28C28]'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
               <Building2 className="w-4 h-4" />
               <span>My Posted Loads</span>
               {currentShipper && (
-                <span className="text-[10px] bg-[#152E4A] px-2 py-0.5 rounded-full text-amber-300 border border-[#1E3D60]">
+                <span className="text-[10px] bg-[#262626] px-2 py-0.5 rounded-full text-amber-300 border border-[#2D2D2D]">
                   My Account
                 </span>
               )}
@@ -759,14 +759,14 @@ export default function FreightMarketplace() {
               }}
               className={`px-4 py-2.5 text-sm font-bold border-b-2 transition-all flex items-center space-x-2 ${
                 activeTab === 'bookings'
-                  ? 'border-[#F59E0B] text-[#F59E0B]'
+                  ? 'border-[#F28C28] text-[#F28C28]'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>My Bookings</span>
               {currentShipper && bookings.length > 0 && (
-                <span className="text-[10px] bg-amber-500/20 px-2 py-0.5 rounded-full text-[#F59E0B] border border-amber-500/30">
+                <span className="text-[10px] bg-amber-500/20 px-2 py-0.5 rounded-full text-[#F28C28] border border-amber-500/30">
                   {bookings.length}
                 </span>
               )}
@@ -785,7 +785,7 @@ export default function FreightMarketplace() {
                 ? 'bg-emerald-950/90 border-emerald-500/50 text-emerald-200'
                 : toast.type === 'error'
                 ? 'bg-rose-950/90 border-rose-500/50 text-rose-200'
-                : 'bg-[#0F2A44] border-sky-500/50 text-sky-200'
+                : 'bg-[#1F1F1F] border-sky-500/50 text-sky-200'
             }`}
           >
             {toast.type === 'success' ? (
@@ -819,7 +819,7 @@ export default function FreightMarketplace() {
         ) : (
           <>
             {/* Filter and Search Bar */}
-            <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-4 sm:p-5 mb-8 shadow-xl">
+            <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-4 sm:p-5 mb-8 shadow-xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
             {/* General Search */}
             <div className="relative">
@@ -829,7 +829,7 @@ export default function FreightMarketplace() {
                 placeholder="Search goods, business..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F59E0B]"
+                className="w-full pl-9 pr-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F28C28]"
               />
             </div>
 
@@ -841,19 +841,19 @@ export default function FreightMarketplace() {
                 placeholder="Pickup city (e.g. Gorakhpur)"
                 value={originFilter}
                 onChange={(e) => setOriginFilter(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F59E0B]"
+                className="w-full pl-9 pr-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F28C28]"
               />
             </div>
 
             {/* Destination */}
             <div className="relative">
-              <MapPin className="w-4 h-4 absolute left-3 top-3 text-[#F59E0B]" />
+              <MapPin className="w-4 h-4 absolute left-3 top-3 text-[#F28C28]" />
               <input
                 type="text"
                 placeholder="Delivery city (e.g. Lucknow)"
                 value={destFilter}
                 onChange={(e) => setDestFilter(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F59E0B]"
+                className="w-full pl-9 pr-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F28C28]"
               />
             </div>
 
@@ -862,7 +862,7 @@ export default function FreightMarketplace() {
               <select
                 value={cargoFilter}
                 onChange={(e) => setCargoFilter(e.target.value)}
-                className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
               >
                 <option value="ALL">All Types of Goods</option>
                 {CARGO_OPTIONS.map((c) => (
@@ -878,7 +878,7 @@ export default function FreightMarketplace() {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-[#F59E0B]"
+                className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-[#F28C28]"
               >
                 {activeTab === 'my-listings' && <option value="ALL">All Statuses</option>}
                 <option value="OPEN">Waiting for Price Offers</option>
@@ -890,7 +890,7 @@ export default function FreightMarketplace() {
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="p-2 text-slate-400 hover:text-white bg-[#091827] border border-[#1E3D60] rounded-xl transition-colors shrink-0"
+                className="p-2 text-slate-400 hover:text-white bg-[#171717] border border-[#2D2D2D] rounded-xl transition-colors shrink-0"
                 title="Reset Filters"
               >
                 <RotateCcw className="w-4 h-4" />
@@ -901,8 +901,8 @@ export default function FreightMarketplace() {
 
         {/* Not Authenticated Warning for My-Listings Tab */}
         {activeTab === 'my-listings' && !currentShipper && (
-          <div className="bg-[#11253B] border border-amber-500/40 rounded-2xl p-8 text-center max-w-xl mx-auto my-12">
-            <Building2 className="w-12 h-12 text-[#F59E0B] mx-auto mb-4" />
+          <div className="bg-[#222222] border border-amber-500/40 rounded-2xl p-8 text-center max-w-xl mx-auto my-12">
+            <Building2 className="w-12 h-12 text-[#F28C28] mx-auto mb-4" />
             <h3 className="text-xl font-bold text-white">Goods Owner Sign In Required</h3>
             <p className="mt-2 text-sm text-slate-300">
               Sign in with your goods owner account to post, manage, and track your loads.
@@ -911,14 +911,14 @@ export default function FreightMarketplace() {
               <button
                 type="button"
                 onClick={() => loginDemoShipper(1)}
-                className="px-4 py-2 bg-[#F59E0B] text-[#091827] font-bold text-xs rounded-xl shadow"
+                className="px-4 py-2 bg-[#F28C28] text-[#171717] font-bold text-xs rounded-xl shadow"
               >
                 Sign In as Demo Goods Owner A
               </button>
               <button
                 type="button"
                 onClick={() => loginDemoShipper(2)}
-                className="px-4 py-2 bg-[#152E4A] border border-[#1E3D60] text-slate-200 font-bold text-xs rounded-xl"
+                className="px-4 py-2 bg-[#262626] border border-[#2D2D2D] text-slate-200 font-bold text-xs rounded-xl"
               >
                 Sign In as Demo Goods Owner B
               </button>
@@ -948,18 +948,18 @@ export default function FreightMarketplace() {
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div
                 key={i}
-                className="bg-[#0F2A44]/60 border border-[#1E3D60] rounded-2xl p-6 animate-pulse space-y-4"
+                className="bg-[#1F1F1F]/60 border border-[#2D2D2D] rounded-2xl p-6 animate-pulse space-y-4"
               >
-                <div className="flex justify-between items-center pb-3 border-b border-[#1E3D60]/50">
-                  <div className="h-4 w-24 bg-[#152E4A] rounded" />
-                  <div className="h-4 w-28 bg-[#152E4A] rounded" />
+                <div className="flex justify-between items-center pb-3 border-b border-[#2D2D2D]/50">
+                  <div className="h-4 w-24 bg-[#262626] rounded" />
+                  <div className="h-4 w-28 bg-[#262626] rounded" />
                 </div>
                 <div className="space-y-2">
-                  <div className="h-4 w-4/5 bg-[#152E4A] rounded" />
-                  <div className="h-4 w-3/5 bg-[#152E4A] rounded" />
+                  <div className="h-4 w-4/5 bg-[#262626] rounded" />
+                  <div className="h-4 w-3/5 bg-[#262626] rounded" />
                 </div>
-                <div className="h-20 bg-[#091827] rounded-xl" />
-                <div className="h-8 bg-[#152E4A] rounded-xl" />
+                <div className="h-20 bg-[#171717] rounded-xl" />
+                <div className="h-8 bg-[#262626] rounded-xl" />
               </div>
             ))}
           </div>
@@ -967,7 +967,7 @@ export default function FreightMarketplace() {
 
         {/* Empty State */}
         {!isLoading && !error && listings.length === 0 && (
-          <div className="bg-[#0F2A44]/50 border border-dashed border-[#1E3D60] rounded-3xl p-12 text-center max-w-lg mx-auto my-12">
+          <div className="bg-[#1F1F1F]/50 border border-dashed border-[#2D2D2D] rounded-3xl p-12 text-center max-w-lg mx-auto my-12">
             <Truck className="w-12 h-12 text-slate-500 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-white">No Freight Listings Found</h3>
             <p className="mt-2 text-sm text-slate-300">
@@ -979,7 +979,7 @@ export default function FreightMarketplace() {
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="px-4 py-2 bg-[#152E4A] hover:bg-[#1E3D60] text-slate-200 text-xs font-semibold rounded-xl border border-[#1E3D60] transition-colors"
+                className="px-4 py-2 bg-[#262626] hover:bg-[#2D2D2D] text-slate-200 text-xs font-semibold rounded-xl border border-[#2D2D2D] transition-colors"
               >
                 Clear Filters
               </button>
@@ -989,7 +989,7 @@ export default function FreightMarketplace() {
                   if (!currentShipper) setIsAuthModalOpen(true);
                   else setIsPostModalOpen(true);
                 }}
-                className="px-4 py-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] text-xs font-bold rounded-xl transition-all"
+                className="px-4 py-2 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] text-xs font-bold rounded-xl transition-all"
               >
                 + Post a Freight Listing
               </button>
@@ -997,9 +997,9 @@ export default function FreightMarketplace() {
           </div>
         )}
 
-        {/* Real Freight Listings Cards Grid */}
+        {/* Real Freight Listings Structured Rows */}
         {!isLoading && !error && listings.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+          <div className="space-y-3">
             {listings.map((item) => {
               const statusCfg = STATUS_CONFIG[item.status] || STATUS_CONFIG.OPEN;
               const isOwner = currentShipper && currentShipper.id === item.shipperId;
@@ -1007,119 +1007,98 @@ export default function FreightMarketplace() {
               return (
                 <div
                   key={item.id}
-                  className="bg-[#0F2A44] border border-[#1E3D60] hover:border-[#2A4F78] rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-xl group hover:-translate-y-1 relative"
+                  className="bg-[#1F1F1F] border border-[#2D2D2D] hover:border-[#F28C28]/40 rounded-xl p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 transition-all duration-200 shadow-md group"
                 >
-                  {/* Top Status & Timestamp Header */}
-                  <div>
-                    <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#1E3D60]/60 text-xs">
+                  {/* Left: Route Corridor & Status */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-2.5">
                       <span
-                        className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${statusCfg.badge}`}
+                        className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border font-mono ${statusCfg.badge}`}
                       >
                         <span className={`w-1.5 h-1.5 rounded-full ${statusCfg.dot}`} />
                         <span>{statusCfg.label}</span>
                       </span>
 
-                      <span className="text-[11px] text-slate-400 flex items-center">
-                        <Clock className="w-3 h-3 mr-1" />
-                        {new Date(item.pickupDate).toLocaleDateString('en-IN', {
+                      <span className="text-[11px] text-stone-400 font-mono flex items-center">
+                        <Clock className="w-3 h-3 mr-1 text-[#F28C28]" />
+                        Pickup: {new Date(item.pickupDate).toLocaleDateString('en-IN', {
                           month: 'short',
                           day: 'numeric',
                         })}
                       </span>
-                    </div>
 
-                    {/* Route Corridor Indicator */}
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-start space-x-2.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#38BDF8] mt-1 shrink-0" />
-                        <div>
-                          <p className="text-[10px] uppercase font-bold text-slate-400">Origin</p>
-                          <p className="text-sm font-bold text-white line-clamp-1">{item.origin}</p>
-                        </div>
-                      </div>
-
-                      <div className="ml-1 pl-3 border-l-2 border-dashed border-[#1E3D60] py-0.5 text-[11px] text-slate-400">
-                        Direct Corridor
-                      </div>
-
-                      <div className="flex items-start space-x-2.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] mt-1 shrink-0" />
-                        <div>
-                          <p className="text-[10px] uppercase font-bold text-slate-400">Destination</p>
-                          <p className="text-sm font-bold text-white line-clamp-1">{item.destination}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Commodity & Weight Specs */}
-                    <div className="bg-[#091827]/80 rounded-xl p-3 border border-[#1E3D60] space-y-2 text-xs mb-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-slate-400 flex items-center">
-                          <Package className="w-3.5 h-3.5 mr-1.5 text-slate-400" />
-                          Cargo Type
-                        </span>
-                        <span className="font-semibold text-white">{item.cargoCategory}</span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-slate-400 flex items-center">
-                          <Truck className="w-3.5 h-3.5 mr-1.5 text-slate-400" />
-                          Capacity
-                        </span>
-                        <span className="font-bold text-[#F59E0B]">{item.weightDisplay}</span>
-                      </div>
-
-                      {item.cargoDescription && (
-                        <p className="text-[11px] text-slate-300 italic line-clamp-2 pt-1 border-t border-[#1E3D60]/50">
-                          "{item.cargoDescription}"
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Shipper Business Card */}
-                    <div className="flex items-center space-x-2.5 text-xs text-slate-300 mb-5">
-                      <div className="w-7 h-7 rounded-lg bg-[#152E4A] border border-[#1E3D60] flex items-center justify-center text-[#F59E0B] font-bold shrink-0">
-                        {item.businessName ? item.businessName[0] : 'S'}
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-semibold text-white truncate">{item.businessName}</p>
-                        <p className="text-[10px] text-slate-400 truncate">Contact: {item.shipperName}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pricing and Action Footer */}
-                  <div className="pt-3 border-t border-[#1E3D60]/60">
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <p className="text-[10px] uppercase font-bold text-slate-400">Target Price</p>
-                        <p className="text-lg font-extrabold text-white">{item.offeredPriceFormatted}</p>
-                      </div>
-                      <span className="text-[11px] font-semibold text-slate-400 bg-[#091827] px-2 py-0.5 rounded border border-[#1E3D60]">
-                        {item.priceType}
+                      <span className="text-[11px] text-stone-400 bg-[#171717] px-2 py-0.5 rounded border border-[#2D2D2D] font-mono">
+                        {item.businessName || 'Enterprise Shipper'}
                       </span>
                     </div>
 
-                    <div className="flex items-center space-x-2">
+                    {/* Prominent Corridor Header with visual waypoint markers */}
+                    <div className="flex items-center space-x-3 text-base sm:text-lg font-bold text-white tracking-tight">
+                      <span className="text-[#F28C28] flex items-center">
+                        <MapPin className="w-4 h-4 mr-1 text-[#F28C28] shrink-0" />
+                        {item.origin}
+                      </span>
+                      <span className="text-stone-500 font-mono text-sm">──►</span>
+                      <span className="text-[#F5F0E6] flex items-center">
+                        <MapPin className="w-4 h-4 mr-1 text-[#F5F0E6] shrink-0" />
+                        {item.destination}
+                      </span>
+                    </div>
+
+                    {/* Specifications Strip */}
+                    <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-stone-300">
+                      <span className="inline-flex items-center text-stone-400">
+                        <Package className="w-3.5 h-3.5 mr-1 text-[#F28C28]" />
+                        <strong className="text-white ml-1">{item.cargoCategory}</strong>
+                      </span>
+                      <span className="text-stone-600">•</span>
+                      <span className="inline-flex items-center text-stone-400">
+                        <Truck className="w-3.5 h-3.5 mr-1 text-[#F28C28]" />
+                        Weight: <strong className="text-[#F28C28] ml-1 font-tabular">{item.weightDisplay}</strong>
+                      </span>
+                      {item.cargoDescription && (
+                        <>
+                          <span className="text-stone-600 hidden sm:inline">•</span>
+                          <span className="text-stone-400 italic line-clamp-1 max-w-xs">
+                            "{item.cargoDescription}"
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right: Target Rate & Direct Actions */}
+                  <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between lg:justify-center gap-3 shrink-0 pt-3 lg:pt-0 border-t lg:border-t-0 border-[#2D2D2D]">
+                    <div className="text-left lg:text-right">
+                      <p className="text-[10px] uppercase font-bold text-stone-400 font-mono">Target Rate</p>
+                      <div className="flex items-baseline space-x-1.5">
+                        <span className="text-xl font-extrabold text-white font-tabular">
+                          {item.offeredPriceFormatted}
+                        </span>
+                        <span className="text-[10px] text-stone-400 font-mono uppercase bg-[#171717] px-1.5 py-0.5 rounded border border-[#2D2D2D]">
+                          {item.priceType}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center space-x-2 w-full sm:w-auto">
                       <button
                         type="button"
                         onClick={() => {
                           setSelectedListing(item);
                           setIsDetailModalOpen(true);
                         }}
-                        className="flex-1 py-2 text-xs font-bold text-center text-slate-200 hover:text-white bg-[#152E4A] hover:bg-[#1E3D60] border border-[#1E3D60] rounded-xl transition-colors"
+                        className="px-3.5 py-2 text-xs font-bold text-center text-stone-200 hover:text-white bg-[#262626] hover:bg-[#333333] border border-[#2D2D2D] rounded-lg transition-colors"
                       >
                         Details
                       </button>
 
-                      {/* Owner Specific Controls */}
                       {isOwner && (
                         <>
                           <button
                             type="button"
                             onClick={() => openBidsModal(item)}
-                            className="px-2.5 py-1.5 text-xs font-bold text-amber-300 hover:text-white bg-[#152E4A] hover:bg-amber-950/40 border border-amber-500/30 rounded-xl transition-colors"
-                            title="Review Price Offers"
+                            className="px-3 py-2 text-xs font-bold text-[#F28C28] hover:text-white bg-[#262626] hover:bg-[#F28C28]/20 border border-[#F28C28]/40 rounded-lg transition-colors font-mono"
                           >
                             Offers
                           </button>
@@ -1129,7 +1108,7 @@ export default function FreightMarketplace() {
                               setSelectedListing(item);
                               setIsEditModalOpen(true);
                             }}
-                            className="p-2 text-slate-300 hover:text-[#F59E0B] bg-[#152E4A] hover:bg-[#1E3D60] border border-[#1E3D60] rounded-xl transition-colors"
+                            className="p-2 text-stone-300 hover:text-[#F28C28] bg-[#262626] hover:bg-[#333333] border border-[#2D2D2D] rounded-lg transition-colors"
                             title="Edit Load"
                           >
                             <Edit3 className="w-3.5 h-3.5" />
@@ -1155,7 +1134,7 @@ export default function FreightMarketplace() {
                                 }
                               }
                             }}
-                            className="p-2 text-slate-300 hover:text-rose-400 bg-[#152E4A] hover:bg-[#1E3D60] border border-[#1E3D60] rounded-xl transition-colors"
+                            className="p-2 text-stone-300 hover:text-rose-400 bg-[#262626] hover:bg-[#333333] border border-[#2D2D2D] rounded-lg transition-colors"
                             title="Delete Load"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -1170,7 +1149,7 @@ export default function FreightMarketplace() {
                             setSelectedListing(item);
                             setIsDetailModalOpen(true);
                           }}
-                          className="px-3 py-2 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl transition-all"
+                          className="px-4 py-2 text-xs font-bold text-black bg-[#F28C28] hover:bg-[#E07A1E] rounded-lg shadow-sm transition-all whitespace-nowrap"
                         >
                           Send Price Offer
                         </button>
@@ -1185,7 +1164,7 @@ export default function FreightMarketplace() {
 
         {/* Pagination Controls */}
         {!isLoading && !error && pagination.totalPages > 1 && (
-          <div className="flex items-center justify-between mt-10 pt-6 border-t border-[#1E3D60]">
+          <div className="flex items-center justify-between mt-10 pt-6 border-t border-[#2D2D2D]">
             <p className="text-xs text-slate-400">
               Showing page <strong className="text-white">{pagination.page}</strong> of{' '}
               <strong className="text-white">{pagination.totalPages}</strong> ({pagination.totalCount} total listings)
@@ -1195,7 +1174,7 @@ export default function FreightMarketplace() {
                 type="button"
                 disabled={!pagination.hasPrevPage}
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                className="px-3 py-1.5 text-xs font-semibold text-slate-300 bg-[#0F2A44] border border-[#1E3D60] rounded-lg disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#152E4A]"
+                className="px-3 py-1.5 text-xs font-semibold text-slate-300 bg-[#1F1F1F] border border-[#2D2D2D] rounded-lg disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#262626]"
               >
                 <ChevronLeft className="w-4 h-4 inline mr-1" />
                 Previous
@@ -1204,7 +1183,7 @@ export default function FreightMarketplace() {
                 type="button"
                 disabled={!pagination.hasNextPage}
                 onClick={() => setCurrentPage((p) => p + 1)}
-                className="px-3 py-1.5 text-xs font-semibold text-slate-300 bg-[#0F2A44] border border-[#1E3D60] rounded-lg disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#152E4A]"
+                className="px-3 py-1.5 text-xs font-semibold text-slate-300 bg-[#1F1F1F] border border-[#2D2D2D] rounded-lg disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#262626]"
               >
                 Next
                 <ChevronRight className="w-4 h-4 inline ml-1" />
@@ -1323,11 +1302,11 @@ export default function FreightMarketplace() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-4">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-4">
             <button
               type="button"
               onClick={() => setDisputeBookingModal(null)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1353,14 +1332,14 @@ export default function FreightMarketplace() {
                   value={disputeReasonInput}
                   onChange={(e) => setDisputeReasonInput(e.target.value)}
                   placeholder="e.g. 5 bags were damaged or delivery receipt does not match"
-                  className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-xs text-white focus:outline-none focus:border-rose-400"
+                  className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-xs text-white focus:outline-none focus:border-rose-400"
                 />
               </div>
               <div className="pt-2 flex items-center justify-end space-x-2">
                 <button
                   type="button"
                   onClick={() => setDisputeBookingModal(null)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+                  className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
                 >
                   Cancel
                 </button>
@@ -1437,17 +1416,17 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
-      <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
+      <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="flex items-center space-x-3 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-[#152E4A] border border-[#1E3D60] flex items-center justify-center text-[#F59E0B]">
+          <div className="w-10 h-10 rounded-xl bg-[#262626] border border-[#2D2D2D] flex items-center justify-center text-[#F28C28]">
             <Plus className="w-6 h-6" />
           </div>
           <div>
@@ -1472,7 +1451,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
                 placeholder="e.g. Gorakhpur Mandi, UP"
                 value={formData.origin}
                 onChange={(e) => setFormData({ ...formData, origin: e.target.value })}
-                className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+                className="w-full px-3 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
               />
               {errors.origin && <p className="text-rose-400 text-[11px] mt-1">{errors.origin}</p>}
             </div>
@@ -1487,7 +1466,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
                 placeholder="e.g. Lucknow Transport Nagar, UP"
                 value={formData.destination}
                 onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-                className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+                className="w-full px-3 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
               />
               {errors.destination && (
                 <p className="text-rose-400 text-[11px] mt-1">{errors.destination}</p>
@@ -1502,7 +1481,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
               <select
                 value={formData.cargoCategory}
                 onChange={(e) => setFormData({ ...formData, cargoCategory: e.target.value })}
-                className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+                className="w-full px-3 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
               >
                 {CARGO_OPTIONS.map((c) => (
                   <option key={c} value={c}>
@@ -1524,12 +1503,12 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
                   placeholder="e.g. 10.5"
                   value={formData.weight}
                   onChange={(e) => setFormData({ ...formData, weight: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
                 />
                 <select
                   value={formData.weightUnit}
                   onChange={(e) => setFormData({ ...formData, weightUnit: e.target.value })}
-                  className="w-24 px-2 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-24 px-2 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
                 >
                   <option value="Tons">Tons</option>
                   <option value="Quintals">Quintals</option>
@@ -1547,7 +1526,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
               placeholder="e.g. 200 bags of processed grain, palletized"
               value={formData.cargoDescription}
               onChange={(e) => setFormData({ ...formData, cargoDescription: e.target.value })}
-              className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+              className="w-full px-3 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
             />
           </div>
 
@@ -1562,12 +1541,12 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
                   placeholder="e.g. 22000"
                   value={formData.offeredPrice}
                   onChange={(e) => setFormData({ ...formData, offeredPrice: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full px-3 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
                 />
                 <select
                   value={formData.priceType}
                   onChange={(e) => setFormData({ ...formData, priceType: e.target.value })}
-                  className="w-28 px-2 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+                  className="w-28 px-2 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
                 >
                   <option value="FIXED">Fixed</option>
                   <option value="NEGOTIABLE">Negotiable</option>
@@ -1586,7 +1565,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
                 required
                 value={formData.pickupDate}
                 onChange={(e) => setFormData({ ...formData, pickupDate: e.target.value })}
-                className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+                className="w-full px-3 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
               />
               {errors.pickupDate && (
                 <p className="text-rose-400 text-[11px] mt-1">{errors.pickupDate}</p>
@@ -1602,7 +1581,7 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
             <select
               value={formData.vehicleRequirements[0] || VEHICLE_OPTIONS[0]}
               onChange={(e) => setFormData({ ...formData, vehicleRequirements: [e.target.value] })}
-              className="w-full px-3 py-2.5 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+              className="w-full px-3 py-2.5 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
             >
               {VEHICLE_OPTIONS.map((v) => (
                 <option key={v} value={v}>
@@ -1622,22 +1601,22 @@ function CreateListingModal({ onClose, onSuccess, authToken, currentShipper }) {
               placeholder="e.g. Loading help available, pickup between 9 AM and 6 PM..."
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-white focus:outline-none focus:border-[#F59E0B]"
+              className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white focus:outline-none focus:border-[#F28C28]"
             />
           </div>
 
-          <div className="pt-4 flex items-center justify-end space-x-3 border-t border-[#1E3D60]">
+          <div className="pt-4 flex items-center justify-end space-x-3 border-t border-[#2D2D2D]">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 text-slate-300 hover:text-white bg-[#152E4A] rounded-xl"
+              className="px-4 py-2.5 text-slate-300 hover:text-white bg-[#262626] rounded-xl"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-6 py-2.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold rounded-xl shadow-lg transition-all disabled:opacity-50"
+              className="px-6 py-2.5 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] font-bold rounded-xl shadow-lg transition-all disabled:opacity-50"
             >
               {isSubmitting ? 'Posting...' : 'Post Load'}
             </button>
@@ -1701,11 +1680,11 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
-      <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
+      <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
         >
           <X className="w-5 h-5" />
         </button>
@@ -1730,7 +1709,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
                 required
                 value={formData.origin}
                 onChange={(e) => setFormData({ ...formData, origin: e.target.value })}
-                className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-white"
+                className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white"
               />
             </div>
             <div>
@@ -1740,7 +1719,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
                 required
                 value={formData.destination}
                 onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-                className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-white"
+                className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white"
               />
             </div>
           </div>
@@ -1753,7 +1732,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
                 required
                 value={formData.offeredPrice}
                 onChange={(e) => setFormData({ ...formData, offeredPrice: e.target.value })}
-                className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-white"
+                className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white"
               />
             </div>
             <div>
@@ -1761,7 +1740,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
               <select
                 value={formData.priceType}
                 onChange={(e) => setFormData({ ...formData, priceType: e.target.value })}
-                className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-white"
+                className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white"
               >
                 <option value="FIXED">Fixed</option>
                 <option value="NEGOTIABLE">Negotiable</option>
@@ -1776,7 +1755,7 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
               type="text"
               value={formData.cargoDescription}
               onChange={(e) => setFormData({ ...formData, cargoDescription: e.target.value })}
-              className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-white"
+              className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white"
             />
           </div>
 
@@ -1786,22 +1765,22 @@ function EditListingModal({ listing, authToken, onClose, onSuccess }) {
               rows={2}
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              className="w-full px-3 py-2 bg-[#091827] border border-[#1E3D60] rounded-xl text-white"
+              className="w-full px-3 py-2 bg-[#171717] border border-[#2D2D2D] rounded-xl text-white"
             />
           </div>
 
-          <div className="pt-4 flex items-center justify-end space-x-3 border-t border-[#1E3D60]">
+          <div className="pt-4 flex items-center justify-end space-x-3 border-t border-[#2D2D2D]">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-slate-300 hover:text-white bg-[#152E4A] rounded-xl"
+              className="px-4 py-2 text-slate-300 hover:text-white bg-[#262626] rounded-xl"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-5 py-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#091827] font-bold rounded-xl disabled:opacity-50"
+              className="px-5 py-2 bg-[#F28C28] hover:bg-[#E07A1E] text-[#171717] font-bold rounded-xl disabled:opacity-50"
             >
               {isSubmitting ? 'Saving...' : 'Save Changes'}
             </button>
@@ -1821,11 +1800,11 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
-      <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
+      <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
         >
           <X className="w-5 h-5" />
         </button>
@@ -1842,7 +1821,7 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
         </div>
 
         {/* Route Details */}
-        <div className="bg-[#091827] rounded-2xl p-4 border border-[#1E3D60] mb-6 space-y-3">
+        <div className="bg-[#171717] rounded-2xl p-4 border border-[#2D2D2D] mb-6 space-y-3">
           <div className="flex items-start space-x-3">
             <div className="w-3 h-3 rounded-full bg-[#38BDF8] mt-1 shrink-0" />
             <div>
@@ -1850,11 +1829,11 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
               <p className="text-sm font-bold text-white">{listing.origin}</p>
             </div>
           </div>
-          <div className="ml-1 pl-4 border-l-2 border-dashed border-[#1E3D60] py-1 text-xs text-slate-400">
+          <div className="ml-1 pl-4 border-l-2 border-dashed border-[#2D2D2D] py-1 text-xs text-slate-400">
             Direct Route
           </div>
           <div className="flex items-start space-x-3">
-            <div className="w-3 h-3 rounded-full bg-[#F59E0B] mt-1 shrink-0" />
+            <div className="w-3 h-3 rounded-full bg-[#F28C28] mt-1 shrink-0" />
             <div>
               <p className="text-[10px] uppercase font-bold text-slate-400">Delivery Location</p>
               <p className="text-sm font-bold text-white">{listing.destination}</p>
@@ -1864,22 +1843,22 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
 
         {/* Specs Table */}
         <div className="grid grid-cols-2 gap-3 mb-6 text-xs">
-          <div className="bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
+          <div className="bg-[#171717] p-3 rounded-xl border border-[#2D2D2D]">
             <p className="text-slate-400 text-[11px]">Type of Goods</p>
             <p className="font-bold text-white mt-0.5">{listing.cargoCategory}</p>
           </div>
-          <div className="bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
+          <div className="bg-[#171717] p-3 rounded-xl border border-[#2D2D2D]">
             <p className="text-slate-400 text-[11px]">Total Weight</p>
-            <p className="font-bold text-[#F59E0B] mt-0.5">{listing.weightDisplay}</p>
+            <p className="font-bold text-[#F28C28] mt-0.5">{listing.weightDisplay}</p>
           </div>
-          <div className="bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
+          <div className="bg-[#171717] p-3 rounded-xl border border-[#2D2D2D]">
             <p className="text-slate-400 text-[11px]">Target Price</p>
             <p className="font-bold text-white mt-0.5">
               {listing.offeredPriceFormatted}{' '}
               <span className="text-[10px] text-slate-400">({listing.priceType})</span>
             </p>
           </div>
-          <div className="bg-[#091827] p-3 rounded-xl border border-[#1E3D60]">
+          <div className="bg-[#171717] p-3 rounded-xl border border-[#2D2D2D]">
             <p className="text-slate-400 text-[11px]">Pickup Date</p>
             <p className="font-bold text-white mt-0.5">
               {new Date(listing.pickupDate).toLocaleDateString('en-IN', {
@@ -1897,7 +1876,7 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
               {listing.vehicleRequirements.map((v) => (
                 <span
                   key={v}
-                  className="px-2.5 py-1 text-xs bg-[#152E4A] border border-[#1E3D60] text-slate-200 rounded-lg"
+                  className="px-2.5 py-1 text-xs bg-[#262626] border border-[#2D2D2D] text-slate-200 rounded-lg"
                 >
                   {v}
                 </span>
@@ -1908,16 +1887,16 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
 
         {/* Notes */}
         {listing.notes && (
-          <div className="bg-[#11253B] border border-[#1E3D60] rounded-xl p-3 mb-6 text-xs text-slate-300">
+          <div className="bg-[#222222] border border-[#2D2D2D] rounded-xl p-3 mb-6 text-xs text-slate-300">
             <span className="font-bold text-amber-300 mr-1">Notes:</span>
             {listing.notes}
           </div>
         )}
 
         {/* Goods Owner Contact Card */}
-        <div className="bg-[#091827] rounded-xl p-4 border border-[#1E3D60] mb-6 flex items-center justify-between">
+        <div className="bg-[#171717] rounded-xl p-4 border border-[#2D2D2D] mb-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-[#152E4A] flex items-center justify-center text-[#F59E0B] font-bold">
+            <div className="w-10 h-10 rounded-xl bg-[#262626] flex items-center justify-center text-[#F28C28] font-bold">
               <Building2 className="w-5 h-5" />
             </div>
             <div>
@@ -1928,7 +1907,7 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
           <div className="flex items-center space-x-2">
             <a
               href={`tel:${listing.contactPhone}`}
-              className="p-2.5 bg-[#152E4A] hover:bg-[#1E3D60] text-emerald-400 rounded-xl border border-[#1E3D60]"
+              className="p-2.5 bg-[#262626] hover:bg-[#2D2D2D] text-emerald-400 rounded-xl border border-[#2D2D2D]"
               title="Call Goods Owner"
             >
               <Phone className="w-4 h-4" />
@@ -1936,7 +1915,7 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
             {listing.contactEmail && (
               <a
                 href={`mailto:${listing.contactEmail}`}
-                className="p-2.5 bg-[#152E4A] hover:bg-[#1E3D60] text-[#38BDF8] rounded-xl border border-[#1E3D60]"
+                className="p-2.5 bg-[#262626] hover:bg-[#2D2D2D] text-[#38BDF8] rounded-xl border border-[#2D2D2D]"
                 title="Email Goods Owner"
               >
                 <Mail className="w-4 h-4" />
@@ -1947,7 +1926,7 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
 
         {/* Owner Status Management Bar */}
         {isOwner && (
-          <div className="pt-4 border-t border-[#1E3D60] flex items-center justify-between">
+          <div className="pt-4 border-t border-[#2D2D2D] flex items-center justify-between">
             <span className="text-xs text-slate-400">Update Status:</span>
             <div className="flex items-center space-x-2">
               {listing.status !== 'ASSIGNED' && (
@@ -1991,17 +1970,17 @@ function ListingDetailModal({ listing, onClose, currentShipper, onUpdateStatus }
 function ShipperAuthModal({ onClose, onDemoSelect }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-      <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-3xl max-w-md w-full p-8 shadow-2xl relative">
+      <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-3xl max-w-md w-full p-8 shadow-2xl relative">
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-[#152E4A] border border-[#1E3D60] flex items-center justify-center text-[#F59E0B] mx-auto mb-3">
+          <div className="w-12 h-12 rounded-2xl bg-[#262626] border border-[#2D2D2D] flex items-center justify-center text-[#F28C28] mx-auto mb-3">
             <Building2 className="w-6 h-6" />
           </div>
           <h2 className="text-xl font-bold text-white">Goods Owner Sign In</h2>
@@ -2018,13 +1997,13 @@ function ShipperAuthModal({ onClose, onDemoSelect }) {
           <button
             type="button"
             onClick={() => onDemoSelect(1)}
-            className="w-full p-3.5 bg-[#091827] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-[#F59E0B] rounded-xl text-left transition-all group"
+            className="w-full p-3.5 bg-[#171717] hover:bg-[#262626] border border-[#2D2D2D] hover:border-[#F28C28] rounded-xl text-left transition-all group"
           >
             <div className="flex items-center justify-between">
-              <span className="font-bold text-white text-xs group-hover:text-[#F59E0B]">
+              <span className="font-bold text-white text-xs group-hover:text-[#F28C28]">
                 Purvanchal Agro Commodities Ltd.
               </span>
-              <span className="text-[10px] bg-amber-500/20 text-[#F59E0B] px-2 py-0.5 rounded font-mono">
+              <span className="text-[10px] bg-amber-500/20 text-[#F28C28] px-2 py-0.5 rounded font-mono">
                 Goods Owner A
               </span>
             </div>
@@ -2036,10 +2015,10 @@ function ShipperAuthModal({ onClose, onDemoSelect }) {
           <button
             type="button"
             onClick={() => onDemoSelect(2)}
-            className="w-full p-3.5 bg-[#091827] hover:bg-[#152E4A] border border-[#1E3D60] hover:border-[#F59E0B] rounded-xl text-left transition-all group"
+            className="w-full p-3.5 bg-[#171717] hover:bg-[#262626] border border-[#2D2D2D] hover:border-[#F28C28] rounded-xl text-left transition-all group"
           >
             <div className="flex items-center justify-between">
-              <span className="font-bold text-white text-xs group-hover:text-[#F59E0B]">
+              <span className="font-bold text-white text-xs group-hover:text-[#F28C28]">
                 Avadh Steel & Hardware Trading
               </span>
               <span className="text-[10px] bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded font-mono">
@@ -2052,10 +2031,10 @@ function ShipperAuthModal({ onClose, onDemoSelect }) {
           </button>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-[#1E3D60] text-center">
+        <div className="mt-6 pt-4 border-t border-[#2D2D2D] text-center">
           <Link
             to="/admin"
-            className="text-xs font-semibold text-[#F59E0B] hover:text-amber-300 transition-colors"
+            className="text-xs font-semibold text-[#F28C28] hover:text-amber-300 transition-colors"
           >
             LoadMitra Admin Operations Portal &rarr;
           </Link>
@@ -2075,11 +2054,11 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
       role="dialog"
       aria-modal="true"
     >
-      <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto space-y-6">
+      <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto space-y-6">
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#152E4A]"
+          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-[#262626]"
         >
           <X className="w-5 h-5" />
         </button>
@@ -2099,7 +2078,7 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
         {isLoading ? (
           <div className="py-12 text-center text-slate-400 text-sm">Loading price offers from transport partners...</div>
         ) : bids.length === 0 ? (
-          <div className="bg-[#091827] border border-[#1E3D60] rounded-2xl p-8 text-center space-y-3">
+          <div className="bg-[#171717] border border-[#2D2D2D] rounded-2xl p-8 text-center space-y-3">
             <Truck className="w-10 h-10 text-slate-500 mx-auto" />
             <h4 className="text-sm font-bold text-white">No Price Offers Yet</h4>
             <p className="text-xs text-slate-400 max-w-sm mx-auto">
@@ -2117,7 +2096,7 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
               return (
                 <div
                   key={bid.id}
-                  className="bg-[#091827] border border-[#1E3D60] rounded-2xl p-4.5 space-y-3"
+                  className="bg-[#171717] border border-[#2D2D2D] rounded-2xl p-4.5 space-y-3"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -2149,7 +2128,7 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
                     </div>
 
                     <div className="text-right">
-                      <span className="text-base font-extrabold text-[#F59E0B]">
+                      <span className="text-base font-extrabold text-[#F28C28]">
                         {bid.proposedRateFormatted}
                       </span>
                       <span
@@ -2168,7 +2147,7 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
                     </div>
                   </div>
 
-                  <div className="bg-[#11253B] rounded-xl p-3 text-xs space-y-1 text-slate-300 border border-[#1E3D60]">
+                  <div className="bg-[#222222] rounded-xl p-3 text-xs space-y-1 text-slate-300 border border-[#2D2D2D]">
                     <div>
                       <span className="text-slate-400 font-semibold">Offered Vehicle: </span>
                       <span>{bid.proposedVehicle || 'Standard Fleet'}</span>
@@ -2192,7 +2171,7 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
                         type="button"
                         disabled={reviewingBidId === bid.id}
                         onClick={() => onReview(bid.id, 'REJECTED')}
-                        className="px-3.5 py-1.5 text-xs font-semibold text-rose-300 hover:text-white bg-[#152E4A] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all disabled:opacity-50"
+                        className="px-3.5 py-1.5 text-xs font-semibold text-rose-300 hover:text-white bg-[#262626] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all disabled:opacity-50"
                       >
                         Decline Offer
                       </button>
@@ -2200,7 +2179,7 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
                         type="button"
                         disabled={reviewingBidId === bid.id}
                         onClick={() => onReview(bid.id, 'ACCEPTED')}
-                        className="px-4 py-1.5 text-xs font-bold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl shadow transition-all disabled:opacity-50"
+                        className="px-4 py-1.5 text-xs font-bold text-[#171717] bg-[#F28C28] hover:bg-[#E07A1E] rounded-xl shadow transition-all disabled:opacity-50"
                       >
                         {reviewingBidId === bid.id ? 'Processing...' : 'Accept & Confirm Booking'}
                       </button>
@@ -2212,11 +2191,11 @@ function ShipperBidsReviewModal({ listing, bids, isLoading, reviewingBidId, onRe
           </div>
         )}
 
-        <div className="pt-3 border-t border-[#1E3D60] text-right">
+        <div className="pt-3 border-t border-[#2D2D2D] text-right">
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl"
+            className="px-5 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl"
           >
             Close
           </button>
@@ -2242,7 +2221,7 @@ function ShipperBookingsSection({
 }) {
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0F2A44] border border-[#1E3D60] rounded-2xl p-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#1F1F1F] border border-[#2D2D2D] rounded-2xl p-6">
         <div>
           <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
             Verified Delivery & Trust
@@ -2255,7 +2234,7 @@ function ShipperBookingsSection({
         <button
           type="button"
           onClick={onRefresh}
-          className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#11253B] border border-[#1E3D60] rounded-xl transition-all self-start sm:self-auto"
+          className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-[#222222] border border-[#2D2D2D] rounded-xl transition-all self-start sm:self-auto"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>Refresh Bookings</span>
@@ -2264,11 +2243,11 @@ function ShipperBookingsSection({
 
       {isLoading ? (
         <div className="py-16 text-center text-slate-400 text-sm">
-          <Truck className="w-8 h-8 animate-pulse text-[#F59E0B] mx-auto mb-3" />
+          <Truck className="w-8 h-8 animate-pulse text-[#F28C28] mx-auto mb-3" />
           Loading your booking records...
         </div>
       ) : bookings.length === 0 ? (
-        <div className="bg-[#0F2A44]/50 border border-dashed border-[#1E3D60] rounded-3xl p-12 text-center max-w-lg mx-auto my-8">
+        <div className="bg-[#1F1F1F]/50 border border-dashed border-[#2D2D2D] rounded-3xl p-12 text-center max-w-lg mx-auto my-8">
           <Truck className="w-12 h-12 text-slate-500 mx-auto mb-4" />
           <h3 className="text-xl font-bold text-white">No Bookings Yet</h3>
           <p className="mt-2 text-sm text-slate-300">
@@ -2289,13 +2268,13 @@ function ShipperBookingsSection({
             return (
               <div
                 key={b.id}
-                className="bg-[#0F2A44] border border-[#1E3D60] hover:border-[#2A4F78] rounded-2xl p-6 flex flex-col justify-between shadow-xl transition-all relative space-y-4"
+                className="bg-[#1F1F1F] border border-[#2D2D2D] hover:border-[#383838] rounded-2xl p-6 flex flex-col justify-between shadow-xl transition-all relative space-y-4"
               >
                 <div>
                   {/* Top Bar */}
-                  <div className="flex items-center justify-between pb-3 border-b border-[#1E3D60] text-xs">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#2D2D2D] text-xs">
                     <div className="flex items-center space-x-2">
-                      <span className="font-bold text-[#F59E0B]">{b.bookingNumber}</span>
+                      <span className="font-bold text-[#F28C28]">{b.bookingNumber}</span>
                       <span className={`inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold border ${statusCfg.badge}`}>
                         <span className={`w-1.5 h-1.5 rounded-full ${statusCfg.dot}`} />
                         <span>{statusCfg.label}</span>
@@ -2318,11 +2297,11 @@ function ShipperBookingsSection({
                         <p className="text-sm font-bold text-white">{b.origin}</p>
                       </div>
                     </div>
-                    <div className="ml-1 pl-3 border-l-2 border-dashed border-[#1E3D60] py-0.5 text-[11px] text-slate-400">
+                    <div className="ml-1 pl-3 border-l-2 border-dashed border-[#2D2D2D] py-0.5 text-[11px] text-slate-400">
                       Corridor Transit
                     </div>
                     <div className="flex items-start space-x-2">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] mt-1 shrink-0" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#F28C28] mt-1 shrink-0" />
                       <div>
                         <p className="text-[10px] uppercase font-bold text-slate-400">Destination</p>
                         <p className="text-sm font-bold text-white">{b.destination}</p>
@@ -2331,10 +2310,10 @@ function ShipperBookingsSection({
                   </div>
 
                   {/* Commercials and Transporter Snapshot */}
-                  <div className="grid grid-cols-2 gap-3 mt-4 p-3 bg-[#091827] rounded-xl border border-[#1E3D60] text-xs">
+                  <div className="grid grid-cols-2 gap-3 mt-4 p-3 bg-[#171717] rounded-xl border border-[#2D2D2D] text-xs">
                     <div>
                       <p className="text-[10px] text-slate-400 uppercase font-bold">Agreed Rate</p>
-                      <p className="text-sm font-extrabold text-[#F59E0B]">{b.agreedPriceFormatted}</p>
+                      <p className="text-sm font-extrabold text-[#F28C28]">{b.agreedPriceFormatted}</p>
                     </div>
                     <div>
                       <p className="text-[10px] text-slate-400 uppercase font-bold">Cargo & Vehicle</p>
@@ -2342,7 +2321,7 @@ function ShipperBookingsSection({
                         {b.weight} {b.weightUnit} • {b.vehicleType}
                       </p>
                     </div>
-                    <div className="col-span-2 pt-2 border-t border-[#1E3D60]">
+                    <div className="col-span-2 pt-2 border-t border-[#2D2D2D]">
                       <p className="text-[10px] text-slate-400 uppercase font-bold">Transport Partner</p>
                       <div className="flex items-center justify-between mt-0.5">
                         <span className="text-xs font-bold text-white">{b.transporter?.fleetName}</span>
@@ -2356,7 +2335,7 @@ function ShipperBookingsSection({
                   </div>
 
                   {/* Live Tracking Progress */}
-                  <div className="mt-3 p-3 bg-[#11253B] rounded-xl border border-[#1E3D60] text-xs space-y-1.5 text-slate-300">
+                  <div className="mt-3 p-3 bg-[#222222] rounded-xl border border-[#2D2D2D] text-xs space-y-1.5 text-slate-300">
                     <p className="text-[10px] uppercase font-bold text-[#38BDF8]">Transit Status</p>
                     {b.actualPickupAt && (
                       <p className="text-[11px]">
@@ -2388,7 +2367,7 @@ function ShipperBookingsSection({
 
                   {/* Proof of Delivery Details (Phase 6) */}
                   {(isDelivered || isCompleted || b.deliveryProof) && (
-                    <div className="mt-3 p-3 bg-[#091827] rounded-xl border border-[#1E3D60] text-xs space-y-2">
+                    <div className="mt-3 p-3 bg-[#171717] rounded-xl border border-[#2D2D2D] text-xs space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] uppercase font-bold text-amber-400 flex items-center">
                           <FileCheck className="w-3.5 h-3.5 mr-1" />
@@ -2435,7 +2414,7 @@ function ShipperBookingsSection({
                               key={doc.id}
                               type="button"
                               onClick={() => onDownloadProofDoc?.(b.id, doc.id, doc.originalName)}
-                              className="flex items-center justify-between w-full p-2 rounded-lg bg-[#11253B] hover:bg-[#152E4A] border border-[#1E3D60] text-slate-200 text-xs transition-colors"
+                              className="flex items-center justify-between w-full p-2 rounded-lg bg-[#222222] hover:bg-[#262626] border border-[#2D2D2D] text-slate-200 text-xs transition-colors"
                             >
                               <span className="flex items-center space-x-2 truncate">
                                 <FileCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
@@ -2453,13 +2432,13 @@ function ShipperBookingsSection({
                 </div>
 
                 {/* Goods Owner Actions */}
-                <div className="pt-2 border-t border-[#1E3D60] flex items-center justify-between">
+                <div className="pt-2 border-t border-[#2D2D2D] flex items-center justify-between">
                   {isConfirmed && (
                     <button
                       type="button"
                       disabled={cancellingBookingId === b.id}
                       onClick={() => onCancel(b.id)}
-                      className="px-3 py-1.5 text-xs font-semibold text-rose-300 hover:text-white bg-[#152E4A] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all disabled:opacity-50"
+                      className="px-3 py-1.5 text-xs font-semibold text-rose-300 hover:text-white bg-[#262626] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all disabled:opacity-50"
                     >
                       {cancellingBookingId === b.id ? 'Cancelling...' : 'Cancel Booking'}
                     </button>
@@ -2470,7 +2449,7 @@ function ShipperBookingsSection({
                       <button
                         type="button"
                         onClick={() => onDispute(b)}
-                        className="py-2 px-3 text-xs font-semibold text-rose-300 hover:text-white bg-[#152E4A] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all"
+                        className="py-2 px-3 text-xs font-semibold text-rose-300 hover:text-white bg-[#262626] hover:bg-rose-950/60 border border-rose-500/30 rounded-xl transition-all"
                       >
                         ⚠️ Report a Problem
                       </button>
@@ -2478,7 +2457,7 @@ function ShipperBookingsSection({
                         type="button"
                         disabled={completingBookingId === b.id}
                         onClick={() => onComplete(b.id)}
-                        className="py-2 px-3 text-xs font-extrabold text-[#091827] bg-[#F59E0B] hover:bg-[#D97706] rounded-xl shadow-lg transition-all disabled:opacity-50"
+                        className="py-2 px-3 text-xs font-extrabold text-[#171717] bg-[#F28C28] hover:bg-[#E07A1E] rounded-xl shadow-lg transition-all disabled:opacity-50"
                       >
                         {completingBookingId === b.id ? 'Confirming...' : '✓ Confirm Delivery'}
                       </button>

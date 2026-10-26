@@ -1,18 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-deep: #091827;
-  --color-navy-primary: #0F2A44;
-  --color-navy-surface: #11253B;
-  --color-navy-card: #152E4A;
-  --color-navy-border: #1E3D60;
-  --color-navy-border-light: #2A4F78;
-  --color-amber-brand: #F59E0B;
-  --color-amber-hover: #D97706;
-  --color-amber-light: #FEF3C7;
-  --color-warm-white: #FAFAF7;
-  --color-slate-custom: #475569;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --color-ivory: #F5F0E6;
+  --color-ivory-surface: #FAF7F0;
+  --color-ivory-elevated: #EDE7DC;
+  --color-ivory-border: #E2DBD0;
+  --color-ivory-border-dark: #D4CBBC;
+  
+  --color-carbon: #171717;
+  --color-carbon-surface: #1E1E1E;
+  --color-carbon-elevated: #262626;
+  --color-carbon-card: #202020;
+  --color-carbon-border: #2D2D2D;
+  --color-carbon-border-light: #3D3D3D;
+  
+  --color-safety-orange: #F28C28;
+  --color-safety-orange-hover: #DE7919;
+  --color-safety-orange-light: #FEF3C7;
+  --color-safety-orange-tint: rgba(242, 140, 40, 0.12);
+  
+  --color-warm-grey: #737373;
+  --color-warm-grey-light: #A3A3A3;
+  --color-warm-grey-dark: #404040;
+  
+  --color-status-success: #16A34A;
+  --color-status-error: #DC2626;
+  --color-status-info: #0284C7;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 *,
@@ -22,10 +39,10 @@
 }
 
 :root {
-  color-scheme: dark;
-  background-color: #091827;
-  color: #FAFAF7;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color-scheme: light dark;
+  background-color: #F5F0E6;
+  color: #171717;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   scroll-behavior: smooth;
   width: 100%;
 }
@@ -38,8 +55,8 @@ body,
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #091827;
-  color: #FAFAF7;
+  background-color: #F5F0E6;
+  color: #171717;
 }
 
 /* Custom sleek scrollbar for tables, sidebars and drawers */
@@ -48,14 +65,20 @@ body,
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #091827;
+  background: #171717;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E3D60;
-  border-radius: 9999px;
+  background: #3D3D3D;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2A4F78;
+  background: #F28C28;
+}
+
+/* Tabular numerals helper */
+.font-tabular {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Animations */

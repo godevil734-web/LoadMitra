@@ -110,17 +110,17 @@ export default function VehicleVisualSelector({
   return (
     <div className="space-y-4">
       {/* Selector Header & Category Filter Pills */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2 border-b border-[#1E3D60]/70">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2 border-b border-[#2D2D2D]">
         <div>
           <div className="flex items-center space-x-2">
-            <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-              Vehicle Type &amp; Body Specification <span className="text-[#F59E0B]">*</span>
+            <span className="text-xs font-semibold text-stone-300 uppercase tracking-wider">
+              Vehicle Type &amp; Body Specification <span className="text-[#F28C28]">*</span>
             </span>
-            <span className="text-[10px] bg-amber-500/15 text-[#F59E0B] border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">
+            <span className="text-[10px] bg-[#F28C28]/15 text-[#F28C28] border border-[#F28C28]/30 px-2 py-0.5 rounded-full font-bold">
               12 Commercial Types
             </span>
           </div>
-          <p className="text-[11px] text-slate-400 mt-0.5">
+          <p className="text-[11px] text-stone-400 mt-0.5">
             Select your vehicle model to match compatible corridor demands.
           </p>
         </div>
@@ -130,9 +130,9 @@ export default function VehicleVisualSelector({
           <button
             type="button"
             onClick={() => setViewMode(viewMode === 'grid' ? 'compact' : 'grid')}
-            className="px-2.5 py-1 text-xs text-slate-300 hover:text-white bg-[#091827] border border-[#1E3D60] rounded-lg transition-colors flex items-center space-x-1"
+            className="px-2.5 py-1 text-xs text-stone-300 hover:text-white bg-[#1F1F1F] border border-[#2D2D2D] rounded-lg transition-colors flex items-center space-x-1"
           >
-            <Sliders className="w-3.5 h-3.5 text-[#F59E0B]" />
+            <Sliders className="w-3.5 h-3.5 text-[#F28C28]" />
             <span>{viewMode === 'grid' ? 'Compact View' : 'Card View'}</span>
           </button>
         </div>
@@ -149,8 +149,8 @@ export default function VehicleVisualSelector({
             onClick={() => setSelectedGroupId(group)}
             className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
               selectedGroupId === group
-                ? 'bg-[#F59E0B] text-[#091827] font-bold shadow-sm'
-                : 'bg-[#091827] text-slate-300 hover:bg-[#152E4A] hover:text-white border border-[#1E3D60]'
+                ? 'bg-[#F28C28] text-black font-bold shadow-xs'
+                : 'bg-[#1F1F1F] text-stone-300 hover:bg-[#262626] hover:text-white border border-[#2D2D2D]'
             }`}
           >
             {group}
@@ -160,8 +160,8 @@ export default function VehicleVisualSelector({
 
       {/* COMPACT DROPDOWN VIEW (Accessible Fallback) */}
       {viewMode === 'compact' && (
-        <div className="bg-[#091827] p-4 rounded-xl border border-[#1E3D60] space-y-3">
-          <label className="block text-xs text-slate-300 font-medium">
+        <div className="bg-[#1F1F1F] p-4 rounded-xl border border-[#2D2D2D] space-y-3">
+          <label className="block text-xs text-stone-300 font-medium">
             Select Category from Dropdown:
           </label>
           <div className="relative">
@@ -171,7 +171,7 @@ export default function VehicleVisualSelector({
                 const found = VEHICLE_CATEGORIES.find((v) => v.name === e.target.value);
                 if (found) handleSelectPrimary(found);
               }}
-              className="w-full px-3.5 py-2.5 bg-[#0F2A44] text-white text-sm rounded-xl border border-[#1E3D60] focus:outline-none focus:border-[#F59E0B] appearance-none"
+              className="w-full px-3.5 py-2.5 bg-[#171717] text-white text-sm rounded-xl border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28] appearance-none"
             >
               {VEHICLE_CATEGORIES.map((v) => (
                 <option key={v.id} value={v.name}>
@@ -179,7 +179,7 @@ export default function VehicleVisualSelector({
                 </option>
               ))}
             </select>
-            <ChevronDown className="w-4 h-4 absolute right-3.5 top-3.5 text-slate-400 pointer-events-none" />
+            <ChevronDown className="w-4 h-4 absolute right-3.5 top-3.5 text-stone-400 pointer-events-none" />
           </div>
         </div>
       )}
@@ -210,20 +210,20 @@ export default function VehicleVisualSelector({
                 }}
                 className={`relative rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-200 border text-left group ${
                   isSelected
-                    ? 'bg-[#152E4A] border-[#F59E0B] ring-2 ring-[#F59E0B]/50 shadow-lg shadow-amber-500/10'
-                    : 'bg-[#091827]/80 hover:bg-[#0F2A44] border-[#1E3D60] hover:border-[#2A4F78]'
+                    ? 'bg-[#222222] border-[#F28C28] ring-2 ring-[#F28C28]/40 shadow-lg shadow-[#F28C28]/5'
+                    : 'bg-[#1A1A1A] hover:bg-[#222222] border-[#2D2D2D] hover:border-[#404040]'
                 }`}
               >
                 {/* Selected Checkmark Badge */}
                 {isSelected && (
-                  <div className="absolute top-2.5 right-2.5 z-10 w-6 h-6 rounded-full bg-[#F59E0B] text-[#091827] flex items-center justify-center shadow-md animate-scaleIn">
+                  <div className="absolute top-2.5 right-2.5 z-10 w-6 h-6 rounded-full bg-[#F28C28] text-black flex items-center justify-center shadow-md animate-scaleIn">
                     <Check className="w-4 h-4 stroke-[3]" />
                   </div>
                 )}
 
                 {/* Card Top: Image / Illustration Header */}
                 <div>
-                  <div className="relative w-full h-28 rounded-lg overflow-hidden bg-gradient-to-br from-[#0F2A44] to-[#091827] border border-[#1E3D60]/60 mb-3 flex items-center justify-center">
+                  <div className="relative w-full h-28 rounded-lg overflow-hidden bg-gradient-to-br from-[#1F1F1F] to-[#171717] border border-[#2D2D2D] mb-3 flex items-center justify-center">
                     {!hasImgError ? (
                       <img
                         src={vehicle.photoUrl}
@@ -239,36 +239,36 @@ export default function VehicleVisualSelector({
                       >
                         <VehicleSvgIcon
                           type={vehicle.id}
-                          className="w-20 h-16 text-slate-200 drop-shadow-md"
+                          className="w-20 h-16 text-stone-200 drop-shadow-md"
                         />
                       </div>
                     )}
 
                     {/* Gradient Overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#091827]/90 via-transparent to-black/20 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#171717]/90 via-transparent to-black/20 pointer-events-none" />
 
                     {/* Segment Pill on image */}
-                    <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider text-white bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">
+                    <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider text-white bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">
                       {vehicle.badge}
                     </span>
                   </div>
 
                   {/* Vehicle Name & Tagline */}
-                  <h4 className="text-sm font-bold text-white leading-tight group-hover:text-[#F59E0B] transition-colors">
+                  <h4 className="text-sm font-bold text-white leading-tight group-hover:text-[#F28C28] transition-colors">
                     {vehicle.name}
                   </h4>
-                  <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-1">{vehicle.tagline}</p>
+                  <p className="text-[11px] text-stone-400 mt-0.5 line-clamp-1">{vehicle.tagline}</p>
                 </div>
 
                 {/* Card Bottom: Capacity Range & Common Cargo */}
-                <div className="mt-3 pt-2.5 border-t border-[#1E3D60]/60 space-y-2">
+                <div className="mt-3 pt-2.5 border-t border-[#2D2D2D] space-y-2">
                   {/* Capacity Range Indicator */}
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-[10px] uppercase font-bold text-slate-400 flex items-center">
-                      <Weight className="w-3 h-3 mr-1 text-[#F59E0B]" />
+                    <span className="text-[10px] uppercase font-bold text-stone-400 flex items-center">
+                      <Weight className="w-3 h-3 mr-1 text-[#F28C28]" />
                       Capacity
                     </span>
-                    <span className="font-bold text-[#F59E0B] bg-[#091827] px-2 py-0.5 rounded border border-amber-500/20 text-[11px]">
+                    <span className="font-bold text-[#F28C28] bg-[#171717] px-2 py-0.5 rounded border border-[#F28C28]/20 text-[11px] font-tabular">
                       {vehicle.capacityRange}
                     </span>
                   </div>
@@ -278,13 +278,13 @@ export default function VehicleVisualSelector({
                     {vehicle.commonCargo.slice(0, 2).map((cargo, i) => (
                       <span
                         key={i}
-                        className="text-[10px] text-slate-300 bg-[#0F2A44] px-1.5 py-0.5 rounded border border-[#1E3D60]"
+                        className="text-[10px] text-stone-300 bg-[#222222] px-1.5 py-0.5 rounded border border-[#2D2D2D]"
                       >
                         {cargo}
                       </span>
                     ))}
                     {vehicle.commonCargo.length > 2 && (
-                      <span className="text-[10px] text-slate-400 px-1 py-0.5">
+                      <span className="text-[10px] text-stone-400 px-1 py-0.5">
                         +{vehicle.commonCargo.length - 2} more
                       </span>
                     )}
@@ -299,18 +299,18 @@ export default function VehicleVisualSelector({
       {/* Error message */}
       {error && <p className="text-xs text-rose-400 font-medium">{error}</p>}
 
-      {/* CONFIGURABLE CAPACITY ADJUSTMENT PANEL (Requirement 2 & 4) */}
-      <div className="bg-[#091827] border border-[#1E3D60] rounded-xl p-4 space-y-3">
+      {/* CONFIGURABLE CAPACITY ADJUSTMENT PANEL */}
+      <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-xl p-4 space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center space-x-2">
-            <div className="w-7 h-7 rounded-lg bg-[#152E4A] border border-[#1E3D60] flex items-center justify-center text-[#F59E0B]">
+            <div className="w-7 h-7 rounded-lg bg-[#262626] border border-[#2D2D2D] flex items-center justify-center text-[#F28C28]">
               <Truck className="w-4 h-4" />
             </div>
             <div>
               <p className="text-xs font-bold text-white">
-                Selected: <span className="text-[#F59E0B]">{activeVehicle.name}</span>
+                Selected: <span className="text-[#F28C28]">{activeVehicle.name}</span>
               </p>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[11px] text-stone-400">
                 Typical range: {activeVehicle.capacityRange} • {activeVehicle.bodyType}
               </p>
             </div>
@@ -318,14 +318,14 @@ export default function VehicleVisualSelector({
 
           {/* Stepper + Input */}
           <div className="flex items-center space-x-2 self-start sm:self-auto">
-            <span className="text-xs font-semibold text-slate-300 whitespace-nowrap">
+            <span className="text-xs font-semibold text-stone-300 whitespace-nowrap">
               Configured Payload:
             </span>
-            <div className="flex items-center bg-[#0F2A44] border border-[#1E3D60] rounded-lg p-1">
+            <div className="flex items-center bg-[#171717] border border-[#2D2D2D] rounded-lg p-1">
               <button
                 type="button"
                 onClick={() => handleCapacityStep(-0.5)}
-                className="w-7 h-7 bg-[#152E4A] hover:bg-[#1E3D60] text-white rounded font-bold text-xs flex items-center justify-center"
+                className="w-7 h-7 bg-[#262626] hover:bg-[#333333] text-white rounded font-bold text-xs flex items-center justify-center"
                 title="Decrease 0.5 Ton"
               >
                 -
@@ -340,13 +340,13 @@ export default function VehicleVisualSelector({
                   const val = parseFloat(e.target.value);
                   if (!isNaN(val)) setConfiguredCapacity(val);
                 }}
-                className="w-14 text-center bg-transparent text-white font-bold text-xs focus:outline-none"
+                className="w-14 text-center bg-transparent text-white font-bold text-xs focus:outline-none font-tabular"
               />
-              <span className="text-[11px] font-semibold text-[#F59E0B] pr-1.5">Tons</span>
+              <span className="text-[11px] font-semibold text-[#F28C28] pr-1.5 font-mono">Tons</span>
               <button
                 type="button"
                 onClick={() => handleCapacityStep(0.5)}
-                className="w-7 h-7 bg-[#152E4A] hover:bg-[#1E3D60] text-white rounded font-bold text-xs flex items-center justify-center"
+                className="w-7 h-7 bg-[#262626] hover:bg-[#333333] text-white rounded font-bold text-xs flex items-center justify-center"
                 title="Increase 0.5 Ton"
               >
                 +
@@ -356,30 +356,30 @@ export default function VehicleVisualSelector({
         </div>
 
         {/* Informative Disclaimer */}
-        <div className="flex items-start space-x-2 pt-2 border-t border-[#1E3D60]/60 text-[11px] text-slate-400">
-          <Info className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+        <div className="flex items-start space-x-2 pt-2 border-t border-[#2D2D2D] text-[11px] text-stone-400">
+          <Info className="w-3.5 h-3.5 text-[#F28C28] shrink-0 mt-0.5" />
           <span>
-            <strong className="text-slate-300">Approximate &amp; Configurable:</strong> Capacity shown is an estimate based on commercial chassis standards. You can configure your exact registered payload above.
+            <strong className="text-stone-300">Approximate &amp; Configurable:</strong> Capacity shown is an estimate based on commercial chassis standards. You can configure your exact registered payload above.
           </span>
         </div>
       </div>
 
-      {/* MULTI-VEHICLE FLEET SUPPORT (Requirement 6) */}
+      {/* MULTI-VEHICLE FLEET SUPPORT */}
       <div className="pt-2">
         {!isMultiFleetEnabled ? (
           <button
             type="button"
             onClick={() => setIsMultiFleetEnabled(true)}
-            className="text-xs font-semibold text-[#F59E0B] hover:text-amber-300 transition-colors inline-flex items-center space-x-1.5"
+            className="text-xs font-semibold text-[#F28C28] hover:text-[#FFA959] transition-colors inline-flex items-center space-x-1.5"
           >
             <Plus className="w-3.5 h-3.5 stroke-[3]" />
             <span>I operate multiple vehicle types / commercial fleet</span>
           </button>
         ) : (
-          <div className="bg-[#0F2A44] border border-[#1E3D60] rounded-xl p-4 space-y-3 animate-fadeIn">
+          <div className="bg-[#1F1F1F] border border-[#2D2D2D] rounded-xl p-4 space-y-3 animate-fadeIn">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-white flex items-center space-x-1.5">
-                <Layers className="w-4 h-4 text-[#F59E0B]" />
+                <Layers className="w-4 h-4 text-[#F28C28]" />
                 <span>Multi-Vehicle Fleet Configurations</span>
               </span>
               <button
@@ -388,7 +388,7 @@ export default function VehicleVisualSelector({
                   setIsMultiFleetEnabled(false);
                   setAdditionalVehicles([]);
                 }}
-                className="text-xs text-slate-400 hover:text-white"
+                className="text-xs text-stone-400 hover:text-white"
               >
                 Clear Extra Vehicles
               </button>
@@ -400,7 +400,7 @@ export default function VehicleVisualSelector({
                 {additionalVehicles.map((sec, idx) => (
                   <div
                     key={sec.id}
-                    className="flex items-center justify-between bg-[#091827] px-3 py-2 rounded-lg border border-[#1E3D60] text-xs"
+                    className="flex items-center justify-between bg-[#171717] px-3 py-2 rounded-lg border border-[#2D2D2D] text-xs"
                   >
                     <span className="font-semibold text-white">
                       {sec.name} ({sec.capacity} Tons)
@@ -408,7 +408,7 @@ export default function VehicleVisualSelector({
                     <button
                       type="button"
                       onClick={() => removeSecondaryVehicle(idx)}
-                      className="p-1 text-slate-400 hover:text-rose-400"
+                      className="p-1 text-stone-400 hover:text-rose-400"
                       title="Remove Vehicle"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -422,7 +422,7 @@ export default function VehicleVisualSelector({
             <div className="flex items-center space-x-2 pt-1">
               <select
                 id="add-vehicle-select"
-                className="flex-1 px-3 py-2 bg-[#091827] text-white text-xs rounded-lg border border-[#1E3D60] focus:outline-none"
+                className="flex-1 px-3 py-2 bg-[#171717] text-white text-xs rounded-lg border border-[#2D2D2D] focus:outline-none focus:border-[#F28C28]"
                 defaultValue=""
                 onChange={(e) => {
                   const found = VEHICLE_CATEGORIES.find((v) => v.name === e.target.value);
